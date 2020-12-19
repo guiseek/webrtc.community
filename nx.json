@@ -1,10 +1,10 @@
 {
   "npmScope": "quertc",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
-    "workspace.json": "*",
+    "angular.json": "*",
     "package.json": {
       "dependencies": "*",
       "devDependencies": "*"
@@ -22,5 +22,13 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "client-app": {
+      "tags": ["side:client", "type:app", "scope:client"]
+    },
+    "client-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["client-app"]
+    }
+  }
 }

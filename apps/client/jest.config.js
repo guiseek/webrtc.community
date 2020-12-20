@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'client-app',
-  preset: '../../../jest.preset.js',
+  displayName: 'client',
+  preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../coverage/apps/client/app',
+  coverageDirectory: '../../coverage/apps/client',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

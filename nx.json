@@ -23,12 +23,11 @@
     }
   },
   "projects": {
-    "client-app": {
+    "client": {
       "tags": ["side:client", "type:app", "scope:client"]
     },
-    "client-app-e2e": {
-      "tags": [],
-      "implicitDependencies": ["client-app"]
+    "server": {
+      "tags": ["side:server", "type:app", "scope:server"]
     }
   }
 }

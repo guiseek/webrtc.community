@@ -1,10 +1,4 @@
 import { Observable } from "rxjs";
-
-// export type Message =
-//   & { description: RTCSessionDescription }
-//   & { candidate: RTCIceCandidate }
-//   & { start: boolean }
-
 export interface IMessage {
   description?: RTCSessionDescription
   candidate?: RTCIceCandidate
@@ -13,7 +7,5 @@ export interface IMessage {
 }
 export interface ISignalingChannel {
   message$: Observable<IMessage>
-  send(data: { description: RTCSessionDescription }): void
-  send(data: { candidate: RTCIceCandidate }): void
-  send(data: { start: boolean }): void
+  send(data: IMessage): void
 }

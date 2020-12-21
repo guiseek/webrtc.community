@@ -4,7 +4,6 @@ import { Subject } from 'rxjs'
 
 export class SignalingChannel implements ISignalingChannel {
   io: SocketIOClient.Socket
-  pc: RTCPeerConnection
 
   private message = new Subject<IMessage>()
   message$ = this.message.asObservable()

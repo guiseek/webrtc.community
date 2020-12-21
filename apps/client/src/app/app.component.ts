@@ -72,7 +72,7 @@ export class AppComponent implements AfterViewInit {
     this.pc.addEventListener('negotiationneeded', async () => {
       try {
         makingOffer = true
-        await this.pc.setLocalDescription(null)
+        await this.pc.setLocalDescription(await this.pc.createOffer())
         this.signaling.send({
           sender: this.sender,
           description: this.pc.localDescription,
@@ -98,8 +98,9 @@ export class AppComponent implements AfterViewInit {
                 isSettingRemoteAnswerPending)
             const offerCollision = description.type == 'offer' && !readyForOffer
 
-            const polite = sender !== this.sender
-            ignoreOffer = !polite && offerCollision
+            const polite = sender === this.sender
+
+            ignoreOffer = polite && offerCollision
             if (ignoreOffer) {
               return
             }
@@ -107,7 +108,7 @@ export class AppComponent implements AfterViewInit {
             await this.pc.setRemoteDescription(description) // SRD reverte conforme necessário
             isSettingRemoteAnswerPending = false
             if (description.type == 'offer') {
-              await this.pc.setLocalDescription(null)
+              await this.pc.setLocalDescription(await this.pc.createAnswer())
               this.signaling.send({ description: this.pc.localDescription })
             }
           } else if (candidate) {

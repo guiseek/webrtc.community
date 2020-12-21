@@ -1,90 +1,146 @@
 # Quertc
 
-This project was generated using [Nx](https://nx.dev).
+# Reprodução de [exemplo](https://www.w3.org/TR/webrtc/?fbclid=IwAR12z6ZC2IxvCNGfkEU8ADBZU9A6XWNSmT2GnbWvllxWoLjHUlljPK3Fnv8#perfect-negotiation-example) w3c
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+## Execução
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+Instale com `npm install`
 
-## Adding capabilities to your workspace
+Execute com `npm run dev`
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+## [10.7](https://www.w3.org/TR/webrtc/?fbclid=IwAR12z6ZC2IxvCNGfkEU8ADBZU9A6XWNSmT2GnbWvllxWoLjHUlljPK3Fnv8#perfect-negotiation-example) Perfect Negotiation Example
+Perfect negotiation is a recommended pattern to manage negotiation transparently, abstracting this asymmetric task away from the rest of an application. This pattern has advantages over one side always being the offerer, as it lets applications operate on both peer connection objects simultaneously without risk of glare (an offer coming in outside of "`stable`" state). The rest of the application may use any and all modification methods and attributes, without worrying about signaling state races.
 
-Below are our core plugins:
+It designates different roles to the two peers, with behavior to resolve signaling collisions between them:
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+1. The **polite peer** uses rollback to avoid collision with an incoming offer.
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+1. The **impolite peer** ignores an incoming offer when this would collide with its own.
 
-## Generate an application
+Together, they manage signaling for the rest of the application in a manner that doesn't deadlock. The example assumes a `polite` boolean variable indicating the designated role:
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
 
-> You can use any of the plugins above to generate applications as well.
+>
+> [EXAMPLE 18](https://www.w3.org/TR/webrtc/?fbclid=IwAR12z6ZC2IxvCNGfkEU8ADBZU9A6XWNSmT2GnbWvllxWoLjHUlljPK3Fnv8#example-18)
+>
+> ```js
+> const signaling = new SignalingChannel(); // handles JSON.stringify/parse
+> const constraints = {audio: true, video: true};
+> const configuration = {iceServers: [{urls: 'stun:stun.example.org'}]};
+> const pc = new RTCPeerConnection(configuration);
+> 
+> // call start() anytime on either end to add camera and microphone to connection
+> async function start() {
+>   try {
+>     const stream = await navigator.mediaDevices.getUserMedia(constraints);
+>     for (const track of stream.getTracks()) {
+>       pc.addTrack(track, stream);
+>     }
+>     selfView.srcObject = stream;
+>   } catch (err) {
+>     console.error(err);
+>   }
+> }
+> 
+> pc.ontrack = ({track, streams}) => {
+>   // once media for a remote track arrives, show it in the remote video element
+>   track.onunmute = () => {
+>     // don't set srcObject again if it is already set.
+>     if (remoteView.srcObject) return;
+>     remoteView.srcObject = streams[0];
+>   };
+> };
+> 
+> // - The perfect negotiation logic, separated from the rest of the application ---
+> 
+> // keep track of some negotiation state to prevent races and errors
+> let makingOffer = false;
+> let ignoreOffer = false;
+> let isSettingRemoteAnswerPending = false;
+> 
+> // send any ice candidates to the other peer
+> pc.onicecandidate = ({candidate}) => signaling.send({candidate});
+> 
+> // let the "negotiationneeded" event trigger offer generation
+> pc.onnegotiationneeded = async () => {
+>   try {
+>     makingOffer = true;
+>     await pc.setLocalDescription();
+>     signaling.send({description: pc.localDescription});
+>   } catch (err) {
+>      console.error(err);
+>   } finally {
+>     makingOffer = false;
+>   }
+> };
+> 
+> signaling.onmessage = async ({data: {description, candidate}}) => {
+>   try {
+>     if (description) {
+>       // An offer may come in while we are busy processing SRD(answer).
+>       // In this case, we will be in "stable" by the time the offer is processed
+>       // so it is safe to chain it on our Operations Chain now.
+>       const readyForOffer =
+>           !makingOffer &&
+>           (pc.signalingState == "stable" || isSettingRemoteAnswerPending);
+>       const offerCollision = description.type == "offer" && !readyForOffer;
+> 
+>       ignoreOffer = !polite && offerCollision;
+>       if (ignoreOffer) {
+>         return;
+>       }
+>       isSettingRemoteAnswerPending = description.type == "answer";
+>       await pc.setRemoteDescription(description); // SRD rolls back as needed
+>       isSettingRemoteAnswerPending = false;
+>       if (description.type == "offer") {
+>         await pc.setLocalDescription();
+>         signaling.send({description: pc.localDescription});
+>       }
+>     } else if (candidate) {
+>       try {
+>         await pc.addIceCandidate(candidate);
+>       } catch (err) {
+>         if (!ignoreOffer) throw err; // Suppress ignored offer's candidates
+>       }
+>     }
+>   } catch (err) {
+>     console.error(err);
+>   }
+> }
+> ```
+>
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
 
-## Generate a library
+## Estrutura
+```sh
+apps
+├── client
+│   ├── src
+│   │   ├── app
+│   │   │   ├── app.component.html
+│   │   │   ├── app.component.scss
+│   │   │   ├── app.component.spec.ts
+│   │   │   ├── app.component.ts
+│   │   │   ├── app.module.ts
+│   │   │   ├── signaling.adapter.ts # <- Angular Adapter
+│   │   │   └── signaling.utils.ts
+│   │   ├── index.html
+│   │   ├── main.ts
+│      
+└── server
+    ├── src
+    │   ├── api.gateway.spec.ts
+    │   ├── api.gateway.ts # <- Retransmite mensagens (socket.io) 
+    │   ├── app.module.ts
+    │   └── main.ts
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+libs
+└── core
+    ├── src
+    │   ├── index.ts
+    │   └── lib
+    │       ├── signaling-channel.interface.ts
+    │       └── signaling-channel.ts # <- Agnóstico (socket.io-client)
+```
 
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are sharable across libraries and applications. They can be imported from `@quertc/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.

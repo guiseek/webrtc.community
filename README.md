@@ -2,8 +2,8 @@
 
 ## Reprodução de exemplos
 
-- [Negociação perfeita](./apps/client/src/app/containers/perfect-negotiation/README.md)
-- [Reiniciar candidatos](./apps/client/src/app/containers/restart-ice/README.md)
+- [Negociação perfeita](./apps/client/src/app/containers/perfect-negotiation)
+- [Reiniciar candidatos](./apps/client/src/app/containers/restart-ice)
 
 ---
 ## Execute
@@ -25,6 +25,15 @@ Execute com `npm run dev`
 Escreva testes com `npm run tdd`
 
 ---
+
+## Comunidade
+
+### Sugestões
+Tem uma sugestão sobre algum exemplo para reprodução? [Abra uma solicitação](https://github.com/guiseek/quertc/issues/new) para que possamos providenciar.
+
+### Discussões
+Quer entender melhor algum tópico? [inicie uma discussão](https://github.com/guiseek/quertc/discussions/new) para que outras pessoas coloquem seus pontos de vista.
+
 
 ## Estrutura
 ```sh

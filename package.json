@@ -9,6 +9,7 @@
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
+    "tdd": "nx test --watch",
     "build:all": "nx affected:build --all --prod",
     "build:all:prod": "nx affected:build --all --prod",
     "test:all": "nx affected:test --all --detectOpenHandles",

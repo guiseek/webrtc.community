@@ -124,6 +124,6 @@ export class AppComponent implements AfterViewInit {
       }
     )
 
-    this.start()
+    // this.start()
   }
 }

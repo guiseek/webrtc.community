@@ -1,0 +1,116 @@
+$color-primary: #6b6bc1;
+:host {
+  display: block;
+  min-width: 100px;
+  svg {
+    width: auto;
+    overflow: visible;
+    transition: all 0.3s ease-in-out;
+    g.outer {
+      fill: $color-primary;
+      transition: fill 0.5s ease-in;
+    }
+    g.outer,
+    g.mid,
+    g.inner,
+    g.lens-flare {
+      transform-origin: 50% 50%;
+    }
+    g.mid {
+      fill: darken($color-primary, 25%);
+      transition: fill 0.5s ease-in;
+      path {
+        stroke: darken($color-primary, 25%);
+      }
+    }
+    g.inner {
+      stroke-width: 20;
+      fill: darken($color-primary, 25%);
+      transition: stroke-width 0.5s ease-in, fill 0.5s ease-in;
+    }
+    g.lens-flare {
+      opacity: 0.6;
+      transition: opacity 1s ease-in;
+    }
+  }
+
+  &:hover {
+    g.outer {
+      fill: darken($color-primary, 10%);
+      animation: rotate 0.5s ease-in-out 0.3s, scale 0.3s ease-in-out;
+    }
+    g.mid {
+      animation: scale 0.4s ease-in-out 0.2s;
+      fill: lighten($color-primary, 20%);
+    }
+    g.inner {
+      animation: scale-inner 0.8s ease-in-out 0.3s;
+      fill: lighten($color-primary, 30%);
+      stroke-width: 25;
+    }
+    g.lens-flare {
+      animation: scale-flare 1s ease-in-out 0.3s;
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    70% {
+      transform: rotate(45deg);
+    }
+    90% {
+      transform: rotate(20deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+    30% {
+      transform: scale(0.95);
+    }
+    70% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes scale-inner {
+    0% {
+      transform: scale(1);
+    }
+    30% {
+      transform: scale(0.95);
+    }
+    70% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes scale-flare {
+    0% {
+      transform: scale(1);
+    }
+    30% {
+      transform: scale(0.95);
+    }
+    70% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}

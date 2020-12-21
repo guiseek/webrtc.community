@@ -42,6 +42,38 @@ Quer entender melhor algum tópico? [inicie uma discussão](https://github.com/g
 ```sh
 apps
 ├── client
+│   ├── jest.config.js
+│   ├── proxy.conf.json
+│   ├── src
+│   │   ├── app
+│   │   │   ├── adapters
+│   │   │   │   └── signaling.adapter.ts
+│   │   │   ├── app.component.html
+│   │   │   ├── app.component.ts
+│   │   │   ├── app.module.ts
+│   │   │   ├── components
+│   │   │   │   ├── call-avatar
+│   │   │   │   │   ├── call-avatar.component.html
+│   │   │   │   │   ├── call-avatar.component.ts
+│   │   │   ├── containers
+│   │   │   │   ├── peer-to-peer
+│   │   │   │   │   ├── README.md # <- Ponto a ponto
+│   │   │   │   │   ├── peer-to-peer.component.html
+│   │   │   │   │   └── peer-to-peer.component.ts
+│   │   │   │   ├── perfect-negotiation
+│   │   │   │   │   ├── README.md # <- Negociação perfeita
+│   │   │   │   │   ├── perfect-negotiation.component.html
+│   │   │   │   │   └── perfect-negotiation.component.ts
+│   │   │   │   └── restart-ice
+│   │   │   │       ├── README.md # <- Reiniciar candidato
+│   │   │   │       ├── restart-ice.component.html
+│   │   │   │       └── restart-ice.component.ts
+│   │   │   └── utilities
+│   │   │       └── signaling.utils.ts
+│   │   ├── index.html
+│   │   ├── main.ts
+apps
+├── client
 │   ├── src
 │   │   ├── app
 │   │   │   ├── components

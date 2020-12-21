@@ -16,7 +16,9 @@ export class AppComponent implements OnDestroy {
   mobileQuery: MediaQueryList
 
   navLinks = [
-    { route: '/', label: 'Reiniciar candidato' },
+    { route: '/', label: 'Home' },
+    { route: '/restart-ice', label: 'Reiniciar candidato' },
+    { route: '/peer-to-peer', label: 'Ponto a ponto' },
     { route: '/perfect-negotiation', label: 'Negociação perfeita' },
   ]
 

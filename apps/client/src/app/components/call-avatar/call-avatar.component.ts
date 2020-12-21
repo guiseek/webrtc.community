@@ -8,7 +8,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core'
 })
 export class CallAvatarComponent {
   @Input() src: string
-  @Input() alt: string
+  @Input() alt = 'avatar'
 
   private _animation: boolean
   public get animation(): boolean {

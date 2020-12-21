@@ -1,3 +1,5 @@
 export * from './lib/signaling-channel.interface'
 export * from './lib/signaling-channel'
+export * from './lib/peer-event.enum'
+export * from './lib/peer-state.enum'
 export * from './tests/rtc-peer-mock'

@@ -8,9 +8,9 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatButtonModule } from '@angular/material/button'
 import { RouterTestingModule } from '@angular/router/testing'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { RTCPeerMock, SignalingChannel } from '@quertc/core'
-import { SignalingFactory, SIGNALING_CLIENT } from './signaling.adapter'
+import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -24,7 +24,7 @@ describe('AppComponent', () => {
         MatButtonModule,
         MatToolbarModule,
         MatSidenavModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
       ],
       declarations: [AppComponent],
       providers: [

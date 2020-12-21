@@ -4,4 +4,4 @@ module.exports = {
     '<rootDir>/apps/server/api',
     '<rootDir>/libs/core',
   ],
-};
+}

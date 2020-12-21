@@ -3,17 +3,17 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
+import { Logger } from '@nestjs/common'
+import { NestFactory } from '@nestjs/core'
 
-import { AppModule } from './app.module';
+import { AppModule } from './app.module'
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  const port = process.env.PORT || 3000;
+  const app = await NestFactory.create(AppModule)
+  const port = process.env.PORT || 3000
   await app.listen(port, () => {
-    Logger.log('Address: http://localhost:' + port, 'ServerSignaling');
-  });
+    Logger.log('Address: http://localhost:' + port, 'ServerSignaling')
+  })
 }
 
-bootstrap();
+bootstrap()

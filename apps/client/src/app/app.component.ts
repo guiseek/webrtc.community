@@ -17,7 +17,7 @@ export class AppComponent implements OnDestroy {
 
   navLinks = [
     { route: '/', label: 'Reiniciar candidato' },
-    { route: '/perfect-negotiation', label: 'Negociação perfeita' }
+    { route: '/perfect-negotiation', label: 'Negociação perfeita' },
   ]
 
   private _mobileQueryListener: () => void

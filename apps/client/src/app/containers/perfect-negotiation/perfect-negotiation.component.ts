@@ -1,5 +1,5 @@
 import { PeerEvent, SignalingChannel } from '@quertc/core'
-import { uuid } from '../../signaling.utils'
+import { uuid } from '../../utilities'
 import { Subject } from 'rxjs'
 import {
   AfterViewInit,
@@ -107,10 +107,7 @@ export class PerfectNegotiationComponent implements OnInit, AfterViewInit {
       })
     })
 
-    /**
-     * - A lógica de negociação perfeita, separada do resto da aplicação -
-     */
-    //
+    //  A lógica de negociação perfeita, separada do resto da aplicação
 
     // enviar qualquer candidato de gelo para o outro par
     this.pc.addEventListener('icecandidate', ({ candidate }) => {

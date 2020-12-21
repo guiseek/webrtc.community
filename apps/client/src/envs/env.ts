@@ -4,7 +4,7 @@
 
 export const env = {
   prod: false,
-};
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

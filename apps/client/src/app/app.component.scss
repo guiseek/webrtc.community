@@ -35,6 +35,7 @@ h1.client-app-name {
 }
 .client-sidenav-content {
   display: flex;
+  flex-direction: column;
 }
 
 .client-is-mobile .client-sidenav-container {

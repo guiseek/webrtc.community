@@ -15,7 +15,13 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatButtonModule } from '@angular/material/button'
 import { CallAvatarComponent } from './components'
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
-import { PerfectNegotiationComponent, RestartIceComponent } from './containers'
+import {
+  PerfectNegotiationComponent,
+  RestartIceComponent,
+  PeerToPeerComponent,
+} from './containers';
+import { CameraLensComponent } from './components/camera-lens/camera-lens.component';
+import { HomeComponent } from './home/home.component'
 
 @NgModule({
   declarations: [
@@ -23,6 +29,9 @@ import { PerfectNegotiationComponent, RestartIceComponent } from './containers'
     CallAvatarComponent,
     PerfectNegotiationComponent,
     RestartIceComponent,
+    PeerToPeerComponent,
+    CameraLensComponent,
+    HomeComponent,
   ],
   imports: [
     LayoutModule,
@@ -37,7 +46,15 @@ import { PerfectNegotiationComponent, RestartIceComponent } from './containers'
       [
         {
           path: '',
+          component: HomeComponent,
+        },
+        {
+          path: 'restart-ice',
           component: RestartIceComponent,
+        },
+        {
+          path: 'peer-to-peer',
+          component: PeerToPeerComponent,
         },
         {
           path: 'perfect-negotiation',

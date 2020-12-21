@@ -1,1 +1,1 @@
-export * from './perfect-negotiation.component';
+export * from './perfect-negotiation.component'

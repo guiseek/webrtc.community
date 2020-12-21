@@ -1,1 +1,1 @@
-export * from './restart-ice.component';
+export * from './restart-ice.component'

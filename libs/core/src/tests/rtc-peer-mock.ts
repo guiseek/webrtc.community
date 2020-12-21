@@ -1,4 +1,3 @@
-
 export class RTCPeerMock {
   protected conn: RTCPeerConnection
 

@@ -1,1 +1,1 @@
-export * from './call-avatar.component';
+export * from './call-avatar.component'

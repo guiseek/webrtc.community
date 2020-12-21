@@ -1,5 +1,5 @@
-import { ApiGateway } from './api.gateway';
-import { Module } from '@nestjs/common';
+import { ApiGateway } from './api.gateway'
+import { Module } from '@nestjs/common'
 
 @Module({
   providers: [ApiGateway],

@@ -6,18 +6,68 @@
   <mat-card>
     <label mat-card-subtitle for="localCandidateId">Local candidate id: </label>
     <p mat-card-title #localCandidateId id="localCandidateId">Not connected.</p>
-    <video mat-card-image #localVideo id="localVideo" playsinline autoplay muted></video>
+    <video
+      mat-card-image
+      #localVideo
+      id="localVideo"
+      playsinline
+      autoplay
+      muted
+    ></video>
   </mat-card>
   <mat-card>
-    <label mat-card-subtitle for="localCandidateId">Remote candidate id: </label>
-    <p mat-card-title #remoteCandidateId id="remoteCandidateId">Not connected.</p>
-    <video mat-card-image #remoteVideo id="remoteVideo" playsinline autoplay muted></video>
+    <label mat-card-subtitle for="localCandidateId"
+      >Remote candidate id:
+    </label>
+    <p mat-card-title #remoteCandidateId id="remoteCandidateId">
+      Not connected.
+    </p>
+    <video
+      mat-card-image
+      #remoteVideo
+      id="remoteVideo"
+      playsinline
+      autoplay
+      muted
+    ></video>
   </mat-card>
 </div>
 
 <mat-toolbar class="toolbar-footer">
-  <button #startButton mat-button [disabled]="startButton$ | async" id="startButton" (click)="start()">Start</button>
-  <button #callButton mat-button [disabled]="callButton$ | async" id="callButton" (click)="call()">Call</button>
-  <button #restartButton mat-button [disabled]="restartButton$ | async" id="restartButton" (click)="restart()">Restart ICE</button>
-  <button #hangupButton mat-button [disabled]="hangupButton$ | async" id="hangupButton" (click)="hangup()">Hang Up</button>
+  <button
+    #startButton
+    mat-button
+    [disabled]="startButton$ | async"
+    id="startButton"
+    (click)="start()"
+  >
+    Start
+  </button>
+  <button
+    #callButton
+    mat-button
+    [disabled]="callButton$ | async"
+    id="callButton"
+    (click)="call()"
+  >
+    Call
+  </button>
+  <button
+    #restartButton
+    mat-button
+    [disabled]="restartButton$ | async"
+    id="restartButton"
+    (click)="restart()"
+  >
+    Restart ICE
+  </button>
+  <button
+    #hangupButton
+    mat-button
+    [disabled]="hangupButton$ | async"
+    id="hangupButton"
+    (click)="hangup()"
+  >
+    Hang Up
+  </button>
 </mat-toolbar>

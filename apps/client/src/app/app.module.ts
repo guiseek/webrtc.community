@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core'
 
 import { SignalingChannel } from '@quertc/core'
 
-import { SignalingFactory, SIGNALING_CLIENT } from './signaling.adapter'
 import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'
 import { LayoutModule } from '@angular/cdk/layout'
@@ -15,7 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatButtonModule } from '@angular/material/button'
 import { CallAvatarComponent } from './components'
-import { PerfectNegotiationComponent, RestartIceComponent } from './containers';
+import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
+import { PerfectNegotiationComponent, RestartIceComponent } from './containers'
 
 @NgModule({
   declarations: [

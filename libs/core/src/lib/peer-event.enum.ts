@@ -4,5 +4,5 @@ export enum PeerEvent {
   Connected = 'connected',
   Completed = 'completed',
   Offer = 'offer',
-  Answer = 'answer'
+  Answer = 'answer',
 }

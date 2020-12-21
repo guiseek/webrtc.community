@@ -6,6 +6,7 @@
 - [Reiniciar candidatos](./apps/client/src/app/containers/restart-ice)
 
 ---
+
 ## Execute
 
 Instale com `npm install`
@@ -29,13 +30,15 @@ Escreva testes com `npm run tdd`
 ## Comunidade
 
 ### Sugestões
+
 Tem uma sugestão sobre algum exemplo para reprodução? [Abra uma solicitação](https://github.com/guiseek/quertc/issues/new) para que possamos providenciar.
 
 ### Discussões
+
 Quer entender melhor algum tópico? [inicie uma discussão](https://github.com/guiseek/quertc/discussions/new) para que outras pessoas coloquem seus pontos de vista.
 
-
 ## Estrutura
+
 ```sh
 apps
 ├── client
@@ -66,11 +69,11 @@ apps
 │   │   ├── favicon.ico
 │   │   ├── index.html
 │   │   ├── main.ts
-│      
+│
 └── server
     ├── src
     │   ├── api.gateway.spec.ts
-    │   ├── api.gateway.ts # <- Retransmite mensagens  (socket.io) 
+    │   ├── api.gateway.ts # <- Retransmite mensagens  (socket.io)
     │   ├── app.module.ts
     │   └── main.ts
 
@@ -82,4 +85,3 @@ libs
     │       ├── signaling-channel.interface.ts
     │       └── signaling-channel.ts # <- Agnóstico (socket.io-client)
 ```
-

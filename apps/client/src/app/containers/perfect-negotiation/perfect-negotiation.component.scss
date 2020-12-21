@@ -1,0 +1,47 @@
+/*
+ * Remove template code below
+ */
+:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  app-call-avatar {
+    position: absolute;
+  }
+}
+
+#remote {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  video {
+    max-width: 100vw;
+    height: 100%;
+    object-fit: contain;
+    // width: 100%;
+  }
+}
+
+#self {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  video {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+  }
+}

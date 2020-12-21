@@ -7,12 +7,45 @@ import { SignalingChannel } from '@quertc/core'
 import { SignalingFactory, SIGNALING_CLIENT } from './signaling.adapter'
 import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'
+import { LayoutModule } from '@angular/cdk/layout'
+import { MatIconModule } from '@angular/material/icon'
+import { MatListModule } from '@angular/material/list'
+import { MatCardModule } from '@angular/material/card'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatButtonModule } from '@angular/material/button'
+import { CallAvatarComponent } from './components'
+import { PerfectNegotiationComponent, RestartIceComponent } from './containers';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    CallAvatarComponent,
+    PerfectNegotiationComponent,
+    RestartIceComponent,
+  ],
   imports: [
+    LayoutModule,
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    MatIconModule,
+    MatListModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    RouterModule.forRoot(
+      [
+        {
+          path: '',
+          component: RestartIceComponent,
+        },
+        {
+          path: 'perfect-negotiation',
+          component: PerfectNegotiationComponent,
+        },
+      ],
+      { initialNavigation: 'enabled' }
+    ),
     BrowserAnimationsModule,
   ],
   providers: [

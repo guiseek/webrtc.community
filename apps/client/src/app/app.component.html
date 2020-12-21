@@ -1,10 +1,30 @@
-<header>
-  <button type="button" (click)="start()">Start</button>
-</header>
-<div id="self">
-  <video #selfView autoplay></video>
+<div class="client-container" [class.client-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="client-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="client-app-name">Responsive App</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container
+    class="client-sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  >
+    <mat-sidenav
+      #snav
+      [mode]="'over'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+    >
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of navLinks">
+          {{ nav.label }}
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="client-sidenav-content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
-<div id="remote">
-  <video #remoteView autoplay></video>
-</div>
-<router-outlet></router-outlet>

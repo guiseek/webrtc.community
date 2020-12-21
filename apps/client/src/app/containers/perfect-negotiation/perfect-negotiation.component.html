@@ -1,0 +1,15 @@
+<ng-container *ngIf="!(active$ | async) as calling">
+  <app-call-avatar
+    [animation]="calling"
+    [src]="'https://placeimg.com/400/400/people'"
+    alt="Avatar"
+  ></app-call-avatar>
+</ng-container>
+
+<div id="remote">
+  <video #remoteView autoplay></video>
+</div>
+
+<div id="self">
+  <video #selfView autoplay></video>
+</div>

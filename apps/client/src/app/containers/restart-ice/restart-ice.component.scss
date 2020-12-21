@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  padding-bottom: 64px;
+  width: 100%;
+  --width: 100%;
+}
+/*
+ *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
+ *
+ *  Use of this source code is governed by a BSD-style license
+ *  that can be found in the LICENSE file in the root of the source
+ *  tree.
+ */
+
+video {
+  width: var(--width);
+  height: calc(var(--width) * 0.75);
+  margin: 0;
+}
+
+div#video {
+  display: flex;
+  row-gap: 8px;
+  column-gap: 8px;
+  padding: 8px;
+}
+div#video > .mat-card {
+  display: inline-block;
+  // margin: 0 5px 0 0;
+  vertical-align: top;
+  width: calc(50% - 32px);
+  > video {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  button {
+    margin: 0 11px 10px 0;
+  }
+}
+
+.toolbar-footer {
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+}

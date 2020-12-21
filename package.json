@@ -24,6 +24,7 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
+    "dev": "nx run-many --target serve --projects  server,client --maxParallel 2 --parallel",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "private": true,
@@ -46,6 +47,7 @@
     "@nrwl/angular": "^11.0.15",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.5",
+    "socket.io-client": "^2.3.1",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.2"
   },
@@ -70,6 +72,7 @@
     "@types/jest": "26.0.8",
     "@types/node": "12.12.38",
     "@types/socket.io": "^2.1.12",
+    "@types/socket.io-client": "^1.4.34",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
     "codelyzer": "^6.0.0",

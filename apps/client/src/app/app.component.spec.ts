@@ -1,12 +1,25 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { SignalingChannel } from '@quertc/core';
+import { SignalingFactory, SIGNALING_CLIENT } from './signaling.adapter';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [AppComponent],
+      providers: [
+        {
+          provide: SIGNALING_CLIENT,
+          useValue: 'http://localhost:3000',
+        },
+        {
+          provide: SignalingChannel,
+          useFactory: SignalingFactory,
+          deps: [SIGNALING_CLIENT],
+        },
+      ]
     }).compileComponents();
   });
 

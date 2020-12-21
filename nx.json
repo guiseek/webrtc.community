@@ -28,6 +28,9 @@
     },
     "server": {
       "tags": ["side:server", "type:app", "scope:server"]
+    },
+    "core": {
+      "tags": ["side:full", "type:feature"]
     }
   }
 }

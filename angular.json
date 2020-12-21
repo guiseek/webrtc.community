@@ -18,14 +18,15 @@
             "aot": true,
             "assets": ["apps/client/src/favicon.ico", "apps/client/src/assets"],
             "styles": ["apps/client/src/styles.scss"],
+            "allowedCommonJsDependencies": ["socket.io-client"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/client/src/environments/environment.ts",
-                  "with": "apps/client/src/environments/environment.prod.ts"
+                  "replace": "apps/client/src/envs/env.ts",
+                  "with": "apps/client/src/envs/env.prod.ts"
                 }
               ],
               "optimization": true,
@@ -99,8 +100,7 @@
           "options": {
             "outputPath": "dist/apps/server",
             "main": "apps/server/src/main.ts",
-            "tsConfig": "apps/server/tsconfig.app.json",
-            "assets": ["apps/server/src/assets"]
+            "tsConfig": "apps/server/tsconfig.app.json"
           },
           "configurations": {
             "production": {
@@ -109,8 +109,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/server/src/environments/environment.ts",
-                  "with": "apps/server/src/environments/environment.prod.ts"
+                  "replace": "apps/server/src/envs/env.ts",
+                  "with": "apps/server/src/envs/env.prod.ts"
                 }
               ]
             }
@@ -133,6 +133,27 @@
           "outputs": ["coverage/apps/server"],
           "options": {
             "jestConfig": "apps/server/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "core": {
+      "root": "libs/core",
+      "sourceRoot": "libs/core/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/core/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core"],
+          "options": {
+            "jestConfig": "libs/core/jest.config.js",
             "passWithNoTests": true
           }
         }

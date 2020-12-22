@@ -31,6 +31,9 @@
     },
     "core": {
       "tags": ["side:full", "type:feature"]
+    },
+    "ui-overlog": {
+      "tags": ["side:client", "type:feat", "scope:ui"]
     }
   }
 }

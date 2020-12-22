@@ -158,6 +158,43 @@
           }
         }
       }
+    },
+    "ui-overlog": {
+      "projectType": "library",
+      "root": "libs/ui/overlog",
+      "sourceRoot": "libs/ui/overlog/src",
+      "prefix": "quertc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/ui/overlog/tsconfig.lib.json",
+            "project": "libs/ui/overlog/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/overlog/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/overlog/src/**/*.ts",
+              "libs/ui/overlog/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/overlog"],
+          "options": {
+            "jestConfig": "libs/ui/overlog/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

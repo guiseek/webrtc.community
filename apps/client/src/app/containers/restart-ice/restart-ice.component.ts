@@ -6,12 +6,12 @@ import {
   ViewChild,
 } from '@angular/core'
 import { PeerState, PeerStats } from '@quertc/core'
+import { OverlogService } from '@quertc/overlog'
 import { BehaviorSubject } from 'rxjs'
 
-declare global {
-  interface RTCStatsReport {
-    get(stats: string): any
-  }
+
+type WithTarget<T = any> = Event & {
+  target: T
 }
 
 @Component({
@@ -47,42 +47,44 @@ export class RestartIceComponent implements OnInit, AfterViewInit {
   restartButton$ = this._restartButton.asObservable()
   private _hangupButton = new BehaviorSubject<boolean>(true)
   hangupButton$ = this._hangupButton.asObservable()
+  firstVideoSize = true
 
-  startButtonDisabled = false
-  callButtonDisabled = true
-  restartButtonDisabled = true
-  hangupButtonDisabled = true
+  constructor(private overlog: OverlogService) {}
 
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.localVideo = this.localVideoRef.nativeElement
-    // this.localCandidateId = this.localCandidateIdRef.nativeElement
-
     this.remoteVideo = this.remoteVideoRef.nativeElement
-    // this.remoteCandidateId = this.remoteCandidateIdRef.nativeElement
 
-    this.localVideo.addEventListener('loadedmetadata', function () {
-      console.log(
-        `Local video videoWidth: ${this.videoWidth}px,  videoHeight: ${this.videoHeight}px`
-      )
-    })
+    this.localVideo.addEventListener(
+      'loadedmetadata',
+      ({ target }: WithTarget<HTMLVideoElement>) => {
+        console.log(`Local video: ${target.videoWidth}x${target.videoHeight}px`)
+      }
+    )
 
-    this.remoteVideo.addEventListener('loadedmetadata', function () {
-      console.log(
-        `Remote video videoWidth: ${this.videoWidth}px,  videoHeight: ${this.videoHeight}px`
-      )
-    })
+    this.remoteVideo.addEventListener(
+      'loadedmetadata',
+      ({ target }: WithTarget<HTMLVideoElement>) => {
+        console.log(
+          `Remote video: ${target.videoWidth}x${target.videoHeight}px`
+        )
+      }
+    )
 
     this.remoteVideo.onresize = () => {
-      console.log(
-        `Remote video size changed to ${this.remoteVideo.videoWidth}x${this.remoteVideo.videoHeight}`
-      )
+      if (!this.firstVideoSize) {
+        console.log(
+          `Remote video size changed to ${this.remoteVideo.videoWidth}x${this.remoteVideo.videoHeight}px`
+        )
+        this.firstVideoSize = false
+      }
       // Usaremos o primeiro retorno de chamada do tamanho como uma
       // indicação de que o vídeo começou a ser reproduzido.
       if (this.startTime) {
         const elapsedTime = window.performance.now() - this.startTime
-        console.log('Setup time: ' + elapsedTime.toFixed(3) + 'ms')
+        console.log(`Setup time: ${elapsedTime.toFixed(3)}ms`)
         this.startTime = null
         // Execute essas funções novamente para obter os relatórios getStats()
         // com o tipo candidatePair e preencher os elementos de identificação do candidato.
@@ -123,7 +125,7 @@ export class RestartIceComponent implements OnInit, AfterViewInit {
   restart = () => {
     this._restartButton.next(true)
     this.offerOptions.iceRestart = true
-    console.log('pc1 createOffer restart')
+    this.overlog.show({ text: 'pc1 createOffer restart' })
     this.pc1
       .createOffer(this.offerOptions)
       .then(this.onCreateOfferSuccess, this.onCreateSessionDescriptionError)
@@ -164,7 +166,7 @@ export class RestartIceComponent implements OnInit, AfterViewInit {
       .forEach((track) => this.pc1.addTrack(track, this.localStream))
     console.log('Added local stream to this.pc1')
 
-    console.log('this.pc1 createOffer start')
+    this.overlog.show({ text: 'this.pc1 createOffer start' })
     this.pc1
       .createOffer(this.offerOptions)
       .then(this.onCreateOfferSuccess, this.onCreateSessionDescriptionError)
@@ -214,7 +216,7 @@ export class RestartIceComponent implements OnInit, AfterViewInit {
   gotRemoteStream = (e: RTCTrackEvent) => {
     if (this.remoteVideo.srcObject !== e.streams[0]) {
       this.remoteVideo.srcObject = e.streams[0]
-      console.log('pc2 received remote stream')
+      this.overlog.show({ text: 'pc2 received remote stream' })
     }
   }
 

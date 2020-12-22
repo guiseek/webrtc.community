@@ -6,7 +6,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  OnInit,
+  OnDestroy,
   ViewChild,
 } from '@angular/core'
 
@@ -16,10 +16,11 @@ import {
   styleUrls: ['./perfect-negotiation.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PerfectNegotiationComponent implements OnInit, AfterViewInit {
+export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
   title = 'client-app'
 
   pc: RTCPeerConnection
+  localStream: MediaStream
   active = new Subject<boolean>()
   active$ = this.active.asObservable()
   sender = uuid()
@@ -47,14 +48,14 @@ export class PerfectNegotiationComponent implements OnInit, AfterViewInit {
 
   start = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({
+      this.localStream = await navigator.mediaDevices.getUserMedia({
         audio: true,
         video: true,
       })
-      for (const track of stream.getTracks()) {
-        this.pc.addTrack(track, stream)
+      for (const track of this.localStream.getTracks()) {
+        this.pc.addTrack(track, this.localStream)
       }
-      this.selfView.srcObject = stream
+      this.selfView.srcObject = this.localStream
       this.selfView.muted = true
     } catch (err) {
       console.error(err)
@@ -64,15 +65,6 @@ export class PerfectNegotiationComponent implements OnInit, AfterViewInit {
   restart = async () => {
     this.offerOptions.iceRestart = true
     this.makeOffer(this.offerOptions)
-  }
-
-  ngOnInit() {
-    this.signaling.io.on(PeerEvent.Connect, () => {
-      console.log('connect')
-    })
-    this.signaling.io.on(PeerEvent.Connected, () => {
-      console.log('connected')
-    })
   }
 
   async makeOffer(options?: RTCOfferOptions) {
@@ -89,6 +81,7 @@ export class PerfectNegotiationComponent implements OnInit, AfterViewInit {
       this.makingOffer = false
     }
   }
+
   ngAfterViewInit() {
     this.selfView = this.selfViewRef.nativeElement
     this.remoteView = this.remoteViewRef.nativeElement
@@ -107,7 +100,10 @@ export class PerfectNegotiationComponent implements OnInit, AfterViewInit {
       })
     })
 
+    //
+    //
     //  A lógica de negociação perfeita, separada do resto da aplicação
+    //
 
     // enviar qualquer candidato de gelo para o outro par
     this.pc.addEventListener('icecandidate', ({ candidate }) => {
@@ -138,7 +134,7 @@ export class PerfectNegotiationComponent implements OnInit, AfterViewInit {
 
             const polite = sender === this.sender
 
-            this.ignoreOffer = polite && offerCollision
+            this.ignoreOffer = !polite && offerCollision
             if (this.ignoreOffer) {
               return
             }
@@ -167,5 +163,18 @@ export class PerfectNegotiationComponent implements OnInit, AfterViewInit {
     )
 
     this.start()
+  }
+
+  hangup() {
+    console.log('Ending call')
+    if (this.pc) {
+      this.pc.close()
+      this.pc = null
+      this.localStream.getTracks().forEach((t) => t.stop())
+    }
+  }
+
+  ngOnDestroy() {
+    this.hangup()
   }
 }

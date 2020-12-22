@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@quertc/core": ["libs/core/src/index.ts"]
+      "@quertc/core": ["libs/core/src/index.ts"],
+      "@quertc/overlog": ["libs/ui/overlog/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

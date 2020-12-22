@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 
 import { SignalingChannel } from '@quertc/core'
+import { OverlogModule } from '@quertc/overlog'
 
 import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'
@@ -42,6 +43,7 @@ import { HomeComponent } from './home/home.component'
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
+    OverlogModule.forRoot(),
     RouterModule.forRoot(
       [
         {

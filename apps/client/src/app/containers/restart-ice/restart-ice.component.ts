@@ -5,8 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core'
-import { MatButton } from '@angular/material/button'
-import { PeerState } from '@quertc/core'
+import { PeerState, PeerStats } from '@quertc/core'
 import { BehaviorSubject } from 'rxjs'
 
 declare global {
@@ -24,22 +23,11 @@ export class RestartIceComponent implements OnInit, AfterViewInit {
   @ViewChild('localVideo') localVideoRef: ElementRef<HTMLVideoElement>
   localVideo: HTMLVideoElement
 
-  @ViewChild('localCandidateId') localCandidateIdRef: ElementRef<HTMLElement>
-  localCandidateId: HTMLElement
+  localCandidate: PeerStats
+  remoteCandidate: PeerStats
 
   @ViewChild('remoteVideo') remoteVideoRef: ElementRef<HTMLVideoElement>
   remoteVideo: HTMLVideoElement
-
-  @ViewChild('remoteCandidateId') remoteCandidateIdRef: ElementRef<HTMLElement>
-  remoteCandidateId: HTMLElement
-
-  @ViewChild('startButton') startButton: MatButton
-
-  @ViewChild('callButton') callButton: MatButton
-
-  @ViewChild('restartButton') restartButton: MatButton
-
-  @ViewChild('hangupButton') hangupButton: MatButton
 
   startTime: number
 
@@ -69,10 +57,10 @@ export class RestartIceComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.localVideo = this.localVideoRef.nativeElement
-    this.localCandidateId = this.localCandidateIdRef.nativeElement
+    // this.localCandidateId = this.localCandidateIdRef.nativeElement
 
     this.remoteVideo = this.remoteVideoRef.nativeElement
-    this.remoteCandidateId = this.remoteCandidateIdRef.nativeElement
+    // this.remoteCandidateId = this.remoteCandidateIdRef.nativeElement
 
     this.localVideo.addEventListener('loadedmetadata', function () {
       console.log(
@@ -260,7 +248,7 @@ export class RestartIceComponent implements OnInit, AfterViewInit {
           (err) => this.onAddIceCandidateError(pc, err)
         )
       console.log(
-        `${this.getName(pc)} ICE candidate:\n${
+        `${this.getName(pc)} ICE candidate: \n${
           event.candidate ? event.candidate.candidate : '(null)'
         }`
       )
@@ -328,12 +316,12 @@ export class RestartIceComponent implements OnInit, AfterViewInit {
           }
         })
       }
-      console.log(remoteCandidate)
       if (remoteCandidate && remoteCandidate.id) {
-        // TODO: atualizar um div mostrando o ip/porta remoto?
-        document.getElementById(
-          pc === this.pc1 ? 'localCandidateId' : 'remoteCandidateId'
-        ).textContent = remoteCandidate.id
+        if (pc === this.pc1) {
+          this.localCandidate = remoteCandidate
+        } else {
+          this.remoteCandidate = remoteCandidate
+        }
       }
     })
   }

@@ -1,4 +1,5 @@
 export * from './lib/signaling-channel.interface'
+export * from './lib/entities/peer-stats'
 export * from './lib/signaling-channel'
 export * from './lib/peer-event.enum'
 export * from './lib/peer-state.enum'

@@ -17,7 +17,9 @@ video {
   height: calc(var(--width) * 0.75);
   margin: 0;
 }
-
+.glare {
+  color: white;
+}
 div#video {
   display: flex;
   row-gap: 8px;

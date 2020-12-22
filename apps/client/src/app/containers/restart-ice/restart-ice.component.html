@@ -4,8 +4,18 @@
 
 <div id="video">
   <mat-card>
-    <label mat-card-subtitle for="localCandidateId">Local candidate id: </label>
-    <p mat-card-title #localCandidateId id="localCandidateId">Not connected.</p>
+    <label mat-card-title for="localCandidate">Local candidate</label>
+    <p mat-card-subtitle id="localCandidate">
+      <ng-container *ngIf="localCandidate; else localOff">
+        ID: <span class="glare">{{ localCandidate.id }}</span> -
+        IP: <span class="glare">{{ localCandidate.ip }}</span> -
+        Port: <span class="glare">{{ localCandidate.port }}</span> -
+        Protocol: <span class="glare">{{ localCandidate.protocol }}</span>
+      </ng-container>
+      <ng-template #localOff>
+        <span class="mat-hint">Not connected</span>
+      </ng-template>
+    </p>
     <video
       mat-card-image
       #localVideo
@@ -16,11 +26,19 @@
     ></video>
   </mat-card>
   <mat-card>
-    <label mat-card-subtitle for="localCandidateId"
-      >Remote candidate id:
+    <label mat-card-title for="localCandidate"
+      >Remote candidate
     </label>
-    <p mat-card-title #remoteCandidateId id="remoteCandidateId">
-      Not connected.
+    <p mat-card-subtitle id="remoteCandidate">
+      <ng-container *ngIf="remoteCandidate; else remoteOff">
+        ID: <span class="glare">{{ remoteCandidate.id }}</span> -
+        IP: <span class="glare">{{ remoteCandidate.ip }}</span> -
+        Port: <span class="glare">{{ remoteCandidate.port }}</span> -
+        Protocol: <span class="glare">{{ remoteCandidate.protocol }}</span>
+      </ng-container>
+      <ng-template #remoteOff>
+        <span class="mat-hint">Not connected</span>
+      </ng-template>
     </p>
     <video
       mat-card-image

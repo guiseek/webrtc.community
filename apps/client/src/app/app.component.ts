@@ -8,8 +8,8 @@ import {
 import { MediaMatcher } from '@angular/cdk/layout'
 import { NavigationEnd, Router } from '@angular/router'
 import { MatSidenav } from '@angular/material/sidenav'
-import { timer } from 'rxjs'
 import { filter } from 'rxjs/operators'
+import { noop, Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-root',
@@ -19,6 +19,7 @@ import { filter } from 'rxjs/operators'
 })
 export class AppComponent implements OnDestroy {
   @ViewChild('snav') snav: MatSidenav
+  subscription: Subscription
 
   mobileQuery: MediaQueryList
 
@@ -39,18 +40,14 @@ export class AppComponent implements OnDestroy {
     this.mobileQuery = media.matchMedia('(max-width: 600px)')
     this._mobileQueryListener = () => changeDetectorRef.detectChanges()
     this.mobileQuery.addEventListener('change', this._mobileQueryListener)
-    this.router.events.pipe(
-      filter((routeEvent) => routeEvent instanceof NavigationEnd)
-    ).subscribe((data => {
-      console.log('data route: ', data);
 
-    }))
-    timer(1000).subscribe((data) => {
-      console.log(this.snav)
-    })
+    this.subscription = this.router.events
+      .pipe(filter((routeEvent) => routeEvent instanceof NavigationEnd))
+      .subscribe(() => (this.snav.opened ? this.snav.close() : noop()))
   }
 
   ngOnDestroy(): void {
+    this.subscription.unsubscribe()
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener)
   }
 }

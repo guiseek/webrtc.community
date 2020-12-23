@@ -1,9 +1,12 @@
 <ng-container *ngIf="!(active$ | async) as calling">
-  <app-call-avatar
-    [animation]="calling"
-    [src]="'https://placeimg.com/400/400/people'"
-    alt="Avatar"
-  ></app-call-avatar>
+  <div class="center">
+    <app-call-avatar
+      [animation]="calling"
+      [src]="'https://placeimg.com/400/400/people'"
+      alt="Avatar"
+    ></app-call-avatar>
+    <h3 class="mat-h3 mat-hint">Convite alguém ou abra em outra janela</h3>
+  </div>
 </ng-container>
 
 <div id="remote">

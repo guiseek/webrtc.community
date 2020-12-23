@@ -2,13 +2,13 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core'
 import { PeerState, PeerStats } from '@quertc/core'
 import { OverlogService } from '@quertc/overlog'
 import { BehaviorSubject } from 'rxjs'
-
 
 type WithTarget<T = any> = Event & {
   target: T
@@ -19,7 +19,7 @@ type WithTarget<T = any> = Event & {
   templateUrl: './restart-ice.component.html',
   styleUrls: ['./restart-ice.component.scss'],
 })
-export class RestartIceComponent implements OnInit, AfterViewInit {
+export class RestartIceComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('localVideo') localVideoRef: ElementRef<HTMLVideoElement>
   localVideo: HTMLVideoElement
 
@@ -329,7 +329,7 @@ export class RestartIceComponent implements OnInit, AfterViewInit {
   }
 
   hangup() {
-    console.log('Ending call')
+    this.overlog.show({ text: 'Ending call' })
     this.pc1.close()
     this.pc2.close()
     this.pc1 = null
@@ -337,5 +337,11 @@ export class RestartIceComponent implements OnInit, AfterViewInit {
     this._hangupButton.next(true)
     this._restartButton.next(true)
     this._callButton.next(false)
+  }
+
+  ngOnDestroy() {
+    if (this.localStream) {
+      this.localStream.getTracks().forEach((t) => t.stop())
+    }
   }
 }

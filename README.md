@@ -1,9 +1,14 @@
 # QueRTC?
 
-## Reprodução de exemplos
+### Repositório criado para estudos sobre WebRTC
+- Traduções de partes relevantes da especificação [w3c webrtc](https://www.w3.org/TR/webrtc/)
+- Reproduções da especificação ou exemplos do [repositório oficial](https://github.com/webrtc/samples)
+
+## Exemplos reproduzidos
 
 - [Negociação perfeita](./apps/client/src/app/containers/perfect-negotiation)
 - [Reiniciar candidatos](./apps/client/src/app/containers/restart-ice)
+- [Ponto-a-ponto](./apps/client/src/app/containers/peer-to-peer)
 
 ---
 
@@ -42,19 +47,14 @@ Quer entender melhor algum tópico? [inicie uma discussão](https://github.com/g
 ```sh
 apps
 ├── client
-│   ├── jest.config.js
-│   ├── proxy.conf.json
 │   ├── src
 │   │   ├── app
 │   │   │   ├── adapters
-│   │   │   │   └── signaling.adapter.ts
+│   │   │   │   └── signaling.adapter.ts # <- SignalingChannel (Adapter adapter)
 │   │   │   ├── app.component.html
 │   │   │   ├── app.component.ts
 │   │   │   ├── app.module.ts
 │   │   │   ├── components
-│   │   │   │   ├── call-avatar
-│   │   │   │   │   ├── call-avatar.component.html
-│   │   │   │   │   ├── call-avatar.component.ts
 │   │   │   ├── containers
 │   │   │   │   ├── peer-to-peer
 │   │   │   │   │   ├── README.md # <- Ponto a ponto
@@ -68,37 +68,12 @@ apps
 │   │   │   │       ├── README.md # <- Reiniciar candidato
 │   │   │   │       ├── restart-ice.component.html
 │   │   │   │       └── restart-ice.component.ts
+│   │   │   ├── home
+│   │   │   │   ├── home.component.html
+│   │   │   │   ├── home.component.scss
+│   │   │   │   └── home.component.ts
 │   │   │   └── utilities
 │   │   │       └── signaling.utils.ts
-│   │   ├── index.html
-│   │   ├── main.ts
-apps
-├── client
-│   ├── src
-│   │   ├── app
-│   │   │   ├── components
-│   │   │   │   ├── call-avatar
-│   │   │   │   │   ├── call-avatar.component.html
-│   │   │   │   │   ├── call-avatar.component.scss
-│   │   │   │   │   ├── call-avatar.component.ts
-│   │   │   ├── containers
-│   │   │   │   ├── perfect-negotiation
-│   │   │   │   │   ├── README.md # <- Negociação perfeita
-│   │   │   │   │   ├── perfect-negotiation.component.html
-│   │   │   │   │   ├── perfect-negotiation.component.scss
-│   │   │   │   │   └── perfect-negotiation.component.ts
-│   │   │   │   └── restart-ice
-│   │   │   │       ├── README.md # <- Reiniciar candidato
-│   │   │   │       ├── restart-ice.component.html
-│   │   │   │       ├── restart-ice.component.scss
-│   │   │   │       └── restart-ice.component.ts
-│   │   │   ├── signaling.adapter.ts # <- Angular Adapter
-│   │   │   └── signaling.utils.ts
-│   │   ├── assets
-│   │   ├── envs
-│   │   │   ├── env.prod.ts
-│   │   │   └── env.ts
-│   │   ├── favicon.ico
 │   │   ├── index.html
 │   │   ├── main.ts
 │
@@ -108,12 +83,11 @@ apps
     │   ├── api.gateway.ts # <- Retransmite mensagens  (socket.io)
     │   ├── app.module.ts
     │   └── main.ts
-
 libs
 └── core
     ├── src
     │   ├── index.ts
     │   └── lib
     │       ├── signaling-channel.interface.ts
-    │       └── signaling-channel.ts # <- Agnóstico (socket.io-client)
+    │       └── signaling-channel.ts # <- SignalingChannel (agnóstico)
 ```

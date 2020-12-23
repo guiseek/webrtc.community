@@ -9,8 +9,15 @@
   justify-content: center;
   position: relative;
 
-  app-call-avatar {
+  .center {
     position: absolute;
+    text-align: center;
+    max-width: 150px;
+
+    h3 {
+      margin-top: 16px;
+      line-height: 1.2;
+    }
   }
 }
 
@@ -23,25 +30,27 @@
   video {
     max-width: 100vw;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     // width: 100%;
   }
 }
 
 #self {
   position: fixed;
-  bottom: 0;
-  right: 0;
+  bottom: 32px;
+  right: 32px;
   border-radius: 50%;
   overflow: hidden;
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: solid 3px #fff;
+  border-radius: 100%;
   video {
-    height: 120px;
     width: auto;
+    height: 154px;
     object-fit: contain;
   }
 }

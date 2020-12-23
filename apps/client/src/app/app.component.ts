@@ -6,10 +6,11 @@ import {
   ViewChild,
 } from '@angular/core'
 import { MediaMatcher } from '@angular/cdk/layout'
-import { NavigationEnd, Router } from '@angular/router'
+import { NavigationStart, Router } from '@angular/router'
 import { MatSidenav } from '@angular/material/sidenav'
 import { filter } from 'rxjs/operators'
 import { noop, Subscription } from 'rxjs'
+import { MediaStreamService } from './services'
 
 @Component({
   selector: 'app-root',
@@ -20,30 +21,45 @@ import { noop, Subscription } from 'rxjs'
 export class AppComponent implements OnDestroy {
   @ViewChild('snav') snav: MatSidenav
   subscription: Subscription
+  title = 'WebRTC.Community'
 
   mobileQuery: MediaQueryList
 
   navLinks = [
-    { route: '/', label: 'Home' },
-    { route: '/restart-ice', label: 'Reiniciar candidato' },
-    { route: '/peer-to-peer', label: 'Ponto a ponto' },
-    { route: '/perfect-negotiation', label: 'Negociação perfeita' },
+    { route: '/', icon: 'home', label: 'Home' },
+    { route: '/restart-ice', icon: 'cached', label: 'Reiniciar candidato' },
+    { route: '/peer-to-peer', icon: 'alt_route', label: 'Ponto a ponto' },
+    {
+      route: '/perfect-negotiation',
+      icon: 'swap_calls',
+      label: 'Negociação perfeita',
+    },
   ]
 
   private _mobileQueryListener: () => void
 
   constructor(
-    changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher,
-    private router: Router
+    private media: MediaStreamService,
+    mediaMatcher: MediaMatcher,
+    detector: ChangeDetectorRef,
+    router: Router
   ) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)')
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges()
+    this.mobileQuery = mediaMatcher.matchMedia('(max-width: 600px)')
+    this._mobileQueryListener = () => detector.detectChanges()
     this.mobileQuery.addEventListener('change', this._mobileQueryListener)
 
-    this.subscription = this.router.events
-      .pipe(filter((routeEvent) => routeEvent instanceof NavigationEnd))
-      .subscribe(() => (this.snav.opened ? this.snav.close() : noop()))
+    this.subscription = router.events
+      .pipe(filter((evt) => evt instanceof NavigationStart))
+      .subscribe(() => this.onRouteChange())
+  }
+
+  onRouteChange() {
+    if (this.snav.opened) {
+      this.snav.close()
+    }
+    if (this.media.currentStream?.active) {
+      this.media.currentStream.getTracks().forEach((t) => t.stop())
+    }
   }
 
   ngOnDestroy(): void {

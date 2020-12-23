@@ -14,15 +14,16 @@ import { MatCardModule } from '@angular/material/card'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatButtonModule } from '@angular/material/button'
-import { CallAvatarComponent } from './components'
+import { CallAvatarComponent, CameraLensComponent } from './components'
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
+import { MediaStreamService } from './services';
 import {
   PerfectNegotiationComponent,
   RestartIceComponent,
   PeerToPeerComponent,
 } from './containers';
-import { CameraLensComponent } from './components/camera-lens/camera-lens.component';
 import { HomeComponent } from './home/home.component'
+import { env } from './../envs/env';
 
 @NgModule({
   declarations: [
@@ -68,9 +69,10 @@ import { HomeComponent } from './home/home.component'
     BrowserAnimationsModule,
   ],
   providers: [
+    MediaStreamService,
     {
       provide: SIGNALING_CLIENT,
-      useValue: 'http://localhost:3000',
+      useValue: env.signaling,
     },
     {
       provide: SignalingChannel,

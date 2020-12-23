@@ -9,6 +9,7 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core'
+import { MediaStreamService } from '../../services'
 
 @Component({
   selector: 'app-perfect-negotiation',
@@ -20,7 +21,7 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
   title = 'client-app'
 
   pc: RTCPeerConnection
-  localStream: MediaStream
+  // localStream: MediaStream
   active = new Subject<boolean>()
   active$ = this.active.asObservable()
   sender = uuid()
@@ -45,22 +46,42 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
     offerToReceiveVideo: true,
   }
 
-  constructor(private signaling: SignalingChannel) {}
+  constructor(
+    private signaling: SignalingChannel,
+    public media: MediaStreamService
+  ) {}
 
   start = async () => {
     try {
-      this.localStream = await navigator.mediaDevices.getUserMedia({
-        audio: true,
-        video: true,
-      })
-      for (const track of this.localStream.getTracks()) {
-        this.pc.addTrack(track, this.localStream)
+      this.media.currentStream = await this.media.getUserMedia()
+      for (const track of this.media.currentStream.getTracks()) {
+        this.pc.addTrack(track, this.media.currentStream)
       }
-      this.selfView.srcObject = this.localStream
+      this.selfView.srcObject = this.media.currentStream
       this.selfView.muted = true
     } catch (err) {
       console.error(err)
     }
+    // try {
+    //   this.localStream = await navigator.mediaDevices.getUserMedia({
+    //     audio: { echoCancellation: true },
+    //     video: {
+    //       facingMode: 'user',
+    //       frameRate: 30,
+    //       width: {
+    //         max: 1280,
+    //         ideal: 800,
+    //       },
+    //     },
+    //   })
+    //   for (const track of this.localStream.getTracks()) {
+    //     this.pc.addTrack(track, this.localStream)
+    //   }
+    //   this.selfView.srcObject = this.localStream
+    //   this.selfView.muted = true
+    // } catch (err) {
+    //   console.error(err)
+    // }
   }
 
   restart = async () => {
@@ -135,7 +156,7 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
 
             const polite = sender === this.sender
 
-            this.ignoreOffer = !polite && offerCollision
+            this.ignoreOffer = polite && offerCollision
             if (this.ignoreOffer) {
               return
             }
@@ -168,7 +189,7 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
 
   hangup() {
     console.log('Ending call')
-    this.localStream.getTracks().forEach((t) => t.stop())
+    this.media.currentStream.getTracks().forEach((t) => t.stop())
     if (this.pc) {
       this.pc.close()
       this.pc = null

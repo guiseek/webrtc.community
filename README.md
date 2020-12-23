@@ -4,13 +4,31 @@
 - Traduções de partes relevantes da especificação [w3c webrtc](https://www.w3.org/TR/webrtc/)
 - Reproduções da especificação ou exemplos do [repositório oficial](https://github.com/webrtc/samples)
 
-## Exemplos reproduzidos
+## Exemplos reproduzidos até agora
 
 - [Negociação perfeita](./apps/client/src/app/containers/perfect-negotiation)
 - [Reiniciar candidatos](./apps/client/src/app/containers/restart-ice)
 - [Ponto-a-ponto](./apps/client/src/app/containers/peer-to-peer)
 
+
 ---
+
+| | | |
+| --- | --- | --- |
+| ![Home](pics/home.png) | ![Negociação perfeita](pics/perfect-negotiation.png) | ![Reiniciar candidatos](pics/restart-ice.png) |
+| *Home* | *Negociação perfeita* | *Reiniciar candidatos* |
+
+---
+
+# Comunidade
+
+## Sugestões
+
+Tem uma sugestão sobre algum exemplo para reprodução? [Abra uma solicitação](https://github.com/guiseek/quertc/issues/new) para que possamos providenciar.
+
+### Discussões
+
+uer entender melhor algum tópico? [inicie uma discussão](https://github.com/guiseek/quertc/discussions/new) para que outras pessoas coloquem seus pontos de vista.
 
 ## Execute
 
@@ -31,16 +49,6 @@ Execute com `npm run dev`
 Escreva testes com `npm run tdd`
 
 ---
-
-## Comunidade
-
-### Sugestões
-
-Tem uma sugestão sobre algum exemplo para reprodução? [Abra uma solicitação](https://github.com/guiseek/quertc/issues/new) para que possamos providenciar.
-
-### Discussões
-
-Quer entender melhor algum tópico? [inicie uma discussão](https://github.com/guiseek/quertc/discussions/new) para que outras pessoas coloquem seus pontos de vista.
 
 ## Estrutura
 

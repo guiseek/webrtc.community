@@ -16,7 +16,7 @@
             "polyfills": "apps/client/src/polyfills.ts",
             "tsConfig": "apps/client/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/client/src/favicon.ico", "apps/client/src/assets"],
+            "assets": ["apps/client/src/favicon.ico", "apps/client/src/CNAME", "apps/client/src/assets"],
             "styles": ["apps/client/src/styles.scss"],
             "allowedCommonJsDependencies": ["socket.io-client"],
             "scripts": []

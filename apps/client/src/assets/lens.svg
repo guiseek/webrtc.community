@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375.001" height="375.001" viewBox="0 0 375.001 375.001">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.84" y1="0.134" x2="0.16" y2="0.866" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1a1a1a"/>
+      <stop offset="0.5" stop-color="#3b3b3b"/>
+      <stop offset="1"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-2.724" y1="-4.774" x2="-3.488" y2="-4.012" xlink:href="#linear-gradient"/>
+    <radialGradient id="radial-gradient" cx="0.493" cy="0.495" r="0.551" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#616161"/>
+      <stop offset="0.19" stop-color="#545454"/>
+      <stop offset="0.55" stop-color="#323232"/>
+      <stop offset="1"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="0.504" cy="0.502" r="0.753" gradientTransform="translate(0)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#616161"/>
+      <stop offset="0.18" stop-color="#575757"/>
+      <stop offset="0.47" stop-color="#3d3d3d"/>
+      <stop offset="0.85" stop-color="#131313"/>
+      <stop offset="1"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-3" cx="0.502" cy="0.511" r="0.506" gradientTransform="translate(0)" gradientUnits="objectBoundingBox">
+      <stop offset="0.56" stop-color="#616161"/>
+      <stop offset="0.64" stop-color="#575757"/>
+      <stop offset="0.77" stop-color="#3d3d3d"/>
+      <stop offset="0.93" stop-color="#131313"/>
+      <stop offset="1"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-4" cx="0.497" cy="0.51" r="0.509" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#radial-gradient-3"/>
+    <radialGradient id="radial-gradient-5" cx="0.498" cy="1.132" r="0.946" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#radial-gradient-2"/>
+    <radialGradient id="radial-gradient-6" cx="0.503" cy="0.472" r="0.487" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#radial-gradient-2"/>
+    <radialGradient id="radial-gradient-7" cx="0.562" cy="-1.873" r="3.236" xlink:href="#radial-gradient-2"/>
+    <radialGradient id="radial-gradient-8" cx="0.493" cy="0.542" r="0.565" xlink:href="#radial-gradient-2"/>
+    <radialGradient id="radial-gradient-9" cx="0.495" cy="0.501" r="0.499" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#radial-gradient-2"/>
+    <radialGradient id="radial-gradient-10" cx="0.167" cy="0.183" fx="0.4384956955909729" fy="0.4510551989078522" r="0.355" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffffa6" stop-opacity="0.749"/>
+      <stop offset="0.21" stop-color="#ab66de" stop-opacity="0.749"/>
+      <stop offset="0.25" stop-color="#8c69db" stop-opacity="0.616"/>
+      <stop offset="0.31" stop-color="#6b6cd8" stop-opacity="0.471"/>
+      <stop offset="0.38" stop-color="#4e6ed6" stop-opacity="0.345"/>
+      <stop offset="0.44" stop-color="#3670d4" stop-opacity="0.239"/>
+      <stop offset="0.52" stop-color="#2272d2" stop-opacity="0.149"/>
+      <stop offset="0.6" stop-color="#1373d1" stop-opacity="0.082"/>
+      <stop offset="0.69" stop-color="#0874d0" stop-opacity="0.039"/>
+      <stop offset="0.8" stop-color="#0275cf" stop-opacity="0.008"/>
+      <stop offset="1" stop-color="#0075cf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-11" cx="0.73" cy="0.749" fx="0.9438456571102143" fy="0.7489383816719055" r="0.216" gradientTransform="matrix(0.806, 0.591, -0.473, 0.645, 0.508, -0.172)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffffa6" stop-opacity="0.8"/>
+      <stop offset="0.26" stop-color="#ab66de" stop-opacity="0.8"/>
+      <stop offset="0.3" stop-color="#9d61da" stop-opacity="0.729"/>
+      <stop offset="0.43" stop-color="#6d50cc" stop-opacity="0.51"/>
+      <stop offset="0.55" stop-color="#4642c1" stop-opacity="0.329"/>
+      <stop offset="0.67" stop-color="#2737b8" stop-opacity="0.18"/>
+      <stop offset="0.79" stop-color="#122fb2" stop-opacity="0.078"/>
+      <stop offset="0.9" stop-color="#042bae" stop-opacity="0.02"/>
+      <stop offset="1" stop-color="#0029ad" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-12" cx="0.163" cy="0.922" fx="0.3775236050784588" fy="0.9215219020843506" r="0.216" gradientTransform="matrix(-0.885, 0.465, 0.461, 0.877, 1.201, -0.287)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffffa6"/>
+      <stop offset="0.21" stop-color="#ab66de"/>
+      <stop offset="0.26" stop-color="#8c5bd5" stop-opacity="0.82"/>
+      <stop offset="0.31" stop-color="#6b4fcc" stop-opacity="0.631"/>
+      <stop offset="0.38" stop-color="#4e45c3" stop-opacity="0.459"/>
+      <stop offset="0.45" stop-color="#363cbc" stop-opacity="0.322"/>
+      <stop offset="0.52" stop-color="#2235b7" stop-opacity="0.2"/>
+      <stop offset="0.6" stop-color="#1330b2" stop-opacity="0.11"/>
+      <stop offset="0.69" stop-color="#082caf" stop-opacity="0.051"/>
+      <stop offset="0.8" stop-color="#022aae" stop-opacity="0.012"/>
+      <stop offset="1" stop-color="#0029ad" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g id="camera-lens" transform="translate(-75 -75)">
+    <g id="camera">
+      <path id="Caminho_1" data-name="Caminho 1" d="M262.14,75C365.68,74.77,449.79,158.53,450,262.11A187.49,187.49,0,0,1,262.9,450C159.36,450.22,75.21,366.46,75,262.9S158.57,75.2,262.14,75Z" fill="url(#linear-gradient)"/>
+      <path id="Caminho_2" data-name="Caminho 2" d="M262.14,78.46A184,184,0,0,1,446.53,262.12c.21,101.64-82,184.19-183.64,184.42S78.68,364.53,78.47,262.9,160.49,78.67,262.14,78.46Z" fill="url(#linear-gradient-2)"/>
+      <path id="Caminho_3" data-name="Caminho 3" d="M418.54,262.5a156,156,0,1,1-156-156A156,156,0,0,1,418.54,262.5Z" fill="url(#radial-gradient)"/>
+      <path id="Caminho_4" data-name="Caminho 4" d="M413.08,262.5A150.59,150.59,0,1,1,262.493,111.92,150.592,150.592,0,0,1,413.08,262.5Z" fill="url(#radial-gradient-2)"/>
+      <path id="Caminho_5" data-name="Caminho 5" d="M387,262.5a123.93,123.93,0,1,1,0-.007Z" fill="url(#radial-gradient-3)"/>
+      <path id="Caminho_6" data-name="Caminho 6" d="M370.13,262.5a107.627,107.627,0,1,1,0-.007Z" fill="url(#radial-gradient-4)"/>
+      <path id="Caminho_7" data-name="Caminho 7" d="M356.5,262.5a94,94,0,1,1-94-94A94,94,0,0,1,356.5,262.5Z" fill="url(#radial-gradient-5)"/>
+      <path id="Caminho_8" data-name="Caminho 8" d="M345.5,262.5a83,83,0,1,1-83-83A83,83,0,0,1,345.5,262.5Z" fill="url(#radial-gradient-6)"/>
+      <path id="Caminho_9" data-name="Caminho 9" d="M332.58,262.5a70.4,70.4,0,1,1,0-.007Z" fill="url(#radial-gradient-7)"/>
+      <path id="Caminho_10" data-name="Caminho 10" d="M323.74,262.5a61.25,61.25,0,1,1-61.25-61.25,61.25,61.25,0,0,1,61.25,61.25Z" fill="url(#radial-gradient-8)"/>
+      <path id="Caminho_11" data-name="Caminho 11" d="M309,262.5A46.5,46.5,0,1,1,262.5,216,46.5,46.5,0,0,1,309,262.5Z" fill="url(#radial-gradient-9)"/>
+      <path id="Caminho_12" data-name="Caminho 12" d="M284.5,262.5a22,22,0,1,1-22-22,22,22,0,0,1,22,22Z" fill="#1c1c1c"/>
+    </g>
+    <g id="lens">
+      <path id="Caminho_13" data-name="Caminho 13" d="M368.88,262.5A106.39,106.39,0,1,1,262.493,156.12,106.392,106.392,0,0,1,368.88,262.5Z" fill="rgba(0,117,207,0.31)"/>
+      <path id="Caminho_14" data-name="Caminho 14" d="M369.49,262.5a107,107,0,1,1-107-107A107,107,0,0,1,369.49,262.5Z" fill="url(#radial-gradient-10)"/>
+      <path id="Caminho_15" data-name="Caminho 15" d="M372,262.5A109.5,109.5,0,1,1,262.5,153,109.5,109.5,0,0,1,372,262.5Z" opacity="0.5" fill="url(#radial-gradient-11)"/>
+      <path id="Caminho_16" data-name="Caminho 16" d="M153,262.5a109.5,109.5,0,1,0,0-.01Z" opacity="0.3" fill="url(#radial-gradient-12)"/>
+      <circle id="Elipse_1" data-name="Elipse 1" cx="40.33" cy="40.33" r="40.33" transform="translate(186.22 267.66)" fill="rgba(61,150,219,0.1)"/>
+    </g>
+  </g>
+</svg>

@@ -1,4 +1,4 @@
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs'
 import {
   AfterViewInit,
   Component,
@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core'
 import { SignalingChannel } from '@quertc/core'
+import { MediaStreamService } from '../../services'
 
 @Component({
   selector: 'app-peer-to-peer',
@@ -31,7 +32,10 @@ export class PeerToPeerComponent implements OnInit, AfterViewInit {
     offerToReceiveVideo: true,
   }
 
-  constructor(private signaling: SignalingChannel) {}
+  constructor(
+    private signaling: SignalingChannel,
+    private media: MediaStreamService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -81,11 +85,8 @@ export class PeerToPeerComponent implements OnInit, AfterViewInit {
               if (!this.selfView.srcObject) {
                 // blocks negotiation on permission (not recommended in production code)
                 await this.addCameraMic()
-
               }
-              await this.pc.setLocalDescription(
-                await this.pc.createAnswer()
-              )
+              await this.pc.setLocalDescription(await this.pc.createAnswer())
               this.signaling.send({ description: this.pc.localDescription })
             }
           } else if (candidate) {
@@ -109,11 +110,11 @@ export class PeerToPeerComponent implements OnInit, AfterViewInit {
   addCameraMic = async () => {
     try {
       // get a local stream, show it in a self-view and add it to be sent
-      const stream = await navigator.mediaDevices.getUserMedia(this.constraints)
-      for (const track of stream.getTracks()) {
-        this.pc.addTrack(track, stream)
+      this.media.currentStream = await this.media.getUserMedia(this.constraints)
+      for (const track of this.media.currentStream.getTracks()) {
+        this.pc.addTrack(track, this.media.currentStream)
       }
-      this.selfView.srcObject = stream
+      this.selfView.srcObject = this.media.currentStream
     } catch (err) {
       console.error(err)
     }

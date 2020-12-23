@@ -4,6 +4,7 @@
 
 export const env = {
   prod: false,
+  signaling: 'http://localhost:3000',
 }
 
 /*

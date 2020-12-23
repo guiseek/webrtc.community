@@ -29,11 +29,25 @@ $client-theme: mat-dark-theme(
   )
 );
 
+$client-base-typography: mat-typography-config(
+  $font-family: '"Fira Code", monospace',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500),
+);
+
+$client-typography: mat-typography-config(
+  $font-family: '"Montserrat", sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500),
+);
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($client-theme);
-
+@include mat-base-typography($client-base-typography);
+@include mat-card-typography($client-base-typography);
+@include angular-material-typography($client-typography);
 /* You can add global styles to this file, and also import other style files */
 
 html,
@@ -42,6 +56,15 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  // font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Fira Code', monospace;
   background-color: #0f0f0f;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Fira Code', monospace;
 }

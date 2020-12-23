@@ -9,6 +9,8 @@ export class SignalingChannel implements ISignalingChannel {
   message$ = this.message.asObservable()
 
   constructor(uri: string) {
+    console.log({ uri });
+
     if (uri) {
       this.io = io.connect(uri)
       this.io.on('message', (evt: IMessage) => this.message.next(evt))

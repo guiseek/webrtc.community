@@ -6,7 +6,7 @@
     <a mat-icon-button routerLink="/">
       <mat-icon>home</mat-icon>
     </a>
-    <h1 class="client-app-name">Responsive App</h1>
+    <h1 class="client-app-name">{{ title }}</h1>
   </mat-toolbar>
 
   <mat-sidenav-container
@@ -19,9 +19,10 @@
       [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56"
     >
-      <mat-nav-list>
+      <mat-nav-list class="client-nav-list">
         <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of navLinks">
-          {{ nav.label }}
+          <mat-icon class="mat-18" color="accent">{{ nav.icon }}</mat-icon>
+          <span>{{ nav.label }}</span>
         </a>
       </mat-nav-list>
     </mat-sidenav>

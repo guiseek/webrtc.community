@@ -15,6 +15,7 @@
 video {
   width: var(--width);
   height: calc(var(--width) * 0.75);
+  object-fit: cover;
   margin: 0;
 }
 .glare {

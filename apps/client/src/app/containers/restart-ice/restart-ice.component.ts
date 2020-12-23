@@ -1,12 +1,5 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core'
-import { PeerState, PeerStats } from '@quertc/core'
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core'
+import { Logger, PeerState, PeerStats } from '@quertc/core'
 import { OverlogService } from '@quertc/overlog'
 import { BehaviorSubject } from 'rxjs'
 
@@ -14,12 +7,13 @@ type WithTarget<T = any> = Event & {
   target: T
 }
 
+const console = Logger
 @Component({
   selector: 'app-restart-ice',
   templateUrl: './restart-ice.component.html',
   styleUrls: ['./restart-ice.component.scss'],
 })
-export class RestartIceComponent implements OnInit, AfterViewInit, OnDestroy {
+export class RestartIceComponent implements AfterViewInit, OnDestroy {
   @ViewChild('localVideo') localVideoRef: ElementRef<HTMLVideoElement>
   localVideo: HTMLVideoElement
 
@@ -40,18 +34,15 @@ export class RestartIceComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private _startButton = new BehaviorSubject<boolean>(false)
-  startButton$ = this._startButton.asObservable()
+  public startButton$ = this._startButton.asObservable()
   private _callButton = new BehaviorSubject<boolean>(true)
-  callButton$ = this._callButton.asObservable()
+  public callButton$ = this._callButton.asObservable()
   private _restartButton = new BehaviorSubject<boolean>(true)
-  restartButton$ = this._restartButton.asObservable()
+  public restartButton$ = this._restartButton.asObservable()
   private _hangupButton = new BehaviorSubject<boolean>(true)
-  hangupButton$ = this._hangupButton.asObservable()
-  firstVideoSize = true
+  public hangupButton$ = this._hangupButton.asObservable()
 
   constructor(private overlog: OverlogService) {}
-
-  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.localVideo = this.localVideoRef.nativeElement
@@ -60,7 +51,7 @@ export class RestartIceComponent implements OnInit, AfterViewInit, OnDestroy {
     this.localVideo.addEventListener(
       'loadedmetadata',
       ({ target }: WithTarget<HTMLVideoElement>) => {
-        console.log(`Local video: ${target.videoWidth}x${target.videoHeight}px`)
+        Logger.log(`Local video: ${target.videoWidth}x${target.videoHeight}px`)
       }
     )
 
@@ -74,12 +65,9 @@ export class RestartIceComponent implements OnInit, AfterViewInit, OnDestroy {
     )
 
     this.remoteVideo.onresize = () => {
-      if (!this.firstVideoSize) {
-        console.log(
-          `Remote video size changed to ${this.remoteVideo.videoWidth}x${this.remoteVideo.videoHeight}px`
-        )
-        this.firstVideoSize = false
-      }
+      console.log(
+        `Remote video size changed to ${this.remoteVideo.videoWidth}x${this.remoteVideo.videoHeight}px`
+      )
       // Usaremos o primeiro retorno de chamada do tamanho como uma
       // indicação de que o vídeo começou a ser reproduzido.
       if (this.startTime) {

@@ -1,6 +1,6 @@
 import { PeerEvent, SignalingChannel } from '@quertc/core'
 import { uuid } from '../../utilities'
-import { Subject } from 'rxjs'
+import { Subject, Subscription } from 'rxjs'
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -25,6 +25,7 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
   active$ = this.active.asObservable()
   sender = uuid()
 
+  subs: Subscription
   /**
    * manter o controle de algum estado de
    * negociação para evitar corridas e erros
@@ -117,7 +118,7 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
       this.makeOffer(this.offerOptions)
     })
 
-    this.signaling.message$.subscribe(
+    this.subs = this.signaling.message$.subscribe(
       async ({ sender, description, candidate }) => {
         console.log('sender: ', sender)
         try {
@@ -167,14 +168,17 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
 
   hangup() {
     console.log('Ending call')
+    this.localStream.getTracks().forEach((t) => t.stop())
     if (this.pc) {
       this.pc.close()
       this.pc = null
-      this.localStream.getTracks().forEach((t) => t.stop())
     }
   }
 
   ngOnDestroy() {
     this.hangup()
+    if (this.subs) {
+      this.subs.unsubscribe()
+    }
   }
 }

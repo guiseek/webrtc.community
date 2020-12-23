@@ -63,7 +63,7 @@ import { HomeComponent } from './home/home.component'
           component: PerfectNegotiationComponent,
         },
       ],
-      { initialNavigation: 'enabled' }
+      { initialNavigation: 'enabled', useHash: true }
     ),
     BrowserAnimationsModule,
   ],

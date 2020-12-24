@@ -1,0 +1,75 @@
+@mixin home-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  app-home {
+    .docs-header-background {
+      background: mat-color($primary);
+    }
+
+    .docs-header-headline {
+      color: mat-color($primary, default-contrast);
+    }
+
+    .docs-header-start {
+      color: mat-color($primary);
+
+      .docs-link {
+        color: mat-color($primary, default-contrast);
+      }
+    }
+
+    .docs-home-row {
+      color: mat-color($foreground, secondary-text);
+    }
+
+    .docs-home-carousel-row h2 {
+      color: mat-color($foreground, secondary-text);
+    }
+
+    a.docs-link,
+    a.docs-featured-components-carousel-item {
+      color: mat-color($foreground, secondary-text);
+    }
+
+    a.docs-link:hover {
+      color: mat-color($foreground, text);
+    }
+
+    .docs-home-guides-card-divider {
+      background: mat-color($accent);
+    }
+
+    [carousel-item]:hover {
+      .docs-home-guides-card {
+        background: mat-color($background, hover);
+      }
+    }
+
+    [carousel-item]:focus {
+      .docs-home-guides-card {
+        background: mat-color($background, focused-button);
+      }
+      outline: none;
+    }
+
+    .docs-featured-components-carousel-item:hover {
+      img {
+        transform: scale(1.2);
+      }
+
+      box-shadow: inset 0 0 0 1.5px mat-color($foreground, divider);
+    }
+
+    .docs-featured-components-carousel-item:focus {
+      img {
+        transform: scale(1.2);
+      }
+
+      box-shadow: inset 0 0 0 1.5px mat-color($foreground, disabled);
+    }
+  }
+}

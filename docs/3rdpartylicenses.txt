@@ -66,6 +66,10 @@ MIT
 @angular/router
 MIT
 
+@quertc/carousel
+
+@quertc/controls
+
 @quertc/overlog
 
 after

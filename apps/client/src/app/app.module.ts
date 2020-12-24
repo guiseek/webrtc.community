@@ -1,29 +1,36 @@
+import { DOCS_ROUTES } from './routes'
+import { MatFormFieldModule } from '@angular/material/form-field'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 
 import { SignalingChannel } from '@quertc/core'
 import { OverlogModule } from '@quertc/overlog'
+import { ControlsModule } from '@quertc/controls'
+import { CarouselModule } from '@quertc/carousel'
 
 import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'
 import { LayoutModule } from '@angular/cdk/layout'
 import { MatIconModule } from '@angular/material/icon'
+
 import { MatListModule } from '@angular/material/list'
 import { MatCardModule } from '@angular/material/card'
+import { MatDividerModule } from '@angular/material/divider'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatButtonModule } from '@angular/material/button'
 import { CallAvatarComponent, CameraLensComponent } from './components'
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
-import { MediaStreamService } from './services';
+import { MediaStreamService } from './services'
 import {
   PerfectNegotiationComponent,
   RestartIceComponent,
   PeerToPeerComponent,
-} from './containers';
+} from './containers'
 import { HomeComponent } from './home/home.component'
-import { env } from './../envs/env';
+import { env } from './../envs/env'
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -43,29 +50,17 @@ import { env } from './../envs/env';
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
+    MatDividerModule,
     MatSidenavModule,
+    MatFormFieldModule,
+    ControlsModule,
+    CarouselModule,
+    ReactiveFormsModule,
     OverlogModule.forRoot(),
-    RouterModule.forRoot(
-      [
-        {
-          path: '',
-          component: HomeComponent,
-        },
-        {
-          path: 'restart-ice',
-          component: RestartIceComponent,
-        },
-        {
-          path: 'peer-to-peer',
-          component: PeerToPeerComponent,
-        },
-        {
-          path: 'perfect-negotiation',
-          component: PerfectNegotiationComponent,
-        },
-      ],
-      { initialNavigation: 'enabled', useHash: true }
-    ),
+    RouterModule.forRoot(DOCS_ROUTES, {
+      initialNavigation: 'enabled',
+      useHash: true,
+    }),
     BrowserAnimationsModule,
   ],
   providers: [

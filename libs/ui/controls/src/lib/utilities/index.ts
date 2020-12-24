@@ -1,2 +1,2 @@
-export * from './code';
-export * from './devices';
+export * from './code'
+export * from './devices'

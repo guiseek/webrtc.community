@@ -34,7 +34,6 @@ export class Code {
   ) {}
 }
 
-
 @Component({
   selector: 'control-code',
   templateUrl: './code.component.html',
@@ -116,8 +115,7 @@ export class CodeComponent
     return null
   }
   set value(tel: Code | null) {
-    const { timeLow, timeMid, timeHiAndVersion } =
-      tel || new Code('', '', '')
+    const { timeLow, timeMid, timeHiAndVersion } = tel || new Code('', '', '')
     this.parts.setValue({ timeLow, timeMid, timeHiAndVersion })
     this.stateChanges.next()
   }

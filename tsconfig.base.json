@@ -17,7 +17,8 @@
     "paths": {
       "@quertc/core": ["libs/core/src/index.ts"],
       "@quertc/overlog": ["libs/ui/overlog/src/index.ts"],
-      "@quertc/controls": ["libs/ui/controls/src/index.ts"]
+      "@quertc/controls": ["libs/ui/controls/src/index.ts"],
+      "@quertc/carousel": ["libs/ui/carousel/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

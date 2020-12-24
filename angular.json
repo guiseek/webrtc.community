@@ -236,6 +236,43 @@
           }
         }
       }
+    },
+    "ui-carousel": {
+      "projectType": "library",
+      "root": "libs/ui/carousel",
+      "sourceRoot": "libs/ui/carousel/src",
+      "prefix": "quertc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/ui/carousel/tsconfig.lib.json",
+            "project": "libs/ui/carousel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/carousel/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/carousel/src/**/*.ts",
+              "libs/ui/carousel/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/carousel"],
+          "options": {
+            "jestConfig": "libs/ui/carousel/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -247,7 +284,8 @@
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "strict": true
     },
     "@nrwl/angular:component": {}
   },

@@ -1,2 +1,2 @@
-export * from './alert.controller';
-export * from './alert.gateway';
+export * from './alert.controller'
+export * from './alert.gateway'

@@ -37,7 +37,7 @@ export class ChatGateway implements OnGatewayInit {
 
   @SubscribeMessage('joinRoom')
   handleRoomJoin(client: Socket, room: string) {
-    console.log('room: ', room);
+    console.log('room: ', room)
     client.join(room)
     client.emit('joinedRoom', room)
   }

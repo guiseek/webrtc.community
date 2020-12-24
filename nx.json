@@ -37,6 +37,9 @@
     },
     "ui-controls": {
       "tags": ["side:client", "type:feat", "scope:ui"]
+    },
+    "ui-carousel": {
+      "tags": ["side:client", "type:feat", "scope:ui"]
     }
   }
 }

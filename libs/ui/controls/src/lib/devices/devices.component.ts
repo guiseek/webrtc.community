@@ -75,10 +75,8 @@ export class DevicesComponent extends ControlAccessor implements OnInit {
 
   ngOnInit(): void {
     const inputs = ['', 'audioinput', 'audiooutput', 'videoinput']
-    if (!!(this.kind) && !inputs.includes(this.kind)) {
-      throw Error(
-        'Invalid kind, example of valid kinds' + inputs.join(', ')
-      )
+    if (!!this.kind && !inputs.includes(this.kind)) {
+      throw Error('Invalid kind, example of valid kinds' + inputs.join(', '))
     }
     this.setUpChoices(this.kind)
   }

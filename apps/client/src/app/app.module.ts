@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon'
 
 import { MatListModule } from '@angular/material/list'
 import { MatCardModule } from '@angular/material/card'
+import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatSidenavModule } from '@angular/material/sidenav'
@@ -30,7 +31,9 @@ import {
 } from './containers'
 import { HomeComponent } from './home/home.component'
 import { env } from './../envs/env'
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
+import { GithubCornerComponent } from './components/github-corner/github-corner.component'
 
 @NgModule({
   declarations: [
@@ -41,6 +44,8 @@ import { ReactiveFormsModule } from '@angular/forms'
     PeerToPeerComponent,
     CameraLensComponent,
     HomeComponent,
+    FooterComponent,
+    GithubCornerComponent,
   ],
   imports: [
     LayoutModule,
@@ -53,6 +58,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     MatDividerModule,
     MatSidenavModule,
     MatFormFieldModule,
+    MatTooltipModule,
     ControlsModule,
     CarouselModule,
     ReactiveFormsModule,

@@ -1,6 +1,6 @@
 @import 'libs/ui/theme/src/ui-theme';
 @import './app/home/home.theme';
-
+@import './app/components/github-corner/github-corner-theme';
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 // @import '~@angular/material/theming';
@@ -49,8 +49,8 @@ $client-typography: mat-typography-config(
 // that you are using.
 @include angular-material-theme($client-theme);
 @include quertc-docs-app-theme($client-theme);
-
 @include home-theme($client-theme);
+@include github-corner-theme($client-theme);
 
 @include mat-base-typography($client-base-typography);
 @include mat-card-typography($client-base-typography);

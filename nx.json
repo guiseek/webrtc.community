@@ -34,6 +34,9 @@
     },
     "ui-overlog": {
       "tags": ["side:client", "type:feat", "scope:ui"]
+    },
+    "ui-controls": {
+      "tags": ["side:client", "type:feat", "scope:ui"]
     }
   }
 }

@@ -1,4 +1,23 @@
-<a routerLink="/perfect-negotiation">
-  <app-camera-lens></app-camera-lens>
-</a>
-<h3 class="mat-hint">QueRTC?!</h3>
+<div>
+  <a routerLink="/perfect-negotiation">
+    <app-camera-lens></app-camera-lens>
+  </a>
+  <h3 class="mat-hint">QueRTC?!</h3>
+</div>
+
+<button type="button" mat-button (click)="createRoom()">
+  <mat-icon color="primary">add</mat-icon>
+</button>
+
+<form [formGroup]="form">
+  <control-devices formControlName="control" kind="videoinput" required></control-devices>
+  <mat-form-field>
+    <mat-label>Code</mat-label>
+    <control-code formControlName="code"></control-code>
+    <mat-error>Obrigatório</mat-error>
+  </mat-form-field>
+</form>
+
+
+
+<pre>{{ form.get('control').value | json }}</pre>

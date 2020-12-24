@@ -1,9 +1,11 @@
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 
 import { SignalingChannel } from '@quertc/core'
 import { OverlogModule } from '@quertc/overlog'
+import { ControlsModule } from '@quertc/controls';
 
 import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'
@@ -24,6 +26,7 @@ import {
 } from './containers';
 import { HomeComponent } from './home/home.component'
 import { env } from './../envs/env';
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -44,6 +47,9 @@ import { env } from './../envs/env';
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatFormFieldModule,
+    ControlsModule,
+    ReactiveFormsModule,
     OverlogModule.forRoot(),
     RouterModule.forRoot(
       [

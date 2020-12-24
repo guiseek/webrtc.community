@@ -16,7 +16,11 @@
             "polyfills": "apps/client/src/polyfills.ts",
             "tsConfig": "apps/client/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/client/src/favicon.ico", "apps/client/src/CNAME", "apps/client/src/assets"],
+            "assets": [
+              "apps/client/src/favicon.ico",
+              "apps/client/src/CNAME",
+              "apps/client/src/assets"
+            ],
             "styles": ["apps/client/src/styles.scss"],
             "allowedCommonJsDependencies": ["socket.io-client"],
             "scripts": []
@@ -191,6 +195,43 @@
           "outputs": ["coverage/libs/ui/overlog"],
           "options": {
             "jestConfig": "libs/ui/overlog/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-controls": {
+      "projectType": "library",
+      "root": "libs/ui/controls",
+      "sourceRoot": "libs/ui/controls/src",
+      "prefix": "control",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/ui/controls/tsconfig.lib.json",
+            "project": "libs/ui/controls/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/controls/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/controls/src/**/*.ts",
+              "libs/ui/controls/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/controls"],
+          "options": {
+            "jestConfig": "libs/ui/controls/jest.config.js",
             "passWithNoTests": true
           }
         }

@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/apps/server/api',
     '<rootDir>/libs/core',
     '<rootDir>/libs/ui/overlog',
+    '<rootDir>/libs/ui/controls',
   ],
 }

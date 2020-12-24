@@ -1,4 +1,12 @@
-<a routerLink="/perfect-negotiation">
-  <app-camera-lens></app-camera-lens>
-</a>
-<h3 class="mat-hint">QueRTC?!</h3>
+<div>
+  <a routerLink="/perfect-negotiation">
+    <app-camera-lens></app-camera-lens>
+  </a>
+  <h3 class="mat-hint">QueRTC?!</h3>
+</div>
+
+<form [formGroup]="form">
+  <control-devices formControlName="control" kind="videoinput" required></control-devices>
+</form>
+
+<pre>{{ form.get('control').value | json }}</pre>

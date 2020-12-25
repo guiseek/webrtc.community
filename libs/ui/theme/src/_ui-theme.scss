@@ -1,5 +1,5 @@
-@import '~@angular/material/theming';
-
+// @import '~@angular/material/theming';
+@import './mat-theme';
 @import '../../carousel/src/lib/carousel-theme';
 
 @mixin quertc-docs-app-theme($theme) {
@@ -27,11 +27,12 @@
     color: mat-color($primary, default-contrast);
   }
 
+  @include mat-theme($theme);
   @include carousel-theme($theme);
 }
 
 // Define the light theme.
-$primary: mat-palette($mat-indigo);
-$accent: mat-palette($mat-pink, A200, A100, A400);
+// $primary: mat-palette($mat-indigo);
+// $accent: mat-palette($mat-pink, A200, A100, A400);
 
-$theme: mat-light-theme($primary, $accent);
+// $theme: mat-light-theme($primary, $accent);

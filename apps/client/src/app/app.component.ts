@@ -10,7 +10,7 @@ import { NavigationStart, Router } from '@angular/router'
 import { MatSidenav } from '@angular/material/sidenav'
 import { filter } from 'rxjs/operators'
 import { Subscription } from 'rxjs'
-import { MediaStreamService } from './services'
+import { MediaStreamService } from '@quertc/shared'
 
 @Component({
   selector: 'app-root',
@@ -39,7 +39,7 @@ export class AppComponent implements OnDestroy {
   private _mobileQueryListener: () => void
 
   constructor(
-    private media: MediaStreamService,
+    private stream: MediaStreamService,
     mediaMatcher: MediaMatcher,
     detector: ChangeDetectorRef,
     router: Router
@@ -57,8 +57,8 @@ export class AppComponent implements OnDestroy {
     if (this.snav.opened) {
       this.snav.close()
     }
-    if (this.media.currentStream?.active) {
-      this.media.currentStream.getTracks().forEach((t) => t.stop())
+    if (this.stream.currentStream?.active) {
+      this.stream.currentStream.getTracks().forEach((t) => t.stop())
     }
   }
 

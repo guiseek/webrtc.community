@@ -10,6 +10,10 @@
   $foreground: map-get($theme, foreground);
   $next-theme: mat-palette($mat-red);
 
+  #remote {
+    background-color: mat-color($background, background);
+  }
+
   .docs-app-background {
     background: mat-color($background, background);
   }

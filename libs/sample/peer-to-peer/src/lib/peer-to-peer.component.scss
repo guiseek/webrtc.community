@@ -6,10 +6,30 @@
   justify-content: center;
   position: relative;
 
-  app-call-avatar {
+  .center {
     position: absolute;
+    text-align: center;
+    max-width: 150px;
+
+    h3 {
+      margin-top: 16px;
+      line-height: 1.2;
+    }
   }
 }
+
+// :host {
+//   flex: 1;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   position: relative;
+
+//   quertc-call-avatar {
+//     position: absolute;
+//   }
+// }
 
 #remote {
   width: 100%;

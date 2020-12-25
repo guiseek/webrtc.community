@@ -1,3 +1,5 @@
+# sample-perfect-negotiation
+
 ## Exemplo usando negociação perfeita
 
 ### Reprodução de [exemplo](https://www.w3.org/TR/webrtc/?fbclid=IwAR12z6ZC2IxvCNGfkEU8ADBZU9A6XWNSmT2GnbWvllxWoLjHUlljPK3Fnv8#perfect-negotiation-example) apresentado em especificação (w3c)
@@ -122,3 +124,11 @@ Together, they manage signaling for the rest of the application in a manner that
 >   }
 > }
 > ```
+
+---
+
+This library was generated with [Nx](https://nx.dev).
+
+## Running unit tests
+
+Run `nx test sample-perfect-negotiation` to execute the unit tests.

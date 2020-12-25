@@ -1,21 +1,19 @@
 import { PeerEvent, SignalingChannel } from '@quertc/core'
-import { uuid } from '../../utilities'
+import { code } from '@quertc/controls'
 import { Subject, Subscription } from 'rxjs'
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   OnDestroy,
   ViewChild,
 } from '@angular/core'
-import { MediaStreamService } from '../../services'
+import { MediaStreamService } from '@quertc/shared'
 
 @Component({
-  selector: 'app-perfect-negotiation',
+  selector: 'quertc-perfect-negotiation',
   templateUrl: './perfect-negotiation.component.html',
   styleUrls: ['./perfect-negotiation.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
   title = 'client-app'
@@ -24,7 +22,7 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
   // localStream: MediaStream
   active = new Subject<boolean>()
   active$ = this.active.asObservable()
-  sender = uuid()
+  sender = code()
 
   subs: Subscription
   /**
@@ -48,40 +46,20 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     private signaling: SignalingChannel,
-    public media: MediaStreamService
+    public stream: MediaStreamService
   ) {}
 
   start = async () => {
     try {
-      this.media.currentStream = await this.media.getUserMedia()
-      for (const track of this.media.currentStream.getTracks()) {
-        this.pc.addTrack(track, this.media.currentStream)
+      this.stream.currentStream = await this.stream.getUserMedia()
+      for (const track of this.stream.currentStream.getTracks()) {
+        this.pc.addTrack(track, this.stream.currentStream)
       }
-      this.selfView.srcObject = this.media.currentStream
+      this.selfView.srcObject = this.stream.currentStream
       this.selfView.muted = true
     } catch (err) {
       console.error(err)
     }
-    // try {
-    //   this.localStream = await navigator.mediaDevices.getUserMedia({
-    //     audio: { echoCancellation: true },
-    //     video: {
-    //       facingMode: 'user',
-    //       frameRate: 30,
-    //       width: {
-    //         max: 1280,
-    //         ideal: 800,
-    //       },
-    //     },
-    //   })
-    //   for (const track of this.localStream.getTracks()) {
-    //     this.pc.addTrack(track, this.localStream)
-    //   }
-    //   this.selfView.srcObject = this.localStream
-    //   this.selfView.muted = true
-    // } catch (err) {
-    //   console.error(err)
-    // }
   }
 
   restart = async () => {
@@ -93,10 +71,12 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
     try {
       this.makingOffer = true
       await this.pc.setLocalDescription(await this.pc.createOffer(options))
-      this.signaling.send({
-        sender: this.sender,
-        description: this.pc.localDescription,
-      })
+      if (this.pc.localDescription) {
+        this.signaling.send({
+          sender: this.sender,
+          description: this.pc.localDescription,
+        })
+      }
     } catch (err) {
       console.error(err)
     } finally {
@@ -169,7 +149,9 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
 
             if (description.type == PeerEvent.Offer) {
               await this.pc.setLocalDescription(await this.pc.createAnswer())
-              this.signaling.send({ description: this.pc.localDescription })
+              if (this.pc.localDescription) {
+                this.signaling.send({ description: this.pc.localDescription })
+              }
             }
           } else if (candidate) {
             try {
@@ -189,10 +171,10 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
 
   hangup() {
     console.log('Ending call')
-    this.media.currentStream.getTracks().forEach((t) => t.stop())
+    this.stream.currentStream.getTracks().forEach((t) => t.stop())
     if (this.pc) {
       this.pc.close()
-      this.pc = null
+      Object.defineProperties(this.pc, {})
     }
   }
 

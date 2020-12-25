@@ -1,9 +1,9 @@
-<ng-container *ngIf="!(active$ | async) as calling">
+<!-- <ng-container *ngIf="!!(active$ | async) === false">
   <div class="center">
-    <app-call-avatar [animation]="calling"></app-call-avatar>
+    <quertc-call-avatar></quertc-call-avatar>
     <h3 class="mat-h3 mat-hint">Convite alguém ou abra em outra janela</h3>
   </div>
-</ng-container>
+</ng-container> -->
 
 <div id="remote">
   <video #remoteView autoplay></video>

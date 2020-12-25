@@ -1,4 +1,4 @@
-# QueRTC?
+# WebRTC Community
 
 ### Repositório criado para estudos sobre WebRTC
 
@@ -7,9 +7,9 @@
 
 ## Exemplos reproduzidos até agora
 
-- [Negociação perfeita](./apps/client/src/app/containers/perfect-negotiation)
-- [Reiniciar candidatos](./libs/sample/restart-ice/src/lib)
-- [Ponto-a-ponto](./apps/client/src/app/containers/peer-to-peer)
+- [Negociação perfeita](./libs/sample/perfect-negotiation)
+- [Reiniciar candidatos](./libs/sample/restart-ice)
+- [Ponto-a-ponto](./libs/sample/peer-to-peer)
 
 ---
 

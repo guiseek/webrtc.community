@@ -6,7 +6,8 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core'
-import { SignalingChannel, Stream } from '@quertc/core'
+import { SignalingChannel } from '@quertc/core'
+import { MediaStreamService } from '@quertc/shared'
 
 @Component({
   selector: 'quertc-peer-to-peer',
@@ -31,7 +32,10 @@ export class PeerToPeerComponent implements OnInit, AfterViewInit {
     offerToReceiveVideo: true,
   }
 
-  constructor(private signaling: SignalingChannel, private media: Stream) {}
+  constructor(
+    private signaling: SignalingChannel,
+    private media: MediaStreamService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -71,7 +75,7 @@ export class PeerToPeerComponent implements OnInit, AfterViewInit {
         // don't set srcObject again if it is already set.
         if (this.remoteView.srcObject) return
         this.remoteView.srcObject = streams[0]
-        this.active.next(true)
+        // this.active.next(true)
       }
     }
 

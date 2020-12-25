@@ -8,5 +8,7 @@ module.exports = {
     '<rootDir>/libs/ui/carousel',
     '<rootDir>/libs/sample/restart-ice',
     '<rootDir>/libs/sample/peer-to-peer',
+    '<rootDir>/libs/sample/perfect-negotiation',
+    '<rootDir>/libs/shared',
   ],
 }

@@ -49,6 +49,12 @@
     },
     "sample-peer-to-peer": {
       "tags": ["side:client", "type:feat", "scope:sample"]
+    },
+    "sample-perfect-negotiation": {
+      "tags": ["side:client", "type:feat", "scope:sample"]
+    },
+    "shared": {
+      "tags": ["side:client", "type:feat", "scope:shared"]
     }
   }
 }

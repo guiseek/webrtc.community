@@ -79,7 +79,11 @@ MIT
 
 @quertc/peer-to-peer
 
+@quertc/perfect-negotiation
+
 @quertc/restart-ice
+
+@quertc/shared
 
 after
 MIT

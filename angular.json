@@ -365,6 +365,80 @@
           }
         }
       }
+    },
+    "sample-perfect-negotiation": {
+      "projectType": "library",
+      "root": "libs/sample/perfect-negotiation",
+      "sourceRoot": "libs/sample/perfect-negotiation/src",
+      "prefix": "quertc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/sample/perfect-negotiation/tsconfig.lib.json",
+            "project": "libs/sample/perfect-negotiation/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/sample/perfect-negotiation/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/sample/perfect-negotiation/src/**/*.ts",
+              "libs/sample/perfect-negotiation/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/sample/perfect-negotiation"],
+          "options": {
+            "jestConfig": "libs/sample/perfect-negotiation/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "quertc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/shared/tsconfig.lib.json",
+            "project": "libs/shared/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/src/**/*.ts",
+              "libs/shared/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared"],
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

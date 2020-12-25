@@ -1,4 +1,3 @@
-import { PerfectNegotiationComponent } from './containers/perfect-negotiation/perfect-negotiation.component'
 import { HomeComponent } from './home/home.component'
 import { Routes } from '@angular/router'
 
@@ -19,6 +18,9 @@ export const DOCS_ROUTES: Routes = [
   },
   {
     path: 'perfect-negotiation',
-    component: PerfectNegotiationComponent,
+    loadChildren: () =>
+      import('@quertc/perfect-negotiation').then(
+        (m) => m.PerfectNegotiationModule
+      ),
   },
 ]

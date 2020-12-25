@@ -399,6 +399,9 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-mdc-focus-indicator {
   position: relative;
 }
+#remote {
+  background-color: #fafafa;
+}
 .docs-app-background {
   background: #fafafa;
 }

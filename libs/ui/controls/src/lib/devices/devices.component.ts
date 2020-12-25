@@ -1,3 +1,4 @@
+import { MediaStreamService } from '@quertc/shared'
 import {
   Component,
   EventEmitter,
@@ -11,7 +12,6 @@ import {
 } from '@angular/core'
 import { NgControl, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { ControlAccessor } from '../control-accessor'
-import { getDevices } from '../utilities'
 import { BehaviorSubject } from 'rxjs'
 
 const DevicesProvider = {
@@ -66,7 +66,10 @@ export class DevicesComponent extends ControlAccessor implements OnInit {
   private _choices = new BehaviorSubject<MediaDeviceInfo[]>([])
   public choices$ = this._choices.asObservable()
 
-  constructor(@Optional() @Self() public ngControl: NgControl) {
+  constructor(
+    @Optional() @Self() public ngControl: NgControl,
+    private mediaStream: MediaStreamService
+  ) {
     super()
     if (this.ngControl) {
       this.ngControl.valueAccessor = this
@@ -86,6 +89,8 @@ export class DevicesComponent extends ControlAccessor implements OnInit {
   }
 
   setUpChoices(deviceKind?: MediaDeviceKind) {
-    getDevices(deviceKind).then((devices) => this._choices.next(devices))
+    this.mediaStream
+      .getDevices(deviceKind)
+      .then((devices) => this._choices.next(devices))
   }
 }

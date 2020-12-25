@@ -7,8 +7,8 @@ import { NgModule } from '@angular/core'
 import { OverlogModule } from '@quertc/overlog'
 import { ControlsModule } from '@quertc/controls'
 import { CarouselModule } from '@quertc/carousel'
-import { StreamFactory } from '@quertc/peer-to-peer'
-import { SignalingChannel, Stream } from '@quertc/core'
+import { SignalingChannel } from '@quertc/core'
+import { SharedModule } from '@quertc/shared'
 
 import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'
@@ -25,23 +25,18 @@ import { MatButtonModule } from '@angular/material/button'
 import { ReactiveFormsModule } from '@angular/forms'
 import { ServiceWorkerModule } from '@angular/service-worker'
 import {
-  CallAvatarComponent,
   CameraLensComponent,
   FooterComponent,
   GithubCornerComponent,
   NavbarComponent,
 } from './components'
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
-import { MediaStreamService } from './services'
-import { PerfectNegotiationComponent } from './containers'
 import { HomeComponent } from './home/home.component'
 import { env } from './../envs/env'
 @NgModule({
   declarations: [
-    NavbarComponent,
     AppComponent,
-    CallAvatarComponent,
-    PerfectNegotiationComponent,
+    NavbarComponent,
     CameraLensComponent,
     HomeComponent,
     FooterComponent,
@@ -49,6 +44,7 @@ import { env } from './../envs/env'
   ],
   imports: [
     LayoutModule,
+    SharedModule,
     BrowserModule,
     MatIconModule,
     MatListModule,
@@ -71,7 +67,6 @@ import { env } from './../envs/env'
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: env.prod }),
   ],
   providers: [
-    MediaStreamService,
     {
       provide: SIGNALING_CLIENT,
       useValue: env.signaling,
@@ -81,10 +76,10 @@ import { env } from './../envs/env'
       useFactory: SignalingFactory,
       deps: [SIGNALING_CLIENT],
     },
-    {
-      provide: Stream,
-      useFactory: StreamFactory,
-    },
+    // {
+    //   provide: Stream,
+    //   useFactory: StreamFactory,
+    // },
   ],
   bootstrap: [AppComponent],
 })

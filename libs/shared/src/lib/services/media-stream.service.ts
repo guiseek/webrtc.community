@@ -1,21 +1,22 @@
-export const defaultConstraints: MediaStreamConstraints = {
-  audio: { echoCancellation: true },
-  video: {
-    facingMode: 'user',
-    frameRate: 30,
-    width: {
-      max: 1280,
-      ideal: 800,
+import { Injectable } from '@angular/core'
+
+@Injectable({
+  providedIn: 'root',
+})
+export class MediaStreamService {
+  constraints: MediaStreamConstraints = {
+    audio: { echoCancellation: true },
+    video: {
+      facingMode: 'user',
+      frameRate: 30,
+      width: {
+        max: 1280,
+        ideal: 800,
+      },
     },
-  },
-}
+  }
 
-export class Stream {
   public currentStream: MediaStream
-
-  constructor(
-    public constraints: MediaStreamConstraints = defaultConstraints
-  ) {}
 
   getUserMedia(constraints?: MediaStreamConstraints) {
     return navigator.mediaDevices.getUserMedia(
@@ -24,7 +25,7 @@ export class Stream {
   }
 
   async getDevices(deviceKind?: MediaDeviceKind) {
-    const filter = ({ kind }) => kind === deviceKind
+    const filter = ({ kind }: MediaDeviceInfo) => kind === deviceKind
     const devices = await navigator.mediaDevices.enumerateDevices()
     return deviceKind ? devices.filter(filter) : devices
   }

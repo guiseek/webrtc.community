@@ -1,9 +1,7 @@
 <div class="client-container" [class.client-is-mobile]="mobileQuery.matches">
   <app-navbar [snav]="snav" [title]="title"></app-navbar>
 
-  <mat-sidenav-container
-    class="client-sidenav-container"
-  >
+  <mat-sidenav-container class="client-sidenav-container">
     <mat-sidenav
       #snav
       [mode]="'over'"

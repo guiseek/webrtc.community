@@ -22,7 +22,13 @@ div#video {
 }
 div#video > .mat-card {
   display: inline-block;
-  // margin: 0 5px 0 0;
+  p {
+    display: flex;
+    flex-direction: row;
+    div {
+      margin-right: 12px;
+    }
+  }
   vertical-align: top;
   width: calc(50% - 32px);
   > video {
@@ -33,6 +39,20 @@ div#video > .mat-card {
 @media screen and (max-width: 400px) {
   button {
     margin: 0 11px 10px 0;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  div#video {
+    flex-direction: column;
+    > .mat-card {
+      width: calc(100% - 26px);
+      flex: 1;
+      p {
+        font-size: 90%;
+        flex-direction: column;
+      }
+    }
   }
 }
 

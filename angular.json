@@ -163,6 +163,16 @@
             "jestConfig": "libs/core/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/core",
+            "tsConfig": "libs/core/tsconfig.lib.json",
+            "packageJson": "libs/core/package.json",
+            "main": "libs/core/src/index.ts",
+            "assets": ["libs/core/*.md"]
+          }
         }
       }
     },
@@ -281,6 +291,43 @@
       "root": "libs/ui/theme",
       "sourceRoot": "libs/ui/theme/src",
       "projectType": "library"
+    },
+    "sample-restart-ice": {
+      "projectType": "library",
+      "root": "libs/sample/restart-ice",
+      "sourceRoot": "libs/sample/restart-ice/src",
+      "prefix": "quertc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/sample/restart-ice/tsconfig.lib.json",
+            "project": "libs/sample/restart-ice/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/sample/restart-ice/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/sample/restart-ice/src/**/*.ts",
+              "libs/sample/restart-ice/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/sample/restart-ice"],
+          "options": {
+            "jestConfig": "libs/sample/restart-ice/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

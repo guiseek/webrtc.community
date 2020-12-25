@@ -1,10 +1,6 @@
 {
   "configVersion": 1,
-<<<<<<< HEAD
-  "timestamp": 1608888096884,
-=======
-  "timestamp": 1608892538265,
->>>>>>> feat: pwa
+  "timestamp": 1608903361764,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -15,27 +11,7 @@
         "ignoreVary": true
       },
       "urls": [
-<<<<<<< HEAD
-        "/favicon.ico",
-        "/index.html",
-        "/main.ac9691a87d3bc28484b9.js",
-        "/manifest.webmanifest",
-        "/polyfills.5b3b2be73296f15c0d6f.js",
-        "/runtime.0e49e2b53282f40c8925.js",
-        "/styles.998ff68e94072fa7a37b.css"
-      ],
-      "patterns": []
-    },
-    {
-      "name": "assets",
-      "installMode": "lazy",
-      "updateMode": "prefetch",
-      "cacheQueryOptions": {
-        "ignoreVary": true
-      },
-      "urls": [
-=======
->>>>>>> feat: pwa
+        "/4.cff463bc7329efa0fd9d.js",
         "/assets/banners/broadcast.svg",
         "/assets/banners/easy.svg",
         "/assets/banners/live.svg",
@@ -43,10 +19,6 @@
         "/assets/banners/multi-protocols.svg",
         "/assets/banners/peer-to-peer.svg",
         "/assets/banners/security.svg",
-<<<<<<< HEAD
-        "/assets/camera-lens.svg",
-=======
->>>>>>> feat: pwa
         "/assets/icons/apple-icon-180.png",
         "/assets/icons/apple-splash-1125-2436.jpg",
         "/assets/icons/apple-splash-1136-640.jpg",
@@ -76,11 +48,6 @@
         "/assets/icons/apple-splash-828-1792.jpg",
         "/assets/icons/manifest-icon-192.png",
         "/assets/icons/manifest-icon-512.png",
-<<<<<<< HEAD
-        "/assets/images/github.svg",
-        "/assets/images/logo.png",
-        "/assets/images/logo@2x.png",
-=======
         "/assets/icons/maskable_icon-128.png",
         "/assets/icons/maskable_icon-192.png",
         "/assets/icons/maskable_icon-256.png",
@@ -92,11 +59,11 @@
         "/assets/images/logo@2x.png",
         "/favicon.ico",
         "/index.html",
-        "/main.4d6e4788e165e2c89322.js",
+        "/main.f6c1f515372eb9c42fd0.js",
         "/manifest.webmanifest",
         "/polyfills.5b3b2be73296f15c0d6f.js",
-        "/runtime.0e49e2b53282f40c8925.js",
-        "/styles.e42a53dff8ab8b9b52bd.css"
+        "/runtime.aa5e66cfedbda2866071.js",
+        "/styles.00a1ead275a2e237981d.css"
       ],
       "patterns": []
     },
@@ -109,7 +76,6 @@
       },
       "urls": [
         "/assets/camera-lens.svg",
->>>>>>> feat: pwa
         "/assets/lens.svg",
         "/assets/message.svg",
         "/assets/question.svg",
@@ -120,6 +86,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
+    "/4.cff463bc7329efa0fd9d.js": "fb24866402cda0dcbd9684096b382847cd967cad",
     "/assets/banners/broadcast.svg": "b712061dfecc5b27abc41fde512eaf302d4ad66a",
     "/assets/banners/easy.svg": "3876e6b4b0b03fafc6c93ef050b5494a216bc7f8",
     "/assets/banners/live.svg": "661c360bbc8a60964e5e0cca45fd372b0b2facbe",
@@ -157,15 +124,12 @@
     "/assets/icons/apple-splash-828-1792.jpg": "9a55ad93df0179a1d3ddb08145ac8104cced6e0b",
     "/assets/icons/manifest-icon-192.png": "4a0c2e045fbe0b6faba4c7f67d96b9ff92a0f10e",
     "/assets/icons/manifest-icon-512.png": "dbb75f60b18073e9838b70058645b74422b8185b",
-<<<<<<< HEAD
-=======
     "/assets/icons/maskable_icon-128.png": "4983eb909bb7319a7b203312d1a29997640714f9",
     "/assets/icons/maskable_icon-192.png": "7f76053ba2e43f8e143c137440ae5f8daafe3792",
     "/assets/icons/maskable_icon-256.png": "79ef5c63884d56d48004061b4a975fe9db3a341f",
     "/assets/icons/maskable_icon-32.png": "78f6bba0cf1b439106b195041d64ded969516a17",
     "/assets/icons/maskable_icon-512.png": "3d45e37774702364bc99858e9cde58323ac63043",
     "/assets/icons/maskable_icon-64.png": "e8f13ea06e7485244c4a1172cccbf332e88b0f00",
->>>>>>> feat: pwa
     "/assets/images/github.svg": "005e0b5b72b816e87534ff99865275203a26eb05",
     "/assets/images/logo.png": "cda89daf7d19d782cc71c9e69d193792f100a51a",
     "/assets/images/logo@2x.png": "a4eba64f833f92eee1bcf7481d3164fe2a88f5b1",
@@ -174,21 +138,12 @@
     "/assets/question.svg": "3682e01398de611a1090fd69bed156309bcbf602",
     "/assets/wind.svg": "dbb2272dceefb73d573fd6078d6e6e3c3c5696f6",
     "/favicon.ico": "4e23d0f9b6ddaf3c9ddef90dbaed2342941297b5",
-<<<<<<< HEAD
-    "/index.html": "aa67fa15fe9d5a51e2d9eec34c8a5547f82a4125",
-    "/main.ac9691a87d3bc28484b9.js": "ddaf5593a58b42eed1cdc305ed71323ccbcea0ae",
-    "/manifest.webmanifest": "90eba73ab2e55ea0769caf74641d13cf69543fcd",
-    "/polyfills.5b3b2be73296f15c0d6f.js": "47b34617bd363fdbcbd6eccf172ed54458f33520",
-    "/runtime.0e49e2b53282f40c8925.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.998ff68e94072fa7a37b.css": "9ccaa9e55b711099d7796682c7104ace33a89d91"
-=======
-    "/index.html": "5efd2dde38e9aa19571dbb701daea0ced6325142",
-    "/main.4d6e4788e165e2c89322.js": "e9cf9c57e630a79d28494862dd49fb146246f88e",
+    "/index.html": "44f89890a0c953555b8d4f0813702063b8c3748d",
+    "/main.f6c1f515372eb9c42fd0.js": "5f34ca474357176e2472bf4897bc5ee1b2dd963b",
     "/manifest.webmanifest": "132818626601ff8ef4f14c0b8c4d4dbe976eff7b",
     "/polyfills.5b3b2be73296f15c0d6f.js": "47b34617bd363fdbcbd6eccf172ed54458f33520",
-    "/runtime.0e49e2b53282f40c8925.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.e42a53dff8ab8b9b52bd.css": "44688c59f3436e6025aea11b1a6a5a790784c3dd"
->>>>>>> feat: pwa
+    "/runtime.aa5e66cfedbda2866071.js": "6db86b278cbf8b241fea1c886ec0f646cd945144",
+    "/styles.00a1ead275a2e237981d.css": "9d879c46440e1b35afb88f53b055f14b6ceb0720"
   },
   "navigationUrls": [
     {

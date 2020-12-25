@@ -43,6 +43,9 @@
     },
     "ui-theme": {
       "tags": ["side:client", "type:feat", "scope:ui"]
+    },
+    "sample-restart-ice": {
+      "tags": ["side:client", "type:feat", "scope:sample"]
     }
   }
 }

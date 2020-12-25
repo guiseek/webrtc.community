@@ -25,7 +25,7 @@
     .docs-home-row {
       color: mat-color($foreground, secondary-text);
       h2 {
-        color: mat-color($primary, default-contrast);
+        color: mat-color($foreground, secondary-text);
       }
     }
 

@@ -73,7 +73,11 @@ MIT
 
 @quertc/controls
 
+@quertc/core
+
 @quertc/overlog
+
+@quertc/restart-ice
 
 after
 MIT

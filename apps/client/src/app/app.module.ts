@@ -32,11 +32,7 @@ import {
 } from './components'
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
 import { MediaStreamService } from './services'
-import {
-  PerfectNegotiationComponent,
-  RestartIceComponent,
-  PeerToPeerComponent,
-} from './containers'
+import { PerfectNegotiationComponent, PeerToPeerComponent } from './containers'
 import { HomeComponent } from './home/home.component'
 import { env } from './../envs/env'
 @NgModule({
@@ -45,7 +41,7 @@ import { env } from './../envs/env'
     AppComponent,
     CallAvatarComponent,
     PerfectNegotiationComponent,
-    RestartIceComponent,
+
     PeerToPeerComponent,
     CameraLensComponent,
     HomeComponent,

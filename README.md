@@ -8,7 +8,7 @@
 ## Exemplos reproduzidos até agora
 
 - [Negociação perfeita](./apps/client/src/app/containers/perfect-negotiation)
-- [Reiniciar candidatos](./apps/client/src/app/containers/restart-ice)
+- [Reiniciar candidatos](./libs/sample/restart-ice/src/lib)
 - [Ponto-a-ponto](./apps/client/src/app/containers/peer-to-peer)
 
 ---
@@ -38,7 +38,7 @@ Faça o build com `npm run build`
 
 O resultado estará nos diretórios dentro de `dist`
 
-Teste com `npm run dev`
+Teste com `npm test`
 
 ---
 

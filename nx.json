@@ -46,6 +46,9 @@
     },
     "sample-restart-ice": {
       "tags": ["side:client", "type:feat", "scope:sample"]
+    },
+    "sample-peer-to-peer": {
+      "tags": ["side:client", "type:feat", "scope:sample"]
     }
   }
 }

@@ -1,3 +1,5 @@
+# sample-peer-to-peer
+
 ## Simples Exemplo Ponto-a-ponto
 
 - [Em português](#pt-br)
@@ -87,3 +89,11 @@ When two peers decide they are going to set up a connection to each other, they 
 >   }
 > }
 > ```
+
+---
+
+This library was generated with [Nx](https://nx.dev).
+
+## Running unit tests
+
+Run `nx test sample-peer-to-peer` to execute the unit tests.

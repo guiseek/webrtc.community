@@ -16,4 +16,15 @@ app-footer {
       margin: 0px 12px;
     }
   }
+  /**
+  * Rules for when the device is detected to be a small screen.
+  */
+  @media (max-width: 720px) {
+    .mat-toolbar {
+      flex-direction: column;
+      span {
+        display: none;
+      }
+    }
+  }
 }

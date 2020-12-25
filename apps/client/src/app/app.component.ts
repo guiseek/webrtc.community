@@ -9,7 +9,7 @@ import { MediaMatcher } from '@angular/cdk/layout'
 import { NavigationStart, Router } from '@angular/router'
 import { MatSidenav } from '@angular/material/sidenav'
 import { filter } from 'rxjs/operators'
-import { noop, Subscription } from 'rxjs'
+import { Subscription } from 'rxjs'
 import { MediaStreamService } from './services'
 
 @Component({

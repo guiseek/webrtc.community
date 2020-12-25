@@ -273,6 +273,11 @@
           }
         }
       }
+    },
+    "ui-theme": {
+      "root": "libs/ui/theme",
+      "sourceRoot": "libs/ui/theme/src",
+      "projectType": "library"
     }
   },
   "cli": {

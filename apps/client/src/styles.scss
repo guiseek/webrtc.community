@@ -2,8 +2,8 @@
 @import './app/home/home-theme';
 @import './app/components/github-corner/github-corner-theme';
 
-$client-primary: mat-palette($mat-amber);
-$client-accent: mat-palette($mat-blue, A200, A100, A400);
+$client-primary: mat-palette($mat-blue, 800);
+$client-accent: mat-palette($mat-blue);
 
 // The warn palette is optional (defaults to red).
 $client-warn: mat-palette($mat-red);

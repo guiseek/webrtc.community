@@ -5,31 +5,37 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core'
-import { Logger, PeerState, PeerStats } from '@quertc/core'
+import { Logger, PeerState, PeerStats, WithTarget } from '@quertc/core'
 import { OverlogService } from '@quertc/overlog'
-import { BehaviorSubject } from 'rxjs'
+import { BehaviorSubject, fromEvent, Subject } from 'rxjs'
+import { takeUntil } from 'rxjs/operators'
 
-type WithTarget<T = any> = Event & {
-  target: T
+const fromLoadedEvent = (element: HTMLVideoElement) => {
+  return fromEvent<WithTarget<HTMLVideoElement>>(element, 'loadedmetadata')
 }
 
 const console = Logger
+
 @Component({
-  selector: 'app-restart-ice',
+  selector: 'quertc-restart-ice',
   templateUrl: './restart-ice.component.html',
   styleUrls: ['./restart-ice.component.scss'],
 })
 export class RestartIceComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('localVideo') localVideoRef: ElementRef<HTMLVideoElement>
+  subject$ = new Subject<void>()
+
+  @ViewChild('localVideo')
+  localVideoRef: ElementRef<HTMLVideoElement>
   localVideo: HTMLVideoElement
 
   localCandidate: PeerStats
   remoteCandidate: PeerStats
 
-  @ViewChild('remoteVideo') remoteVideoRef: ElementRef<HTMLVideoElement>
+  @ViewChild('remoteVideo')
+  remoteVideoRef: ElementRef<HTMLVideoElement>
   remoteVideo: HTMLVideoElement
 
-  startTime: number
+  startTime: number | null
 
   localStream: MediaStream
   pc1: RTCPeerConnection
@@ -48,27 +54,26 @@ export class RestartIceComponent implements AfterViewInit, OnDestroy {
   private _hangupButton = new BehaviorSubject<boolean>(true)
   public hangupButton$ = this._hangupButton.asObservable()
 
-  constructor(private overlog: OverlogService) {}
+  constructor(private overlog: OverlogService) {
+    this.createPeers()
+  }
 
   ngAfterViewInit(): void {
     this.localVideo = this.localVideoRef.nativeElement
     this.remoteVideo = this.remoteVideoRef.nativeElement
 
-    this.localVideo.addEventListener(
-      'loadedmetadata',
-      ({ target }: WithTarget<HTMLVideoElement>) => {
-        Logger.log(`Local video: ${target.videoWidth}x${target.videoHeight}px`)
-      }
-    )
-
-    this.remoteVideo.addEventListener(
-      'loadedmetadata',
-      ({ target }: WithTarget<HTMLVideoElement>) => {
+    fromLoadedEvent(this.localVideo)
+      .pipe(takeUntil(this.subject$))
+      .subscribe(({ target }) => {
+        console.log(`Local video: ${target.videoWidth}x${target.videoHeight}px`)
+      })
+    fromLoadedEvent(this.remoteVideo)
+      .pipe(takeUntil(this.subject$))
+      .subscribe(({ target }) => {
         console.log(
           `Remote video: ${target.videoWidth}x${target.videoHeight}px`
         )
-      }
-    )
+      })
 
     this.remoteVideo.onresize = () => {
       console.log(
@@ -103,6 +108,16 @@ export class RestartIceComponent implements AfterViewInit, OnDestroy {
     this._callButton.next(false)
   }
 
+  createPeers() {
+    const servers: RTCConfiguration = {
+      iceServers: [],
+    }
+    this.pc1 = this.pc1 = new RTCPeerConnection(servers)
+    console.log('Created local peer connection object this.pc1')
+    this.pc1.onicecandidate = (e) => this.onIceCandidate(this.pc1, e)
+    this.pc2 = this.pc2 = new RTCPeerConnection(servers)
+    console.log('Created remote peer connection object this.pc2')
+  }
   start = () => {
     console.log('Requesting local stream')
     this._startButton.next(true)
@@ -129,6 +144,7 @@ export class RestartIceComponent implements AfterViewInit, OnDestroy {
     this._callButton.next(true)
     this._hangupButton.next(false)
     console.log('Starting call')
+
     this.startTime = window.performance.now()
     const videoTracks = this.localStream.getVideoTracks()
     const audioTracks = this.localStream.getAudioTracks()
@@ -138,12 +154,9 @@ export class RestartIceComponent implements AfterViewInit, OnDestroy {
     if (audioTracks.length > 0) {
       console.log(`Using audio device: ${audioTracks[0].label}`)
     }
-    const servers = null
-    this.pc1 = this.pc1 = new RTCPeerConnection(servers)
-    console.log('Created local peer connection object this.pc1')
-    this.pc1.onicecandidate = (e) => this.onIceCandidate(this.pc1, e)
-    this.pc2 = this.pc2 = new RTCPeerConnection(servers)
-    console.log('Created remote peer connection object this.pc2')
+
+    this.createPeers()
+
     this.pc2.onicecandidate = (e) => this.onIceCandidate(this.pc2, e)
     this.pc1.oniceconnectionstatechange = (e) => {
       this.onIceStateChange(this.pc1, e)
@@ -170,7 +183,7 @@ export class RestartIceComponent implements AfterViewInit, OnDestroy {
     console.log(`Failed to create session description: ${error.toString()}`)
   }
 
-  onCreateOfferSuccess = (desc: RTCSessionDescription) => {
+  onCreateOfferSuccess = (desc: RTCSessionDescriptionInit) => {
     console.log(`Offer from pc1\n${desc.sdp}`)
     console.log('pc1 setLocalDescription start')
     this.pc1
@@ -234,7 +247,7 @@ export class RestartIceComponent implements AfterViewInit, OnDestroy {
 
   onIceCandidate = (
     pc: RTCPeerConnection,
-    event: { candidate: RTCIceCandidateInit | RTCIceCandidate }
+    event: RTCPeerConnectionIceEvent
   ) => {
     if (event.candidate) {
       this.getOtherPc(pc)
@@ -281,13 +294,15 @@ export class RestartIceComponent implements AfterViewInit, OnDestroy {
   checkStats = (pc: RTCPeerConnection) => {
     pc.getStats(null).then((results) => {
       // descobrir o ip do par
-      let activeCandidatePair = null
-      let remoteCandidate = null
+      let activeCandidatePair: any = null
+      let remoteCandidate: any = {}
 
       // Procure o par candidato, primeiro o caminho da especificação.
       results.forEach((report: RTCTransportStats) => {
         if (report.type === 'transport') {
-          activeCandidatePair = results.get(report.selectedCandidatePairId)
+          activeCandidatePair = results.get(
+            report.selectedCandidatePairId as string
+          )
         }
       })
       // Fallback para Firefox.
@@ -326,8 +341,8 @@ export class RestartIceComponent implements AfterViewInit, OnDestroy {
     this.overlog.show({ text: 'Ending call' })
     this.pc1.close()
     this.pc2.close()
-    this.pc1 = null
-    this.pc2 = null
+    Object.defineProperties(this.pc1, {})
+    Object.defineProperties(this.pc2, {})
     this._hangupButton.next(true)
     this._restartButton.next(true)
     this._callButton.next(false)

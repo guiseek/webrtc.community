@@ -1,1 +1,1 @@
-export * from './peer-to-peer.component';
+export * from './peer-to-peer.component'

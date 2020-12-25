@@ -1,7 +1,7 @@
-import { PeerStats } from './peer-stats';
+import { PeerStats } from './peer-stats'
 
 describe('PeerStats', () => {
   it('should create an instance', () => {
-    expect(new PeerStats()).toBeTruthy();
-  });
-});
+    expect(new PeerStats()).toBeTruthy()
+  })
+})

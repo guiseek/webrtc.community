@@ -1,1 +1,1 @@
-export * from './camera-lens.component';
+export * from './camera-lens.component'

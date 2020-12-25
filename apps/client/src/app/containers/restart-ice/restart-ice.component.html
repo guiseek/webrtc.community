@@ -7,10 +7,10 @@
     <label mat-card-title for="localCandidate">Local candidate</label>
     <p mat-card-subtitle id="localCandidate">
       <ng-container *ngIf="localCandidate; else localOff">
-        ID: <span class="glare">{{ localCandidate.id }}</span> -
-        IP: <span class="glare">{{ localCandidate.ip }}</span> -
-        Port: <span class="glare">{{ localCandidate.port }}</span> -
-        Protocol: <span class="glare">{{ localCandidate.protocol }}</span>
+        ID: <span class="glare">{{ localCandidate.id }}</span> - IP:
+        <span class="glare">{{ localCandidate.ip }}</span> - Port:
+        <span class="glare">{{ localCandidate.port }}</span> - Protocol:
+        <span class="glare">{{ localCandidate.protocol }}</span>
       </ng-container>
       <ng-template #localOff>
         <span class="mat-hint">Not connected</span>
@@ -26,15 +26,13 @@
     ></video>
   </mat-card>
   <mat-card>
-    <label mat-card-title for="localCandidate"
-      >Remote candidate
-    </label>
+    <label mat-card-title for="localCandidate">Remote candidate </label>
     <p mat-card-subtitle id="remoteCandidate">
       <ng-container *ngIf="remoteCandidate; else remoteOff">
-        ID: <span class="glare">{{ remoteCandidate.id }}</span> -
-        IP: <span class="glare">{{ remoteCandidate.ip }}</span> -
-        Port: <span class="glare">{{ remoteCandidate.port }}</span> -
-        Protocol: <span class="glare">{{ remoteCandidate.protocol }}</span>
+        ID: <span class="glare">{{ remoteCandidate.id }}</span> - IP:
+        <span class="glare">{{ remoteCandidate.ip }}</span> - Port:
+        <span class="glare">{{ remoteCandidate.port }}</span> - Protocol:
+        <span class="glare">{{ remoteCandidate.protocol }}</span>
       </ng-container>
       <ng-template #remoteOff>
         <span class="mat-hint">Not connected</span>

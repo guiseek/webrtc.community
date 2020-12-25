@@ -1,6 +1,7 @@
 # QueRTC?
 
 ### Repositório criado para estudos sobre WebRTC
+
 - Traduções de partes relevantes da especificação [w3c webrtc](https://www.w3.org/TR/webrtc/)
 - Reproduções da especificação ou exemplos do [repositório oficial](https://github.com/webrtc/samples)
 
@@ -10,13 +11,12 @@
 - [Reiniciar candidatos](./apps/client/src/app/containers/restart-ice)
 - [Ponto-a-ponto](./apps/client/src/app/containers/peer-to-peer)
 
-
 ---
 
-| | | |
-| --- | --- | --- |
+|                        |                                                      |                                               |
+| ---------------------- | ---------------------------------------------------- | --------------------------------------------- |
 | ![Home](pics/home.png) | ![Negociação perfeita](pics/perfect-negotiation.png) | ![Reiniciar candidatos](pics/restart-ice.png) |
-| *Home* | *Negociação perfeita* | *Reiniciar candidatos* |
+| _Home_                 | _Negociação perfeita_                                | _Reiniciar candidatos_                        |
 
 ---
 

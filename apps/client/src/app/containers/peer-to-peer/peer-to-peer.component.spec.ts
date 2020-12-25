@@ -1,14 +1,14 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
+import { Spectator, createComponentFactory } from '@ngneat/spectator/jest'
 
-import { PeerToPeerComponent } from './peer-to-peer.component';
+import { PeerToPeerComponent } from './peer-to-peer.component'
 
 describe('PeerToPeerComponent', () => {
-  let spectator: Spectator<PeerToPeerComponent>;
-  const createComponent = createComponentFactory(PeerToPeerComponent);
+  let spectator: Spectator<PeerToPeerComponent>
+  const createComponent = createComponentFactory(PeerToPeerComponent)
 
   it('should create', () => {
-    spectator = createComponent();
+    spectator = createComponent()
 
-    expect(spectator.component).toBeTruthy();
-  });
-});
+    expect(spectator.component).toBeTruthy()
+  })
+})

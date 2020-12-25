@@ -77,6 +77,8 @@ MIT
 
 @quertc/overlog
 
+@quertc/peer-to-peer
+
 @quertc/restart-ice
 
 after

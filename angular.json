@@ -328,6 +328,43 @@
           }
         }
       }
+    },
+    "sample-peer-to-peer": {
+      "projectType": "library",
+      "root": "libs/sample/peer-to-peer",
+      "sourceRoot": "libs/sample/peer-to-peer/src",
+      "prefix": "quertc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/sample/peer-to-peer/tsconfig.lib.json",
+            "project": "libs/sample/peer-to-peer/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/sample/peer-to-peer/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/sample/peer-to-peer/src/**/*.ts",
+              "libs/sample/peer-to-peer/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/sample/peer-to-peer"],
+          "options": {
+            "jestConfig": "libs/sample/peer-to-peer/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

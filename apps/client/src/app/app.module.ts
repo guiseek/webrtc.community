@@ -4,10 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 
-import { SignalingChannel } from '@quertc/core'
 import { OverlogModule } from '@quertc/overlog'
 import { ControlsModule } from '@quertc/controls'
 import { CarouselModule } from '@quertc/carousel'
+import { StreamFactory } from '@quertc/peer-to-peer'
+import { SignalingChannel, Stream } from '@quertc/core'
 
 import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'
@@ -32,7 +33,7 @@ import {
 } from './components'
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
 import { MediaStreamService } from './services'
-import { PerfectNegotiationComponent, PeerToPeerComponent } from './containers'
+import { PerfectNegotiationComponent } from './containers'
 import { HomeComponent } from './home/home.component'
 import { env } from './../envs/env'
 @NgModule({
@@ -41,8 +42,6 @@ import { env } from './../envs/env'
     AppComponent,
     CallAvatarComponent,
     PerfectNegotiationComponent,
-
-    PeerToPeerComponent,
     CameraLensComponent,
     HomeComponent,
     FooterComponent,
@@ -81,6 +80,10 @@ import { env } from './../envs/env'
       provide: SignalingChannel,
       useFactory: SignalingFactory,
       deps: [SIGNALING_CLIENT],
+    },
+    {
+      provide: Stream,
+      useFactory: StreamFactory,
     },
   ],
   bootstrap: [AppComponent],

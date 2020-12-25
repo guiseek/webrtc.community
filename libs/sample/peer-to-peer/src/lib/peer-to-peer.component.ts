@@ -6,11 +6,10 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core'
-import { SignalingChannel } from '@quertc/core'
-import { MediaStreamService } from '../../services'
+import { SignalingChannel, Stream } from '@quertc/core'
 
 @Component({
-  selector: 'app-peer-to-peer',
+  selector: 'quertc-peer-to-peer',
   templateUrl: './peer-to-peer.component.html',
   styleUrls: ['./peer-to-peer.component.scss'],
 })
@@ -32,10 +31,7 @@ export class PeerToPeerComponent implements OnInit, AfterViewInit {
     offerToReceiveVideo: true,
   }
 
-  constructor(
-    private signaling: SignalingChannel,
-    private media: MediaStreamService
-  ) {}
+  constructor(private signaling: SignalingChannel, private media: Stream) {}
 
   ngOnInit(): void {}
 
@@ -48,9 +44,11 @@ export class PeerToPeerComponent implements OnInit, AfterViewInit {
     })
 
     // send any ice candidates to the other peer
-    this.pc.addEventListener('icecandidate', ({ candidate }) =>
-      this.signaling.send({ candidate })
-    )
+    this.pc.addEventListener('icecandidate', ({ candidate }) => {
+      if (candidate) {
+        this.signaling.send({ candidate })
+      }
+    })
 
     // let the "negotiationneeded" event trigger offer generation
     this.pc.onnegotiationneeded = async () => {
@@ -59,7 +57,9 @@ export class PeerToPeerComponent implements OnInit, AfterViewInit {
           await this.pc.createOffer(this.offerOptions)
         )
         // send the offer to the other peer
-        this.signaling.send({ description: this.pc.localDescription })
+        if (this.pc.localDescription) {
+          this.signaling.send({ description: this.pc.localDescription })
+        }
       } catch (err) {
         console.error(err)
       }
@@ -87,7 +87,9 @@ export class PeerToPeerComponent implements OnInit, AfterViewInit {
                 await this.addCameraMic()
               }
               await this.pc.setLocalDescription(await this.pc.createAnswer())
-              this.signaling.send({ description: this.pc.localDescription })
+              if (this.pc.localDescription) {
+                this.signaling.send({ description: this.pc.localDescription })
+              }
             }
           } else if (candidate) {
             await this.pc.addIceCandidate(candidate)

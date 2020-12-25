@@ -25,6 +25,12 @@
         i.d(e, 'PeerState', function () {
           return r.c
         }),
+        i.d(e, 'defaultConstraints', function () {
+          return r.h
+        }),
+        i.d(e, 'Stream', function () {
+          return r.g
+        }),
         i.d(e, 'RTCPeerMock', function () {
           return r.e
         })

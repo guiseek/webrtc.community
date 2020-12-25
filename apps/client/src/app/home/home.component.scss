@@ -1,7 +1,12 @@
 // The margin between two sections
 $margin-promotion-sections: 50px;
 $margin-promotion-sections-small: 15px;
-
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 .docs-header-background {
   overflow: hidden;
   position: relative;
@@ -48,6 +53,7 @@ $margin-promotion-sections-small: 15px;
 }
 
 .docs-home-promo {
+  flex: 1;
   align-items: center;
   display: flex;
   flex-direction: column;

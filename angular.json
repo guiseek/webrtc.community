@@ -19,7 +19,8 @@
             "assets": [
               "apps/client/src/favicon.ico",
               "apps/client/src/CNAME",
-              "apps/client/src/assets"
+              "apps/client/src/assets",
+              "apps/client/src/manifest.webmanifest"
             ],
             "styles": ["apps/client/src/styles.scss"],
             "allowedCommonJsDependencies": ["socket.io-client"],
@@ -51,7 +52,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/client/ngsw-config.json"
             }
           }
         },
@@ -273,6 +276,11 @@
           }
         }
       }
+    },
+    "ui-theme": {
+      "root": "libs/ui/theme",
+      "sourceRoot": "libs/ui/theme/src",
+      "projectType": "library"
     }
   },
   "cli": {

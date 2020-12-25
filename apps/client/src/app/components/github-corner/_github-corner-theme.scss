@@ -8,11 +8,24 @@
   app-github-corner,
   [app-github-corner] {
     svg {
-      fill: mat-color($background);
-      color: mat-color($foreground, text);
+      // color: mat-color($foreground, text);
+      fill: mat-color($background, hover);
       transition: fill 250ms ease-in-out;
+      path:first-child {
+        fill: mat-color($primary);
+        transition: fill 250ms ease-in-out;
+      }
+      path:not(:first-child) {
+        // fill: mat-color($background, 900-contrast);
+        // fill: mat-color($foreground);
+        fill: white;
+        transition: fill 250ms ease-in-out;
+      }
       &:hover {
-        fill: mat-color($background, hover);
+        path:not(:first-child) {
+          // fill: mat-color($foreground, hover);
+          fill: white;
+        }
       }
     }
   }

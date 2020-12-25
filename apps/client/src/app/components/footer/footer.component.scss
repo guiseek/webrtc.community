@@ -4,10 +4,14 @@ app-footer {
   align-items: center;
   .mat-toolbar {
     font-size: 90%;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    a {
+      display: inline-flex;
+    }
     svg {
       display: inline-flex;
-      width: 28px;
+      width: 24px;
       height: auto;
       margin: 0px 12px;
       fill: #fff;

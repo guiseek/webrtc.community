@@ -1,6 +1,4 @@
-<ng-container *ngIf="!(active$ | async) as calling">
-  <app-call-avatar [animation]="calling"></app-call-avatar>
-</ng-container>
+<app-call-avatar [animation]="(active$ | async) === null"></app-call-avatar>
 <div id="remote">
   <video #remoteView autoplay></video>
 </div>

@@ -21,7 +21,15 @@ import { MatDividerModule } from '@angular/material/divider'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatButtonModule } from '@angular/material/button'
-import { CallAvatarComponent, CameraLensComponent } from './components'
+import { ReactiveFormsModule } from '@angular/forms'
+import { ServiceWorkerModule } from '@angular/service-worker'
+import {
+  CallAvatarComponent,
+  CameraLensComponent,
+  FooterComponent,
+  GithubCornerComponent,
+  NavbarComponent,
+} from './components'
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
 import { MediaStreamService } from './services'
 import {
@@ -31,12 +39,9 @@ import {
 } from './containers'
 import { HomeComponent } from './home/home.component'
 import { env } from './../envs/env'
-import { ReactiveFormsModule } from '@angular/forms';
-import { FooterComponent } from './components/footer/footer.component';
-import { GithubCornerComponent } from './components/github-corner/github-corner.component'
-
 @NgModule({
   declarations: [
+    NavbarComponent,
     AppComponent,
     CallAvatarComponent,
     PerfectNegotiationComponent,
@@ -68,6 +73,7 @@ import { GithubCornerComponent } from './components/github-corner/github-corner.
       useHash: true,
     }),
     BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: env.prod }),
   ],
   providers: [
     MediaStreamService,

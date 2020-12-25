@@ -40,6 +40,9 @@
     },
     "ui-carousel": {
       "tags": ["side:client", "type:feat", "scope:ui"]
+    },
+    "ui-theme": {
+      "tags": ["side:client", "type:feat", "scope:ui"]
     }
   }
 }

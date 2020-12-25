@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core'
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core'
 import { Logger, PeerState, PeerStats } from '@quertc/core'
 import { OverlogService } from '@quertc/overlog'
 import { BehaviorSubject } from 'rxjs'

@@ -1,0 +1,23 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// Create a theme.
+@mixin mat-theme($theme-or-color-config) {
+  @include _mat-check-duplicate-theme-styles(
+    $theme-or-color-config,
+    'angular-material-theme'
+  ) {
+    @include mat-core-theme($theme-or-color-config);
+    @include mat-button-theme($theme-or-color-config);
+    @include mat-divider-theme($theme-or-color-config);
+    @include mat-form-field-theme($theme-or-color-config);
+    @include mat-icon-theme($theme-or-color-config);
+    @include mat-card-theme($theme-or-color-config);
+    @include mat-input-theme($theme-or-color-config);
+    @include mat-select-theme($theme-or-color-config);
+    @include mat-sidenav-theme($theme-or-color-config);
+    @include mat-toolbar-theme($theme-or-color-config);
+    @include mat-tooltip-theme($theme-or-color-config);
+  }
+}

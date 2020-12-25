@@ -1,5 +1,5 @@
 @import 'libs/ui/theme/src/ui-theme';
-@import './app/home/home.theme';
+@import './app/home/home-theme';
 @import './app/components/github-corner/github-corner-theme';
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -14,15 +14,15 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$client-primary: mat-palette($mat-deep-purple);
-$client-accent: mat-palette($mat-cyan, A200, A100, A400);
+$client-primary: mat-palette($mat-amber);
+$client-accent: mat-palette($mat-blue, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $client-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$client-theme: mat-dark-theme(
+$client-theme: mat-light-theme(
   (
     color: (
       primary: $client-primary,

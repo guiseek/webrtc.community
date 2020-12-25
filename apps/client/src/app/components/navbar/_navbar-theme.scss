@@ -1,0 +1,78 @@
+@mixin navbar-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  app-navbar {
+    .docs-navbar-background {
+      background: mat-color($primary);
+    }
+
+    .docs-navbar-headline {
+      color: mat-color($primary, default-contrast);
+    }
+
+    .docs-navbar-start {
+      color: mat-color($primary);
+
+      .docs-link {
+        color: mat-color($primary, default-contrast);
+      }
+    }
+
+    .docs-navbar-row {
+      color: mat-color($foreground, secondary-text);
+      h2 {
+        color: mat-color($primary, default-contrast);
+      }
+    }
+
+    .docs-navbar-carousel-row h2 {
+      color: mat-color($foreground, secondary-text);
+    }
+
+    a.docs-link,
+    a.docs-featured-components-carousel-item {
+      color: mat-color($foreground, secondary-text);
+    }
+
+    a.docs-link:hover {
+      color: mat-color($foreground, text);
+    }
+
+    .docs-navbar-guides-card-divider {
+      background: mat-color($accent);
+    }
+
+    [carousel-item]:hover {
+      .docs-navbar-guides-card {
+        background: mat-color($background, hover);
+      }
+    }
+
+    [carousel-item]:focus {
+      .docs-navbar-guides-card {
+        background: mat-color($background, focused-button);
+      }
+      outline: none;
+    }
+
+    .docs-featured-components-carousel-item:hover {
+      img {
+        transform: scale(1.2);
+      }
+
+      box-shadow: inset 0 0 0 1.5px mat-color($foreground, divider);
+    }
+
+    .docs-featured-components-carousel-item:focus {
+      img {
+        transform: scale(1.2);
+      }
+
+      box-shadow: inset 0 0 0 1.5px mat-color($foreground, disabled);
+    }
+  }
+}

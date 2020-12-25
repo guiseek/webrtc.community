@@ -66,6 +66,9 @@ MIT
 @angular/router
 MIT
 
+@angular/service-worker
+MIT
+
 @quertc/carousel
 
 @quertc/controls

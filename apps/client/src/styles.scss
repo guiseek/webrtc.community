@@ -3,7 +3,7 @@
 @import './app/components/github-corner/github-corner-theme';
 
 $client-primary: mat-palette($mat-blue, 800);
-$client-accent: mat-palette($mat-blue);
+$client-accent: mat-palette($mat-grey);
 
 // The warn palette is optional (defaults to red).
 $client-warn: mat-palette($mat-red);

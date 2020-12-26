@@ -403,21 +403,21 @@
         }
       }
     },
-    "shared": {
+    "ui-meeting": {
       "projectType": "library",
-      "root": "libs/shared",
-      "sourceRoot": "libs/shared/src",
+      "root": "libs/ui/meeting",
+      "sourceRoot": "libs/ui/meeting/src",
       "prefix": "quertc",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
           "options": {
-            "tsConfig": "libs/shared/tsconfig.lib.json",
-            "project": "libs/shared/ng-package.json"
+            "tsConfig": "libs/ui/meeting/tsconfig.lib.json",
+            "project": "libs/ui/meeting/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/shared/tsconfig.lib.prod.json"
+              "tsConfig": "libs/ui/meeting/tsconfig.lib.prod.json"
             }
           }
         },
@@ -425,16 +425,16 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/shared/src/**/*.ts",
-              "libs/shared/src/**/*.html"
+              "libs/ui/meeting/src/**/*.ts",
+              "libs/ui/meeting/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared"],
+          "outputs": ["coverage/libs/ui/meeting"],
           "options": {
-            "jestConfig": "libs/shared/jest.config.js",
+            "jestConfig": "libs/ui/meeting/jest.config.js",
             "passWithNoTests": true
           }
         }

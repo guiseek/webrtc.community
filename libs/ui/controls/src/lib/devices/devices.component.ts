@@ -1,4 +1,4 @@
-import { MediaStreamService } from '@quertc/shared'
+import { MediaService } from '@quertc/meeting'
 import {
   Component,
   EventEmitter,
@@ -68,7 +68,7 @@ export class DevicesComponent extends ControlAccessor implements OnInit {
 
   constructor(
     @Optional() @Self() public ngControl: NgControl,
-    private mediaStream: MediaStreamService
+    private mediaStream: MediaService
   ) {
     super()
     if (this.ngControl) {

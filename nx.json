@@ -53,8 +53,8 @@
     "sample-perfect-negotiation": {
       "tags": ["side:client", "type:feat", "scope:sample"]
     },
-    "shared": {
-      "tags": ["side:client", "type:feat", "scope:shared"]
+    "ui-meeting": {
+      "tags": ["side:client", "type:feat", "scope:ui"]
     }
   }
 }

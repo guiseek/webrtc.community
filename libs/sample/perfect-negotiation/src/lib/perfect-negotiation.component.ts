@@ -4,11 +4,15 @@ import { Subject, Subscription } from 'rxjs'
 import {
   AfterViewInit,
   Component,
+  ComponentFactory,
+  ComponentFactoryResolver,
   ElementRef,
+  Injector,
   OnDestroy,
   ViewChild,
+  ViewContainerRef,
 } from '@angular/core'
-import { MediaStreamService } from '@quertc/shared'
+import { CallingComponent, MediaService } from '@quertc/meeting'
 
 @Component({
   selector: 'quertc-perfect-negotiation',
@@ -17,7 +21,7 @@ import { MediaStreamService } from '@quertc/shared'
 })
 export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
   title = 'client-app'
-
+  @ViewChild(CallingComponent) calling: CallingComponent
   pc: RTCPeerConnection
   // localStream: MediaStream
   active = new Subject<boolean>()
@@ -44,9 +48,11 @@ export class PerfectNegotiationComponent implements AfterViewInit, OnDestroy {
     offerToReceiveVideo: true,
   }
 
+  factory: ComponentFactory<CallingComponent>
+
   constructor(
     private signaling: SignalingChannel,
-    public stream: MediaStreamService
+    public stream: MediaService
   ) {}
 
   start = async () => {

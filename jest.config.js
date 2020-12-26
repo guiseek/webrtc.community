@@ -10,5 +10,6 @@ module.exports = {
     '<rootDir>/libs/sample/peer-to-peer',
     '<rootDir>/libs/sample/perfect-negotiation',
     '<rootDir>/libs/shared',
+    '<rootDir>/libs/ui/meeting',
   ],
 }

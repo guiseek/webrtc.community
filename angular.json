@@ -439,6 +439,11 @@
           }
         }
       }
+    },
+    "data-local": {
+      "root": "libs/data/local",
+      "sourceRoot": "libs/data/local/src",
+      "projectType": "library"
     }
   },
   "cli": {

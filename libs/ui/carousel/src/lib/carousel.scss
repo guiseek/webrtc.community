@@ -25,12 +25,13 @@ quertc-carousel {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  box-shadow: none;
 }
 
 .docs-carousel-nav-prev {
-  left: -40px;
+  left: -30px;
 }
 
 .docs-carousel-nav-next {
-  right: -40px;
+  right: -30px;
 }

@@ -1,12 +1,20 @@
 :host {
   .mat-toolbar {
+    padding-left: 8px;
+    padding-right: 8px;
     a.mat-button-base {
-      margin-right: 12px;
+      margin-right: 8px;
     }
   }
 }
 @media (max-width: 720px) {
   .client-app-name {
-    font-size: 83%;
+    font-size: 70%;
+  }
+  .signup-link {
+    display: none;
+  }
+  app-logo {
+    display: none;
   }
 }

@@ -444,6 +444,43 @@
       "root": "libs/data/local",
       "sourceRoot": "libs/data/local/src",
       "projectType": "library"
+    },
+    "user-signup": {
+      "projectType": "library",
+      "root": "libs/user/signup",
+      "sourceRoot": "libs/user/signup/src",
+      "prefix": "user",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/user/signup/tsconfig.lib.json",
+            "project": "libs/user/signup/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/user/signup/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/user/signup/src/**/*.ts",
+              "libs/user/signup/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/user/signup"],
+          "options": {
+            "jestConfig": "libs/user/signup/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

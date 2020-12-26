@@ -11,5 +11,6 @@ module.exports = {
     '<rootDir>/libs/sample/perfect-negotiation',
     '<rootDir>/libs/shared',
     '<rootDir>/libs/ui/meeting',
+    '<rootDir>/libs/user/signup',
   ],
 }

@@ -6,6 +6,19 @@ $margin-promotion-sections-small: 15px;
   display: flex;
   flex-direction: column;
   flex: 1;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    content: ' ';
+    background-image: url('../../assets/logo.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.06;
+  }
 }
 .docs-header-background {
   overflow: hidden;

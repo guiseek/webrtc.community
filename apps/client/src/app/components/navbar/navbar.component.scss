@@ -1,6 +1,10 @@
-/**
-  * Rules for when the device is detected to be a small screen.
-  */
+:host {
+  .mat-toolbar {
+    a.mat-button-base {
+      margin-right: 12px;
+    }
+  }
+}
 @media (max-width: 720px) {
   .client-app-name {
     font-size: 83%;

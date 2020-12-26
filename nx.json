@@ -61,6 +61,9 @@
     },
     "user-signup": {
       "tags": ["side:client", "type:feat", "scope:user"]
+    },
+    "user-profile": {
+      "tags": []
     }
   }
 }

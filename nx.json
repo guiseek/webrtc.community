@@ -30,7 +30,7 @@
       "tags": ["side:server", "type:app", "scope:server"]
     },
     "core": {
-      "tags": ["side:full", "type:feature"]
+      "tags": ["side:full", "type:feat", "scope:core"]
     },
     "ui-overlog": {
       "tags": ["side:client", "type:feat", "scope:ui"]
@@ -55,6 +55,9 @@
     },
     "ui-meeting": {
       "tags": ["side:client", "type:feat", "scope:ui"]
+    },
+    "data-local": {
+      "tags": ["side:full", "type:util", "scope:data"]
     }
   }
 }

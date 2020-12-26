@@ -29,6 +29,11 @@ export const appRoutes: Routes = [
     loadChildren: () =>
       import('@quertc/user/signup').then((module) => module.UserSignupModule),
   },
+  {
+    path: 'user-profile',
+    loadChildren: () =>
+      import('@quertc/user/profile').then((module) => module.UserProfileModule),
+  },
 ]
 
 @NgModule({

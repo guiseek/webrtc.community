@@ -1,0 +1,20 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    max-width: 250px;
+  }
+  .mat-card {
+    display: flex;
+    flex-direction: column;
+
+    &-actions {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

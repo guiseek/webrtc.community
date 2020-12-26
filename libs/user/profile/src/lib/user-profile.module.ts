@@ -13,9 +13,11 @@ import { UserProfileComponent } from './user-profile.component'
 import { LoginComponent } from './login/login.component'
 import { InfoComponent } from './info/info.component'
 import { RoomsComponent } from './rooms/rooms.component'
+import { A11yModule } from '@angular/cdk/a11y'
 
 @NgModule({
   imports: [
+    A11yModule,
     CommonModule,
     MatIconModule,
     MatCardModule,

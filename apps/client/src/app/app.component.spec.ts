@@ -11,6 +11,7 @@ import { RouterTestingModule } from '@angular/router/testing'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { RTCPeerMock, SignalingChannel } from '@quertc/core'
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
+import { NavbarComponent } from './components'
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -26,7 +27,7 @@ describe('AppComponent', () => {
         MatSidenavModule,
         BrowserAnimationsModule,
       ],
-      declarations: [AppComponent],
+      declarations: [AppComponent, NavbarComponent],
       providers: [
         {
           provide: SIGNALING_CLIENT,

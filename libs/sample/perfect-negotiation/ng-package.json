@@ -5,7 +5,7 @@
     "entryFile": "src/index.ts",
     "umdModuleIds": {
       "@quertc/core": "core",
-      "@quertc/shared": "shared",
+      "@quertc/meeting": "meeting",
       "@quertc/controls": "controls"
     }
   }

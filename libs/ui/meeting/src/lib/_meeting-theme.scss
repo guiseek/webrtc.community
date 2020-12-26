@@ -1,0 +1,15 @@
+@mixin meeting-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  #remote {
+    background: mat-color($accent, 900);
+  }
+  quertc-calling {
+    background: rgba(mat-color($accent), 0.06);
+    border: solid 5px rgba(mat-color($accent), 0.12);
+  }
+}

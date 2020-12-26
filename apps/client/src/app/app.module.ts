@@ -8,7 +8,7 @@ import { OverlogModule } from '@quertc/overlog'
 import { ControlsModule } from '@quertc/controls'
 import { CarouselModule } from '@quertc/carousel'
 import { SignalingChannel } from '@quertc/core'
-import { SharedModule } from '@quertc/shared'
+import { MeetingModule } from '@quertc/meeting'
 
 import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'
@@ -44,7 +44,6 @@ import { env } from './../envs/env'
   ],
   imports: [
     LayoutModule,
-    SharedModule,
     BrowserModule,
     MatIconModule,
     MatListModule,
@@ -57,6 +56,7 @@ import { env } from './../envs/env'
     MatTooltipModule,
     ControlsModule,
     CarouselModule,
+    MeetingModule,
     ReactiveFormsModule,
     OverlogModule.forRoot(),
     RouterModule.forRoot(DOCS_ROUTES, {
@@ -76,10 +76,6 @@ import { env } from './../envs/env'
       useFactory: SignalingFactory,
       deps: [SIGNALING_CLIENT],
     },
-    // {
-    //   provide: Stream,
-    //   useFactory: StreamFactory,
-    // },
   ],
   bootstrap: [AppComponent],
 })

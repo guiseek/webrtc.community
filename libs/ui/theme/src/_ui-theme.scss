@@ -1,5 +1,6 @@
 // @import '~@angular/material/theming';
 @import './mat-theme';
+@import '../../meeting/src/lib/meeting-theme';
 @import '../../carousel/src/lib/carousel-theme';
 
 @mixin quertc-docs-app-theme($theme) {
@@ -11,7 +12,7 @@
   $next-theme: mat-palette($mat-red);
 
   #remote {
-    background-color: mat-color($background, background);
+    background-color: mat-color($background, contrast-100);
   }
 
   .docs-app-background {
@@ -32,6 +33,7 @@
   }
 
   @include mat-theme($theme);
+  @include meeting-theme($theme);
   @include carousel-theme($theme);
 }
 

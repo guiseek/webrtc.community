@@ -5,7 +5,8 @@
     "entryFile": "src/index.ts",
     "umdModuleIds": {
       "@quertc/core": "core",
-      "@quertc/shared": "shared"
+      "@quertc/overlog": "overlog",
+      "@quertc/meeting": "meeting"
     }
   }
 }

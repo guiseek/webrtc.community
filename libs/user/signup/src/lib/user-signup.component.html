@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-error *ngIf="(error$ | async) as errors">
+    {{ errors }}
+  </mat-error>
+  <mat-card>
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input type="text" matInput formControlName="name" />
+      <mat-error>Obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" />
+      <mat-error>Endereço de email inválido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Senha</mat-label>
+      <input type="password" matInput formControlName="pass" />
+      <mat-error>Mínimo de 6 caracteres</mat-error>
+    </mat-form-field>
+
+    <mat-card-actions>
+      <button mat-button color="primary">Enviar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

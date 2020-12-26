@@ -1,7 +1,8 @@
 import { HomeComponent } from './home/home.component'
-import { Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router'
+import { NgModule } from '@angular/core'
 
-export const DOCS_ROUTES: Routes = [
+export const appRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
@@ -23,4 +24,20 @@ export const DOCS_ROUTES: Routes = [
         (m) => m.PerfectNegotiationModule
       ),
   },
+  {
+    path: 'user-signup',
+    loadChildren: () =>
+      import('@quertc/user/signup').then((module) => module.UserSignupModule),
+  },
 ]
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(appRoutes, {
+      initialNavigation: 'enabled',
+      useHash: true,
+    }),
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}

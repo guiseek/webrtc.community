@@ -494,7 +494,7 @@
                   d.gc('disabled', d.dc(34, 14, e.hangupButton$))
               }
             },
-            directives: [l.a, l.e, l.d, h.k, l.b, p.a, b.b],
+            directives: [l.a, l.f, l.e, h.l, l.c, p.a, b.b],
             pipes: [h.b],
             styles: [
               '[_nghost-%COMP%]{display:block;padding-bottom:64px;width:100%;--width:100%}video[_ngcontent-%COMP%]{width:var(--width);height:calc(var(--width) * .75);-o-object-fit:cover;object-fit:cover;margin:0}.glare[_ngcontent-%COMP%]{color:#000}div#video[_ngcontent-%COMP%]{display:flex;row-gap:8px;-moz-column-gap:8px;column-gap:8px;padding:8px}div#video[_ngcontent-%COMP%] > .mat-card[_ngcontent-%COMP%]{display:inline-block;vertical-align:top;width:calc(50% - 32px)}div#video[_ngcontent-%COMP%] > .mat-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]{display:flex;flex-direction:row}div#video[_ngcontent-%COMP%] > .mat-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]{margin-right:12px}div#video[_ngcontent-%COMP%] > .mat-card[_ngcontent-%COMP%] > video[_ngcontent-%COMP%]{width:100%}@media screen and (max-width:400px){button[_ngcontent-%COMP%]{margin:0 11px 10px 0}}@media screen and (max-width:720px){div#video[_ngcontent-%COMP%]{flex-direction:column}div#video[_ngcontent-%COMP%] > .mat-card[_ngcontent-%COMP%]{width:calc(100% - 26px);flex:1}div#video[_ngcontent-%COMP%] > .mat-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]{font-size:90%;flex-direction:column}}.toolbar-footer[_ngcontent-%COMP%]{position:fixed;bottom:0;justify-content:center}',
@@ -513,7 +513,7 @@
               return new (e || t)()
             },
             imports: [
-              [h.c, l.c, p.b, b.c, O.d.forChild([{ path: '', component: S }])],
+              [h.c, l.d, p.b, b.c, O.d.forChild([{ path: '', component: S }])],
             ],
           })),
           t

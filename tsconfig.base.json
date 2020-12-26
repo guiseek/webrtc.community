@@ -24,7 +24,8 @@
       "@quertc/perfect-negotiation": [
         "libs/sample/perfect-negotiation/src/index.ts"
       ],
-      "@quertc/meeting": ["libs/ui/meeting/src/index.ts"]
+      "@quertc/meeting": ["libs/ui/meeting/src/index.ts"],
+      "@quertc/user/signup": ["libs/user/signup/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

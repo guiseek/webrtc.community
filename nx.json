@@ -58,6 +58,9 @@
     },
     "data-local": {
       "tags": ["side:full", "type:util", "scope:data"]
+    },
+    "user-signup": {
+      "tags": ["side:client", "type:feat", "scope:user"]
     }
   }
 }

@@ -75,6 +75,8 @@ MIT
 
 @quertc/core
 
+@quertc/meeting
+
 @quertc/overlog
 
 @quertc/peer-to-peer
@@ -82,8 +84,6 @@ MIT
 @quertc/perfect-negotiation
 
 @quertc/restart-ice
-
-@quertc/shared
 
 after
 MIT

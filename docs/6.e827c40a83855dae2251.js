@@ -8,7 +8,7 @@
           return S
         }),
         i.d(e, 'RestartIceModule', function () {
-          return w
+          return x
         })
       var o = i('Huv7'),
         c = i('t7Mq'),
@@ -28,23 +28,23 @@
           (1 & t &&
             (d.Ob(0),
             d.Qb(1, 'div'),
-            d.xc(2, ' ID: '),
+            d.wc(2, ' ID: '),
             d.Qb(3, 'span', 20),
-            d.xc(4),
+            d.wc(4),
             d.Pb(),
             d.Pb(),
             d.Qb(5, 'div'),
-            d.xc(6, ' IP: '),
+            d.wc(6, ' IP: '),
             d.Qb(7, 'span', 20),
-            d.xc(8),
+            d.wc(8),
             d.Pb(),
-            d.xc(9, ' Port: '),
+            d.wc(9, ' Port: '),
             d.Qb(10, 'span', 20),
-            d.xc(11),
+            d.wc(11),
             d.Pb(),
-            d.xc(12, ' Protocol: '),
+            d.wc(12, ' Protocol: '),
             d.Qb(13, 'span', 20),
-            d.xc(14),
+            d.wc(14),
             d.Pb(),
             d.Pb(),
             d.Nb()),
@@ -52,40 +52,40 @@
         ) {
           const t = d.bc()
           d.zb(4),
-            d.yc(t.localCandidate.id),
+            d.xc(t.localCandidate.id),
             d.zb(4),
-            d.yc(t.localCandidate.ip),
+            d.xc(t.localCandidate.ip),
             d.zb(3),
-            d.yc(t.localCandidate.port),
+            d.xc(t.localCandidate.port),
             d.zb(3),
-            d.yc(t.localCandidate.protocol)
+            d.xc(t.localCandidate.protocol)
         }
       }
       function f(t, e) {
-        1 & t && (d.Qb(0, 'span', 21), d.xc(1, 'Not connected'), d.Pb())
+        1 & t && (d.Qb(0, 'span', 21), d.wc(1, 'Not connected'), d.Pb())
       }
       function C(t, e) {
         if (
           (1 & t &&
             (d.Ob(0),
             d.Qb(1, 'div'),
-            d.xc(2, ' ID: '),
+            d.wc(2, ' ID: '),
             d.Qb(3, 'span', 20),
-            d.xc(4),
+            d.wc(4),
             d.Pb(),
             d.Pb(),
             d.Qb(5, 'div'),
-            d.xc(6, ' IP: '),
+            d.wc(6, ' IP: '),
             d.Qb(7, 'span', 20),
-            d.xc(8),
+            d.wc(8),
             d.Pb(),
-            d.xc(9, ' Port: '),
+            d.wc(9, ' Port: '),
             d.Qb(10, 'span', 20),
-            d.xc(11),
+            d.wc(11),
             d.Pb(),
-            d.xc(12, ' Protocol: '),
+            d.wc(12, ' Protocol: '),
             d.Qb(13, 'span', 20),
-            d.xc(14),
+            d.wc(14),
             d.Pb(),
             d.Pb(),
             d.Nb()),
@@ -93,19 +93,19 @@
         ) {
           const t = d.bc()
           d.zb(4),
-            d.yc(t.remoteCandidate.id),
+            d.xc(t.remoteCandidate.id),
             d.zb(4),
-            d.yc(t.remoteCandidate.ip),
+            d.xc(t.remoteCandidate.ip),
             d.zb(3),
-            d.yc(t.remoteCandidate.port),
+            d.xc(t.remoteCandidate.port),
             d.zb(3),
-            d.yc(t.remoteCandidate.protocol)
+            d.xc(t.remoteCandidate.protocol)
         }
       }
       function v(t, e) {
-        1 & t && (d.Qb(0, 'span', 21), d.xc(1, 'Not connected'), d.Pb())
+        1 & t && (d.Qb(0, 'span', 21), d.wc(1, 'Not connected'), d.Pb())
       }
-      const x = (t) => Object(n.a)(t, 'loadedmetadata'),
+      const w = (t) => Object(n.a)(t, 'loadedmetadata'),
         P = o.a
       let S = (() => {
         class t {
@@ -310,12 +310,12 @@
           ngAfterViewInit() {
             ;(this.localVideo = this.localVideoRef.nativeElement),
               (this.remoteVideo = this.remoteVideoRef.nativeElement),
-              x(this.localVideo)
+              w(this.localVideo)
                 .pipe(Object(r.a)(this.subject$))
                 .subscribe(({ target: t }) => {
                   P.log(`Local video: ${t.videoWidth}x${t.videoHeight}px`)
                 }),
-              x(this.remoteVideo)
+              w(this.remoteVideo)
                 .pipe(Object(r.a)(this.subject$))
                 .subscribe(({ target: t }) => {
                   P.log(`Remote video: ${t.videoWidth}x${t.videoHeight}px`)
@@ -367,10 +367,10 @@
             type: t,
             selectors: [['quertc-restart-ice']],
             viewQuery: function (t, e) {
-              if ((1 & t && (d.Ac(g, !0), d.Ac(u, !0)), 2 & t)) {
+              if ((1 & t && (d.zc(g, !0), d.zc(u, !0)), 2 & t)) {
                 let t
-                d.jc((t = d.Yb())) && (e.localVideoRef = t.first),
-                  d.jc((t = d.Yb())) && (e.remoteVideoRef = t.first)
+                d.ic((t = d.Yb())) && (e.localVideoRef = t.first),
+                  d.ic((t = d.Yb())) && (e.remoteVideoRef = t.first)
               }
             },
             decls: 36,
@@ -427,21 +427,21 @@
                   (d.Qb(0, 'div', 0),
                   d.Qb(1, 'mat-card'),
                   d.Qb(2, 'label', 1),
-                  d.xc(3, 'Local candidate'),
+                  d.wc(3, 'Local candidate'),
                   d.Pb(),
                   d.Qb(4, 'p', 2),
-                  d.vc(5, m, 15, 4, 'ng-container', 3),
-                  d.vc(6, f, 2, 0, 'ng-template', null, 4, d.wc),
+                  d.uc(5, m, 15, 4, 'ng-container', 3),
+                  d.uc(6, f, 2, 0, 'ng-template', null, 4, d.vc),
                   d.Pb(),
                   d.Mb(8, 'video', 5, 6),
                   d.Pb(),
                   d.Qb(10, 'mat-card'),
                   d.Qb(11, 'label', 1),
-                  d.xc(12, 'Remote candidate '),
+                  d.wc(12, 'Remote candidate '),
                   d.Pb(),
                   d.Qb(13, 'p', 7),
-                  d.vc(14, C, 15, 4, 'ng-container', 3),
-                  d.vc(15, v, 2, 0, 'ng-template', null, 8, d.wc),
+                  d.uc(14, C, 15, 4, 'ng-container', 3),
+                  d.uc(15, v, 2, 0, 'ng-template', null, 8, d.vc),
                   d.Pb(),
                   d.Mb(17, 'video', 9, 10),
                   d.Pb(),
@@ -452,34 +452,34 @@
                     return e.start()
                   }),
                   d.cc(22, 'async'),
-                  d.xc(23, ' Start '),
+                  d.wc(23, ' Start '),
                   d.Pb(),
                   d.Qb(24, 'button', 14, 15),
                   d.Xb('click', function () {
                     return e.call()
                   }),
                   d.cc(26, 'async'),
-                  d.xc(27, ' Call '),
+                  d.wc(27, ' Call '),
                   d.Pb(),
                   d.Qb(28, 'button', 16, 17),
                   d.Xb('click', function () {
                     return e.restart()
                   }),
                   d.cc(30, 'async'),
-                  d.xc(31, ' Restart ICE '),
+                  d.wc(31, ' Restart ICE '),
                   d.Pb(),
                   d.Qb(32, 'button', 18, 19),
                   d.Xb('click', function () {
                     return e.hangup()
                   }),
                   d.cc(34, 'async'),
-                  d.xc(35, ' Hang Up '),
+                  d.wc(35, ' Hang Up '),
                   d.Pb(),
                   d.Pb()),
                 2 & t)
               ) {
-                const t = d.kc(7),
-                  i = d.kc(16)
+                const t = d.jc(7),
+                  i = d.jc(16)
                 d.zb(5),
                   d.gc('ngIf', e.localCandidate)('ngIfElse', t),
                   d.zb(9),
@@ -504,7 +504,7 @@
         )
       })()
       var O = i('tyNb')
-      let w = (() => {
+      let x = (() => {
         class t {}
         return (
           (t.ɵmod = d.Jb({ type: t })),

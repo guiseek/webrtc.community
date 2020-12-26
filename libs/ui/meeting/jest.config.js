@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'shared',
-  preset: '../../jest.preset.js',
+  displayName: 'ui-meeting',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../coverage/libs/shared',
+  coverageDirectory: '../../../coverage/libs/ui/meeting',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

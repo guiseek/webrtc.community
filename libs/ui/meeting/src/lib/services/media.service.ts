@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 @Injectable({
   providedIn: 'root',
 })
-export class MediaStreamService {
+export class MediaService {
   constraints: MediaStreamConstraints = {
     audio: { echoCancellation: true },
     video: {

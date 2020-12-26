@@ -5,15 +5,17 @@
     a.mat-button-base {
       margin-right: 8px;
     }
+    .mat-menu-trigger {
+      height: 100%;
+      border-radius: 4px;
+    }
   }
 }
 @media (max-width: 720px) {
   .client-app-name {
     font-size: 70%;
   }
-  .signup-link {
-    display: none;
-  }
+
   app-logo {
     display: none;
   }

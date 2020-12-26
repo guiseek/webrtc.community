@@ -13,6 +13,7 @@
     @include mat-divider-theme($theme-or-color-config);
     @include mat-form-field-theme($theme-or-color-config);
     @include mat-icon-theme($theme-or-color-config);
+    @include mat-menu-theme($theme-or-color-config);
     @include mat-card-theme($theme-or-color-config);
     @include mat-input-theme($theme-or-color-config);
     @include mat-select-theme($theme-or-color-config);

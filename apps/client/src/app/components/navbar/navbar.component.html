@@ -15,25 +15,15 @@
   >
     <mat-icon>more_vert</mat-icon>
   </button>
-
-  <app-logo></app-logo>
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
-  <button class="signup-link" routerLink="/user-signup" mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
+  <button mat-menu-item routerLink="/user-profile/login">
+    <mat-icon>login</mat-icon>
+    <span>Login</span>
+  </button>
+  <button mat-menu-item routerLink="/user-signup">
+    <mat-icon>how_to_reg</mat-icon>
     <span>Inscreva-se</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
-    <span>Redial</span>
-  </button>
-  <button mat-menu-item disabled>
-    <mat-icon>voicemail</mat-icon>
-    <span>Check voice mail</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
-    <span>Disable alerts</span>
   </button>
 </mat-menu>

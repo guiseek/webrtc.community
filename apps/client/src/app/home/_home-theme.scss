@@ -7,7 +7,7 @@
 
   app-home {
     .docs-header-background {
-      background: mat-color($primary);
+      background: rgba(mat-color($primary), 0.8);
     }
 
     .docs-header-headline {

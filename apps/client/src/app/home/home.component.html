@@ -1,5 +1,27 @@
-<main class="docs-home-promo">
+<header
+  focusOnNavigation
+  class="docs-header-background"
+  [class.is-next-version]="isNextVersion"
+  aria-label="Participar"
+  id="homepage-header"
+>
+  <div class="docs-header-section">
+    <div class="docs-header-headline">
+      <h1 class="mat-h1">WebRTC Community</h1>
+      <h2>Porquê a comunicação livre é o que nos faz evoluir</h2>
+    </div>
+    <div class="docs-header-start">
+      <a
+        mat-raised-button
+        class="docs-button"
+        routerLink="/guide/getting-started"
+        >Participar</a
+      >
+    </div>
+  </div>
+</header>
 
+<main class="docs-home-promo">
   <div class="docs-home-featured-components docs-home-carousel-row">
     <quertc-carousel [itemWidth]="260" [aria-label]="'Featured components'">
       <div
@@ -68,7 +90,6 @@
     <control-room [formControl]="room"></control-room>
     <pre>{{ room.value | json }}</pre>
   </div>
-
 </main>
 
 <app-footer></app-footer>

@@ -64,6 +64,9 @@
     },
     "user-profile": {
       "tags": []
+    },
+    "util-auth": {
+      "tags": ["type:util"]
     }
   }
 }

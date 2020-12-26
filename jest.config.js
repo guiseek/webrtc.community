@@ -13,5 +13,6 @@ module.exports = {
     '<rootDir>/libs/ui/meeting',
     '<rootDir>/libs/user/signup',
     '<rootDir>/libs/user/profile',
+    '<rootDir>/libs/util/auth',
   ],
 }

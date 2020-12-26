@@ -7,6 +7,8 @@ import { Component } from '@angular/core'
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  isNextVersion = location.hostname.startsWith('next.material.angular.io')
+
   banners = [
     {
       src: 'assets/banners/peer-to-peer.svg',

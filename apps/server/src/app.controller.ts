@@ -20,10 +20,4 @@ export class AppController {
   getProfile(@Request() req) {
     return req.user
   }
-
-  @UseGuards(JwtAuthGuard)
-  @Get('rooms')
-  findRooms() {
-    return []
-  }
 }

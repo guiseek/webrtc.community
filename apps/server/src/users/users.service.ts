@@ -1,19 +1,58 @@
-import { Injectable } from '@nestjs/common'
-
-// This should be a real class/interface representing a user entity
-export type User = any
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
+import { UserDb, UserDocument } from './schemas/user.schema'
+import { CreateUserDto } from './dto/create-user.dto'
+import { UpdatePassDto } from './dto/update-pass.dto'
+import { UpdateUserDto } from './dto/update-user.dto'
+import { InjectModel } from '@nestjs/mongoose'
+import { Model, ObjectId } from 'mongoose'
+import { createHmac } from 'crypto'
 
 @Injectable()
 export class UsersService {
-  private readonly users = [
-    {
-      userId: 1,
-      username: 'demo',
-      password: '1234',
-    },
-  ]
+  constructor(
+    @InjectModel(UserDb.name) private userModel: Model<UserDocument>
+  ) {}
 
-  async findOne(username: string): Promise<User | undefined> {
-    return this.users.find((user) => user.username === username)
+  create(createUserDto: CreateUserDto) {
+    const createdCat = new this.userModel(createUserDto)
+    return createdCat.save()
+  }
+
+  findAll() {
+    return this.userModel.find().exec()
+  }
+
+  findOne(id: ObjectId) {
+    return this.userModel.findById(id).select('-pass')
+  }
+
+  remove(id: ObjectId) {
+    return this.userModel.findByIdAndRemove(id)
+  }
+
+  update(id: ObjectId, updateUserDto: UpdateUserDto) {
+    return this.userModel.updateOne({ id }, updateUserDto)
+  }
+
+  async changePass(id: ObjectId, change: UpdatePassDto) {
+    const user = await this.userModel.findById(id).select('pass')
+    const pass = this.encrypt(change.pass)
+    if (!(user.pass === pass)) {
+      throw new HttpException('Forbidden', HttpStatus.FORBIDDEN)
+    }
+    return this.updatePass(id, change.newPass)
+  }
+
+  private updatePass(id: ObjectId, newPass: string) {
+    const pass = this.encrypt(newPass)
+    return this.userModel.updateOne({ id }, { pass })
+  }
+
+  private encrypt(pass: string) {
+    return createHmac('sha256', pass).digest('hex')
+  }
+
+  async findByUser(user: string): Promise<UserDb | undefined> {
+    return this.userModel.findOne({ user })
   }
 }

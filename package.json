@@ -5,11 +5,12 @@
   "scripts": {
     "nx": "nx",
     "start": "node dist/apps/server/main.js",
-    "build": "npm run build:all",
+    "build": "nx run server:build --with-deps --prod",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
     "tdd": "nx test --watch",
+    "docs": "nx run client:build --prod",
     "build:all": "nx affected:build --all --prod",
     "build:all:prod": "nx affected:build --all --prod",
     "test:all": "nx affected:test --all --detectOpenHandles",

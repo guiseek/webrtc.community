@@ -6,9 +6,9 @@ import {
   flush,
   TestBed,
 } from '@angular/core/testing'
-import { DocsAppTestingModule } from '../../testing/testing-module'
+import { DocsAppTestingModule } from '../testing/testing-module'
 import { Component, ViewChild } from '@angular/core'
-import { CarouselModule } from './carousel-module'
+import { CarouselModule } from './carousel.module'
 
 describe('HorizontalCarousel', () => {
   let fixture: ComponentFixture<CarouselTestComponent>
@@ -116,5 +116,5 @@ describe('HorizontalCarousel', () => {
 })
 class CarouselTestComponent {
   numberOfItems = 6
-  @ViewChild(Carousel) carousel: Carousel
+  @ViewChild(Carousel) carousel!: Carousel
 }

@@ -1,3 +1,4 @@
+import { FormControl, Validators } from '@angular/forms'
 import { Component } from '@angular/core'
 
 @Component({
@@ -22,4 +23,6 @@ export class HomeComponent {
     { src: 'assets/banners/security.svg', alt: 'Seguro', action: '' },
     { src: 'assets/banners/easy.svg', alt: 'Simples', action: '' },
   ]
+
+  room = new FormControl('', [Validators.required])
 }

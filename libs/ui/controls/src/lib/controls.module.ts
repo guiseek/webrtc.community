@@ -1,3 +1,4 @@
+import { MatInputModule } from '@angular/material/input'
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { ReactiveFormsModule } from '@angular/forms'
@@ -7,17 +8,19 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { DevicesComponent } from './devices/devices.component'
 import { CodeComponent } from './code/code.component'
+import { RoomComponent } from './room/room.component'
 
 @NgModule({
   imports: [
     CommonModule,
     MatIconModule,
+    MatInputModule,
     MatButtonModule,
     MatSelectModule,
     MatFormFieldModule,
     ReactiveFormsModule,
   ],
-  declarations: [DevicesComponent, CodeComponent],
-  exports: [DevicesComponent, CodeComponent],
+  declarations: [DevicesComponent, CodeComponent, RoomComponent],
+  exports: [DevicesComponent, CodeComponent, RoomComponent],
 })
 export class ControlsModule {}

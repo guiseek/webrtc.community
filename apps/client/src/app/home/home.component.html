@@ -1,4 +1,5 @@
 <main class="docs-home-promo">
+
   <div class="docs-home-featured-components docs-home-carousel-row">
     <quertc-carousel [itemWidth]="260" [aria-label]="'Featured components'">
       <div
@@ -62,6 +63,14 @@
       <p>Comunicação de dados para aplicativos</p>
     </div>
   </div>
+
+  <div>
+    <control-room [formControl]="room"></control-room>
+    <pre>{{ room.value | json }}</pre>
+  </div>
+
+  <img src="assets/logo.svg" alt="">
+
 </main>
 
 <app-footer></app-footer>

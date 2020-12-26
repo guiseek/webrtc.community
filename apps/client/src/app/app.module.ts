@@ -33,6 +33,7 @@ import {
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
 import { HomeComponent } from './home/home.component'
 import { env } from './../envs/env'
+import { LogoComponent } from './components/logo/logo.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { env } from './../envs/env'
     HomeComponent,
     FooterComponent,
     GithubCornerComponent,
+    LogoComponent,
   ],
   imports: [
     LayoutModule,

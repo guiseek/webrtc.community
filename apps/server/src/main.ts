@@ -8,10 +8,10 @@ import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 import { env } from './envs/env'
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
+async function bootstrap({ prod, origin }) {
+  const app = await NestFactory.create(AppModule, { cors: true })
   app.useGlobalPipes(new ValidationPipe())
-  app.enableCors({ origin: env.origin })
+  if (!prod) app.enableCors({ origin })
   const port = process.env.PORT || 3000
   await app.listen(port, () => {
     Logger.log('Origin: ' + env.origin, 'ServerAPIListen')
@@ -19,4 +19,4 @@ async function bootstrap() {
   })
 }
 
-bootstrap()
+bootstrap(env)

@@ -17,5 +17,6 @@ export class DataAccessService {
     if (config) {
       this.endpoint = config.endpoint
     }
+    this.http.get(`${this.endpoint}/ping`, { params: { timestamp: `${Date.now()}` } }).subscribe((diff) => console.log(diff))
   }
 }

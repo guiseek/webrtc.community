@@ -2,18 +2,15 @@ import { mongooseFactory } from './config/mongoose.factory'
 import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
 import { ApiGateway } from './api.gateway'
-import { ChatGateway } from './chat.gateway'
-import { AlertController, AlertGateway } from './alert'
+import { ChatGateway } from './chat/chat.gateway'
 import { AuthModule } from './auth/auth.module'
 import { UsersModule } from './users/users.module'
 import { AppController } from './app.controller'
-import { APP_GUARD } from '@nestjs/core'
-import { JwtAuthGuard } from './auth/jwt-auth.guard'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 
 @Module({
-  providers: [ApiGateway, ChatGateway, AlertGateway],
-  controllers: [AlertController, AppController],
+  providers: [ApiGateway, ChatGateway],
+  controllers: [AppController],
   imports: [
     AuthModule,
     UsersModule,

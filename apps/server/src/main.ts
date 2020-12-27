@@ -9,7 +9,7 @@ import { AppModule } from './app.module'
 import { env } from './envs/env'
 
 async function bootstrap({ prod, origin }) {
-  const app = await NestFactory.create(AppModule)
+  const app = await NestFactory.create(AppModule, { cors: true })
   app.useGlobalPipes(new ValidationPipe())
   if (!prod) app.enableCors({ origin })
   const port = process.env.PORT || 3000

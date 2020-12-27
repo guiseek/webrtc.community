@@ -12,15 +12,7 @@ import { JwtAuthGuard } from './auth/jwt-auth.guard'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 
 @Module({
-  providers: [
-    ApiGateway,
-    ChatGateway,
-    AlertGateway,
-    {
-      provide: APP_GUARD,
-      useClass: JwtAuthGuard,
-    },
-  ],
+  providers: [ApiGateway, ChatGateway, AlertGateway],
   controllers: [AlertController, AppController],
   imports: [
     AuthModule,

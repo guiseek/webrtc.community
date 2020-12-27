@@ -14,5 +14,7 @@ module.exports = {
     '<rootDir>/libs/user/signup',
     '<rootDir>/libs/user/profile',
     '<rootDir>/libs/util/auth',
+    '<rootDir>/libs/user/domain',
+    '<rootDir>/libs/data/access',
   ],
 }

@@ -1,7 +1,8 @@
+import { RouterModule } from '@angular/router'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
-import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 
 import { OverlogModule } from '@quertc/overlog'
@@ -31,11 +32,13 @@ import {
   FooterComponent,
   GithubCornerComponent,
   NavbarComponent,
+  LogoComponent,
 } from './components'
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
+import { AuthTokenInterceptor } from './interceptors'
 import { HomeComponent } from './home/home.component'
 import { env } from './../envs/env'
-import { LogoComponent } from './components/logo/logo.component'
+import { DataAccessModule } from '@quertc/data/access'
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +68,9 @@ import { LogoComponent } from './components/logo/logo.component'
     ControlsModule,
     CarouselModule,
     MeetingModule,
+    RouterModule,
     ReactiveFormsModule,
+    DataAccessModule,
     OverlogModule.forRoot(),
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: env.prod }),
@@ -79,6 +84,11 @@ import { LogoComponent } from './components/logo/logo.component'
       provide: SignalingChannel,
       useFactory: SignalingFactory,
       deps: [SIGNALING_CLIENT],
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthTokenInterceptor,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

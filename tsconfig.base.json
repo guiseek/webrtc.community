@@ -27,7 +27,9 @@
       "@quertc/meeting": ["libs/ui/meeting/src/index.ts"],
       "@quertc/user/signup": ["libs/user/signup/src/index.ts"],
       "@quertc/user/profile": ["libs/user/profile/src/index.ts"],
-      "@quertc/util-auth": ["libs/util/auth/src/index.ts"]
+      "@quertc/util-auth": ["libs/util/auth/src/index.ts"],
+      "@quertc/user/domain": ["libs/user/domain/src/index.ts"],
+      "@quertc/data/access": ["libs/data/access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

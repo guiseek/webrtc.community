@@ -6,6 +6,7 @@ import { UpdateUserDto } from './dto/update-user.dto'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model, ObjectId } from 'mongoose'
 import { createHmac } from 'crypto'
+import { User, uuid } from '@quertc/core'
 
 @Injectable()
 export class UsersService {
@@ -13,17 +14,24 @@ export class UsersService {
     @InjectModel(UserDb.name) private userModel: Model<UserDocument>
   ) {}
 
-  create(createUserDto: CreateUserDto) {
-    const createdCat = new this.userModel(createUserDto)
-    return createdCat.save()
+  create({ pass, ...values }: CreateUserDto) {
+    return new this.userModel({
+      pass: this.encrypt(pass),
+      uuid: uuid(),
+      ...values,
+    }).save()
   }
 
   findAll() {
     return this.userModel.find().exec()
   }
 
-  findOne(id: ObjectId) {
+  findById(id: ObjectId) {
     return this.userModel.findById(id).select('-pass')
+  }
+
+  findOne(query: Partial<Pick<User, 'email' | 'uuid'>>) {
+    return this.userModel.findOne(query)
   }
 
   remove(id: ObjectId) {
@@ -48,11 +56,15 @@ export class UsersService {
     return this.userModel.updateOne({ id }, { pass })
   }
 
-  private encrypt(pass: string) {
+  public encrypt(pass: string) {
     return createHmac('sha256', pass).digest('hex')
   }
 
-  async findByUser(user: string): Promise<UserDb | undefined> {
-    return this.userModel.findOne({ user })
+  async findByUuid(uuid: string): Promise<UserDb | undefined> {
+    return this.userModel.findOne({ uuid })
+  }
+
+  async findByEmail(email: string): Promise<UserDb | undefined> {
+    return this.userModel.findOne({ email })
   }
 }

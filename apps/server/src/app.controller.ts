@@ -4,6 +4,7 @@ import { LocalAuthGuard } from './auth/local-auth.guard'
 import { AuthService } from './auth/auth.service'
 import { Public } from './auth/auth-guard.decorator'
 import { CreateUserDto } from './users/dto/create-user.dto'
+import { Auth, User } from '@quertc/core'
 
 @Controller()
 export class AppController {
@@ -12,7 +13,9 @@ export class AppController {
   @Public()
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
-  async login(@Request() req) {
+  async login(@Request() req: Request & { user: User }) {
+    console.log(req.user)
+
     return this.authService.login(req.user)
   }
 
@@ -23,8 +26,8 @@ export class AppController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('profile')
-  getProfile(@Request() req) {
+  @Get('user/info')
+  getUserInfo(@Request() req: Request & { user: User }) {
     return req.user
   }
 }

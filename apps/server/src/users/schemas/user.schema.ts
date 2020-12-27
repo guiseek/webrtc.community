@@ -4,7 +4,15 @@ import { City, User } from '@quertc/core'
 
 export type UserDocument = UserDb & Document
 
-@Schema()
+@Schema({
+  id: true,
+  collection: 'users',
+  validateBeforeSave: true,
+  timestamps: {
+    createdAt: 'created',
+    updatedAt: 'updated',
+  },
+})
 export class UserDb implements User {
   @Prop(String)
   uuid: string

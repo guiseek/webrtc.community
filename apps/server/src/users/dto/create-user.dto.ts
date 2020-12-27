@@ -1,15 +1,15 @@
 import {
   IsNotEmpty,
-  IsUUID,
+  // IsUUID,
   MinLength,
   IsEmail,
   IsAlphanumeric,
 } from 'class-validator'
 
 export class CreateUserDto {
-  @IsUUID()
-  @IsNotEmpty()
-  uuid: string
+  // @IsUUID()
+  // @IsNotEmpty()
+  // uuid: string
 
   @IsNotEmpty()
   name: string

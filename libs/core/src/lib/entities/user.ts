@@ -9,3 +9,5 @@ export class User {
   created: Date
   updated: Date
 }
+
+export type UserSignup = Omit<User, 'city' | 'uuid' | 'created' | 'updated'>

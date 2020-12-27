@@ -6,7 +6,7 @@ import { MatCardModule } from '@angular/material/card'
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
 import { MatFormFieldModule } from '@angular/material/form-field'
-
+import { UserDomainModule } from '@quertc/user/domain'
 import { UserSignupComponent } from './user-signup.component'
 
 @NgModule({
@@ -15,6 +15,7 @@ import { UserSignupComponent } from './user-signup.component'
     MatCardModule,
     MatButtonModule,
     MatInputModule,
+    UserDomainModule,
     MatFormFieldModule,
     ReactiveFormsModule,
     RouterModule.forChild([

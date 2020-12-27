@@ -5,12 +5,12 @@
   <mat-card>
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input type="email" #emailEl cdkMonitorElementFocus matInput formControlName="email" />
+      <input type="email" #emailEl name="user_email" matInput formControlName="username" />
       <mat-error>Endereço de email inválido</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Senha</mat-label>
-      <input type="password" matInput formControlName="pass" />
+      <input type="password" name="user_password" matInput formControlName="password" />
       <mat-error>Mínimo de 6 caracteres</mat-error>
     </mat-form-field>
 

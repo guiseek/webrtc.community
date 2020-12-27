@@ -1,6 +1,6 @@
 import { User } from './user'
 
-export class Auth {
+export interface Auth {
   email: string
   pass: string
 }

@@ -1,49 +1,22 @@
+import { AuthFacade } from '@quertc/user/domain'
 import { Injectable } from '@angular/core'
 import {
   CanActivate,
-  CanActivateChild,
-  CanDeactivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router'
 import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
 
-@Injectable({
-  providedIn: 'root',
-})
-export class UserProfileGuard
-  implements CanActivate, CanActivateChild, CanDeactivate<unknown> {
+@Injectable()
+export class UserProfileGuard implements CanActivate {
+  constructor(private authFacade: AuthFacade) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    return true
-  }
-  canActivateChild(
-    childRoute: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    return true
-  }
-  canDeactivate(
-    component: unknown,
-    currentRoute: ActivatedRouteSnapshot,
-    currentState: RouterStateSnapshot,
-    nextState?: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    return true
+  ): Observable<boolean | UrlTree> {
+    return this.authFacade.checkAuthentication().pipe(map((user) => !!user))
   }
 }

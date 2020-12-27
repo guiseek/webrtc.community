@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
-import { Document } from 'mongoose'
+import { Document, ObjectId } from 'mongoose'
 import { City, User } from '@quertc/core'
 
 export type UserDocument = UserDb & Document
@@ -15,6 +15,9 @@ export type UserDocument = UserDb & Document
 })
 export class UserDb implements User {
   @Prop(String)
+  _id: string
+
+  @Prop(String)
   uuid: string
 
   @Prop(String)
@@ -25,9 +28,6 @@ export class UserDb implements User {
 
   @Prop(String)
   pass: string
-
-  @Prop(City)
-  city: City
 
   @Prop(Date)
   created: Date

@@ -29,4 +29,8 @@ export class AuthDataService {
   signup(user: UserSignup) {
     return this.userDataService.signup(user)
   }
+
+  logout() {
+    this.tokenStorage.clearStorage()
+  }
 }

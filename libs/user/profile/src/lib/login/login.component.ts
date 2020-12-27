@@ -48,20 +48,19 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
-      this.authFacade.login(this.form.value).subscribe(console.log)
+      this.authFacade
+        .login(this.form.value)
+        .pipe(
+          catchError(({ error }) => {
+            this.error.next(error?.message)
+            return throwError(error)
+          })
+        )
+        .subscribe((response) => {
+          console.log(response)
 
-      // this.authFacade.currentUser$.subscribe(console.log)
-      // .pipe(
-      //   catchError(({ error }) => {
-      //     console.log(error);
-
-      //     this.error.next(error?.message)
-      //     return throwError(error)
-      //   })
-      // )
-      // this.auth$.pipe(takeUntil(this.destroy$)).subscribe((response) => {
-      //   this.router.navigate(['/', 'user', 'profile'])
-      // })
+          this.router.navigate(['/', 'user-profile'])
+        })
     }
   }
 

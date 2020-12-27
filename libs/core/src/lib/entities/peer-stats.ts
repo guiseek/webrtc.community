@@ -3,7 +3,7 @@ declare global {
     get(stats: string): any
   }
 }
-export class PeerStats implements RTCStats {
+export interface PeerStats extends RTCStats {
   id: string
   ip: string
   port: number

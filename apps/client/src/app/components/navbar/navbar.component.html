@@ -8,22 +8,10 @@
   <h1 class="client-app-name">{{ title }}</h1>
   <span class="spacer"></span>
 
-  <button
+  <a
     mat-icon-button
-    [matMenuTriggerFor]="menu"
-    aria-label="Example icon-button with a menu"
+    routerLink="/user-profile"
   >
-    <mat-icon>more_vert</mat-icon>
-  </button>
+    <mat-icon>account_circle</mat-icon>
+  </a>
 </mat-toolbar>
-
-<mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="/user-profile/login">
-    <mat-icon>login</mat-icon>
-    <span>Login</span>
-  </button>
-  <button mat-menu-item routerLink="/user-signup">
-    <mat-icon>how_to_reg</mat-icon>
-    <span>Inscreva-se</span>
-  </button>
-</mat-menu>

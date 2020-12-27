@@ -3,16 +3,16 @@ import { EventEmitter, Injectable } from '@angular/core'
 
 @Injectable()
 export class AuthStorage {
-  static storageKey = 'docs-theme-storage-current-name'
+  static storageKey = 'auth-storage-current-token'
 
-  onTokenUpdate: EventEmitter<string> = new EventEmitter<string>()
+  onTokenUpdate: EventEmitter<AuthResponse> = new EventEmitter<AuthResponse>()
 
-  storeToken({ access_token }: AuthResponse) {
+  storeToken(response: AuthResponse) {
     try {
-      window.localStorage[AuthStorage.storageKey] = access_token
+      window.localStorage[AuthStorage.storageKey] = response.access_token
     } catch {}
 
-    this.onTokenUpdate.emit(access_token)
+    this.onTokenUpdate.emit(response)
   }
 
   getStoredTokenValue(): string | null {

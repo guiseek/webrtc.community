@@ -1,4 +1,3 @@
-import { catchError } from 'rxjs/operators'
 import { Injectable } from '@angular/core'
 import {
   HttpRequest,
@@ -7,15 +6,14 @@ import {
   HttpInterceptor,
   HttpErrorResponse,
 } from '@angular/common/http'
-import { Observable, throwError } from 'rxjs'
 import { Router } from '@angular/router'
 import { AuthStorage } from '@quertc/data/access'
+import { Observable, throwError } from 'rxjs'
+import { catchError } from 'rxjs/operators'
 
 @Injectable()
 export class AuthTokenInterceptor implements HttpInterceptor {
-  constructor(private tokenStorage: AuthStorage, private router: Router) {
-    console.log(tokenStorage)
-  }
+  constructor(private tokenStorage: AuthStorage, private router: Router) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -23,15 +21,12 @@ export class AuthTokenInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const token = this.tokenStorage.getStoredTokenValue()
     if (token) request = this.getCloneRequestWithToken(request, token)
-    console.log('token: ', token)
-
     return next.handle(request).pipe(
       catchError((err) => {
         this.catchRedirectError(err)
         return throwError(err)
       })
     )
-    // return next.handle(request);
   }
   getCloneRequestWithToken(request: HttpRequest<any>, token: string) {
     return request.clone({

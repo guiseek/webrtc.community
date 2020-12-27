@@ -1,30 +1,30 @@
-export class City {
+export interface City {
   id: number
   nome: string
   microrregiao: Microrregiao
   'regiao-imediata': RegiaoImediata
 }
 
-export class Microrregiao {
+export interface Microrregiao {
   id: number
   nome: string
   mesorregiao: Mesorregiao
 }
 
-export class Mesorregiao {
+export interface Mesorregiao {
   id: number
   nome: string
   UF: Uf
 }
 
-export class Uf {
+export interface Uf {
   id: number
   sigla: string
   nome: string
   regiao?: Uf
 }
 
-export class RegiaoImediata {
+export interface RegiaoImediata {
   id: number
   nome: string
   'regiao-intermediaria': Mesorregiao

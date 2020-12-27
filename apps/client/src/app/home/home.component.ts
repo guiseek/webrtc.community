@@ -1,4 +1,3 @@
-import { FormControl, Validators } from '@angular/forms'
 import { Component } from '@angular/core'
 
 @Component({
@@ -7,24 +6,18 @@ import { Component } from '@angular/core'
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  isNextVersion = location.hostname.startsWith('next.material.angular.io')
-
   banners = [
     {
       src: 'assets/banners/peer-to-peer.svg',
       alt: 'Ponto a ponto',
-      action: '',
     },
-    { src: 'assets/banners/live.svg', alt: 'Tempo real', action: '' },
-    { src: 'assets/banners/broadcast.svg', alt: 'Difusor', action: '' },
+    { src: 'assets/banners/live.svg', alt: 'Tempo real' },
+    { src: 'assets/banners/broadcast.svg', alt: 'Difusor' },
     {
       src: 'assets/banners/multi-protocols.svg',
       alt: 'Multi protocolo',
-      action: '',
     },
-    { src: 'assets/banners/security.svg', alt: 'Seguro', action: '' },
-    { src: 'assets/banners/easy.svg', alt: 'Simples', action: '' },
+    { src: 'assets/banners/security.svg', alt: 'Seguro' },
+    { src: 'assets/banners/easy.svg', alt: 'Simples' },
   ]
-
-  room = new FormControl('', [Validators.required])
 }

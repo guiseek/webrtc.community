@@ -67,4 +67,9 @@ export class UsersService {
   async findByEmail(email: string): Promise<UserDb | undefined> {
     return this.userModel.findOne({ email })
   }
+
+  async validateCredential(email: string, pass: string) {
+    const user = await this.userModel.findOne({ email })
+    return user.pass === this.encrypt(pass) ? user : null
+  }
 }

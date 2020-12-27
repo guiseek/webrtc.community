@@ -57,8 +57,6 @@ export class AppComponent implements OnDestroy {
     if (this.snav.opened) {
       this.snav.close()
     }
-    console.log('change route: ', this.stream.currentStream)
-
     if (this.stream.currentStream?.active) {
       this.stream.currentStream.getTracks().forEach((t) => t.stop())
     }

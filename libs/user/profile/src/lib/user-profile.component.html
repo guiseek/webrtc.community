@@ -1,1 +1,26 @@
-<p>user-profile works!</p>
+<nav mat-tab-nav-bar mat-stretch-tabs [backgroundColor]="'primary'">
+  <a
+    *ngFor="
+      let tab of [
+        { route: 'info', label: 'Info' },
+        { route: 'rooms', label: 'Canais' }
+      ]
+    "
+    [routerLink]="tab.route"
+    routerLinkActive="active"
+    mat-tab-link
+  >
+    {{ tab.label }}
+  </a>
+</nav>
+<mat-card>
+  <h3 mat-card-subtitle>
+    {{ (currentUser$ | async)?.name }}
+
+    <button type="button" mat-button color="warn" (click)="logout()">
+      Sair
+    </button>
+  </h3>
+
+  <router-outlet></router-outlet>
+</mat-card>

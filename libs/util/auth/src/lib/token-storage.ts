@@ -1,3 +1,10 @@
+/**
+ * @deprecated
+ *
+ * @export
+ * @abstract
+ * @class TokenStorage
+ */
 export abstract class TokenStorage {
   static storageKey = 'token-storage-current-user'
 

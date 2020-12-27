@@ -5,17 +5,17 @@
   <mat-card>
     <mat-form-field>
       <mat-label>Nome</mat-label>
-      <input type="text" matInput formControlName="name" />
+      <input type="text" name="user_name" matInput formControlName="name" />
       <mat-error>Obrigatório</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input type="email" matInput formControlName="email" />
+      <input type="email" name="user_email" matInput formControlName="email" />
       <mat-error>Endereço de email inválido</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Senha</mat-label>
-      <input type="password" matInput formControlName="pass" />
+      <input type="password" name="user_pass" matInput formControlName="pass" />
       <mat-error>Mínimo de 6 caracteres</mat-error>
     </mat-form-field>
 

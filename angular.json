@@ -539,6 +539,80 @@
           }
         }
       }
+    },
+    "user-domain": {
+      "projectType": "library",
+      "root": "libs/user/domain",
+      "sourceRoot": "libs/user/domain/src",
+      "prefix": "user",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/user/domain/tsconfig.lib.json",
+            "project": "libs/user/domain/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/user/domain/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/user/domain/src/**/*.ts",
+              "libs/user/domain/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/user/domain"],
+          "options": {
+            "jestConfig": "libs/user/domain/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data-access": {
+      "projectType": "library",
+      "root": "libs/data/access",
+      "sourceRoot": "libs/data/access/src",
+      "prefix": "quertc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/data/access/tsconfig.lib.json",
+            "project": "libs/data/access/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/data/access/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/data/access/src/**/*.ts",
+              "libs/data/access/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/access"],
+          "options": {
+            "jestConfig": "libs/data/access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -1,6 +1,6 @@
 import { FormBuilder, Validators } from '@angular/forms'
-import { HttpClient } from '@angular/common/http'
 import { Component, OnInit } from '@angular/core'
+import { AuthFacade } from '@quertc/user/domain'
 import { catchError } from 'rxjs/operators'
 import { Subject, throwError } from 'rxjs'
 import { User } from '@quertc/core'
@@ -22,15 +22,15 @@ export class UserSignupComponent implements OnInit {
   error = new Subject<any>()
   error$ = this.error.asObservable()
 
-  constructor(private http: HttpClient, private builder: FormBuilder) {}
+  constructor(private authFacade: AuthFacade, private builder: FormBuilder) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
-    console.log(this.form.value)
     if (this.form.valid) {
-      this.http
-        .post<User>('/user/signup', this.form.value)
+      this.error.next()
+      this.authFacade
+        .signup(this.form.value)
         .pipe(
           catchError(({ error }) => {
             this.error.next(error.message)

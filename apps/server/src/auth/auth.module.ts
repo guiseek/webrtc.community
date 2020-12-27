@@ -1,3 +1,5 @@
+import { APP_GUARD } from '@nestjs/core'
+import { JwtAuthGuard } from './jwt-auth.guard'
 import { Module } from '@nestjs/common'
 import { AuthService } from './auth.service'
 import { UsersModule } from '../users/users.module'
@@ -16,7 +18,15 @@ import { JwtStrategy } from './jwt.strategy'
       signOptions: { expiresIn: '60s' },
     }),
   ],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
+  providers: [
+    AuthService,
+    LocalStrategy,
+    JwtStrategy,
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
+  ],
   exports: [AuthService],
 })
 export class AuthModule {}

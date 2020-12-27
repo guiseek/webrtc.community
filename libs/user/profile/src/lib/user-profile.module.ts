@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component'
 import { InfoComponent } from './info/info.component'
 import { RoomsComponent } from './rooms/rooms.component'
 import { A11yModule } from '@angular/cdk/a11y'
+import { UserDomainModule } from '@quertc/user/domain'
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { A11yModule } from '@angular/cdk/a11y'
     MatSelectModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    UserDomainModule,
     RouterModule.forChild([
       {
         path: 'login',

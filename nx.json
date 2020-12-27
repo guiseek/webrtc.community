@@ -67,6 +67,12 @@
     },
     "util-auth": {
       "tags": ["type:util"]
+    },
+    "user-domain": {
+      "tags": ["side:client", "type:domain", "scope:user"]
+    },
+    "data-access": {
+      "tags": ["side:client", "type:data-access", "scope:data"]
     }
   }
 }

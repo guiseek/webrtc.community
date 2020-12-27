@@ -1,3 +1,4 @@
+import { AuthFacade } from '@quertc/user/domain'
 import {
   Component,
   AfterViewInit,
@@ -24,13 +25,10 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('emailEl') emailRef!: ElementRef<HTMLInputElement>
 
-  form = this.builder.group(
-    {
-      email: ['', [Validators.required, Validators.email]],
-      pass: ['', [Validators.required, Validators.minLength(6)]],
-    },
-    { updateOn: 'blur' }
-  )
+  form = this.builder.group({
+    username: ['guiseek@gmail.com', [Validators.required, Validators.email]],
+    password: ['guiseek', [Validators.required, Validators.minLength(6)]],
+  })
   auth$!: Observable<AuthResponse>
 
   error = new Subject<any>()
@@ -38,7 +36,7 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private http: HttpClient,
+    private authFacade: AuthFacade,
     private builder: FormBuilder
   ) {}
 
@@ -50,17 +48,20 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
-      this.auth$ = this.http
-        .post<AuthResponse>('/auth/login', this.form.value)
-        .pipe(
-          catchError(({ error }) => {
-            this.error.next(error.message)
-            return throwError(error)
-          })
-        )
-      this.auth$.pipe(takeUntil(this.destroy$)).subscribe((response) => {
-        this.router.navigate(['/', 'user', 'profile'])
-      })
+      this.authFacade.login(this.form.value).subscribe(console.log)
+
+      // this.authFacade.currentUser$.subscribe(console.log)
+      // .pipe(
+      //   catchError(({ error }) => {
+      //     console.log(error);
+
+      //     this.error.next(error?.message)
+      //     return throwError(error)
+      //   })
+      // )
+      // this.auth$.pipe(takeUntil(this.destroy$)).subscribe((response) => {
+      //   this.router.navigate(['/', 'user', 'profile'])
+      // })
     }
   }
 

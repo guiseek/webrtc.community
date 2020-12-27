@@ -5,11 +5,13 @@
 export const env = {
   prod: false,
   signaling: 'http://localhost:3000',
+  endpoint: 'http://localhost:3000',
   configuration: {
     iceServers: [
+      { urls: 'stun:3.85.30.220:3478' }
       // { urls: 'stun:stun.stunprotocol.org:3478' },
-      { urls: 'stun:stun.services.mozilla.com' },
-      { urls: 'stun:stun.l.google.com:19302' },
+      // { urls: 'stun:stun.services.mozilla.com' },
+      // { urls: 'stun:stun.l.google.com:19302' },
     ],
   },
 }

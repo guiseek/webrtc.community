@@ -62,7 +62,9 @@ import { DataAccessModule } from '@quertc/data/access'
     CarouselModule,
     MeetingModule,
     RouterModule,
-    DataAccessModule,
+    DataAccessModule.forRoot({
+      endpoint: env.endpoint,
+    }),
     OverlogModule.forRoot(),
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: env.prod }),

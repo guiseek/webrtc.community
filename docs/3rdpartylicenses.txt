@@ -75,6 +75,8 @@ MIT
 
 @quertc/core
 
+@quertc/data/access
+
 @quertc/meeting
 
 @quertc/overlog
@@ -85,7 +87,11 @@ MIT
 
 @quertc/restart-ice
 
-@quertc/user/signup
+@quertc/user-profile
+
+@quertc/user-signup
+
+@quertc/user/domain
 
 after
 MIT

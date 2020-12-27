@@ -27,12 +27,12 @@ export const appRoutes: Routes = [
   {
     path: 'user-signup',
     loadChildren: () =>
-      import('@quertc/user/signup').then((module) => module.UserSignupModule),
+      import('@quertc/user-signup').then((module) => module.UserSignupModule),
   },
   {
     path: 'user-profile',
     loadChildren: () =>
-      import('@quertc/user/profile').then((module) => module.UserProfileModule),
+      import('@quertc/user-profile').then((module) => module.UserProfileModule),
   },
 ]
 

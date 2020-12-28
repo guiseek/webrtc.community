@@ -14,4 +14,8 @@ export class UserDataService extends DataAccessService {
   signup(user: UserSignup) {
     return this.http.post<User>(this.endpoint + '/user/signup', user)
   }
+
+  loadById(id: string) {
+    return this.http.get<User>(`${this.endpoint}/user/${id}`)
+  }
 }

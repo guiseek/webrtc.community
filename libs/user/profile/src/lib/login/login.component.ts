@@ -9,8 +9,7 @@ import {
 } from '@angular/core'
 import { Router } from '@angular/router'
 import { FormBuilder, Validators } from '@angular/forms'
-import { HttpClient } from '@angular/common/http'
-import { catchError, takeUntil } from 'rxjs/operators'
+import { catchError } from 'rxjs/operators'
 import { throwError, Subject, Observable } from 'rxjs'
 import { AuthResponse } from '@quertc/core'
 
@@ -26,8 +25,8 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
   @ViewChild('emailEl') emailRef!: ElementRef<HTMLInputElement>
 
   form = this.builder.group({
-    username: ['guiseek@gmail.com', [Validators.required, Validators.email]],
-    password: ['guiseek', [Validators.required, Validators.minLength(6)]],
+    username: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   })
   auth$!: Observable<AuthResponse>
 

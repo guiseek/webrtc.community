@@ -118,8 +118,7 @@
     "typescript": "~4.0.3"
   },
   "husky": {
-    "hooks": {
-    }
+    "hooks": {}
   },
   "lint-staged": {
     "./**/*.{js,jsx,ts,tsx,json,css,scss,md}": [

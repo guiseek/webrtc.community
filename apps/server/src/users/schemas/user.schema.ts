@@ -7,14 +7,12 @@ export type UserDocument = UserDb & Document
 @Schema({
   id: true,
   collection: 'users',
-  validateBeforeSave: true,
   timestamps: {
     createdAt: 'created',
     updatedAt: 'updated',
   },
 })
 export class UserDb implements User {
-  @Prop(String)
   _id: string
 
   @Prop(String)

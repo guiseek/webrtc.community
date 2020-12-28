@@ -8,7 +8,8 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { DevicesComponent } from './devices/devices.component'
 import { CodeComponent } from './code/code.component'
-import { RoomComponent } from './room/room.component'
+import { RoomComponent } from './room/room.component';
+import { FocusDirective } from './focus.directive'
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { RoomComponent } from './room/room.component'
     MatFormFieldModule,
     ReactiveFormsModule,
   ],
-  declarations: [DevicesComponent, CodeComponent, RoomComponent],
-  exports: [DevicesComponent, CodeComponent, RoomComponent],
+  declarations: [DevicesComponent, CodeComponent, RoomComponent, FocusDirective],
+  exports: [DevicesComponent, CodeComponent, RoomComponent, FocusDirective],
 })
 export class ControlsModule {}

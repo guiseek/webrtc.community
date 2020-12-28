@@ -1,14 +1,27 @@
+@import 'libs/ui/theme/src/helpers/mixins';
+
 :host {
   display: flex;
   flex-direction: column;
   flex: 1;
 
   .mat-card {
+    flex: 1;
     margin: 6px;
-
-    .mat-card-subtitle {
+    .mat-card-title {
       display: flex;
       justify-content: space-between;
+
+      > span {
+        flex: 1;
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .mat-button-base {
+        font-size: 60%;
+      }
     }
   }
 }

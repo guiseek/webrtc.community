@@ -1,21 +1,7 @@
-<nav mat-tab-nav-bar mat-stretch-tabs [backgroundColor]="'primary'">
-  <a
-    *ngFor="
-      let tab of [
-        { route: 'info', label: 'Info' },
-        { route: 'rooms', label: 'Canais' }
-      ]
-    "
-    [routerLink]="tab.route"
-    routerLinkActive="active"
-    mat-tab-link
-  >
-    {{ tab.label }}
-  </a>
-</nav>
+
 <mat-card>
-  <h3 mat-card-subtitle>
-    {{ (currentUser$ | async)?.name }}
+  <h3 mat-card-title>
+    <span>{{ (currentUser$ | async)?.name }}</span>
 
     <button type="button" mat-button color="warn" (click)="logout()">
       Sair
@@ -24,3 +10,15 @@
 
   <router-outlet></router-outlet>
 </mat-card>
+
+<nav mat-tab-nav-bar mat-stretch-tabs [backgroundColor]="'primary'">
+  <a
+    *ngFor="let tab of tabs"
+    [routerLink]="tab.route"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    mat-tab-link
+  >
+    {{ tab.label }}
+  </a>
+</nav>

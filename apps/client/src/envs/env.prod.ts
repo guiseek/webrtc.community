@@ -1,7 +1,7 @@
 export const env = {
   prod: true,
-  signaling: 'https://webrtc-community.herokuapp.com',
-  endpoint: 'https://webrtc-community.herokuapp.com',
+  signaling: 'https://server.webrtc.community',
+  endpoint: 'https://server.webrtc.community',
   configuration: {
     iceServers: [
       { urls: 'stun:3.85.30.220:3478' },

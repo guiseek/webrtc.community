@@ -1,16 +1,20 @@
+import { Router } from '@angular/router'
 import { FormBuilder, Validators } from '@angular/forms'
-import { Component, OnInit } from '@angular/core'
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core'
 import { AuthFacade } from '@quertc/user/domain'
 import { catchError } from 'rxjs/operators'
 import { Subject, throwError } from 'rxjs'
-import { User } from '@quertc/core'
 
 @Component({
   selector: 'user-signup',
   templateUrl: './user-signup.component.html',
   styleUrls: ['./user-signup.component.scss'],
 })
-export class UserSignupComponent implements OnInit {
+export class UserSignupComponent implements AfterViewInit {
+  destroy$ = new Subject<void>()
+
+  @ViewChild('nameEl') nameRef!: ElementRef<HTMLInputElement>
+
   form = this.builder.group(
     {
       name: ['', Validators.required],
@@ -22,9 +26,17 @@ export class UserSignupComponent implements OnInit {
   error = new Subject<any>()
   error$ = this.error.asObservable()
 
-  constructor(private authFacade: AuthFacade, private builder: FormBuilder) {}
+  constructor(
+    private router: Router,
+    private authFacade: AuthFacade,
+    private builder: FormBuilder
+  ) {}
 
-  ngOnInit(): void {}
+  ngAfterViewInit(): void {
+    // if (this.nameRef.nativeElement) {
+    //   this.nameRef.nativeElement.focus()
+    // }
+  }
 
   onSubmit() {
     if (this.form.valid) {
@@ -33,13 +45,11 @@ export class UserSignupComponent implements OnInit {
         .signup(this.form.value)
         .pipe(
           catchError(({ error }) => {
-            this.error.next(error.message)
+            this.error.next(error?.message)
             return throwError(error)
           })
         )
-        .subscribe((response) => {
-          console.log(response)
-        })
+        .subscribe((response) => this.router.navigate(['/', 'user-profile']))
     }
   }
 }

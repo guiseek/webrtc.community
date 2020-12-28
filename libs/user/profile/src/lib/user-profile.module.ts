@@ -43,7 +43,6 @@ import { UserProfileGuard } from './user-profile.guard'
         component: UserProfileComponent,
         canActivate: [UserProfileGuard],
         children: [
-          { path: '', redirectTo: 'info' },
           {
             path: 'info',
             component: InfoComponent,
@@ -52,6 +51,7 @@ import { UserProfileGuard } from './user-profile.guard'
             path: 'rooms',
             component: RoomsComponent,
           },
+          { path: '**', redirectTo: 'info' },
         ],
       },
     ]),

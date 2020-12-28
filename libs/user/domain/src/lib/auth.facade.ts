@@ -13,20 +13,20 @@ export const setNextAndReturn = <T = any>(
 }
 @Injectable()
 export class AuthFacade {
-  private currentUserSubject = new BehaviorSubject<Partial<User>>({})
-  currentUser$ = this.currentUserSubject.pipe(filter((u) => !!u))
+  private currentUser = new BehaviorSubject<Partial<User>>({})
+  currentUser$ = this.currentUser.pipe(filter((u) => !!u))
   constructor(private authDataService: AuthDataService) {}
 
   checkAuthentication() {
     return this.authDataService
       .load()
-      .pipe(map((user) => setNextAndReturn(this.currentUserSubject, user)))
+      .pipe(map((user) => setNextAndReturn(this.currentUser, user)))
   }
 
   login(credentials: AuthLogin) {
     return this.authDataService
       .login(credentials)
-      .pipe(map((user) => setNextAndReturn(this.currentUserSubject, user)))
+      .pipe(map((user) => setNextAndReturn(this.currentUser, user)))
   }
 
   signup(user: UserSignup) {

@@ -1,6 +1,7 @@
 import { Router } from '@angular/router'
-import { AuthFacade } from '@quertc/user/domain'
+import { AuthFacade, UserFacade } from '@quertc/user/domain'
 import { Component } from '@angular/core'
+import { filter, map, switchMap, tap } from 'rxjs/operators'
 
 @Component({
   selector: 'user-profile',
@@ -9,7 +10,15 @@ import { Component } from '@angular/core'
 })
 export class UserProfileComponent {
   currentUser$ = this.authFacade.currentUser$
-  constructor(private router: Router, private authFacade: AuthFacade) {}
+  tabs = [
+    { route: 'info', label: 'Info' },
+    { route: 'rooms', label: 'Canais' },
+  ]
+  constructor(
+    private router: Router,
+    private authFacade: AuthFacade,
+    private userFacade: UserFacade
+  ) {}
 
   logout() {
     this.authFacade.logout()

@@ -9,8 +9,7 @@ import {
 } from '@angular/core'
 import { Router } from '@angular/router'
 import { FormBuilder, Validators } from '@angular/forms'
-import { HttpClient } from '@angular/common/http'
-import { catchError, takeUntil } from 'rxjs/operators'
+import { catchError } from 'rxjs/operators'
 import { throwError, Subject, Observable } from 'rxjs'
 import { AuthResponse } from '@quertc/core'
 
@@ -26,8 +25,8 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
   @ViewChild('emailEl') emailRef!: ElementRef<HTMLInputElement>
 
   form = this.builder.group({
-    username: ['guiseek@gmail.com', [Validators.required, Validators.email]],
-    password: ['guiseek', [Validators.required, Validators.minLength(6)]],
+    username: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   })
   auth$!: Observable<AuthResponse>
 
@@ -48,6 +47,7 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
+      this.error.next()
       this.authFacade
         .login(this.form.value)
         .pipe(
@@ -56,11 +56,7 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
             return throwError(error)
           })
         )
-        .subscribe((response) => {
-          console.log(response)
-
-          this.router.navigate(['/', 'user-profile'])
-        })
+        .subscribe((response) => this.router.navigate(['/', 'user-profile']))
     }
   }
 

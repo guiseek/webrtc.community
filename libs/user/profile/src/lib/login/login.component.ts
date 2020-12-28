@@ -48,6 +48,7 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
+      this.error.next()
       this.authFacade
         .login(this.form.value)
         .pipe(
@@ -56,11 +57,7 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
             return throwError(error)
           })
         )
-        .subscribe((response) => {
-          console.log(response)
-
-          this.router.navigate(['/', 'user-profile'])
-        })
+        .subscribe((response) => this.router.navigate(['/', 'user-profile']))
     }
   }
 

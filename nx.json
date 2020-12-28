@@ -65,9 +65,6 @@
     "user-profile": {
       "tags": []
     },
-    "util-auth": {
-      "tags": ["type:util"]
-    },
     "user-domain": {
       "tags": ["side:client", "type:domain", "scope:user"]
     },

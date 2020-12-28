@@ -9,6 +9,10 @@ import { Component } from '@angular/core'
 })
 export class UserProfileComponent {
   currentUser$ = this.authFacade.currentUser$
+  tabs = [
+    { route: 'info', label: 'Info' },
+    { route: 'rooms', label: 'Canais' },
+  ]
   constructor(private router: Router, private authFacade: AuthFacade) {}
 
   logout() {

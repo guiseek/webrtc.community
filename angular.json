@@ -23,7 +23,10 @@
               "apps/client/src/manifest.webmanifest"
             ],
             "styles": ["apps/client/src/styles.scss"],
-            "allowedCommonJsDependencies": ["socket.io-client"],
+            "allowedCommonJsDependencies": [
+              "socket.io-client",
+              "zone.js/dist/zone-error"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -514,27 +517,6 @@
           "outputs": ["coverage/libs/user/profile"],
           "options": {
             "jestConfig": "libs/user/profile/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "util-auth": {
-      "root": "libs/util/auth",
-      "sourceRoot": "libs/util/auth/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/util/auth/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/util/auth"],
-          "options": {
-            "jestConfig": "libs/util/auth/jest.config.js",
             "passWithNoTests": true
           }
         }

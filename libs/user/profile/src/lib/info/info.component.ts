@@ -1,4 +1,4 @@
-import { UserFacade } from '@quertc/user/domain'
+import { AuthFacade } from '@quertc/user/domain'
 import { uuid } from '@quertc/core'
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
 
@@ -9,9 +9,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfoComponent implements OnInit {
-  currentUser$ = this.userFacade.user$
-  constructor(private userFacade: UserFacade) {}
+  currentUser$ = this.authFacade.currentUser$
+  constructor(private authFacade: AuthFacade) {}
 
   ngOnInit(): void {
+    console.log(uuid());
+
   }
 }

@@ -1,4 +1,13 @@
-
+<nav mat-tab-nav-bar mat-stretch-tabs [backgroundColor]="'primary'">
+  <a
+    *ngFor="let tab of tabs"
+    [routerLink]="tab.route"
+    routerLinkActive="active"
+    mat-tab-link
+  >
+    {{ tab.label }}
+  </a>
+</nav>
 <mat-card>
   <h3 mat-card-title>
     <span>{{ (currentUser$ | async)?.name }}</span>

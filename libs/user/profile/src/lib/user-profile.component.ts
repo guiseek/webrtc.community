@@ -14,11 +14,7 @@ export class UserProfileComponent {
     { route: 'info', label: 'Info' },
     { route: 'rooms', label: 'Canais' },
   ]
-  constructor(
-    private router: Router,
-    private authFacade: AuthFacade,
-    private userFacade: UserFacade
-  ) {}
+  constructor(private router: Router, private authFacade: AuthFacade) {}
 
   logout() {
     this.authFacade.logout()

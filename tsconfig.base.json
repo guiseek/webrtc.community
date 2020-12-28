@@ -29,7 +29,8 @@
       "@quertc/user-profile": ["libs/user/profile/src/index.ts"],
       "@quertc/util-auth": ["libs/util/auth/src/index.ts"],
       "@quertc/user/domain": ["libs/user/domain/src/index.ts"],
-      "@quertc/data/access": ["libs/data/access/src/index.ts"]
+      "@quertc/data/access": ["libs/data/access/src/index.ts"],
+      "@quertc/munge-sdp": ["libs/sample/munge-sdp/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

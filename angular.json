@@ -595,6 +595,43 @@
           }
         }
       }
+    },
+    "sample-munge-sdp": {
+      "projectType": "library",
+      "root": "libs/sample/munge-sdp",
+      "sourceRoot": "libs/sample/munge-sdp/src",
+      "prefix": "quertc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/sample/munge-sdp/tsconfig.lib.json",
+            "project": "libs/sample/munge-sdp/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/sample/munge-sdp/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/sample/munge-sdp/src/**/*.ts",
+              "libs/sample/munge-sdp/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/sample/munge-sdp"],
+          "options": {
+            "jestConfig": "libs/sample/munge-sdp/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

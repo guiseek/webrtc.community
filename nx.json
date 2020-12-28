@@ -70,6 +70,9 @@
     },
     "data-access": {
       "tags": ["side:client", "type:data-access", "scope:data"]
+    },
+    "sample-munge-sdp": {
+      "tags": ["side:client", "type:feat", "scope:sample"]
     }
   }
 }

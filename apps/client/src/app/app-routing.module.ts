@@ -34,6 +34,11 @@ export const appRoutes: Routes = [
     loadChildren: () =>
       import('@quertc/user-profile').then((module) => module.UserProfileModule),
   },
+  {
+    path: 'munge-sdp',
+    loadChildren: () =>
+      import('@quertc/munge-sdp').then((module) => module.MungeSdpModule),
+  },
 ]
 
 @NgModule({

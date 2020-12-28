@@ -29,6 +29,7 @@ export class AppComponent implements OnDestroy {
     { route: '/', icon: 'home', label: 'Home' },
     { route: '/restart-ice', icon: 'cached', label: 'Reiniciar candidato' },
     { route: '/peer-to-peer', icon: 'alt_route', label: 'Ponto a ponto' },
+    { route: '/munge-sdp', icon: 'alt_route', label: 'Munge SDP' },
     {
       route: '/perfect-negotiation',
       icon: 'swap_calls',

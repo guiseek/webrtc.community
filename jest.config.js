@@ -16,5 +16,6 @@ module.exports = {
     '<rootDir>/libs/util/auth',
     '<rootDir>/libs/user/domain',
     '<rootDir>/libs/data/access',
+    '<rootDir>/libs/sample/munge-sdp',
   ],
 }

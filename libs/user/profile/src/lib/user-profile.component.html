@@ -1,11 +1,6 @@
 <nav mat-tab-nav-bar mat-stretch-tabs [backgroundColor]="'primary'">
   <a
-    *ngFor="
-      let tab of [
-        { route: 'info', label: 'Info' },
-        { route: 'rooms', label: 'Canais' }
-      ]
-    "
+    *ngFor="let tab of tabs"
     [routerLink]="tab.route"
     routerLinkActive="active"
     mat-tab-link
@@ -14,8 +9,8 @@
   </a>
 </nav>
 <mat-card>
-  <h3 mat-card-subtitle>
-    {{ (currentUser$ | async)?.name }}
+  <h3 mat-card-title>
+    <span>{{ (currentUser$ | async)?.name }}</span>
 
     <button type="button" mat-button color="warn" (click)="logout()">
       Sair

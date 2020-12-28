@@ -15,11 +15,12 @@ export class UsersService {
   ) {}
 
   create({ pass, ...values }: CreateUserDto) {
-    return new this.userModel({
+    const user = new this.userModel({
       pass: this.encrypt(pass),
       uuid: uuid(),
       ...values,
-    }).save()
+    })
+    return user.save()
   }
 
   findAll() {

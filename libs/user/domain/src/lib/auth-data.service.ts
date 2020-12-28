@@ -1,7 +1,12 @@
-import { AuthStorage, DataAccessService } from '@quertc/data/access'
+import {
+  AuthStorage,
+  DataAccessConfig,
+  DataAccessService,
+  DATA_ACCESS_CONFIG,
+} from '@quertc/data/access'
 import { AuthResponse, User, UserSignup } from '@quertc/core'
 import { HttpClient } from '@angular/common/http'
-import { Injectable } from '@angular/core'
+import { Inject, Injectable } from '@angular/core'
 import { UserDataService } from './user-data.service'
 import { switchMap } from 'rxjs/operators'
 
@@ -10,9 +15,11 @@ export class AuthDataService extends DataAccessService {
   constructor(
     protected http: HttpClient,
     private userDataService: UserDataService,
-    private tokenStorage: AuthStorage
+    private tokenStorage: AuthStorage,
+    @Inject(DATA_ACCESS_CONFIG)
+    protected config: DataAccessConfig
   ) {
-    super(http)
+    super(http, config)
   }
 
   login(credentials: Pick<User, 'email' | 'pass'>) {
@@ -25,10 +32,11 @@ export class AuthDataService extends DataAccessService {
         })
       )
   }
+
   load() {
     return this.userDataService.load()
-    //  = new BehaviorSubject<User>()
   }
+
   signup(user: UserSignup) {
     return this.userDataService.signup(user)
   }

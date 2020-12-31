@@ -17,5 +17,8 @@ module.exports = {
     '<rootDir>/libs/user/domain',
     '<rootDir>/libs/data/access',
     '<rootDir>/libs/sample/munge-sdp',
+    '<rootDir>/libs/util/qrcode',
+    '<rootDir>/apps/talk',
+    '<rootDir>/libs/ui/reveal',
   ],
 }

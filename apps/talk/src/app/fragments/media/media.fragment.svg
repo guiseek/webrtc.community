@@ -1,0 +1,35 @@
+<ng-container *ngIf="side === 'A'; else mediaBTmpl">
+  <svg xmlns="http://www.w3.org/2000/svg" width="60.981" height="93.272" viewBox="0 0 60.981 93.272">
+    <g id="Media" transform="translate(-308.478 -480.704)">
+      <g id="Grupo_2151" data-name="Grupo 2151" transform="translate(308.479 480.704)">
+        <g id="Grupo_2084" data-name="Grupo 2084">
+          <path id="Caminho_2932" data-name="Caminho 2932" d="M33.742,47.941,77.121,22.9c1.617-.934,3.084-1.021,4.145-.4l5.8,3.37c-1.06-.616-2.527-.529-4.145.4L39.541,51.311a12.823,12.823,0,0,0-5.812,10.082l.141,49.83c.005,1.846.656,3.144,1.705,3.753l-5.8-3.37c-1.049-.61-1.7-1.907-1.705-3.753l-.141-49.83A12.823,12.823,0,0,1,33.742,47.941Z" transform="translate(-27.931 -22.099)" fill="#d9ddf6"/>
+          <path id="Caminho_2933" data-name="Caminho 2933" d="M34.965,48.652a12.823,12.823,0,0,0-5.812,10.082l.141,49.83c.011,3.712,2.633,5.207,5.85,3.349L78.523,86.868a12.823,12.823,0,0,0,5.812-10.082l-.141-49.83c-.011-3.712-2.632-5.207-5.85-3.349Z" transform="translate(-23.354 -19.439)" fill="#b7c5fd"/>
+        </g>
+        <g id="Grupo_2090" data-name="Grupo 2090" transform="translate(16.103 26.076)">
+          <path id="Caminho_2943" data-name="Caminho 2943" d="M34.311,63.005c0,4.753,1.677,8.107,4.4,9.683l3.583,2.084c-2.719-1.576-4.4-4.93-4.4-9.683-.025-9.606,6.709-21.3,15.071-26.126,4.193-2.414,8.005-2.643,10.75-1.042l-3.583-2.084c-2.745-1.6-6.557-1.372-10.75,1.042C41.021,41.708,34.286,53.4,34.311,63.005Z" transform="translate(-31.622 -31.711)" fill="#6bb5fb"/>
+          <ellipse id="Elipse_81" data-name="Elipse 81" cx="21.317" cy="12.348" rx="21.317" ry="12.348" transform="translate(0 36.862) rotate(-59.838)" fill="#4466fb"/>
+        </g>
+      </g>
+      <g id="Grupo_2152" data-name="Grupo 2152" transform="translate(365.205 541.702) rotate(170)">
+        <path id="Caminho_1967" data-name="Caminho 1967" d="M43.973,60.084,31.6,56.92,46.7,45.062Z" transform="translate(-23.295 -41.86)" fill="#fff"/>
+      </g>
+    </g>
+  </svg>
+</ng-container>
+
+<ng-template #mediaBTmpl>
+  <svg id="Grupo_2151" data-name="Grupo 2151" xmlns="http://www.w3.org/2000/svg" width="60.71" height="93.272" viewBox="0 0 60.71 93.272">
+    <g id="Grupo_2084" data-name="Grupo 2084" transform="translate(0)">
+      <path id="Caminho_2932" data-name="Caminho 2932" d="M81.015,47.941,37.83,22.9c-1.61-.934-3.071-1.021-4.126-.4l-5.773,3.37c1.056-.616,2.516-.529,4.126.4L75.242,51.311a12.835,12.835,0,0,1,5.786,10.082l-.141,49.83c-.005,1.846-.653,3.144-1.7,3.753l5.773-3.37c1.044-.61,1.692-1.907,1.7-3.753l.141-49.83A12.835,12.835,0,0,0,81.015,47.941Z" transform="translate(-26.092 -22.099)" fill="#d9ddf6"/>
+      <path id="Caminho_2933" data-name="Caminho 2933" d="M78.3,48.652A12.835,12.835,0,0,1,84.09,58.734l-.141,49.83c-.01,3.712-2.621,5.207-5.824,3.349L34.939,86.868a12.835,12.835,0,0,1-5.786-10.082l.141-49.83c.01-3.712,2.621-5.207,5.824-3.349Z" transform="translate(-29.153 -19.439)" fill="#b7c5fd"/>
+    </g>
+    <g id="Grupo_2090" data-name="Grupo 2090" transform="translate(2.095 26.076)">
+      <path id="Caminho_2943" data-name="Caminho 2943" d="M63.585,63.005c0,4.753-1.67,8.107-4.377,9.683L55.64,74.772c2.707-1.576,4.377-4.93,4.377-9.683.025-9.606-6.679-21.3-15-26.126-4.175-2.414-7.97-2.643-10.7-1.042l3.567-2.084c2.733-1.6,6.528-1.372,10.7,1.042C56.905,41.708,63.61,53.4,63.585,63.005Z" transform="translate(-23.679 -31.711)" fill="#6bb5fb"/>
+      <path id="Caminho_3004" data-name="Caminho 3004" d="M21.293,24.737c11.76.023,21.283-5.469,21.27-12.265S33.006.146,21.246.123-.037,5.592-.024,12.389,9.533,24.714,21.293,24.737Z" transform="translate(21.232 49.27) rotate(-120.162)" fill="#4466fb"/>
+    </g>
+    <g id="Grupo_2152" data-name="Grupo 2152" transform="matrix(0.985, 0.174, -0.174, 0.985, 15.541, 44.483)">
+      <path id="Caminho_1967" data-name="Caminho 1967" d="M12.308.021-.009,3.175,15.03,15.043Z" transform="translate(0 0)" fill="#fff"/>
+    </g>
+  </svg>
+</ng-template>

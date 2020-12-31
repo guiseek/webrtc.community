@@ -73,6 +73,23 @@
     },
     "sample-munge-sdp": {
       "tags": ["side:client", "type:feat", "scope:sample"]
+    },
+    "client-e2e": {
+      "tags": [],
+      "implicitDependencies": ["client"]
+    },
+    "util-qrcode": {
+      "tags": ["type:util", "scope:util"]
+    },
+    "talk": {
+      "tags": ["side:client", "type:app"]
+    },
+    "talk-e2e": {
+      "tags": [],
+      "implicitDependencies": ["talk"]
+    },
+    "ui-reveal": {
+      "tags": ["side:client", "type:feat", "scope:ui"]
     }
   }
 }

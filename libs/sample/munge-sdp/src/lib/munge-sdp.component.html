@@ -1,23 +1,121 @@
-<div #selectSource id="selectSource" class="hidden">
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <control-devices
+      label="Fonte de áudio"
+      [formControl]="audioSource"
+      kind="audioinput"
+    ></control-devices>
+
+    <control-devices
+      label="Fonte de vídeo"
+      [formControl]="videoSource"
+      kind="videoinput"
+    ></control-devices>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <button
+      #getMediaButtonRefButton
+      mat-raised-button
+      color="primary"
+      id="getMedia"
+      (click)="getMedia()"
+    >
+      Mídia
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      #createPeerConnectionRefButton
+      id="createPeerConnection"
+      disabled
+      (click)="createPeerConnection()"
+    >
+      Conexão
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      #createOfferRefButton
+      id="createOffer"
+      disabled
+      (click)="createOffer()"
+    >
+      Criar oferta
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      #setOfferRefButton
+      id="setOffer"
+      disabled
+      (click)="setOffer()"
+    >
+      Ofertar
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      #createAnswerRefButton
+      id="createAnswer"
+      disabled
+      (click)="createAnswer()"
+    >
+      Criar resposta
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      #setAnswerRefButton
+      id="setAnswer"
+      disabled
+      (click)="setAnswer()"
+    >
+      Responder
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      #hangupRefButton
+      id="hangup"
+      disabled
+      (click)="hangup()"
+    >
+      Desligar
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<!-- <div #selectSource id="selectSource" class="hidden">
   <div id="select">
     Selecione uma fonte de áudio e vídeo e clique em
     <strong>Obter mídia</strong>:
   </div>
-  <div class="source">
-    <label for="audioSrc">Fonte de áudio:</label>
-    <select #audioSrc id="audioSrc"></select>
-  </div>
-  <div class="source">
-    <label for="videoSrc">Fonte de vídeo:</label>
-    <select #videoSrc id="videoSrc"></select>
-  </div>
-</div>
 
-<div id="buttons">
-  <button #getMediaButtonRefButton id="getMedia" (click)="getMedia()">
+  <control-devices
+    label="Fonte de áudio"
+    [formControl]="audioSource"
+    kind="audioinput"
+  ></control-devices>
+
+  <control-devices
+    label="Fonte de vídeo"
+    [formControl]="videoSource"
+    kind="videoinput"
+  ></control-devices>
+</div> -->
+
+<!-- <div id="buttons">
+  <button
+    #getMediaButtonRefButton
+    mat-raised-button
+    color="primary"
+    id="getMedia"
+    (click)="getMedia()"
+  >
     Obter mídia
   </button>
   <button
+    mat-raised-button
+    color="primary"
     #createPeerConnectionRefButton
     id="createPeerConnection"
     disabled
@@ -26,6 +124,8 @@
     Criar conexão de par
   </button>
   <button
+    mat-raised-button
+    color="primary"
     #createOfferRefButton
     id="createOffer"
     disabled
@@ -33,10 +133,19 @@
   >
     Criar oferta
   </button>
-  <button #setOfferRefButton id="setOffer" disabled (click)="setOffer()">
+  <button
+    mat-raised-button
+    color="primary"
+    #setOfferRefButton
+    id="setOffer"
+    disabled
+    (click)="setOffer()"
+  >
     Definir oferta
   </button>
   <button
+    mat-raised-button
+    color="primary"
     #createAnswerRefButton
     id="createAnswer"
     disabled
@@ -44,27 +153,61 @@
   >
     Crie uma resposta
   </button>
-  <button #setAnswerRefButton id="setAnswer" disabled (click)="setAnswer()">
+  <button
+    mat-raised-button
+    color="primary"
+    #setAnswerRefButton
+    id="setAnswer"
+    disabled
+    (click)="setAnswer()"
+  >
     Definir resposta
   </button>
-  <button #hangupRefButton id="hangup" disabled (click)="hangup()">
+  <button
+    mat-raised-button
+    color="primary"
+    #hangupRefButton
+    id="hangup"
+    disabled
+    (click)="hangup()"
+  >
     Desligar
   </button>
-</div>
+</div> -->
 
 <div id="preview">
-  <div id="local">
+  <mat-card>
+    <label mat-card-title for="localCandidate">Local </label>
+    <video #localVideoRefEl playsinline autoplay muted></video>
+    <mat-form-field appearance="outline">
+      <mat-label>UID</mat-label>
+      <textarea matInput #localTextarea [formControl]="offerSdp"></textarea>
+      <mat-error>Obrigatório</mat-error>
+    </mat-form-field>
+  </mat-card>
+
+  <mat-card>
+    <label mat-card-title for="remoteCandidate">Remoto </label>
+    <video #remoteVideoRefEl playsinline autoplay></video>
+    <mat-form-field appearance="outline">
+      <mat-label>UID</mat-label>
+      <textarea matInput #remoteTextarea [formControl]="answerSdp"></textarea>
+      <mat-error>Obrigatório</mat-error>
+    </mat-form-field>
+  </mat-card>
+
+  <!-- <div id="local">
     <h2>Local</h2>
     <video #localVideoRefEl playsinline autoplay muted></video>
     <h2>Oferecer SDP</h2>
-    <textarea #localTextarea></textarea>
+    <textarea #localTextarea [formControl]="offerSdp"></textarea>
     <br />
     <br />
-  </div>
-  <div id="remote">
+  </div> -->
+  <!-- <div id="remote">
     <h2>Remoto</h2>
     <video #remoteVideoRefEl playsinline autoplay></video>
     <h2>Responder SDP</h2>
-    <textarea #remoteTextarea></textarea>
-  </div>
+    <textarea #remoteTextarea [formControl]="answerSdp"></textarea>
+  </div> -->
 </div>

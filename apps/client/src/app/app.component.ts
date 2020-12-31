@@ -8,9 +8,10 @@ import {
 import { MediaMatcher } from '@angular/cdk/layout'
 import { NavigationStart, Router } from '@angular/router'
 import { MatSidenav } from '@angular/material/sidenav'
-import { filter } from 'rxjs/operators'
+import { filter, map, pairwise, startWith } from 'rxjs/operators'
 import { Subscription } from 'rxjs'
 import { MediaService } from '@quertc/meeting'
+import { GaService, NavFocusService } from './interceptors'
 
 @Component({
   selector: 'app-root',
@@ -39,32 +40,65 @@ export class AppComponent implements OnDestroy {
 
   private _mobileQueryListener: () => void
 
+  private subscriptions = new Subscription()
+
   constructor(
+    navFocusService: NavFocusService,
     private stream: MediaService,
-    mediaMatcher: MediaMatcher,
     detector: ChangeDetectorRef,
-    router: Router
+    mediaMatcher: MediaMatcher,
+    router: Router,
+    ga: GaService
   ) {
     this.mobileQuery = mediaMatcher.matchMedia('(max-width: 600px)')
     this._mobileQueryListener = () => detector.detectChanges()
     this.mobileQuery.addEventListener('change', this._mobileQueryListener)
 
-    this.subscription = router.events
-      .pipe(filter((evt) => evt instanceof NavigationStart))
-      .subscribe(() => this.onRouteChange())
+    this.subscriptions.add(
+      navFocusService.navigationEndEvents
+        .pipe(
+          map((e) => e.urlAfterRedirects),
+          startWith(''),
+          pairwise()
+        )
+        .subscribe(([fromUrl, toUrl]) => {
+          // We want to reset the scroll position on navigation except when navigating within
+          // the documentation for a single component.
+          if (!navFocusService.isNavWithinComponentView(fromUrl, toUrl)) {
+            resetScrollPosition()
+          }
+          if (this.stream.currentStream?.active) {
+            this.stream.currentStream.getTracks().forEach((t) => t.stop())
+          }
+          ga.locationChanged(toUrl)
+          this.snav.close()
+        })
+    )
+    // this.subscription = router.events
+    //   .pipe(filter((evt) => evt instanceof NavigationStart))
+    //   .subscribe(() => this.onRouteChange())
   }
 
-  onRouteChange() {
-    if (this.snav.opened) {
-      this.snav.close()
-    }
-    if (this.stream.currentStream?.active) {
-      this.stream.currentStream.getTracks().forEach((t) => t.stop())
-    }
-  }
+  // onRouteChange() {
+  //   if (this.snav.opened) {
+  //     this.snav.close()
+  //   }
+  //   if (this.stream.currentStream?.active) {
+  //     this.stream.currentStream.getTracks().forEach((t) => t.stop())
+  //   }
+  // }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener)
+  }
+}
+
+function resetScrollPosition() {
+  if (typeof document === 'object' && document) {
+    const sidenavContent = document.querySelector('.mat-drawer-content')
+    if (sidenavContent) {
+      sidenavContent.scrollTop = 0
+    }
   }
 }

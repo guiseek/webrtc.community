@@ -1,3 +1,5 @@
+import { FormControl } from '@angular/forms'
+import { QRCode } from '@quertc/util-qrcode'
 // import { LogService } from './../log/log.service';
 /*
  *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
@@ -14,6 +16,8 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core'
+import { MatButton } from '@angular/material/button'
+import { code } from '@quertc/controls'
 
 @Component({
   selector: 'quertc-munge-sdp',
@@ -21,49 +25,32 @@ import {
   styleUrls: ['./munge-sdp.component.scss'],
 })
 export class MungeSdpComponent implements OnInit, AfterViewInit {
-  @ViewChild('getMediaButtonRefButton') getMediaButtonRef!: ElementRef<
-    HTMLButtonElement
-  >
-  getMediaButton!: HTMLButtonElement
+  @ViewChild('getMediaButtonRefButton')
+  getMediaButton!: MatButton
 
   @ViewChild('createPeerConnectionRefButton')
-  createPeerConnectionButtonRef!: ElementRef<HTMLButtonElement>
-  createPeerConnectionButton!: HTMLButtonElement
+  createPeerConnectionButton!: MatButton
 
-  @ViewChild('createOfferRefButton') createOfferRef!: ElementRef<
-    HTMLButtonElement
-  >
-  createOfferButton!: HTMLButtonElement
+  @ViewChild('createOfferRefButton')
+  createOfferButton!: MatButton
 
-  @ViewChild('setOfferRefButton') setOfferRef!: ElementRef<HTMLButtonElement>
-  setOfferButton!: HTMLButtonElement
+  @ViewChild('setOfferRefButton')
+  setOfferButton!: MatButton
 
-  @ViewChild('createAnswerRefButton') createAnswerRef!: ElementRef<
-    HTMLButtonElement
-  >
-  createAnswerButton!: HTMLButtonElement
+  @ViewChild('createAnswerRefButton')
+  createAnswerButton!: MatButton
 
-  @ViewChild('setAnswerRefButton') setAnswerRef!: ElementRef<HTMLButtonElement>
-  setAnswerButton!: HTMLButtonElement
+  @ViewChild('setAnswerRefButton')
+  setAnswerButton!: MatButton
 
-  @ViewChild('hangupRefButton') hangupRef!: ElementRef<HTMLButtonElement>
-  hangupButton!: HTMLButtonElement
+  @ViewChild('hangupRefButton')
+  hangupButton!: MatButton
 
-  @ViewChild('localTextarea') offerSdpTextareaRef!: ElementRef<
-    HTMLTextAreaElement
-  >
-  offerSdpTextarea!: HTMLTextAreaElement
+  offerSdp = new FormControl()
+  answerSdp = new FormControl()
 
-  @ViewChild('remoteTextarea') answerSdpTextareaRef!: ElementRef<
-    HTMLTextAreaElement
-  >
-  answerSdpTextarea!: HTMLTextAreaElement
-
-  @ViewChild('audioSrc') audioSelectRef!: ElementRef<HTMLSelectElement>
-  audioSelect!: HTMLSelectElement
-
-  @ViewChild('videoSrc') videoSelectRef!: ElementRef<HTMLSelectElement>
-  videoSelect!: HTMLSelectElement
+  audioSource = new FormControl()
+  videoSource = new FormControl()
 
   @ViewChild('localVideoRefEl') localVideoRef!: ElementRef<HTMLVideoElement>
   localVideo!: HTMLVideoElement
@@ -92,82 +79,29 @@ export class MungeSdpComponent implements OnInit, AfterViewInit {
 
   constructor() {} // private logger: LogService
 
-  async ngOnInit() {
-    try {
-      const enumerateDevices = await navigator.mediaDevices.enumerateDevices()
-      this.gotSources(enumerateDevices)
-    } catch (e) {
-      console.log(e)
-    }
-  }
+  async ngOnInit() {}
 
   ngAfterViewInit() {
-    this.getMediaButton = this.getMediaButtonRef.nativeElement
-
-    this.createPeerConnectionButton = this.createPeerConnectionButtonRef.nativeElement
-
-    this.createOfferButton = this.createOfferRef.nativeElement
-
-    this.setOfferButton = this.setOfferRef.nativeElement
-
-    this.createAnswerButton = this.createAnswerRef.nativeElement
-
-    this.setAnswerButton = this.setAnswerRef.nativeElement
-
-    this.hangupButton = this.hangupRef.nativeElement
-
-    this.offerSdpTextarea = this.offerSdpTextareaRef.nativeElement
-
-    this.answerSdpTextarea = this.answerSdpTextareaRef.nativeElement
-
-    this.selectSource = this.selectSourceRef.nativeElement
-
-    this.audioSelect = this.audioSelectRef.nativeElement
-
-    this.videoSelect = this.videoSelectRef.nativeElement
+    // this.selectSource = this.selectSourceRef.nativeElement
 
     this.localVideo = this.localVideoRef.nativeElement
 
     this.remoteVideo = this.remoteVideoRef.nativeElement
   }
 
-  gotSources(sourceInfos: string | any[]) {
-    this.selectSource.classList.remove('hidden')
-    let audioCount = 0
-    let videoCount = 0
-    for (let i = 0; i < sourceInfos.length; i++) {
-      const option = document.createElement('option')
-      option.value = sourceInfos[i].deviceId
-      option.text = sourceInfos[i].label
-      if (sourceInfos[i].kind === 'audioinput') {
-        audioCount++
-        if (option.text === '') {
-          option.text = `Audio ${audioCount}`
-        }
-        this.audioSelect.appendChild(option)
-      } else if (sourceInfos[i].kind === 'videoinput') {
-        videoCount++
-        if (option.text === '') {
-          option.text = `Video ${videoCount}`
-        }
-        this.videoSelect.appendChild(option)
-      } else {
-        console.log('desconhecido', JSON.stringify(sourceInfos[i]))
-      }
-    }
-  }
-
   async getMedia() {
     this.getMediaButton.disabled = true
     this.createPeerConnectionButton.disabled = false
+
     this.localVideo.muted = true
     if (this.localStream) {
       this.localVideo.srcObject = null
       this.localStream.getTracks().forEach((track) => track.stop())
     }
-    const audioSource = this.audioSelect.value
+
+    const audioSource = this.audioSource.value
     console.log(`Fonte de áudio selecionada: ${audioSource}`)
-    const videoSource = this.videoSelect.value
+    const videoSource = this.videoSource.value
     console.log(`Fonte de vídeo selecionada: ${videoSource}`)
 
     const constraints: MediaStreamConstraints = {
@@ -269,6 +203,7 @@ export class MungeSdpComponent implements OnInit, AfterViewInit {
         this.offerOptions
       )
       this.gotDescription1(offer)
+      console.log(offer.sdp?.length)
     } catch (e) {
       this.onCreateSessionDescriptionError(e)
     }
@@ -281,9 +216,9 @@ export class MungeSdpComponent implements OnInit, AfterViewInit {
     // Restaura o SDP da textarea. Certifique-se de usar CRLF, que é o que é gerado
     // embora https://tools.ietf.org/html/rfc4566#section-5 requeira
     // analisadores para lidar com LF e CRLF.
-    const sdp = this.offerSdpTextarea.value
+    const sdp = (this.offerSdp.value ?? '')
       .split('\n')
-      .map((l) => l.trim())
+      .map((l: string) => l.trim())
       .join('\r\n')
     const offer: RTCSessionDescriptionInit = {
       type: 'offer',
@@ -306,8 +241,11 @@ export class MungeSdpComponent implements OnInit, AfterViewInit {
     }
   }
   gotDescription1(description: RTCSessionDescriptionInit) {
-    this.offerSdpTextarea.disabled = false
-    this.offerSdpTextarea.value = description.sdp ? description.sdp : ''
+    // this.offerSdp.disabled = false
+    this.offerSdp.enable()
+    this.offerSdp.setValue(description.sdp ? description.sdp : '')
+    // this.offerSdpTextarea.disabled = false
+    // this.offerSdpTextarea.value = description.sdp ? description.sdp : ''
   }
   async createAnswer() {
     // Como o lado 'remoto' não tem fluxo de mídia, precisamos
@@ -325,9 +263,10 @@ export class MungeSdpComponent implements OnInit, AfterViewInit {
     // Restaura o SDP da textarea. Certifique-se de usar CRLF, que é o que é gerado
     // embora https://tools.ietf.org/html/rfc4566#section-5 requeira
     // analisadores para lidar com LF e CRLF.
-    const sdp = this.answerSdpTextarea.value
+    // const sdp = this.answerSdpTextarea.value
+    const sdp = (this.answerSdp.value ?? '')
       .split('\n')
-      .map((l) => l.trim())
+      .map((l: string) => l.trim())
       .join('\r\n')
     const answer: RTCSessionDescriptionInit = {
       type: 'answer',
@@ -341,7 +280,7 @@ export class MungeSdpComponent implements OnInit, AfterViewInit {
       this.onSetSessionDescriptionError(e)
     }
 
-    // console.log(`Resposta modificada de remotePeerConnection\n${sdp}`);
+    console.log(`Resposta modificada de remotePeerConnection\n${sdp}`);
     try {
       await this.localPeerConnection.setRemoteDescription(answer)
       this.onSetSessionDescriptionSuccess()
@@ -350,8 +289,10 @@ export class MungeSdpComponent implements OnInit, AfterViewInit {
     }
   }
   gotDescription2(description: RTCSessionDescriptionInit) {
-    this.answerSdpTextarea.disabled = false
-    this.answerSdpTextarea.value = description.sdp ? description.sdp : ''
+    // this.answerSdpTextarea.disabled = false
+    // this.answerSdpTextarea.value = description.sdp ? description.sdp : ''
+    this.answerSdp.enable()
+    this.answerSdp.setValue(description.sdp ? description.sdp : '')
   }
 
   sendData() {
@@ -376,8 +317,8 @@ export class MungeSdpComponent implements OnInit, AfterViewInit {
     this.remotePeerConnection.close()
     Object.assign(this.localPeerConnection, null)
     Object.assign(this.remotePeerConnection, null)
-    this.offerSdpTextarea.disabled = true
-    this.answerSdpTextarea.disabled = true
+    // this.offerSdpTextarea.disabled = true
+    // this.answerSdpTextarea.disabled = true
     this.getMediaButton.disabled = false
     this.createPeerConnectionButton.disabled = true
     this.createOfferButton.disabled = true

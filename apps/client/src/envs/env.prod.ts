@@ -1,5 +1,6 @@
 export const env = {
   prod: true,
+  gaId: 'G-WFT7VDSGL6',
   signaling: 'https://server.webrtc.community',
   endpoint: 'https://server.webrtc.community',
   configuration: {

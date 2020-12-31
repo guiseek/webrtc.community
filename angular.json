@@ -632,6 +632,215 @@
           }
         }
       }
+    },
+    "client-e2e": {
+      "root": "apps/client-e2e",
+      "sourceRoot": "apps/client-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/client-e2e/cypress.json",
+            "tsConfig": "apps/client-e2e/tsconfig.e2e.json",
+            "devServerTarget": "client:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "client:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/client-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "util-qrcode": {
+      "root": "libs/util/qrcode",
+      "sourceRoot": "libs/util/qrcode/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/util/qrcode/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/util/qrcode"],
+          "options": {
+            "jestConfig": "libs/util/qrcode/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/util/qrcode",
+            "tsConfig": "libs/util/qrcode/tsconfig.lib.json",
+            "packageJson": "libs/util/qrcode/package.json",
+            "main": "libs/util/qrcode/src/index.ts",
+            "assets": ["libs/util/qrcode/*.md", "libs/util/qrcode/LICENSE"]
+          }
+        }
+      }
+    },
+    "talk": {
+      "projectType": "application",
+      "root": "apps/talk",
+      "sourceRoot": "apps/talk/src",
+      "prefix": "talk",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/talk",
+            "index": "apps/talk/src/index.html",
+            "main": "apps/talk/src/main.ts",
+            "polyfills": "apps/talk/src/polyfills.ts",
+            "tsConfig": "apps/talk/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/talk/src/favicon.ico", "apps/talk/src/assets"],
+            "styles": ["apps/talk/src/styles.scss"],
+            "allowedCommonJsDependencies": [
+              "socket.io-client",
+              "zone.js/dist/zone-error"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/talk/src/envs/env.ts",
+                  "with": "apps/talk/src/envs/env.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "talk:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "talk:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "talk:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/talk/src/**/*.ts",
+              "apps/talk/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/talk"],
+          "options": {
+            "jestConfig": "apps/talk/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "talk-e2e": {
+      "root": "apps/talk-e2e",
+      "sourceRoot": "apps/talk-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/talk-e2e/cypress.json",
+            "tsConfig": "apps/talk-e2e/tsconfig.e2e.json",
+            "devServerTarget": "talk:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "talk:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/talk-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ui-reveal": {
+      "projectType": "library",
+      "root": "libs/ui/reveal",
+      "sourceRoot": "libs/ui/reveal/src",
+      "prefix": "quertc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/ui/reveal/tsconfig.lib.json",
+            "project": "libs/ui/reveal/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/reveal/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/reveal/src/**/*.ts",
+              "libs/ui/reveal/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/reveal"],
+          "options": {
+            "jestConfig": "libs/ui/reveal/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

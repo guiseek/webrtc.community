@@ -1,0 +1,58 @@
+<div talk-reveal>
+  <div class="slides">
+    <section>
+      <section>
+        <h1>WebRTC</h1>
+        <p>Web Real-Time Communication</p>
+      </section>
+
+      <section>
+        <figure>
+          <img
+            src="//avatars2.githubusercontent.com/u/5638096?s=460&u=66d0ccbdd7d90b01de179f7250a144531917a8eb&v=4"
+            alt="Guilherme Siquinelli"
+          />
+        </figure>
+        <p>Guilherme Siquinelli</p>
+        <p>@guiseek</p>
+      </section>
+    </section>
+
+    <section>
+      <h2>3 APIs</h2>
+      <ol>
+        <li data-markdown>`MediaStream` </li>
+        <li data-markdown>`RTCPeerConnection`</li>
+        <li data-markdown>`RTCDataChannel`</li>
+      </ol>
+    </section>
+
+    <section #slideConnection class="slide s1">
+      <talk-turn-stun [ngClass]="{show: showTurnStun}"></talk-turn-stun>
+      <div class="container">
+        <div class="side">
+          <talk-notebook></talk-notebook>
+          <div class="sdp">
+            <talk-security></talk-security>
+            <talk-certified></talk-certified>
+            <talk-media></talk-media>
+          </div>
+          <talk-firewall [ngClass]="{show: showFirewall}"></talk-firewall>
+        </div>
+
+        <talk-network [period]="300"></talk-network>
+
+        <div class="side">
+          <talk-notebook side="B"></talk-notebook>
+          <div class="sdp">
+            <talk-media side="B"></talk-media>
+            <talk-certified side="B"></talk-certified>
+            <talk-security side="B"></talk-security>
+          </div>
+          <talk-firewall [ngClass]="{show: showFirewall}" side="B"></talk-firewall>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<router-outlet></router-outlet>

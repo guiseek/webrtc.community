@@ -1,0 +1,33 @@
+:host {
+  line,
+  circle {
+    // fill: #3955d1;
+  }
+  #Oval-9,
+  #Line-2-3,
+  #Oval-12,
+  #Line-3-4,
+  #Oval-11,
+  #Line-3-5,
+  #Oval-6,
+  #Line-3-2,
+  #Oval-3 {
+    &.active {
+      fill: #6bfbac;
+      stroke: #6bfbac;
+
+      stroke-dasharray: 10;
+      stroke-dashoffset: 1000;
+      animation: dash 5s linear alternate infinite;
+    }
+  }
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 822;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

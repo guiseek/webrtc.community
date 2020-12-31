@@ -1,0 +1,46 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: sans-serif;
+  // max-width: 1280px;
+}
+
+section {
+  &.slide {
+    display: flex;
+    max-height: 90vh;
+    flex-direction: column;
+    align-items: center;
+    .container {
+      margin-top: -50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    talk-turn-stun {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 500ms ease-in-out, opacity 500ms ease-in-out;
+      &.show {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    talk-firewall {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 500ms ease-in-out, opacity 500ms ease-in-out;
+      &.show {
+        visibility: visible;
+        opacity: 1;
+      }
+      display: flex;
+      margin-top: -150px;
+    }
+  }
+  figure img {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}

@@ -1,102 +1,179 @@
-/*
- *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
- *
- *  Use of this source code is governed by a BSD-style license
- *  that can be found in the LICENSE file in the root of the source
- *  tree.
- */
-button {
-  margin: 0 20px 20px 0;
-  vertical-align: top;
-  width: 155px;
+@import 'libs/ui/theme/src/helpers/mixins';
+
+:host {
+  display: block;
+  padding-bottom: 64px;
+  width: 100%;
+  --width: 100%;
+
+  .mat-toolbar {
+    padding-right: 60px;
+    flex-direction: row;
+
+    > .mat-toolbar-row:last-child {
+      justify-content: flex-end;
+    }
+  }
+
+  @include onHandset() {
+    .mat-toolbar {
+      padding-right: 40px;
+      flex-direction: column;
+      > .mat-toolbar-row:last-child {
+        justify-content: space-between;
+      }
+    }
+  }
 }
-div#buttons {
-  border-bottom: 1px solid #eee;
-  margin: 1em 0 1em 0;
-  padding: 0 0 1em 0;
+
+video {
+  width: var(--width);
+  height: calc(var(--width) * 0.75);
+  object-fit: cover;
+  margin: 0;
 }
-div#local {
-  margin: 0 20px 0 0;
+
+#selectSource {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 16px 16px;
+}
+#buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 16px 16px;
 }
 div#preview {
-  border-bottom: 1px solid #eee;
-  margin: 0 0 1em 0;
-  padding: 0 0 0.5em 0;
+  display: flex;
+  row-gap: 8px;
+  column-gap: 8px;
+  padding: 8px;
+  .mat-form-field {
+    width: 100%;
+  }
 }
-div#preview > div {
+div#preview > .mat-card {
   display: inline-block;
+  p {
+    display: flex;
+    flex-direction: row;
+    div {
+      margin-right: 12px;
+    }
+  }
   vertical-align: top;
-  width: calc(50% - 12px);
-}
-div#select {
-  margin: 0 0 1em 0;
-}
-div#selectSource {
-  margin: 0 0 1em 0;
-}
-div.source {
-  display: inline-block;
-  margin: 0 0 1em 0;
-}
-form {
-  margin: 0 0 1em 0;
-  white-space: nowrap;
-}
-h2 {
-  margin: 0 0 0.5em 0;
-}
-label {
-  margin: 0 0.4em 0 0;
-}
-textarea {
-  color: #444;
-  font-size: 0.9em;
-  font-weight: 300;
-  height: 7em;
-  padding: 5px;
-  width: calc(100% - 10px);
-}
-video {
-  height: 225px;
-}
-
-@media screen and (max-width: 550px) {
-  button {
-    font-weight: 500;
-    height: 56px;
-    line-height: 1.3em;
-    margin: 0 7px 15px 0;
-    width: 86px;
-  }
-  button:nth-child(3n + 0) {
-    margin: 0 0 15px 0;
-  }
-  video {
-    height: 96px;
+  width: calc(50% - 32px);
+  > video {
+    width: 100%;
   }
 }
 
-@media screen and (max-width: 800px) {
-  button {
-    margin: 0 15px 15px 0;
-    width: 155px;
-  }
-  div#selectSource {
-    margin: 0 0 0.5em 0;
-  }
-  div.source {
-    margin: 0 0 0.2em 0;
-  }
-  select {
-    margin: 0 1.5em 0 0;
-  }
-  textarea {
-    font-size: 0.7em;
-  }
-}
+// /*
+//  *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
+//  *
+//  *  Use of this source code is governed by a BSD-style license
+//  *  that can be found in the LICENSE file in the root of the source
+//  *  tree.
+//  */
+// button {
+//   margin: 0 20px 20px 0;
+//   vertical-align: top;
+// }
+// div#buttons {
+//   display: flex;
+//   justify-content: space-evenly;
+//   align-items: center;
+//   border-bottom: 1px solid #eee;
+//   margin: 1em 0 1em 0;
+//   padding: 0 0 1em 0;
+// }
+// div#local {
+//   margin: 0 20px 0 0;
+// }
+// div#preview {
+//   border-bottom: 1px solid #eee;
+//   margin: 0 0 1em 0;
+//   padding: 0 0 0.5em 0;
+// }
+// div#preview > div {
+//   display: inline-block;
+//   vertical-align: top;
+//   width: calc(50% - 12px);
+// }
+// div#select {
+//   margin: 0 0 1em 0;
+// }
+// div#selectSource {
+//   display: flex;
+//   justify-content: space-evenly;
+//   align-items: center;
+//   margin: 0 0 1em 0;
+// }
+// div.source {
+//   display: inline-block;
+//   margin: 0 0 1em 0;
+// }
+// form {
+//   margin: 0 0 1em 0;
+//   white-space: nowrap;
+// }
+// h2 {
+//   margin: 0 0 0.5em 0;
+// }
+// label {
+//   margin: 0 0.4em 0 0;
+// }
+// textarea {
+//   color: #444;
+//   font-size: 0.9em;
+//   font-weight: 300;
+//   height: 7em;
+//   padding: 5px;
+//   width: calc(100% - 10px);
+// }
+// video {
+//   width: 100%;
+// }
 
-@media screen and (max-width: 500px) {
-  textarea {
-    font-size: 0.5em;
-  }
-}
+// @media screen and (max-width: 550px) {
+//   button {
+//     font-weight: 500;
+//     height: 56px;
+//     line-height: 1.3em;
+//     margin: 0 7px 15px 0;
+//     width: 86px;
+//   }
+//   button:nth-child(3n + 0) {
+//     margin: 0 0 15px 0;
+//   }
+//   video {
+//     height: 96px;
+//   }
+// }
+
+// @media screen and (max-width: 800px) {
+//   button {
+//     margin: 0 15px 15px 0;
+//     width: 155px;
+//   }
+//   div#selectSource {
+//     margin: 0 0 0.5em 0;
+//   }
+//   div.source {
+//     margin: 0 0 0.2em 0;
+//   }
+//   select {
+//     margin: 0 1.5em 0 0;
+//   }
+//   textarea {
+//     font-size: 0.7em;
+//   }
+// }
+
+// @media screen and (max-width: 500px) {
+//   textarea {
+//     font-size: 0.5em;
+//   }
+// }

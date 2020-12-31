@@ -20,12 +20,7 @@
               "apps/client/src/favicon.ico",
               "apps/client/src/CNAME",
               "apps/client/src/assets",
-              "apps/client/src/manifest.webmanifest",
-              {
-                "glob": "**/*",
-                "input": "libs/data/local/src",
-                "output": "./data"
-              }
+              "apps/client/src/manifest.webmanifest"
             ],
             "styles": ["apps/client/src/styles.scss"],
             "allowedCommonJsDependencies": [

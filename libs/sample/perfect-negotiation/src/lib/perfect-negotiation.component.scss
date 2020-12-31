@@ -31,6 +31,35 @@
   }
 }
 
+#local {
+  right: 4px;
+  width: 240px;
+  height: auto;
+  max-width: 240px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: fixed;
+  padding: 0;
+  bottom: 4px;
+  video {
+    width: inherit;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: -8px;
+  }
+  .mat-card-actions {
+    position: absolute;
+    bottom: 0;
+    margin: 0 6px -3px;
+    z-index: 10;
+    color: white;
+    // display: flex;
+    // align-items: center;
+    // margin-top: -8px;
+    // margin-bottom: 0;
+    // padding: 2px 0 0;
+  }
+}
 #self {
   position: fixed;
   bottom: 0;

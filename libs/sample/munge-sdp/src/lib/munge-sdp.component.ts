@@ -1,13 +1,10 @@
-import { FormControl } from '@angular/forms'
-import { QRCode } from '@quertc/util-qrcode'
-// import { LogService } from './../log/log.service';
 /*
- *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
- *
- *  Use of this source code is governed by a BSD-style license
- *  that can be found in the LICENSE file in the root of the source
- *  tree.
- */
+*  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
+*
+*  Use of this source code is governed by a BSD-style license
+*  that can be found in the LICENSE file in the root of the source
+*  tree.
+*/
 
 import {
   AfterViewInit,
@@ -17,7 +14,7 @@ import {
   ViewChild,
 } from '@angular/core'
 import { MatButton } from '@angular/material/button'
-import { code } from '@quertc/controls'
+import { FormControl } from '@angular/forms'
 
 @Component({
   selector: 'quertc-munge-sdp',

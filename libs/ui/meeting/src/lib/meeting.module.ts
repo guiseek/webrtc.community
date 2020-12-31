@@ -1,11 +1,22 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button'
+import { MatSliderModule } from '@angular/material/slider'
+import { MatTooltipModule } from '@angular/material/tooltip'
+import { RTC_CONFIGURATION } from './meeting-injectors'
 import { MediaService } from './services/media.service'
 import { CallingComponent } from './components/calling/calling.component'
-import { RTC_CONFIGURATION } from './meeting-injectors'
+import { MuteButtonComponent } from './components/mute-button/mute-button.component'
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSliderModule,
+    MatTooltipModule,
+  ],
   providers: [
     MediaService,
     {
@@ -19,7 +30,7 @@ import { RTC_CONFIGURATION } from './meeting-injectors'
       },
     },
   ],
-  declarations: [CallingComponent],
-  exports: [CallingComponent],
+  declarations: [CallingComponent, MuteButtonComponent],
+  exports: [CallingComponent, MuteButtonComponent],
 })
 export class MeetingModule {}

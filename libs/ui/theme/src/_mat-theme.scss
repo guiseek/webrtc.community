@@ -13,6 +13,7 @@
     @include mat-divider-theme($theme-or-color-config);
     @include mat-form-field-theme($theme-or-color-config);
     @include mat-slide-toggle-theme($theme-or-color-config);
+    @include mat-slider-theme($theme-or-color-config);
     @include mat-icon-theme($theme-or-color-config);
     @include mat-menu-theme($theme-or-color-config);
     @include mat-tabs-theme($theme-or-color-config);

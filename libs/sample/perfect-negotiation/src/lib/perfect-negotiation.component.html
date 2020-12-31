@@ -1,10 +1,20 @@
 <div class="center" *ngIf="(active$ | async) === null">
-  <quertc-calling #calling [active]="(active$ | async) === true"></quertc-calling>
+  <quertc-calling
+    #calling
+    [active]="(active$ | async) === true"
+  ></quertc-calling>
 </div>
 <div id="remote">
   <video #remoteView autoplay></video>
 </div>
 
-<div id="self">
+<!-- <div id="self">
   <video #selfView autoplay></video>
-</div>
+</div> -->
+<mat-card id="local">
+  <video #selfView autoplay></video>
+
+  <mat-card-actions>
+    <quertc-mute-button [video]="selfView"> </quertc-mute-button>
+  </mat-card-actions>
+</mat-card>

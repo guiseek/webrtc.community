@@ -1,0 +1,28 @@
+<div class="volume-control">
+  <button
+    mat-icon-button
+    matTooltip="Tecla M"
+    aria-label="Use a tecla M para alternar o volume"
+    matTooltipPosition="before"
+    (click)="toggleMuted()"
+  >
+    <mat-icon *ngIf="muted || volume === 0">volume_off</mat-icon>
+    <mat-icon *ngIf="!muted && volume > 0 && volume < 0.25"
+      >volume_mute</mat-icon
+    >
+    <mat-icon *ngIf="!muted && volume >= 0.25 && volume < 0.5"
+      >volume_down</mat-icon
+    >
+    <mat-icon *ngIf="!muted && volume >= 0.5">volume_up</mat-icon>
+  </button>
+  <mat-slider
+    min="0"
+    max="1"
+    step="0.01"
+    value="1"
+    class="volume-slider"
+    color="primary"
+    (input)="setVolume($event.value)"
+  >
+  </mat-slider>
+</div>

@@ -4,7 +4,7 @@
 
 export const env = {
   prod: false,
-  gaClientId: 'G-WFT7VDSGL6',
+  gaClientId: 'UA-186132597-1',
   signaling: 'http://localhost:3000',
   endpoint: 'http://localhost:3000',
   configuration: {

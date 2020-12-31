@@ -5,6 +5,7 @@ const testStorageKey = AuthStorage.storageKey
 const testAuth: AuthResponse = {
   access_token: '123',
   payload: {
+    _id: '123',
     email: 'gui@email.com',
     name: 'Gui',
     uuid: uuid(),
@@ -17,6 +18,7 @@ describe('AuthStorage Service', () => {
   const secondTestToken: AuthResponse = {
     access_token: '321',
     payload: {
+      _id: '321',
       email: 'email@gui.com',
       name: 'Uig',
       uuid: uuid(),

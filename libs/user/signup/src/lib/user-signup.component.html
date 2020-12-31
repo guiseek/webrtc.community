@@ -1,11 +1,22 @@
 <form [formGroup]="form" cdk (ngSubmit)="onSubmit()">
-  <mat-error *ngIf="(error$ | async) as errors">
+  <mat-error *ngIf="error$ | async as errors">
     {{ errors }}
   </mat-error>
   <mat-card>
     <mat-form-field>
+      <mat-label>UID</mat-label>
+      <control-code [focused]="true" formControlName="code" readOnly></control-code>
+      <mat-error>Obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field>
       <mat-label>Nome</mat-label>
-      <input type="text" [controlFocus]="true" name="user_name" matInput formControlName="name" />
+      <input
+        #nameEl
+        matInput
+        type="text"
+        name="user_name"
+        formControlName="name"
+      />
       <mat-error>Obrigatório</mat-error>
     </mat-form-field>
     <mat-form-field>

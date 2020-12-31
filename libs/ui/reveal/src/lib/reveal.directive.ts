@@ -1,6 +1,9 @@
 import { DOCUMENT } from '@angular/common';
 import { Directive, Inject, OnInit, HostBinding } from '@angular/core';
 
+/**
+ * @dynamic
+ */
 @Directive({
   selector: '[talkReveal], [talk-reveal]'
 })

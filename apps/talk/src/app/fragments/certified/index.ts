@@ -1,1 +1,1 @@
-export * from './certified.fragment';
+export * from './certified.fragment'

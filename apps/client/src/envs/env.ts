@@ -4,7 +4,7 @@
 
 export const env = {
   prod: false,
-  gaClientId: 'G-WFT7VDSGL6',
+  gaClientId: 'UA-186132597-1',
   signaling: 'http://localhost:3000',
   endpoint: 'http://localhost:3000',
   configuration: {
@@ -24,4 +24,4 @@ export const env = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+import 'zone.js/dist/zone-error' // Included with Angular CLI.

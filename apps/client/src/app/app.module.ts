@@ -33,8 +33,8 @@ import {
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
 import { AuthTokenInterceptor } from './interceptors'
 import { HomeComponent } from './home/home.component'
+import { DataAccessModule } from '@quertc/data/access'
 import { env } from './../envs/env'
-import { DataAccessModule } from '@quertc/data/access';
 
 @NgModule({
   declarations: [

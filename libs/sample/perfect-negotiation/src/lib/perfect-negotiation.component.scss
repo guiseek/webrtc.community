@@ -37,6 +37,7 @@
   height: auto;
   max-width: 240px;
   border-radius: 8px;
+  background: rgba(0, 0, 0, 0.02);
   overflow: hidden;
   position: fixed;
   padding: 0;
@@ -53,29 +54,5 @@
     margin: 0 6px -3px;
     z-index: 10;
     color: white;
-    // display: flex;
-    // align-items: center;
-    // margin-top: -8px;
-    // margin-bottom: 0;
-    // padding: 2px 0 0;
-  }
-}
-#self {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 150px;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: solid 3px #fff;
-  border-radius: 100%;
-  video {
-    width: auto;
-    height: 154px;
-    object-fit: contain;
   }
 }

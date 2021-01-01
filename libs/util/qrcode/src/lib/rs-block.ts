@@ -1,5 +1,4 @@
 import { ErrorCorrectLevel } from './error-correct-level'
-
 ;('use strict')
 /**
  * RSBlock

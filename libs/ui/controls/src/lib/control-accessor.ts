@@ -9,8 +9,6 @@ export class ControlAccessor implements ControlValueAccessor {
   @Input()
   @HostBinding('attr.value')
   public set value(value: any) {
-    console.log('value: ', value)
-
     this._value = value
   }
 

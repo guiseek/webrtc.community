@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common'
 import { ReactiveFormsModule } from '@angular/forms'
-import { ControlsModule } from '@quertc/controls';
+import { ControlsModule } from '@quertc/controls'
 import { A11yModule } from '@angular/cdk/a11y'
 import { MatCardModule } from '@angular/material/card'
 import { MatInputModule } from '@angular/material/input'

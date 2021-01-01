@@ -24,15 +24,8 @@ import {
   MatFormField,
   MatFormFieldControl,
 } from '@angular/material/form-field'
+import { Code } from '@quertc/core'
 import { Subject } from 'rxjs'
-
-export class Code {
-  constructor(
-    public timeLow: string,
-    public timeMid: string,
-    public timeHiAndVersion: string
-  ) {}
-}
 
 @Component({
   selector: 'control-code',
@@ -47,9 +40,19 @@ export class CodeComponent
   @ViewChild('timeMid') timeMidInput: HTMLInputElement
   @ViewChild('timeHiAndVersion') timeHiAndVersionInput: HTMLInputElement
 
+  _readOnly = false
+  get readOnly() {
+    return this._readOnly
+  }
+  @Input()
+  @HostBinding('attr.readOnly')
+  set readOnly(v: string | boolean) {
+    this._readOnly = v === false ? false : true
+  }
+
   parts: FormGroup
   stateChanges = new Subject<void>()
-  focused = false
+  @Input() focused = false
   controlType = 'control-code-input'
 
   @HostBinding('attr.id')
@@ -134,15 +137,30 @@ export class CodeComponent
     this.parts = formBuilder.group({
       timeLow: [
         null,
-        [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(8),
+          Validators.pattern(/^[0-9a-f]{8}$/i),
+        ],
       ],
       timeMid: [
         null,
-        [Validators.required, Validators.minLength(4), Validators.maxLength(4)],
+        [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(4),
+          Validators.pattern(/^[0-9a-f]{4}$/i),
+        ],
       ],
       timeHiAndVersion: [
         null,
-        [Validators.required, Validators.minLength(4), Validators.maxLength(4)],
+        [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(4),
+          Validators.pattern(/^[0-5][0-9a-f]{3}$/i),
+        ],
       ],
     })
 

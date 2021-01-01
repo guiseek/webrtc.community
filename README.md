@@ -13,10 +13,10 @@
 
 ---
 
-|                        |                                                      |                                               |
-| ---------------------- | ---------------------------------------------------- | --------------------------------------------- |
-| ![Home](pics/home.png) | ![Negociação perfeita](pics/perfect-negotiation.png) | ![Reiniciar candidatos](pics/restart-ice.png) |
-| _Home_                 | _Negociação perfeita_                                | _Reiniciar candidatos_                        |
+|                        |                                                      |
+| ---------------------- | ---------------------------------------------------- |
+| ![Home](pics/home.png) | ![Negociação perfeita](pics/perfect-negotiation.png) |
+| _Home_                 | _Negociação perfeita_                                |
 
 ---
 
@@ -93,9 +93,30 @@ apps
     │   └── main.ts
 libs
 └── core
-    ├── src
-    │   ├── index.ts
-    │   └── lib
-    │       ├── signaling-channel.interface.ts
-    │       └── signaling-channel.ts # <- SignalingChannel (agnóstico)
+│   ├── src
+│   │   ├── index.ts
+│   │   └── lib
+│   │       ├── signaling-channel.interface.ts
+│   │       └── signaling-channel.ts # <- SignalingChannel (agnóstico)
+├── data
+│   ├── access
+│   └── local
+├── sample
+│   ├── munge-sdp
+│   ├── peer-to-peer
+│   ├── perfect-negotiation
+│   └── restart-ice
+├── ui
+│   ├── carousel
+│   ├── controls
+│   ├── meeting
+│   ├── overlog
+│   ├── reveal
+│   └── theme
+├── user
+│   ├── domain
+│   ├── profile
+│   └── signup
+└── util
+    └── qrcode
 ```

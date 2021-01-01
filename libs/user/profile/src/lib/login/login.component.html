@@ -1,16 +1,27 @@
 <form [formGroup]="form" cdkTrapFocus (ngSubmit)="onSubmit()">
-  <mat-error *ngIf="(error$ | async) as errors">
+  <mat-error *ngIf="error$ | async as errors">
     {{ errors }}
   </mat-error>
   <mat-card>
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input type="email" #emailEl name="user_email" matInput formControlName="username" />
+      <input
+        type="email"
+        #emailEl
+        name="user_email"
+        matInput
+        formControlName="username"
+      />
       <mat-error>Endereço de email inválido</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Senha</mat-label>
-      <input type="password" name="user_password" matInput formControlName="password" />
+      <input
+        type="password"
+        name="user_password"
+        matInput
+        formControlName="password"
+      />
       <mat-error>Mínimo de 6 caracteres</mat-error>
     </mat-form-field>
 

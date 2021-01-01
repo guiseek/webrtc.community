@@ -27,7 +27,6 @@ import { QRUtil } from './qr-util'
 import { RSBlock } from './rs-block'
 import { BitBuffer } from './bit-buffer'
 import { Polynomial } from './polynomial'
-
 ;('use strict')
 /**
  * QR8BitByte

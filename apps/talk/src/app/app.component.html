@@ -21,14 +21,14 @@
     <section>
       <h2>3 APIs</h2>
       <ol>
-        <li data-markdown>`MediaStream` </li>
+        <li data-markdown>`MediaStream`</li>
         <li data-markdown>`RTCPeerConnection`</li>
         <li data-markdown>`RTCDataChannel`</li>
       </ol>
     </section>
 
     <section #slideConnection class="slide s1">
-      <talk-turn-stun [ngClass]="{show: showTurnStun}"></talk-turn-stun>
+      <talk-turn-stun [ngClass]="{ show: showTurnStun }"></talk-turn-stun>
       <div class="container">
         <div class="side">
           <talk-notebook></talk-notebook>
@@ -37,7 +37,7 @@
             <talk-certified></talk-certified>
             <talk-media></talk-media>
           </div>
-          <talk-firewall [ngClass]="{show: showFirewall}"></talk-firewall>
+          <talk-firewall [ngClass]="{ show: showFirewall }"></talk-firewall>
         </div>
 
         <talk-network [period]="300"></talk-network>
@@ -49,7 +49,10 @@
             <talk-certified side="B"></talk-certified>
             <talk-security side="B"></talk-security>
           </div>
-          <talk-firewall [ngClass]="{show: showFirewall}" side="B"></talk-firewall>
+          <talk-firewall
+            [ngClass]="{ show: showFirewall }"
+            side="B"
+          ></talk-firewall>
         </div>
       </div>
     </section>

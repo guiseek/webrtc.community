@@ -1,1 +1,1 @@
-export * from './security.fragment';
+export * from './security.fragment'

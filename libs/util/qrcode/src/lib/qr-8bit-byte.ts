@@ -2,7 +2,6 @@ import { BitBuffer } from './bit-buffer'
 import { QRCode } from './qr-code'
 import { QRData } from './qr-data'
 import { Mode } from './mode'
-
 ;('use strict')
 /**
  * QR8BitByte

@@ -1,5 +1,4 @@
 import { createStringToBytes } from './create-string-to-bytes'
-
 ;('use strict')
 /**
  * stringToBytes_SJIS

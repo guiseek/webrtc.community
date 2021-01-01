@@ -1,24 +1,25 @@
-import { createDirectiveFactory, SpectatorDirective } from '@ngneat/spectator';
+import { createDirectiveFactory, SpectatorDirective } from '@ngneat/spectator'
 
-import { FocusDirective } from './focus.directive';
+import { FocusDirective } from './focus.directive'
 
 describe('FocusDirective ', () => {
-  let spectator: SpectatorDirective<FocusDirective>;
-  const createDirective = createDirectiveFactory(FocusDirective);
+  let spectator: SpectatorDirective<FocusDirective>
+  const createDirective = createDirectiveFactory(FocusDirective)
 
   it('should change the background color', () => {
-    spectator = createDirective(`<div controlFocus>Testing FocusDirective</div>`);
+    spectator = createDirective(
+      `<div controlFocus>Testing FocusDirective</div>`
+    )
 
-    spectator.dispatchMouseEvent(spectator.element, 'mouseover');
+    spectator.dispatchMouseEvent(spectator.element, 'mouseover')
 
     expect(spectator.element).toHaveStyle({
-      backgroundColor: 'rgba(0,0,0, 0.1)'
-    });
+      backgroundColor: 'rgba(0,0,0, 0.1)',
+    })
 
-    spectator.dispatchMouseEvent(spectator.element, 'mouseout');
+    spectator.dispatchMouseEvent(spectator.element, 'mouseout')
     expect(spectator.element).toHaveStyle({
-      backgroundColor: '#fff'
-    });
-  });
-
-});
+      backgroundColor: '#fff',
+    })
+  })
+})

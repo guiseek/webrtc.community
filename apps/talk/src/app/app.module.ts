@@ -14,7 +14,7 @@ import {
   SecurityFragment,
   CertifiedFragment,
   FirewallFragment,
-} from './fragments';
+} from './fragments'
 
 @NgModule({
   declarations: [

@@ -10,6 +10,7 @@
     size="8"
     maxlength="8"
     aria-label="Time low"
+    [readOnly]="readOnly"
     (input)="_handleInput(parts.controls.timeLow, timeMid)"
     #timeLow
   />
@@ -20,6 +21,7 @@
     maxlength="4"
     size="4"
     aria-label="Time mid"
+    [readOnly]="readOnly"
     (input)="_handleInput(parts.controls.timeMid, timeHiAndVersion)"
     (keyup.backspace)="autoFocusPrev(parts.controls.timeMid, timeLow)"
     #timeMid
@@ -31,6 +33,7 @@
     maxlength="4"
     size="4"
     aria-label="Time hi and version"
+    [readOnly]="readOnly"
     (input)="_handleInput(parts.controls.timeHiAndVersion)"
     (keyup.backspace)="autoFocusPrev(parts.controls.timeHiAndVersion, timeMid)"
     #timeHiAndVersion

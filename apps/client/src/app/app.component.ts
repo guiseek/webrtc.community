@@ -1,9 +1,11 @@
+import { code } from '@quertc/controls'
 import {
   Component,
   OnDestroy,
   ChangeDetectorRef,
   ChangeDetectionStrategy,
   ViewChild,
+  AfterViewInit,
 } from '@angular/core'
 import { MediaMatcher } from '@angular/cdk/layout'
 import { NavigationStart, Router } from '@angular/router'
@@ -12,6 +14,7 @@ import { filter, map, pairwise, startWith } from 'rxjs/operators'
 import { Subscription } from 'rxjs'
 import { MediaService } from '@quertc/meeting'
 import { GaService, NavFocusService } from './interceptors'
+import { CookieStorage } from '@quertc/data/access'
 
 @Component({
   selector: 'app-root',
@@ -19,7 +22,7 @@ import { GaService, NavFocusService } from './interceptors'
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements AfterViewInit, OnDestroy {
   @ViewChild('snav') snav: MatSidenav
   subscription: Subscription
   title = 'WebRTC.Community'
@@ -47,7 +50,8 @@ export class AppComponent implements OnDestroy {
     private stream: MediaService,
     detector: ChangeDetectorRef,
     mediaMatcher: MediaMatcher,
-    router: Router,
+    private cookieStorage: CookieStorage,
+    // private router: Router,
     ga: GaService
   ) {
     this.mobileQuery = mediaMatcher.matchMedia('(max-width: 600px)')
@@ -74,19 +78,15 @@ export class AppComponent implements OnDestroy {
           this.snav.close()
         })
     )
-    // this.subscription = router.events
-    //   .pipe(filter((evt) => evt instanceof NavigationStart))
-    //   .subscribe(() => this.onRouteChange())
   }
 
-  // onRouteChange() {
-  //   if (this.snav.opened) {
-  //     this.snav.close()
-  //   }
-  //   if (this.stream.currentStream?.active) {
-  //     this.stream.currentStream.getTracks().forEach((t) => t.stop())
-  //   }
-  // }
+  ngAfterViewInit() {
+    const guest = this.cookieStorage.get('guest')
+    if (!guest) {
+      const guestCode = code()
+      this.cookieStorage.set('guest', guestCode)
+    }
+  }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()

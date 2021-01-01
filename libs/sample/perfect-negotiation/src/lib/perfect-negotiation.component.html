@@ -7,14 +7,12 @@
 <div id="remote">
   <video #remoteView autoplay></video>
 </div>
-
-<!-- <div id="self">
+<mat-card id="local" class="mat-elevation-z2">
   <video #selfView autoplay></video>
-</div> -->
-<mat-card id="local">
-  <video #selfView autoplay></video>
-
   <mat-card-actions>
+    <!-- <button mat-icon-button (click)="restart()">
+      <mat-icon>replay</mat-icon>
+    </button> -->
     <quertc-mute-button [video]="selfView"> </quertc-mute-button>
   </mat-card-actions>
 </mat-card>

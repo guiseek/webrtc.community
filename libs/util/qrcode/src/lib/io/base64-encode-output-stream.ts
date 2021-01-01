@@ -1,5 +1,4 @@
 import { OutputStream } from './output-stream'
-
 ;('use strict')
 /**
  * Base64EncodeOutputStream

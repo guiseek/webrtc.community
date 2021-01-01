@@ -1,1 +1,1 @@
-export * from './notebook.fragment';
+export * from './notebook.fragment'

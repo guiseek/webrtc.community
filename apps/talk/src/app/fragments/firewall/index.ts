@@ -1,1 +1,1 @@
-export * from './firewall.fragment';
+export * from './firewall.fragment'

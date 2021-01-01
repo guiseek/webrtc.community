@@ -11,7 +11,5 @@ export class InfoComponent implements OnInit {
   currentUser$ = this.authFacade.currentUser$
   constructor(private authFacade: AuthFacade) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 }

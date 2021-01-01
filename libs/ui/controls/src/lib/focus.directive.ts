@@ -1,11 +1,11 @@
-import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core'
 
 @Directive({
-  selector: '[controlFocus]'
+  selector: '[controlFocus]',
 })
 export class FocusDirective implements AfterViewInit {
   @Input('controlFocus') controlFocus: boolean
-  constructor(private elRef: ElementRef<HTMLElement>) { }
+  constructor(private elRef: ElementRef<HTMLElement>) {}
 
   ngAfterViewInit() {
     if (this.controlFocus && this.elRef.nativeElement) {

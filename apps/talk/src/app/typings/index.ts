@@ -1,1 +1,1 @@
-export * from './peer-side.type';
+export * from './peer-side.type'

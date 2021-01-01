@@ -27,11 +27,11 @@ jobs:
 
       # Install
       - name: Install
-        run: npm ci
+        run: npm install
 
       # Affected
       - name: Affected
-        run: npm run affected:prod
+        run: npm run build:all
 
       # Docs
       - name: Docs

@@ -1,5 +1,4 @@
 import { InputStream } from './input-stream'
-
 ;('use strict')
 
 /**

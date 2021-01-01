@@ -1,6 +1,5 @@
 import { Mode } from './mode'
 import { BitBuffer } from './bit-buffer'
-
 ;('use strict')
 /**
  * QRData

@@ -24,15 +24,8 @@ import {
   MatFormField,
   MatFormFieldControl,
 } from '@angular/material/form-field'
+import { Code } from '@quertc/core'
 import { Subject } from 'rxjs'
-
-export class Code {
-  constructor(
-    public timeLow: string,
-    public timeMid: string,
-    public timeHiAndVersion: string
-  ) {}
-}
 
 @Component({
   selector: 'control-code',

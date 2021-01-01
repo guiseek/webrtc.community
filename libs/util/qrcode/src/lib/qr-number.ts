@@ -1,7 +1,6 @@
 import { QRData } from './qr-data'
 import { Mode } from './mode'
 import { BitBuffer } from './bit-buffer'
-
 ;('use strict')
 /**
  * QRNumber

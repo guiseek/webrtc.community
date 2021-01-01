@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'
 import { RevealDirective } from './reveal.directive'
 
 @NgModule({
@@ -8,6 +8,3 @@ import { RevealDirective } from './reveal.directive'
   exports: [RevealDirective],
 })
 export class RevealModule {}
-
-
-

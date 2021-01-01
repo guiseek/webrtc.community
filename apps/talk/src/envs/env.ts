@@ -13,4 +13,4 @@ export const env = {
  * This import should be commented out in prod mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+import 'zone.js/dist/zone-error' // Included with Angular CLI.

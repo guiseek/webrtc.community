@@ -16,7 +16,6 @@
     "test:all": "nx affected:test --all --detectOpenHandles",
     "dev": "nx run-many --target serve --projects  server,client --maxParallel 2 --parallel",
     "sample": "ts-node --project tools/tsconfig.tools.json tools/generators/sample.generator.ts",
-    "affected:prod": "nx affected:build --prod --base=origin/develop",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",

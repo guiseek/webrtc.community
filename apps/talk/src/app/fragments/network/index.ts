@@ -1,2 +1,2 @@
-export * from './network.fragment';
-export * from './network.service';
+export * from './network.fragment'
+export * from './network.service'

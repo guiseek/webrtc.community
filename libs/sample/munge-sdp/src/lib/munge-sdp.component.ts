@@ -1,10 +1,10 @@
 /*
-*  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
-*
-*  Use of this source code is governed by a BSD-style license
-*  that can be found in the LICENSE file in the root of the source
-*  tree.
-*/
+ *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
+ *
+ *  Use of this source code is governed by a BSD-style license
+ *  that can be found in the LICENSE file in the root of the source
+ *  tree.
+ */
 
 import {
   AfterViewInit,
@@ -277,7 +277,7 @@ export class MungeSdpComponent implements OnInit, AfterViewInit {
       this.onSetSessionDescriptionError(e)
     }
 
-    console.log(`Resposta modificada de remotePeerConnection\n${sdp}`);
+    console.log(`Resposta modificada de remotePeerConnection\n${sdp}`)
     try {
       await this.localPeerConnection.setRemoteDescription(answer)
       this.onSetSessionDescriptionSuccess()

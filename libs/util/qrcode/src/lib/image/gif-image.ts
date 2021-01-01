@@ -1,7 +1,6 @@
-import { Base64 } from '../io/Base64'
+import { Base64 } from '../io/base64'
 import { OutputStream } from '../io/output-stream'
 import { ByteArrayOutputStream } from '../io/byte-array-output-stream'
-
 ;('use strict')
 
 /**

@@ -4,7 +4,6 @@ import { Polynomial } from './polynomial'
 import { QRMath } from './qr-math'
 import { MaskPattern } from './mask-pattern'
 import { QRCode } from './qr-code'
-
 ;('use strict')
 /**
  * QRUtil

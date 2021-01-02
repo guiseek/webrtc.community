@@ -1,4 +1,4 @@
-<div talk-reveal>
+<div talk-reveal (slideChanged)="onSlideChanged($event)">
   <div class="slides">
     <section>
       <section>
@@ -19,12 +19,59 @@
     </section>
 
     <section>
-      <h2>3 APIs</h2>
-      <ol>
-        <li data-markdown>`MediaStream`</li>
-        <li data-markdown>`RTCPeerConnection`</li>
-        <li data-markdown>`RTCDataChannel`</li>
-      </ol>
+      <section>
+        <h2>3 APIs</h2>
+        <ol>
+          <li data-markdown>`MediaStream`</li>
+          <li data-markdown>`RTCPeerConnection`</li>
+          <li data-markdown>`RTCDataChannel`</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Casos de uso</h3>
+        <ul>
+          <li>Social</li>
+          <li>Educacional</li>
+          <li>Meetups & Webinars</li>
+          <li>Cuidados para saúde</li>
+          <li>Serviço de atendimento</li>
+          <li>Comunicações corporativas</li>
+          <li>Streaming de conteúdo</li>
+          <li>Entre outros...</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h2>p2p</h2>
+      <p>Não existe servidor?</p>
+      <p>Sim e não...</p>
+    </section>
+
+    <section>
+      <h2>Signaling Server</h2>
+    </section>
+
+    <section>
+      <p>
+        Signaling Server é responsável por conectar os usuários uns aos outros
+      </p>
+    </section>
+
+    <section>
+      <h1>Calma!</h1>
+    </section>
+
+    <section>
+      <div class="video-container">
+        <iframe
+          class="video"
+          src="https://www.youtube.com/embed/aboF_ly90vg?start=478&autoplay=true"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
     </section>
 
     <section #slideConnection class="slide s1">
@@ -56,6 +103,61 @@
         </div>
       </div>
     </section>
+
+    <section>
+      <img src="assets/architecture.svg" alt="">
+      <!-- <talk-signaling></talk-signaling> -->
+    </section>
   </div>
 </div>
 <router-outlet></router-outlet>
+
+<!-- <svg viewBox="0 0 100 100">
+  <use xlink:href="assets/fragments/signaling-channel.svg#signalingChannel"></use>
+</svg> -->
+<!-- <section>
+  <object
+    talk-svg-fragment
+    type="image/svg+xml"
+    (loadContent)="onLoadChannel($event)"
+    data="assets/fragments/signaling-channel.svg"
+  ></object>
+  <svg
+    width="100%"
+    height="100%"
+    viewBox="0 0 200 200"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <image
+      x="0"
+      y="70"
+      width="40"
+      height="40"
+      href="assets/fragments/notebook-left.svg"
+    />
+    <image
+      x="80"
+      y="0"
+      width="40"
+      height="40"
+      href="assets/fragments/signaling-server.svg"
+    />
+
+    <image
+      x="50"
+      y="30"
+      width="100"
+      height="80"
+      #channelRef
+      href="assets/fragments/signaling-channel.svg"
+    />
+    <image
+      x="160"
+      y="70"
+      width="40"
+      height="40"
+      href="assets/fragments/notebook-right.svg"
+    />
+  </svg>
+</section> -->

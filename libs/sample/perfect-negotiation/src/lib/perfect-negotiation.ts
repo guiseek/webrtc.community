@@ -40,7 +40,7 @@ export class PerfectNegotiation implements AfterViewInit, OnDestroy {
       for (const track of this.stream.currentStream.getTracks()) {
         this.pc.addTrack(track, this.stream.currentStream)
       }
-      this.selfView.srcObject = this.stream.currentStream
+      this.setVideo(this.selfView, [this.stream.currentStream])
       this.selfView.muted = true
     } catch (err) {
       console.error(err)
@@ -124,6 +124,12 @@ export class PerfectNegotiation implements AfterViewInit, OnDestroy {
           console.error(err)
         }
       })
+  }
+
+  setVideo(video: HTMLVideoElement, [stream]: readonly MediaStream[]) {
+    // não defina srcObject novamente se já estiver definido.
+    if (video.srcObject) return
+    video.srcObject = stream
   }
 
   hangup() {

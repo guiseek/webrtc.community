@@ -14,7 +14,9 @@ import {
   SecurityFragment,
   CertifiedFragment,
   FirewallFragment,
-} from './fragments'
+  SvgFragment
+} from './fragments';
+import { SignalingSlide } from './slides/signaling/signaling.slide';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import {
     NetworkFragment,
     TurnStunFragment,
     FirewallFragment,
+    SvgFragment,
+    SignalingSlide,
   ],
   imports: [
     BrowserModule,

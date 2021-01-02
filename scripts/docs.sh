@@ -2,7 +2,8 @@
 
 # Install
 echo 'Install'
-npm install
+# npm install
+sleep 10
 
 # Affected
 echo 'Affected'

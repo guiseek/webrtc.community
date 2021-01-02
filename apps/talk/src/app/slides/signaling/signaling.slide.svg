@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 562.5">
+  <g id="signaling" clip-path="url(#clip-signaling)">
+    <g id="offer-2" transform="translate(411.582 725.082) rotate(-90)">
+      <path id="line-2" d="M0,162S178.432,28.309,178.432-106.415,0-376.895,0-376.895" transform="translate(381.5 184.5)" fill="none" stroke="#3955d1" stroke-linecap="square" stroke-width="5"/>
+      <path id="arrow" d="M10.5,0,21,18.5H0Z" transform="translate(382.768 360.431) rotate(-135)" fill="#454ee0"/>
+    </g>
+    <g id="answer-1" transform="translate(928.651 -176.5) rotate(90)">
+      <path id="arrow-2" data-name="arrow" d="M10.5,0,21,18.5H0Z" transform="translate(556.082 685.651) rotate(135)" fill="#454ee0"/>
+      <path id="line-1" d="M0,501.651S-175.832,379.312-175.832,253.9,0,0,0,0" transform="translate(542.5 184.5)" fill="none" stroke="#3955d1" stroke-linecap="square" stroke-width="5"/>
+    </g>
+  </g>
+  <image x="30" y="300" width="200" height="200" href="assets/fragments/notebook-left.svg" />
+  <image x="400" y="10" width="200" height="200" href="assets/fragments/signaling-server.svg" />
+  <image x="800" y="300" width="200" height="200" href="assets/fragments/notebook-right.svg" />
+</svg>

@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex: 1;
+  svg {
+    display: inline-flex;
+    margin-right: 8px;
+  }
+  span {
+    color: rgba(0, 0, 0, 65%);
+    font-size: 115%;
+  }
+}

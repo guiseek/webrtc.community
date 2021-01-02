@@ -10,7 +10,7 @@
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
     "tdd": "nx test --watch",
-    "docs": "nx run client:build --prod",
+    "docs": "nx run client:build --prod && rm -rf docs/* && cp -r dist/apps/client/* docs/",
     "build:all": "nx affected:build --all --prod",
     "build:all:prod": "nx affected:build --all --prod",
     "test:all": "nx affected:test --all --detectOpenHandles",

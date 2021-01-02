@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
-import { BrowserModule } from '@angular/platform-browser'
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
 import { NgModule } from '@angular/core'
 
@@ -13,7 +13,7 @@ import { MeetingModule } from '@quertc/meeting'
 
 import { AppComponent } from './app.component'
 import { LayoutModule } from '@angular/cdk/layout'
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon'
 
 import { MatListModule } from '@angular/material/list'
 import { MatCardModule } from '@angular/material/card'
@@ -88,4 +88,11 @@ import { env } from './../envs/env'
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+      'whatsapp',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/whatsapp.svg')
+    )
+  }
+}

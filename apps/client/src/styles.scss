@@ -65,3 +65,10 @@ h6 {
 .spacer {
   flex: 1 1 auto;
 }
+.mat-list-item-content
+  .mat-list-base
+  .mat-list-item.mat-list-item-with-avatar
+  .mat-list-item-content
+  .mat-list-text {
+  padding-left: 0;
+}

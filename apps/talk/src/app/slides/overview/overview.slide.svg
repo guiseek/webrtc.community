@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 56.25">
+
+  <g id="rtc-signaling" data-name="Signaling Server" clip-path="url(#clip-rtc-signaling)">
+    <g id="Signaling" transform="translate(21.743 17.71)">
+      <path id="signaling" data-name="signaling" d="M0-89.135s13.394-9.417,27.035-9.417,27.527,9.417,27.527,9.417" transform="translate(1.084 98.552)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-width="0.5"/>
+      <path id="arrow-right" data-name="Polígono 4" d="M1.5,0,3,3H0Z" transform="translate(54.256 7.29)" fill="#454ee0"/>
+      <path id="arrow-left" data-name="Polígono 5" d="M1.5,0,3,3H0Z" transform="translate(-0.744 7.29)" fill="#454ee0"/>
+    </g>
+  </g>
+
+  <!-- <image #network id="network" x="30" y="16" width="40" height="40" href="assets/fragments/network.svg" /> -->
+
+  <g id="peer-connection" data-name="Signaling Server" clip-path="url(#clip-rtc-signaling)">
+    <g id="network" transform="translate(77.743 41) rotate(150)">
+      <g id="lines" transform="translate(1.508 1.957)">
+        <line id="Line-4" x2="8.196" transform="translate(19.649 29.621)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-2" x2="6.659" y2="2.664" transform="translate(27.845 29.621)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-3" x1="3.535" y2="8.555" transform="translate(27.845 21.066)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-3-2" data-name="Line-3" x1="7.94" y2="3.535" transform="translate(27.845 26.086)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line" x2="2.205" y2="7.144" transform="translate(5.143 17.314)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-3-3" data-name="Line-3" x1="11.283" y2="6.321" transform="translate(7.289 18.095)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-3-4" data-name="Line-3" x2="9.221" y2="11.475" transform="translate(18.624 18.146)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-2-2" data-name="Line" x1="5.904" y1="4.588" transform="translate(25.15 8.057)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-2-3" data-name="Line-2" y1="2.71" x2="6.641" transform="translate(25.223 5.348)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-3-5" data-name="Line-3" y1="2.712" x2="13.156" transform="translate(12.067 8.058)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-3-6" data-name="Line-3" x1="1.947" y2="8.913" transform="translate(12.682 1.857)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-3-7" data-name="Line-3" x2="5.942" y2="7.377" transform="translate(12.682 10.77)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-3-8" data-name="Line-3" x2="8.299" y2="4.201" transform="translate(4.383 6.467)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-3-9" data-name="Line-3" y1="6.557" x2="2.459" transform="translate(10.223 10.667)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-3-10" data-name="Line-3" y1="10.037" x2="6.65" transform="translate(18.573 8.058)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+        <line id="Line-3-11" data-name="Line-3" x1="3.256" y2="8.058" transform="translate(25.223)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-linecap="square" stroke-width="0.5"/>
+      </g>
+      <g id="steps" transform="translate(0 0)">
+        <ellipse id="Oval" cx="1.332" cy="1.332" rx="1.332" ry="1.332" transform="translate(19.671 30.195)" fill="#454ee0"/>
+        <ellipse id="Oval-2" data-name="Oval" cx="1.332" cy="1.332" rx="1.332" ry="1.332" transform="translate(31.555 21.691)" fill="#454ee0"/>
+        <ellipse id="Oval-3" data-name="Oval" cx="1.332" cy="1.332" rx="1.332" ry="1.332" transform="translate(35.961 26.609)" fill="#454ee0"/>
+        <ellipse id="Oval-4" data-name="Oval" cx="1.332" cy="1.332" rx="1.332" ry="1.332" transform="translate(34.629 32.859)" fill="#454ee0"/>
+        <ellipse id="Oval-5" data-name="Oval" cx="1.332" cy="1.332" rx="1.332" ry="1.332" transform="translate(27.969 30.195)" fill="#454ee0"/>
+        <ellipse id="Oval-6" data-name="Oval" cx="1.332" cy="1.332" rx="1.332" ry="1.332" transform="translate(8.124 20.327) rotate(171)" fill="#454ee0"/>
+        <ellipse id="Oval-7" data-name="Oval" cx="1.332" cy="1.332" rx="1.332" ry="1.332" transform="translate(21.604 21.159) rotate(171)" fill="#454ee0"/>
+        <ellipse id="Oval-8" data-name="Oval" cx="1.332" cy="1.332" rx="1.332" ry="1.332" transform="translate(10.38 27.522) rotate(171)" fill="#454ee0"/>
+        <circle id="Oval-9" data-name="Oval" cx="1.332" cy="1.332" r="1.332" transform="matrix(0.719, -0.695, 0.695, 0.719, 14.201, 3.832)" fill="#454ee0"/>
+        <circle id="Oval-10" data-name="Oval" cx="1.332" cy="1.332" r="1.332" transform="matrix(0.719, -0.695, 0.695, 0.719, 12.255, 12.643)" fill="#454ee0"/>
+        <circle id="Oval-11" data-name="Oval" cx="1.332" cy="1.332" r="1.332" transform="matrix(0.719, -0.695, 0.695, 0.719, 3.956, 8.34)" fill="#454ee0"/>
+        <circle id="Oval-12" data-name="Oval" cx="1.332" cy="1.332" r="1.332" transform="matrix(0.719, -0.695, 0.695, 0.719, 28.032, 1.85)" fill="#454ee0"/>
+        <circle id="Oval-13" data-name="Oval" cx="1.332" cy="1.332" r="1.332" transform="matrix(0.719, -0.695, 0.695, 0.719, 31.416, 7.271)" fill="#454ee0"/>
+        <circle id="Oval-14" data-name="Oval" cx="1.332" cy="1.332" r="1.332" transform="matrix(0.719, -0.695, 0.695, 0.719, 9.796, 19.2)" fill="#454ee0"/>
+        <circle id="Oval-15" data-name="Oval" cx="1.332" cy="1.332" r="1.332" transform="matrix(0.719, -0.695, 0.695, 0.719, 30.75, 14.581)" fill="#454ee0"/>
+        <circle id="Oval-16" data-name="Oval" cx="1.332" cy="1.332" r="1.332" transform="matrix(0.719, -0.695, 0.695, 0.719, 24.775, 9.981)" fill="#454ee0"/>
+      </g>
+    </g>
+  </g>
+
+  <image id="peer-a" x="0" y="25" width="20" height="20" href="assets/fragments/peer-a.svg" />
+  <image id="sdp-a" x="5" y="40" width="20" height="20" href="assets/fragments/sdp-a.svg" />
+  <image id="peer-b" x="80" y="25" width="20" height="20" href="assets/fragments/peer-b.svg" />
+  <image id="sdp-b" x="75" y="40" width="20" height="20" href="assets/fragments/sdp-b.svg" />
+  <image id="server" x="40" y="0" width="20" height="20" href="assets/fragments/server.svg" />
+</svg>

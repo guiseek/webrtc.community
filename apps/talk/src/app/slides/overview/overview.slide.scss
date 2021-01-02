@@ -1,0 +1,67 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  // #network {
+  //   width: 60%;
+  // }
+
+  #rtc-signaling {
+    path.active,
+    line.active {
+      // fill: #6bfbac;
+      stroke: #6bfbac;
+
+      stroke-dasharray: 200;
+      stroke-dashoffset: 20;
+      animation: dash 4s linear alternate infinite;
+    }
+
+    @keyframes dash {
+      from {
+        stroke-dashoffset: 232;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+  #peer-connection {
+    ellipse.active,
+    circle.active,
+    line.active {
+      fill: #6bfbac;
+      stroke: #6bfbac;
+
+      stroke-dasharray: 2;
+      stroke-dashoffset: 100;
+      animation: dash 10s linear alternate infinite;
+    }
+
+    @keyframes dash {
+      from {
+        stroke-dashoffset: 822;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    // ellipse.active,
+    // line.active {
+    //   // fill: #6bfbac;
+    //   stroke: #6bfbac;
+
+    //   stroke-dasharray: 200;
+    //   stroke-dashoffset: 200;
+    //   animation: dash 2s linear alternate infinite;
+    // }
+
+    // @keyframes dash {
+    //   from {
+    //     stroke-dashoffset: 500;
+    //   }
+    //   to {
+    //     stroke-dashoffset: 0;
+    //   }
+    // }
+  }
+}

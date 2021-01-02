@@ -11,11 +11,15 @@ Ajude-nos a manter a comunidade Freecom aberta e inclusiva. Por favor, leia e si
 
 ## <a name="how-to"></a> Algumas opções sobre como você pode contribuir
 
+- Usando nosso [PWA WebApp](https://webrtc.community/#/)
+  - Use o app e faça sugestões
+  - Convite alguém para usar nossa [sala de reunião](https://webrtc.community/#/perfect-negotiation "Negociação perfeita")
+
 - [Reproduzindo ou criando um exemplo](#sample)
 
 ## <a name="sample"></a> Novo exemplo para o projeto
 
-A [especificação oficial](https://www.w3.org/TR/webrtc/ 'WebRTC 1.0: Real-Time Communication Between Browsers') conta com diversos exemplo, bem como também em seu [repositório no GitHub](https://github.com/webrtc/samples 'webrtc/samples'). Escolha algum e reproduza-o aqui usando Angular ou algum outro framework de sua escolha.
+A [especificação oficial](https://www.w3.org/TR/webrtc/ 'WebRTC 1.0: Real-Time Communication Between Browsers') conta com diversos exemplos, não apenas, mas também em seu [repositório no GitHub](https://github.com/webrtc/samples 'webrtc/samples'). Escolha algum e reproduza-o aqui usando Angular ou algum outro framework de sua escolha.
 
 Para contribuir usando Angular, você pode começar usando o seguinte comando
 

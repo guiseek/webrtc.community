@@ -15,6 +15,7 @@ import { Subscription } from 'rxjs'
 import { MediaService } from '@quertc/meeting'
 import { GaService, NavFocusService } from './interceptors'
 import { CookieStorage } from '@quertc/data/access'
+import { Platform } from '@angular/cdk/platform'
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,8 @@ import { CookieStorage } from '@quertc/data/access'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
+  shareMessage = 'Bora ver a nova plataforma de comunicação livre?'
+
   @ViewChild('snav') snav: MatSidenav
   subscription: Subscription
   title = 'WebRTC.Community'
@@ -51,7 +54,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     detector: ChangeDetectorRef,
     mediaMatcher: MediaMatcher,
     private cookieStorage: CookieStorage,
-    // private router: Router,
+    private platform: Platform,
     ga: GaService
   ) {
     this.mobileQuery = mediaMatcher.matchMedia('(max-width: 600px)')
@@ -86,6 +89,10 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       const guestCode = code()
       this.cookieStorage.set('guest', guestCode)
     }
+  }
+
+  share(text: string) {
+
   }
 
   ngOnDestroy(): void {

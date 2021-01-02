@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1609466118464,
+  "timestamp": 1609626910768,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -14,9 +14,9 @@
         "/10.b9b1150b361f1eafd0f1.js",
         "/5.14648d4be02b9f9dcf1a.js",
         "/6.3089f9df3c00df3882ad.js",
-        "/7.ba16487eb87e2191acca.js",
+        "/7.80dfe5b3e1586b4b0c87.js",
         "/8.e533f2663f187115fcd8.js",
-        "/9.1bbec65e7de86bc5ba12.js",
+        "/9.942115e0ddb0964886ac.js",
         "/assets/banners/broadcast.svg",
         "/assets/banners/easy.svg",
         "/assets/banners/live.svg",
@@ -71,11 +71,11 @@
         "/common.0de7fb3a4cf5cd590ff5.js",
         "/favicon.ico",
         "/index.html",
-        "/main.1c088c86481cf88a3ee9.js",
+        "/main.47764da459cd412f8328.js",
         "/manifest.webmanifest",
         "/polyfills.1eb96ef0a295bec194e1.js",
-        "/runtime.03c495a8018955fde39b.js",
-        "/styles.3be88660a487b786f13a.css"
+        "/runtime.4466f11af6db9cfa9ab7.js",
+        "/styles.9c66d0eb6005e6cb1478.css"
       ],
       "patterns": []
     },
@@ -92,6 +92,7 @@
         "/assets/logo.svg",
         "/assets/message.svg",
         "/assets/question.svg",
+        "/assets/whatsapp.svg",
         "/assets/wind.svg",
         "/logo.bf2f3c1540a42efa9784.svg"
       ],
@@ -103,9 +104,9 @@
     "/10.b9b1150b361f1eafd0f1.js": "f0b1763de10394a3013bc49f0129da01d4eb1ff4",
     "/5.14648d4be02b9f9dcf1a.js": "cd8e63aa839b00455b23cbba236ee2ad1b6e87db",
     "/6.3089f9df3c00df3882ad.js": "b99d2edf0fc084526848da9d90e8a10f8c196fab",
-    "/7.ba16487eb87e2191acca.js": "a60bceb0d2c9aef0efc18dce0b3902546a5304ba",
+    "/7.80dfe5b3e1586b4b0c87.js": "e98aedb1bf4d59b3f1246c1e79200fdefe6b51ff",
     "/8.e533f2663f187115fcd8.js": "b12c5fe3e03c747635562a8784855e8470b12458",
-    "/9.1bbec65e7de86bc5ba12.js": "bdb41630294e3910712aab60712ea4dcfe5d73f4",
+    "/9.942115e0ddb0964886ac.js": "bdb41630294e3910712aab60712ea4dcfe5d73f4",
     "/assets/banners/broadcast.svg": "b712061dfecc5b27abc41fde512eaf302d4ad66a",
     "/assets/banners/easy.svg": "3876e6b4b0b03fafc6c93ef050b5494a216bc7f8",
     "/assets/banners/live.svg": "661c360bbc8a60964e5e0cca45fd372b0b2facbe",
@@ -162,16 +163,17 @@
     "/assets/logo.svg": "e0eaeeb572f0fe5fd36032dcbe98a3041f33aed0",
     "/assets/message.svg": "c8355f7300b8ee135ad2dd129d96e6d4bfa2f4d4",
     "/assets/question.svg": "3682e01398de611a1090fd69bed156309bcbf602",
+    "/assets/whatsapp.svg": "ad5736794edb5d95474edf25f614429b00629523",
     "/assets/wind.svg": "dbb2272dceefb73d573fd6078d6e6e3c3c5696f6",
     "/common.0de7fb3a4cf5cd590ff5.js": "33957a4731189bf73886cb73ae80b809464db23b",
     "/favicon.ico": "4e23d0f9b6ddaf3c9ddef90dbaed2342941297b5",
-    "/index.html": "1e0ea10558c41b22d7f4c98f20be1cc85c860bd4",
+    "/index.html": "ffe640cfa3b4b2fc545ab2b53c8d7d140fcf15fe",
     "/logo.bf2f3c1540a42efa9784.svg": "e0eaeeb572f0fe5fd36032dcbe98a3041f33aed0",
-    "/main.1c088c86481cf88a3ee9.js": "c8f9333ad6c343dc368913bffc55ebdab85add1c",
+    "/main.47764da459cd412f8328.js": "ca33c7c6268c81fc7b343f5e1f1370d826dcfda7",
     "/manifest.webmanifest": "c5a0c8ae27cca57fbf465fbd69bff47efa155bdc",
     "/polyfills.1eb96ef0a295bec194e1.js": "6658810263aee2eec8299d58cf7ffe493aeb0b34",
-    "/runtime.03c495a8018955fde39b.js": "19ba616b1cde28e40ca5602331576dac3af488e4",
-    "/styles.3be88660a487b786f13a.css": "19a5d72fae09fe183252346793bc89d1117cc14f"
+    "/runtime.4466f11af6db9cfa9ab7.js": "44c5f703e0d1773920796cafa454be5bb721e440",
+    "/styles.9c66d0eb6005e6cb1478.css": "70d5ac601df91913c2deef8ac881fce0a016a5c7"
   },
   "navigationUrls": [
     {

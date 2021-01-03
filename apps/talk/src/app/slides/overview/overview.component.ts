@@ -1,11 +1,16 @@
-import { take } from 'rxjs/operators';
-import { interval, asyncScheduler } from 'rxjs';
-import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators'
+import { interval, asyncScheduler } from 'rxjs'
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+} from '@angular/core'
 
 @Component({
   selector: 'talk-overview',
   templateUrl: './overview.slide.svg',
-  styleUrls: ['./overview.component.scss']
+  styleUrls: ['./overview.component.scss'],
 })
 export class OverviewComponent implements AfterViewInit {
   @Input() period = 500
@@ -13,16 +18,12 @@ export class OverviewComponent implements AfterViewInit {
   get svg() {
     return this.elRef.nativeElement
   }
-  constructor(
-    private elRef: ElementRef<SVGElement>
-  )
-  {}
+  constructor(private elRef: ElementRef<SVGElement>) {}
 
   ngAfterViewInit(): void {
     if (!!this.steps.length) {
       this.connect(this.steps)
     }
-    // this.networkService.connection$.subscribe(this.connect)
   }
 
   public connect(steps: string[]) {

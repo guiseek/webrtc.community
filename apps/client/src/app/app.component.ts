@@ -33,7 +33,6 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   mobileQuery: MediaQueryList
 
   navLinks = [
-    { route: '/', icon: 'home', label: 'Home' },
     { route: '/restart-ice', icon: 'cached', label: 'Reiniciar candidato' },
     { route: '/peer-to-peer', icon: 'alt_route', label: 'Ponto a ponto' },
     { route: '/munge-sdp', icon: 'alt_route', label: 'Munge SDP' },

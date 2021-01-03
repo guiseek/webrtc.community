@@ -1,21 +1,20 @@
-import {
-  OnInit,
-  ViewChild,
-  Component,
-  ElementRef,
-  AfterViewInit,
-} from '@angular/core'
+import { OnInit, ViewChild, Component } from '@angular/core'
 import { RevealSlideChangeEvent } from '@quertc/reveal'
 import { timer } from 'rxjs'
 import { NetworkFragment, SvgFragment } from './fragments'
+import { SignalingSlide } from './slides'
+import { schedule } from './utilities/slides.utils'
 
 @Component({
   selector: 'talk-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit  {
   @ViewChild(SvgFragment) channelFragment: SvgFragment
+
+  @ViewChild(SignalingSlide)
+  signalingSlide: SignalingSlide
 
   @ViewChild(NetworkFragment)
   networkFragment: NetworkFragment
@@ -50,38 +49,18 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.peerB = true
     })
   }
-  onLoadChannel(svg: SVGElement) {
-    // console.log(collection.item(0));
-    // console.log(svg)
-    // console.log(svg.querySelectorAll('path'))
-  }
   onSlideChanged({ indexh, indexv }: RevealSlideChangeEvent) {
     console.log(indexh, indexv)
     switch (`${indexh},${indexv}`) {
+      case '6,0': {
+        schedule(3000, () => this.signalingSlide.createOffer())
+        break
+      }
       case '7,0': {
-        window.setTimeout(() => {
-          this.networkFragment.connect(this.steps)
-        }, 3000)
+        schedule(3000, () => this.networkFragment.connect(this.steps))
+        schedule(10000, () => (this.showFirewall = true))
         break
       }
     }
-  }
-  ngAfterViewInit() {
-    // const channel = this.channelFragment.elRef.nativeElement
-    // const lineOne = channel.querySelector('#Line-1')
-    // const lineOneTwo = channel.querySelector('#Line-1-2')
-    // window.setTimeout(() => {
-    //   console.log(channel.childElementCount)
-    // }, 1000)
-    // console.log(this.networkFragment)
-    // window.setTimeout(() => {
-    //   this.networkFragment.connect(this.steps)
-    // }, 2000)
-    // window.setTimeout(() => {
-    //   this.showFirewall = true
-    // }, 7000)
-    // window.setTimeout(() => {
-    //   this.showTurnStun = true
-    // }, 10000)
   }
 }

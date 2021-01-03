@@ -1,6 +1,7 @@
 :host {
   display: flex;
   flex: 1;
+  min-height: 50px;
   svg {
     display: inline-flex;
     margin-right: 8px;

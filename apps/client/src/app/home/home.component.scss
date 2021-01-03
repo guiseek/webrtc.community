@@ -176,13 +176,27 @@ $margin-promotion-sections-small: 15px;
   width: 30%;
 }
 
+.mat-menu-item {
+  font-size: 13px;
+}
 .docs-header-start {
   text-align: center;
   margin: $margin-promotion-sections 0 0 0;
-
-  .mat-raised-button {
-    font-size: 15px;
+  a.mat-raised-button {
+    padding-right: 12px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
+  button.mat-raised-button {
+    min-width: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  // .mat-raised-button {
+  //   font-size: 15px;
+  // }
 }
 
 @media (max-width: 1200px) {

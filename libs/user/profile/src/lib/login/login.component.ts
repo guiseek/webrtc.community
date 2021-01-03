@@ -1,4 +1,4 @@
-import { FocusMonitor } from '@angular/cdk/a11y';
+import { FocusMonitor } from '@angular/cdk/a11y'
 import { AuthFacade } from '@quertc/user/domain'
 import {
   Component,
@@ -7,6 +7,7 @@ import {
   ViewChild,
   ElementRef,
   OnDestroy,
+  Input,
 } from '@angular/core'
 import { Router } from '@angular/router'
 import { FormBuilder, Validators } from '@angular/forms'

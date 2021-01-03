@@ -11,8 +11,23 @@
     </div>
     <div class="docs-header-start">
       <a mat-raised-button class="docs-button" routerLink="/user-signup">
-        Participar
+        Saber mais
       </a>
+      <button
+        mat-raised-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Quero saber mais"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="openDialog(isDev, true)">
+          Sou desenvolvedor
+        </button>
+        <button mat-menu-item (click)="openDialog(isDev)">
+          Quero contribuir
+        </button>
+      </mat-menu>
     </div>
   </div>
 </header>
@@ -84,3 +99,15 @@
 </main>
 
 <app-footer></app-footer>
+
+<ng-template #isDev let-data>
+  <h1 mat-dialog-title>
+    {{ data.isDev ? 'Sou dev' : 'Quero contribuir' }}
+  </h1>
+  <div mat-dialog-content>
+    <p> {{ data.isDev | json }}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close cdkFocusInitial>Entendi</button>
+  </div>
+</ng-template>

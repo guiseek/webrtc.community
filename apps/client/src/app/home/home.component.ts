@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component, TemplateRef } from '@angular/core'
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -20,4 +21,14 @@ export class HomeComponent {
     { src: 'assets/banners/security.svg', alt: 'Seguro' },
     { src: 'assets/banners/easy.svg', alt: 'Simples' },
   ]
+  constructor(private dialog: MatDialog) {}
+
+  openDialog(template: TemplateRef<HTMLElement>, isDev = false) {
+    this.dialog.open(template, {
+      closeOnNavigation: true,
+      hasBackdrop: true,
+      restoreFocus: true,
+      data: { isDev }
+    })
+  }
 }

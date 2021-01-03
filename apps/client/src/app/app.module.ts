@@ -17,6 +17,8 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon'
 
 import { MatListModule } from '@angular/material/list'
 import { MatCardModule } from '@angular/material/card'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatDialogModule } from '@angular/material/dialog'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatToolbarModule } from '@angular/material/toolbar'
@@ -54,6 +56,8 @@ import { env } from './../envs/env'
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatMenuModule,
+    MatDialogModule,
     MatButtonModule,
     MatToolbarModule,
     MatDividerModule,

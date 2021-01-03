@@ -10,6 +10,7 @@ import { DevicesComponent } from './devices/devices.component'
 import { CodeComponent } from './code/code.component'
 import { RoomComponent } from './room/room.component'
 import { FocusDirective } from './focus.directive'
+import { PasswordComponent } from './password/password.component'
 
 @NgModule({
   imports: [
@@ -26,7 +27,14 @@ import { FocusDirective } from './focus.directive'
     CodeComponent,
     RoomComponent,
     FocusDirective,
+    PasswordComponent,
   ],
-  exports: [DevicesComponent, CodeComponent, RoomComponent, FocusDirective],
+  exports: [
+    DevicesComponent,
+    CodeComponent,
+    RoomComponent,
+    FocusDirective,
+    PasswordComponent,
+  ],
 })
 export class ControlsModule {}

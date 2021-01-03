@@ -18,20 +18,7 @@
         >Endereço de email inválido</mat-error
       >
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>Senha</mat-label>
-      <input
-        type="password"
-        name="user_password"
-        matInput
-        formControlName="password"
-        autocomplete="current-password"
-      />
-      <mat-error *ngIf="pass.getError('required')">Obrigatório</mat-error>
-      <mat-error *ngIf="pass.getError('minlength')"
-        >Mínimo de 6 caracteres</mat-error
-      >
-    </mat-form-field>
+    <control-password formControlName="password"></control-password>
 
     <mat-card-actions>
       <a mat-button routerLink="/user-signup">Criar uma conta</a>

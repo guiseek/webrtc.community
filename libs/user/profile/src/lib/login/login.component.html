@@ -11,6 +11,7 @@
         name="user_email"
         matInput
         formControlName="username"
+        autocomplete="email"
       />
       <mat-error *ngIf="email.getError('required')">Obrigatório</mat-error>
       <mat-error *ngIf="email.getError('email')"
@@ -24,6 +25,7 @@
         name="user_password"
         matInput
         formControlName="password"
+        autocomplete="current-password"
       />
       <mat-error *ngIf="pass.getError('required')">Obrigatório</mat-error>
       <mat-error *ngIf="pass.getError('minlength')"

@@ -21,13 +21,20 @@
         type="text"
         name="user_name"
         formControlName="name"
+        autocomplete="given-name"
       />
       <mat-hint>Pode ser apelido também</mat-hint>
       <mat-error>Obrigatório</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input type="email" name="user_email" matInput formControlName="email" />
+      <input
+        type="email"
+        name="user_email"
+        matInput
+        formControlName="email"
+        autocomplete="email"
+      />
       <mat-hint>Usado para recuperação de senha</mat-hint>
       <mat-error *ngIf="email.getError('required')">Obrigatório</mat-error>
       <mat-error *ngIf="email.getError('email')"
@@ -36,7 +43,13 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Senha</mat-label>
-      <input type="password" name="user_pass" matInput formControlName="pass" />
+      <input
+        matInput
+        type="password"
+        name="user_pass"
+        formControlName="pass"
+        autocomplete="new-password"
+      />
       <mat-hint>Para que somente você acesse</mat-hint>
       <mat-error *ngIf="pass.getError('required')">Obrigatório</mat-error>
       <mat-error *ngIf="pass.getError('minlength')"

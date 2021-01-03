@@ -1,3 +1,5 @@
+@import 'libs/ui/theme/src/helpers/mixins';
+
 :host {
   display: flex;
   flex-direction: column;
@@ -5,9 +7,26 @@
   align-items: center;
   justify-content: center;
 
+  > .mat-error {
+    margin: 10px;
+  }
+
   form {
     max-width: 250px;
-    text-align: center;
+    min-width: 280px;
+    max-width: calc(100% - 20px);
+
+    .mat-form-field {
+      margin-bottom: 10px;
+    }
+
+    @include onHandset() {
+      max-width: calc(100% - 20px);
+    }
+    &.complete {
+      animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+        both;
+    }
   }
   .mat-card {
     display: flex;
@@ -15,7 +34,7 @@
 
     &-actions {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
     }
   }
 }

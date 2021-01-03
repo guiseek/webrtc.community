@@ -14,12 +14,15 @@ export class UsersService {
     @InjectModel(UserDb.name) private userModel: Model<UserDocument>
   ) {}
 
-  create({ pass, ...values }: CreateUserDto) {
-    const user = new this.userModel({
-      pass: this.encrypt(pass),
-      uuid: uuid(),
-      ...values,
-    })
+  async create({ pass, email, ...values }: CreateUserDto) {
+    const byEmail = await this.findByEmail(email)
+
+    if (byEmail) {
+      throw new HttpException('Endereço de email em uso', HttpStatus.CONFLICT)
+    }
+
+    const data = { uuid: uuid(), pass: this.encrypt(pass), email, ...values }
+    const user = new this.userModel(data)
     return user.save()
   }
 

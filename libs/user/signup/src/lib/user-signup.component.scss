@@ -1,3 +1,5 @@
+@import 'libs/ui/theme/src/helpers/mixins';
+
 :host {
   display: flex;
   flex-direction: column;
@@ -6,16 +8,122 @@
   justify-content: center;
 
   form {
-    max-width: 250px;
     text-align: center;
+    min-width: 280px;
+    max-width: calc(100% - 40px);
+
+    > .mat-error {
+      margin: 10px;
+    }
+
+    .mat-form-field {
+      margin-bottom: 10px;
+    }
+
+    &.complete {
+      animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+        both;
+    }
   }
+
   .mat-card {
     display: flex;
     flex-direction: column;
 
     &-actions {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
     }
+  }
+  .mat-card + p {
+    color: #999;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation shake-horizontal
+ * ----------------------------------------
+ */
+@-webkit-keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+}
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+}
+
+// Scale out center
+@-webkit-keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+}
+@keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
   }
 }

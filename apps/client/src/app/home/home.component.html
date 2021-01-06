@@ -35,6 +35,36 @@
 <main class="docs-home-promo">
   <div class="docs-home-featured-components docs-home-carousel-row">
     <quertc-carousel [itemWidth]="260" [aria-label]="'Featured components'">
+      <div
+        *ngFor="let item of banners"
+        carousel-item
+        class="docs-featured-components-carousel-item"
+      >
+        <div class="docs-home-img-container">
+          <img [alt]="item.alt" [src]="item.src" role="presentation" />
+        </div>
+        {{ item.alt }}
+      </div>
+    </quertc-carousel>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="docs-home-row docs-introduction">
+    <div class="docs-home-row-column">
+      <h2>MediaStream</h2>
+      <p>Aquisição de streams para áudio e vídeo</p>
+    </div>
+    <div class="docs-home-row-column">
+      <h2>RTCPeerConnection</h2>
+      <p>Comunicação de dados para áudio e vídeo</p>
+    </div>
+    <div class="docs-home-row-column">
+      <h2>RTCDataChannel</h2>
+      <p>Comunicação de dados para aplicativos</p>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="docs-home-featured-components docs-home-carousel-row">
+    <quertc-carousel [itemWidth]="260" [aria-label]="'Featured components'">
       <a
         *ngFor="let sample of samples"
         carousel-item
@@ -46,21 +76,6 @@
         </div>
         {{ sample.label }}
       </a>
-    </quertc-carousel>
-  </div>
-  <mat-divider></mat-divider>
-  <div class="docs-home-featured-components docs-home-carousel-row">
-    <quertc-carousel [itemWidth]="260" [aria-label]="'Featured components'">
-      <div
-        *ngFor="let item of banners"
-        carousel-item
-        class="docs-featured-components-carousel-item"
-      >
-        <div class="docs-home-img-container">
-          <img [alt]="item.alt" [src]="item.src" role="presentation" />
-        </div>
-        {{ item.alt }}
-      </div>
     </quertc-carousel>
   </div>
   <mat-divider></mat-divider>
@@ -98,20 +113,7 @@
       </p>
     </div>
   </div>
-  <div class="docs-home-row docs-introduction">
-    <div class="docs-home-row-column">
-      <h2>MediaStream</h2>
-      <p>Aquisição de streams para áudio e vídeo</p>
-    </div>
-    <div class="docs-home-row-column">
-      <h2>RTCPeerConnection</h2>
-      <p>Comunicação de dados para áudio e vídeo</p>
-    </div>
-    <div class="docs-home-row-column">
-      <h2>RTCDataChannel</h2>
-      <p>Comunicação de dados para aplicativos</p>
-    </div>
-  </div>
+
 </main>
 
 <app-footer></app-footer>

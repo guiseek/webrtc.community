@@ -21,5 +21,6 @@ module.exports = {
     '<rootDir>/apps/talk',
     '<rootDir>/libs/ui/reveal',
     '<rootDir>/libs/sample/screen-share',
+    '<rootDir>/libs/ui/popover',
   ],
 }

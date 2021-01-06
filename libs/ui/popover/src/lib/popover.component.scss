@@ -1,0 +1,78 @@
+// :host {
+//   position: relative;
+//   background: white;
+//   border-radius: 6px;
+//   // padding: 6px;
+//   // margin: 0 20px;
+// }
+// .arrow,.quertc-popover {
+//   position: absolute;
+//   background: inherit;
+//   z-index: -1;
+//   border-radius: 3px;
+// }
+
+// :host-context(.center) .arrow {
+//   left: calc(50% - 20px);
+// }
+
+// :host-context(.top.left, .top.center) .arrow {
+//   transform-origin: top left;
+//   transform: rotate(45deg);
+// }
+
+// :host-context(.top.right) .arrow {
+//   transform-origin: top right;
+//   transform: rotate(-45deg);
+// }
+
+// :host-context(.bottom.left, .bottom.center) .arrow {
+//   transform-origin: bottom left;
+//   transform: rotate(-45deg);
+// }
+
+// :host-context(.bottom.right) .arrow {
+//   transform-origin: bottom right;
+//   transform: rotate(45deg);
+// }
+@import '~@angular/material/theming';
+
+:host {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  display: block;
+  @include mat-elevation(4);
+}
+
+.arrow {
+  margin: 0 16px;
+  background: #212121;
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+}
+
+:host-context(.center) .arrow {
+  left: 50%;
+}
+
+:host-context(.top.left, .top.center) .arrow {
+  transform-origin: top left;
+  transform: rotate(45deg);
+}
+
+:host-context(.top.right) .arrow {
+  transform-origin: top right;
+  transform: rotate(-45deg);
+}
+
+:host-context(.bottom.left, .bottom.center) .arrow {
+  transform-origin: bottom left;
+  transform: rotate(-45deg);
+}
+
+:host-context(.bottom.right) .arrow {
+  transform-origin: bottom right;
+  transform: rotate(45deg);
+}

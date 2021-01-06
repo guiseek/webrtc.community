@@ -93,6 +93,9 @@
     },
     "sample-screen-share": {
       "tags": ["side:client", "type:feat", "scope:sample"]
+    },
+    "ui-popover": {
+      "tags": ["side:client", "type:feat", "scope:ui"]
     }
   }
 }

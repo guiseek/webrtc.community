@@ -120,6 +120,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 @quertc/restart-ice
 
+@quertc/screen-share
+
 @quertc/user-profile
 
 @quertc/user-signup

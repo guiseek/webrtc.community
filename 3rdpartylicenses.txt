@@ -118,6 +118,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 @quertc/perfect-negotiation
 
+@quertc/popover
+
 @quertc/restart-ice
 
 @quertc/screen-share

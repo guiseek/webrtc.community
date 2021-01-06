@@ -1,41 +1,26 @@
-import { take } from 'rxjs/operators'
-import { interval, asyncScheduler } from 'rxjs'
-import { Component, AfterViewInit, ElementRef, Input } from '@angular/core'
+import { Component, ElementRef } from '@angular/core'
+import { schedule } from '../../utilities/slides.utils'
 
 @Component({
   selector: 'talk-signaling',
   templateUrl: './signaling.slide.svg',
   styleUrls: ['./signaling.slide.scss'],
 })
-export class SignalingSlide implements AfterViewInit {
-  @Input() period = 500
-  @Input() steps: string[] = ['#line-1', '#line-2']
-  get svg() {
-    return this.elRef.nativeElement
-  }
-  constructor(
-    private elRef: ElementRef<SVGElement>
-  ) // private networkService: NetworkService
-  {}
+export class SignalingSlide {
+  constructor(private elRef: ElementRef<SVGElement>) {}
+  createOffer() {
+    const svg = this.elRef.nativeElement
+    const rtcSignaling: SVGElement = svg.querySelector('#rtc-signaling')
+    const path: SVGPathElement = rtcSignaling.querySelector('#signaling')
+    const length = path.getTotalLength()
+    if (svg) {
+      path.classList.add('offer')
+      path.style.strokeDasharray = `${length}`
+      path.style.strokeDashoffset = `${length}`
 
-  ngAfterViewInit(): void {
-    if (!!this.steps.length) {
-      this.connect(this.steps)
+      schedule(8000, () => path.classList.remove('offer'))
+      schedule(12000, () => path.classList.add('answer'))
+      schedule(20000, () => path.classList.remove('answer'))
     }
-    // this.networkService.connection$.subscribe(this.connect)
-  }
-
-  public connect(steps: string[]) {
-    let n = 0
-    interval(this.period, asyncScheduler)
-      .pipe(take(steps.length))
-      .subscribe(() => {
-        const el: SVGPathElement = this.svg.querySelector(steps[n])
-        const length = el.getTotalLength()
-        el.style.strokeDasharray = `${length}`
-        el.style.strokeDashoffset = `${length}`
-        if (el) el.classList.add('active')
-        n++
-      })
   }
 }

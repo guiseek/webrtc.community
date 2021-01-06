@@ -9,6 +9,7 @@ import { filter, map, switchMap, tap } from 'rxjs/operators'
   styleUrls: ['./user-profile.component.scss'],
 })
 export class UserProfileComponent {
+  routeActive = 'info'
   currentUser$ = this.authFacade.currentUser$
   tabs = [
     { route: 'info', label: 'Info' },

@@ -1,12 +1,17 @@
 :host {
-  path.active,
-  line.active {
-    // fill: #6bfbac;
+  path {
     stroke: #6bfbac;
 
     stroke-dasharray: 200;
     stroke-dashoffset: 200;
-    animation: dash 10s linear alternate infinite;
+
+    &.offer {
+      animation: dash 5s linear normal infinite;
+    }
+
+    &.answer {
+      animation: dash 5s linear reverse infinite;
+    }
   }
 
   @keyframes dash {

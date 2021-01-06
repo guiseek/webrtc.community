@@ -1,15 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 562.5">
-  <g id="signaling" clip-path="url(#clip-signaling)">
-    <g id="offer-2" transform="translate(411.582 725.082) rotate(-90)">
-      <path id="line-2" d="M0,162S178.432,28.309,178.432-106.415,0-376.895,0-376.895" transform="translate(381.5 184.5)" fill="none" stroke="#3955d1" stroke-linecap="square" stroke-width="5"/>
-      <path id="arrow" d="M10.5,0,21,18.5H0Z" transform="translate(382.768 360.431) rotate(-135)" fill="#454ee0"/>
-    </g>
-    <g id="answer-1" transform="translate(928.651 -176.5) rotate(90)">
-      <path id="arrow-2" data-name="arrow" d="M10.5,0,21,18.5H0Z" transform="translate(556.082 685.651) rotate(135)" fill="#454ee0"/>
-      <path id="line-1" d="M0,501.651S-175.832,379.312-175.832,253.9,0,0,0,0" transform="translate(542.5 184.5)" fill="none" stroke="#3955d1" stroke-linecap="square" stroke-width="5"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 56.25">
+  <g id="rtc-signaling" data-name="Signaling Server" clip-path="url(#clip-rtc-signaling)">
+    <g id="Signaling" transform="translate(21.743 17.71)">
+      <path id="signaling" data-name="signaling" d="M0-89.135s13.394-9.417,27.035-9.417,27.527,9.417,27.527,9.417" transform="translate(1.084 98.552)" fill="none" stroke="rgba(69,78,224,0.5)" stroke-width="0.5"/>
+      <path id="arrow-right" data-name="Polígono 4" d="M1.5,0,3,3H0Z" transform="translate(54.256 7.29)" fill="#454ee0"/>
+      <path id="arrow-left" data-name="Polígono 5" d="M1.5,0,3,3H0Z" transform="translate(-0.744 7.29)" fill="#454ee0"/>
     </g>
   </g>
-  <image x="30" y="300" width="200" height="200" href="assets/fragments/notebook-left.svg" />
-  <image x="400" y="10" width="200" height="200" href="assets/fragments/signaling-server.svg" />
-  <image x="800" y="300" width="200" height="200" href="assets/fragments/notebook-right.svg" />
+  <image id="peer-a" x="0" y="25" width="20" height="20" href="assets/fragments/peer-a.svg" />
+  <image id="sdp-a" x="5" y="40" width="20" height="20" href="assets/fragments/sdp-a.svg" />
+  <image id="peer-b" x="80" y="25" width="20" height="20" href="assets/fragments/peer-b.svg" />
+  <image id="sdp-b" x="75" y="40" width="20" height="20" href="assets/fragments/sdp-b.svg" />
+  <image id="server" x="40" y="0" width="20" height="20" href="assets/fragments/server.svg" />
 </svg>

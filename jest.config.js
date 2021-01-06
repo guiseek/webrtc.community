@@ -20,5 +20,6 @@ module.exports = {
     '<rootDir>/libs/util/qrcode',
     '<rootDir>/apps/talk',
     '<rootDir>/libs/ui/reveal',
+    '<rootDir>/libs/sample/screen-share',
   ],
 }

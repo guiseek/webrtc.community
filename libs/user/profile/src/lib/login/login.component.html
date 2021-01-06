@@ -11,25 +11,19 @@
         name="user_email"
         matInput
         formControlName="username"
+        autocomplete="email"
       />
-      <mat-error>Endereço de email inválido</mat-error>
+      <mat-error *ngIf="email?.getError('required')">Obrigatório</mat-error>
+      <mat-error *ngIf="email?.getError('email')"
+        >Endereço de email inválido</mat-error
+      >
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>Senha</mat-label>
-      <input
-        type="password"
-        name="user_password"
-        matInput
-        formControlName="password"
-      />
-      <mat-error>Mínimo de 6 caracteres</mat-error>
-    </mat-form-field>
+    <control-password formControlName="password"></control-password>
 
     <mat-card-actions>
-      <button mat-button color="primary">Enviar</button>
+      <a mat-button routerLink="/user-signup">Criar uma conta</a>
+      <button mat-flat-button color="primary">Enviar</button>
     </mat-card-actions>
   </mat-card>
-  <p>
-    <a mat-button routerLink="/user-signup">Quero criar uma conta</a>
-  </p>
+  <p></p>
 </form>

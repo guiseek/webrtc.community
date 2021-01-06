@@ -1,6 +1,6 @@
-import { code } from '@quertc/controls'
+import { code, stringToCode } from '@quertc/controls'
 import { Router } from '@angular/router'
-import { FormBuilder, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core'
 import { AuthFacade } from '@quertc/user/domain'
 import { catchError } from 'rxjs/operators'
@@ -16,6 +16,9 @@ import { FocusMonitor } from '@angular/cdk/a11y'
 export class UserSignupComponent implements AfterViewInit {
   destroy$ = new Subject<void>()
 
+  @ViewChild('formEl') groupRef!: ElementRef<HTMLFormElement>
+  group!: HTMLFormElement
+
   @ViewChild('nameEl') nameRef!: ElementRef<HTMLInputElement>
 
   form = this.builder.group({
@@ -24,23 +27,32 @@ export class UserSignupComponent implements AfterViewInit {
     email: ['', [Validators.required, Validators.email]],
     pass: ['', [Validators.required, Validators.minLength(6)]],
   })
+  get email() {
+    return this.form.get('email')
+  }
+  get pass() {
+    return this.form.get('pass')
+  }
   error = new Subject<any>()
   error$ = this.error.asObservable()
 
   constructor(
     private router: Router,
-    private _focusMonitor: FocusMonitor,
+    private focus: FocusMonitor,
     private cookieStorage: CookieStorage,
     private authFacade: AuthFacade,
     private builder: FormBuilder
   ) {}
 
   ngAfterViewInit(): void {
+    this.group = this.groupRef.nativeElement
+    console.log(this.group);
+
     let guest = this.cookieStorage.get('guest')
     if (!guest) guest = code()
-    const [timeLow, timeMid, timeHiAndVersion] = guest.split('-')
-    this.form.patchValue({ code: { timeLow, timeMid, timeHiAndVersion } })
-    this._focusMonitor.focusVia(this.nameRef.nativeElement, 'program')
+
+    this.form.patchValue({ code: stringToCode(guest) })
+    this.focus.focusVia(this.nameRef.nativeElement, 'program')
   }
 
   onSubmit() {
@@ -54,7 +66,9 @@ export class UserSignupComponent implements AfterViewInit {
             return throwError(error)
           })
         )
-        .subscribe((response) => this.router.navigate(['/', 'user-profile']))
+        .subscribe((response) => {
+          this.router.navigate(['/', 'user-profile'])
+        })
     }
   }
 }

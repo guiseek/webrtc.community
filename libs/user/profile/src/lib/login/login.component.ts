@@ -1,3 +1,4 @@
+import { FocusMonitor } from '@angular/cdk/a11y'
 import { AuthFacade } from '@quertc/user/domain'
 import {
   Component,
@@ -6,6 +7,7 @@ import {
   ViewChild,
   ElementRef,
   OnDestroy,
+  Input,
 } from '@angular/core'
 import { Router } from '@angular/router'
 import { FormBuilder, Validators } from '@angular/forms'
@@ -28,6 +30,13 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
     username: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   })
+  get email() {
+    return this.form.get('username')
+  }
+  get pass() {
+    return this.form.get('password')
+  }
+
   auth$!: Observable<AuthResponse>
 
   error = new Subject<any>()
@@ -35,13 +44,14 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     private router: Router,
+    private focus: FocusMonitor,
     private authFacade: AuthFacade,
     private builder: FormBuilder
   ) {}
 
   ngAfterViewInit(): void {
-    if (this.emailRef.nativeElement) {
-      this.emailRef.nativeElement.focus()
+    if (this.emailRef) {
+      this.focus.focusVia(this.emailRef, 'program')
     }
   }
 

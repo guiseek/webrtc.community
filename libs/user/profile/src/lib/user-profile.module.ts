@@ -10,6 +10,7 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { ControlsModule } from '@quertc/controls';
 
 import { UserProfileComponent } from './user-profile.component'
 import { LoginComponent } from './login/login.component'
@@ -32,6 +33,7 @@ import { UserProfileGuard } from './user-profile.guard'
     MatSelectModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    ControlsModule,
     UserDomainModule,
     RouterModule.forChild([
       {

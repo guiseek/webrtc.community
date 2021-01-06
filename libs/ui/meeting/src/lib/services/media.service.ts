@@ -1,20 +1,16 @@
-import { Injectable } from '@angular/core'
+import { Inject, Injectable } from '@angular/core'
+import { MEDIA_STREAM } from '../meeting-injectors'
 
+/**
+ * @dynamic
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class MediaService {
-  constraints: MediaStreamConstraints = {
-    audio: { echoCancellation: true },
-    video: {
-      facingMode: 'user',
-      frameRate: 30,
-      width: {
-        max: 1280,
-        ideal: 800,
-      },
-    },
-  }
+  constructor(
+    @Inject(MEDIA_STREAM) public constraints: MediaStreamConstraints
+  ) {}
 
   public currentStream: MediaStream
 

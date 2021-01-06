@@ -32,7 +32,8 @@
       "@quertc/data/access": ["libs/data/access/src/index.ts"],
       "@quertc/munge-sdp": ["libs/sample/munge-sdp/src/index.ts"],
       "@quertc/util-qrcode": ["libs/util/qrcode/src/index.ts"],
-      "@quertc/reveal": ["libs/ui/reveal/src/index.ts"]
+      "@quertc/reveal": ["libs/ui/reveal/src/index.ts"],
+      "@quertc/screen-share": ["libs/sample/screen-share/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

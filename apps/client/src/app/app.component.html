@@ -9,11 +9,13 @@
       fixedTopGap="56"
     >
       <mat-nav-list class="client-nav-list">
+        <h3 mat-subheader>Exemplos</h3>
         <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of navLinks">
           <mat-icon class="mat-18" color="accent">{{ nav.icon }}</mat-icon>
           <span>{{ nav.label }}</span>
         </a>
       </mat-nav-list>
+      <span class="spacer"></span>
       <mat-action-list>
         <div quertc-share-button>
           <button mat-list-item>

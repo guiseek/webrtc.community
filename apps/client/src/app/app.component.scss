@@ -41,6 +41,10 @@ h1.client-app-name {
   display: flex;
   flex-direction: column;
 }
+::ng-deep .mat-sidenav .mat-drawer-inner-container {
+  display: flex;
+  flex-direction: column;
+}
 
 .client-is-mobile .client-sidenav-container {
   /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the

@@ -1,4 +1,6 @@
 export * from './lib/meeting.module'
 export * from './lib/components/calling/calling.component'
+export * from './lib/components/mute-button/mute-button.component'
+export * from './lib/components/share-button/share-button.component'
 export * from './lib/services/media.service'
 export * from './lib/meeting-injectors'

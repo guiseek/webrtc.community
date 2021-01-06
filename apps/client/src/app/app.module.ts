@@ -9,7 +9,7 @@ import { OverlogModule } from '@quertc/overlog'
 import { ControlsModule } from '@quertc/controls'
 import { CarouselModule } from '@quertc/carousel'
 import { SignalingChannel } from '@quertc/core'
-import { MeetingModule } from '@quertc/meeting'
+import { MEDIA_STREAM, MeetingModule } from '@quertc/meeting'
 
 import { AppComponent } from './app.component'
 import { LayoutModule } from '@angular/cdk/layout'
@@ -17,6 +17,8 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon'
 
 import { MatListModule } from '@angular/material/list'
 import { MatCardModule } from '@angular/material/card'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatDialogModule } from '@angular/material/dialog'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatToolbarModule } from '@angular/material/toolbar'
@@ -54,6 +56,8 @@ import { env } from './../envs/env'
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatMenuModule,
+    MatDialogModule,
     MatButtonModule,
     MatToolbarModule,
     MatDividerModule,
@@ -84,6 +88,10 @@ import { env } from './../envs/env'
       provide: HTTP_INTERCEPTORS,
       useClass: AuthTokenInterceptor,
       multi: true,
+    },
+    {
+      provide: MEDIA_STREAM,
+      useValue: env.media,
     },
   ],
   bootstrap: [AppComponent],

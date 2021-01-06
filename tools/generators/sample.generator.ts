@@ -33,11 +33,15 @@ prompt<InitPrompt>([
   },
 ]).then(async ({ name, confirm }) => {
   if (confirm) {
+
     const clean = (str: string) => str.replace(/[^A-Z0-9]+/gi, '-')
+
     const sample = clean(name)
+
     const parameters = Object.entries(params).map(([prop, value]) => {
       return `--${prop}=${typeof value !== 'boolean' ? value : value}`
     })
+
     const tasks = new Listr([
       createTask('Create sample', 'nx', [
         'generate',

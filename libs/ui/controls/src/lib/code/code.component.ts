@@ -27,6 +27,8 @@ import {
 import { Code } from '@quertc/core'
 import { Subject } from 'rxjs'
 
+const UUID_REGEX = /[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/
+
 @Component({
   selector: 'control-code',
   templateUrl: './code.component.html',

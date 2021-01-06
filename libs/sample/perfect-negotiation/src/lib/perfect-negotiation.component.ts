@@ -47,6 +47,34 @@ export class PerfectNegotiationComponent
       iceServers: [{ urls: 'stun:stun.stunprotocol.org:3478' }],
     })
 
+    this.dc = this.pc.createDataChannel('channel')
+
+    this.dc.addEventListener('open', () => {
+      console.log('OPEN')
+      window.setTimeout(() => {
+        this.dc.send('allloooww')
+      }, 3000)
+    })
+    this.dc.addEventListener('message', ({ data }) =>
+      console.log('MESSAGE 1: ', data)
+    )
+    this.dc.addEventListener('error', (err) => console.log('ERROR: ', err))
+    this.dc.addEventListener('close', () => console.log('CLOSE'))
+    this.dc.addEventListener('bufferedamountlow', (evt) =>
+      console.log('BUFFER: ', evt)
+    )
+
+    this.pc.addEventListener('datachannel', ({ channel }) => {
+      const receiveChannel = channel
+      receiveChannel.addEventListener('message', ({ data }) => {
+        console.log('MESSAGE 2: ', data);
+      })
+      receiveChannel.addEventListener('open', () => console.log('OPEN'))
+      receiveChannel.addEventListener('error', (err) => console.log('ERROR: ', err))
+      receiveChannel.addEventListener('close', () => console.log('CLOSE'))
+      this.receiver = receiveChannel
+    })
+
     this.pc.addEventListener('track', ({ track, streams }) => {
       // assim que a mídia para uma trilha remota chegar, mostre-a no elemento de vídeo remoto
       track.addEventListener('unmute', () => {

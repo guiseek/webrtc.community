@@ -841,6 +841,43 @@
           }
         }
       }
+    },
+    "sample-screen-share": {
+      "projectType": "library",
+      "root": "libs/sample/screen-share",
+      "sourceRoot": "libs/sample/screen-share/src",
+      "prefix": "quertc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/sample/screen-share/tsconfig.lib.json",
+            "project": "libs/sample/screen-share/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/sample/screen-share/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/sample/screen-share/src/**/*.ts",
+              "libs/sample/screen-share/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/sample/screen-share"],
+          "options": {
+            "jestConfig": "libs/sample/screen-share/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

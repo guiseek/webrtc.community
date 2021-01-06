@@ -6,6 +6,7 @@ import {
   ChangeDetectionStrategy,
   ViewChild,
   AfterViewInit,
+  OnInit,
 } from '@angular/core'
 import { MediaMatcher } from '@angular/cdk/layout'
 import { NavigationStart, Router } from '@angular/router'
@@ -14,7 +15,7 @@ import { filter, map, pairwise, startWith } from 'rxjs/operators'
 import { Subscription } from 'rxjs'
 import { MediaService } from '@quertc/meeting'
 import { GaService, NavFocusService } from './interceptors'
-import { CookieStorage } from '@quertc/data/access'
+import { CookieStorage, DataChannel } from '@quertc/data/access'
 import { Platform } from '@angular/cdk/platform'
 
 @Component({
@@ -23,7 +24,7 @@ import { Platform } from '@angular/cdk/platform'
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements AfterViewInit, OnDestroy {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   shareMessage = 'Bora ver a nova plataforma de comunicação livre?'
 
   @ViewChild('snav') snav: MatSidenav
@@ -80,6 +81,13 @@ export class AppComponent implements AfterViewInit, OnDestroy {
           this.snav.close()
         })
     )
+  }
+
+  ngOnInit() {
+    const channel = new DataChannel({
+      iceServers: [{ urls: 'stun:stun.stunprotocol.org:3478' }],
+    })
+    channel.open$.subscribe(console.log)
   }
 
   ngAfterViewInit() {

@@ -35,6 +35,22 @@
 <main class="docs-home-promo">
   <div class="docs-home-featured-components docs-home-carousel-row">
     <quertc-carousel [itemWidth]="260" [aria-label]="'Featured components'">
+      <a
+        *ngFor="let sample of samples"
+        carousel-item
+        class="docs-featured-components-carousel-item"
+        [routerLink]="sample.route"
+      >
+        <div class="docs-home-img-container">
+          <mat-icon>{{ sample.icon }}</mat-icon>
+        </div>
+        {{ sample.label }}
+      </a>
+    </quertc-carousel>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="docs-home-featured-components docs-home-carousel-row">
+    <quertc-carousel [itemWidth]="260" [aria-label]="'Featured components'">
       <div
         *ngFor="let item of banners"
         carousel-item
@@ -105,7 +121,7 @@
     {{ data.isDev ? 'Sou dev' : 'Quero contribuir' }}
   </h1>
   <div mat-dialog-content>
-    <p> {{ data.isDev | json }}</p>
+    <p>{{ data.isDev | json }}</p>
   </div>
   <div mat-dialog-actions>
     <button mat-button mat-dialog-close cdkFocusInitial>Entendi</button>

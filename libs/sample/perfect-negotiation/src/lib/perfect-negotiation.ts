@@ -9,7 +9,9 @@ export class PerfectNegotiation implements AfterViewInit, OnDestroy {
   destroy$ = new Subject<void>()
 
   protected pc: RTCPeerConnection
+  protected dc: RTCDataChannel
   sender: string
+  receiver: RTCDataChannel
 
   /**
    * manter o controle de algum estado de

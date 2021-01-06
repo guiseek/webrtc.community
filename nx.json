@@ -90,6 +90,9 @@
     },
     "ui-reveal": {
       "tags": ["side:client", "type:feat", "scope:ui"]
+    },
+    "sample-screen-share": {
+      "tags": ["side:client", "type:feat", "scope:sample"]
     }
   }
 }

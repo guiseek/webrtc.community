@@ -99,11 +99,35 @@
     <section>
       <talk-overview></talk-overview>
     </section>
-
-
   </div>
 </div>
 <router-outlet></router-outlet>
+
+<!--
+  ```js
+  // Left
+  const local = new RTCPeerConnection()
+  local.onicecandidate = e => console.log(JSON.stringify(local.localDescription))
+  const channel = local.createDataChannel('channel')
+  channel.onmessage = e => console.log(e.data)
+  local.createOffer().then(o => local.setLocalDescription(o))
+
+  // Right
+
+  const remote = new RTCPeerConnection()
+  remote.onicecandidate = e => console.log(JSON.stringify(remote.localDescription))
+  remote.ondatachannel = ({ channel }) => {
+    const c = channel
+    c.onmessage = e => console.log(e.data)
+    remote.channel = c
+  }
+  remote.setRemoteDescription(/* cola da esquerda */)
+  remote.createAnswer().then(a => remote.setLocalDescription(a)).then(a => console.log(JSON.stringify(remote.localDescription))
+
+  // Left
+  local.setRemoteDescription(/* cola da direita */)
+  ```
+-->
 
 <!-- <svg viewBox="0 0 100 100">
   <use xlink:href="assets/fragments/signaling-channel.svg#signalingChannel"></use>

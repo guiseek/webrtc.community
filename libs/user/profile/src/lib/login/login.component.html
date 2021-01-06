@@ -13,8 +13,8 @@
         formControlName="username"
         autocomplete="email"
       />
-      <mat-error *ngIf="email.getError('required')">Obrigatório</mat-error>
-      <mat-error *ngIf="email.getError('email')"
+      <mat-error *ngIf="email?.getError('required')">Obrigatório</mat-error>
+      <mat-error *ngIf="email?.getError('email')"
         >Endereço de email inválido</mat-error
       >
     </mat-form-field>

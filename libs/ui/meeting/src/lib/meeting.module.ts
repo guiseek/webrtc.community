@@ -5,7 +5,7 @@ import { MatMenuModule } from '@angular/material/menu'
 import { MatButtonModule } from '@angular/material/button'
 import { MatSliderModule } from '@angular/material/slider'
 import { MatTooltipModule } from '@angular/material/tooltip'
-import { RTC_CONFIGURATION } from './meeting-injectors'
+import { MEDIA_STREAM, RTC_CONFIGURATION } from './meeting-injectors'
 import { MediaService } from './services/media.service'
 import { CallingComponent } from './components/calling/calling.component'
 import { MuteButtonComponent } from './components/mute-button/mute-button.component';
@@ -22,6 +22,10 @@ import { ShareButtonComponent } from './components/share-button/share-button.com
   ],
   providers: [
     MediaService,
+    {
+      provide: MEDIA_STREAM,
+      useValue: {}
+    },
     {
       provide: RTC_CONFIGURATION,
       useValue: {

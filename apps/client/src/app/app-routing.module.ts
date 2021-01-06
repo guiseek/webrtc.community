@@ -39,6 +39,11 @@ export const appRoutes: Routes = [
     loadChildren: () =>
       import('@quertc/munge-sdp').then((module) => module.MungeSdpModule),
   },
+  {
+    path: 'screen-share',
+    loadChildren: () =>
+      import('@quertc/screen-share').then((module) => module.ScreenShareModule),
+  },
 ]
 
 @NgModule({

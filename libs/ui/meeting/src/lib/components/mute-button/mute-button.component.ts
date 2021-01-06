@@ -11,7 +11,7 @@ import {
   styleUrls: ['./mute-button.component.scss'],
 })
 export class MuteButtonComponent {
-  private _video: HTMLVideoElement = null
+  private _video: HTMLVideoElement
   public get video(): HTMLVideoElement {
     return this._video
   }

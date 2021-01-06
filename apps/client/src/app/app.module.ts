@@ -9,7 +9,7 @@ import { OverlogModule } from '@quertc/overlog'
 import { ControlsModule } from '@quertc/controls'
 import { CarouselModule } from '@quertc/carousel'
 import { SignalingChannel } from '@quertc/core'
-import { MeetingModule } from '@quertc/meeting'
+import { MEDIA_STREAM, MeetingModule } from '@quertc/meeting'
 
 import { AppComponent } from './app.component'
 import { LayoutModule } from '@angular/cdk/layout'
@@ -88,6 +88,10 @@ import { env } from './../envs/env'
       provide: HTTP_INTERCEPTORS,
       useClass: AuthTokenInterceptor,
       multi: true,
+    },
+    {
+      provide: MEDIA_STREAM,
+      useValue: env.media,
     },
   ],
   bootstrap: [AppComponent],

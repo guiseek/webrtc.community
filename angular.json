@@ -10,7 +10,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/client",
+            "outputPath": "docs",
             "index": "apps/client/src/index.html",
             "main": "apps/client/src/main.ts",
             "polyfills": "apps/client/src/polyfills.ts",
@@ -874,6 +874,43 @@
           "outputs": ["coverage/libs/sample/screen-share"],
           "options": {
             "jestConfig": "libs/sample/screen-share/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-popover": {
+      "projectType": "library",
+      "root": "libs/ui/popover",
+      "sourceRoot": "libs/ui/popover/src",
+      "prefix": "quertc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/ui/popover/tsconfig.lib.json",
+            "project": "libs/ui/popover/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/popover/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/popover/src/**/*.ts",
+              "libs/ui/popover/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/popover"],
+          "options": {
+            "jestConfig": "libs/ui/popover/jest.config.js",
             "passWithNoTests": true
           }
         }

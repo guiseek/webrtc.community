@@ -5,6 +5,7 @@ import { BrowserModule, DomSanitizer } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
 import { NgModule } from '@angular/core'
 
+import { PopoverModule } from '@quertc/popover'
 import { OverlogModule } from '@quertc/overlog'
 import { ControlsModule } from '@quertc/controls'
 import { CarouselModule } from '@quertc/carousel'
@@ -66,6 +67,7 @@ import { env } from './../envs/env'
     ControlsModule,
     CarouselModule,
     MeetingModule,
+    PopoverModule,
     RouterModule,
     DataAccessModule.forRoot({
       endpoint: env.endpoint,

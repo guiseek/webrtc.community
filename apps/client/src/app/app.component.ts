@@ -42,6 +42,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       icon: 'swap_calls',
       label: 'Negociação perfeita',
     },
+    {
+      route: '/screen-share',
+      icon: 'swap_calls',
+      label: 'Compartilhar tela',
+    },
   ]
 
   private _mobileQueryListener: () => void
@@ -98,9 +103,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  share(text: string) {
-
-  }
+  share(text: string) {}
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()

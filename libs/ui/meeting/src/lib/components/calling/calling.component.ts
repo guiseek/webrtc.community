@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input } from '@angular/core'
 
 @Component({
-  selector: 'quertc-calling',
+  selector: 'comm-calling',
   templateUrl: './calling.component.html',
   styleUrls: ['./calling.component.scss'],
 })

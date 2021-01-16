@@ -10,14 +10,14 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatFormFieldModule } from '@angular/material/form-field'
-import { ControlsModule } from '@quertc/controls';
+import { ControlsModule } from '@webrtc-comm/controls';
 
 import { UserProfileComponent } from './user-profile.component'
 import { LoginComponent } from './login/login.component'
 import { InfoComponent } from './info/info.component'
 import { RoomsComponent } from './rooms/rooms.component'
 import { A11yModule } from '@angular/cdk/a11y'
-import { UserDomainModule } from '@quertc/user/domain'
+import { UserDomainModule } from '@webrtc-comm/user/domain'
 import { UserProfileGuard } from './user-profile.guard'
 
 @NgModule({

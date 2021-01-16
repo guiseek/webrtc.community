@@ -1,5 +1,5 @@
 import { FocusMonitor } from '@angular/cdk/a11y'
-import { AuthFacade } from '@quertc/user/domain'
+import { AuthFacade } from '@webrtc-comm/user/domain'
 import {
   Component,
   AfterViewInit,
@@ -13,7 +13,7 @@ import { Router } from '@angular/router'
 import { FormBuilder, Validators } from '@angular/forms'
 import { catchError } from 'rxjs/operators'
 import { throwError, Subject, Observable } from 'rxjs'
-import { AuthResponse } from '@quertc/core'
+import { AuthResponse } from '@webrtc-comm/core'
 
 @Component({
   selector: 'user-login',

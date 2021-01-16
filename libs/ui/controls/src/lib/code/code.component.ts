@@ -24,7 +24,7 @@ import {
   MatFormField,
   MatFormFieldControl,
 } from '@angular/material/form-field'
-import { Code } from '@quertc/core'
+import { Code } from '@webrtc-comm/core'
 import { Subject } from 'rxjs'
 
 const UUID_REGEX = /[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/

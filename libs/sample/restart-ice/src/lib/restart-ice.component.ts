@@ -5,8 +5,8 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core'
-import { Logger, PeerState, PeerStats, WithTarget } from '@quertc/core'
-import { OverlogService } from '@quertc/overlog'
+import { Logger, PeerState, PeerStats, WithTarget } from '@webrtc-comm/core'
+import { OverlogService } from '@webrtc-comm/overlog'
 import { BehaviorSubject, fromEvent, Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 
@@ -17,7 +17,7 @@ const fromLoadedEvent = (element: HTMLVideoElement) => {
 const console = Logger
 
 @Component({
-  selector: 'quertc-restart-ice',
+  selector: 'comm-restart-ice',
   templateUrl: './restart-ice.component.html',
   styleUrls: ['./restart-ice.component.scss'],
 })

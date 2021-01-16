@@ -1,4 +1,4 @@
-import { MeetingModule } from '@quertc/meeting';
+import { MeetingModule } from '@webrtc-comm/meeting';
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router';

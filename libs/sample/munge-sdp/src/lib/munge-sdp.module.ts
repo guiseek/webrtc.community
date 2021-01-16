@@ -1,4 +1,4 @@
-import { ControlsModule } from '@quertc/controls'
+import { ControlsModule } from '@webrtc-comm/controls'
 import { MatSelectModule } from '@angular/material/select'
 import { MatButtonModule } from '@angular/material/button'
 import { MatToolbarModule } from '@angular/material/toolbar'

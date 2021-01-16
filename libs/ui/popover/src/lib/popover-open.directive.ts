@@ -10,10 +10,10 @@ import {
 import { ComponentType } from '@angular/cdk/portal'
 
 @Directive({
-  selector: '[quertcPopoverOpen]',
+  selector: '[commPopoverOpen]',
 })
 export class PopoverOpenDirective<T = any> {
-  @Input('quertcPopoverOpen') popoverOpen!:
+  @Input('commPopoverOpen') popoverOpen!:
     | ComponentType<any>
     | TemplateRef<any>
   @Input() popoverData: any

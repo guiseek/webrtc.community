@@ -36,7 +36,7 @@ $client-typography: mat-typography-config(
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 // @include angular-material-theme($client-theme);
-@include quertc-docs-app-theme($client-theme);
+@include comm-docs-app-theme($client-theme);
 @include home-theme($client-theme);
 @include github-corner-theme($client-theme);
 
@@ -53,6 +53,13 @@ body {
   margin: 0;
   font-family: 'Lato', sans-serif;
   background-color: #0f0f0f;
+  position: relative;
+  .webrtc-graph {
+    width: 100%;
+    // height: 423px;
+    position: absolute;
+    bottom: 0;
+  }
 }
 h1,
 h2,
@@ -71,4 +78,15 @@ h6 {
   .mat-list-item-content
   .mat-list-text {
   padding-left: 0;
+}
+
+.webrtc-trends {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  padding: 20px;
+  gap: 20px;
+  > iframe {
+    height: 423px;
+  }
 }

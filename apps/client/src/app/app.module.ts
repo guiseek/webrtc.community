@@ -5,12 +5,12 @@ import { BrowserModule, DomSanitizer } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
 import { NgModule } from '@angular/core'
 
-import { PopoverModule } from '@quertc/popover'
-import { OverlogModule } from '@quertc/overlog'
-import { ControlsModule } from '@quertc/controls'
-import { CarouselModule } from '@quertc/carousel'
-import { SignalingChannel } from '@quertc/core'
-import { MEDIA_STREAM, MeetingModule } from '@quertc/meeting'
+import { PopoverModule } from '@webrtc-comm/popover'
+import { OverlogModule } from '@webrtc-comm/overlog'
+import { ControlsModule } from '@webrtc-comm/controls'
+import { CarouselModule } from '@webrtc-comm/carousel'
+import { SignalingChannel } from '@webrtc-comm/core'
+import { MEDIA_STREAM, MeetingModule } from '@webrtc-comm/meeting'
 
 import { AppComponent } from './app.component'
 import { LayoutModule } from '@angular/cdk/layout'
@@ -36,7 +36,7 @@ import {
 import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
 import { AuthTokenInterceptor } from './interceptors'
 import { HomeComponent } from './home/home.component'
-import { DataAccessModule } from '@quertc/data/access'
+import { DataAccessModule } from '@webrtc-comm/data/access'
 import { env } from './../envs/env'
 
 @NgModule({

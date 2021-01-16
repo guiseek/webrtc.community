@@ -1,5 +1,5 @@
 {
-  "name": "@quertc/munge-sdp",
+  "name": "@webrtc-comm/munge-sdp",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^11.0.5",

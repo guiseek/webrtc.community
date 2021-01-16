@@ -13,16 +13,16 @@ import {
 } from '@angular/cdk/portal';
 
 @Component({
-  selector: 'quertc-popover',
+  selector: 'comm-popover',
   template: `
     <ng-container cdkPortalOutlet></ng-container>
-    <div class="arrow" quertcPopoverArrow></div>
+    <div class="arrow" commPopoverArrow></div>
   `,
   styleUrls: ['./popover.component.scss'],
 })
 export class PopoverComponent extends BasePortalOutlet {
   @ViewChild(CdkPortalOutlet, { static: true }) portalOutlet!: CdkPortalOutlet;
-  @HostBinding('class.quertc-popover') cls = true;
+  @HostBinding('class.comm-popover') cls = true;
 
   attachComponentPortal<T>(
     componentPortal: ComponentPortal<any>

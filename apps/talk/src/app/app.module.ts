@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 
-import { RevealModule } from '@quertc/reveal'
+import { RevealModule } from '@webrtc-comm/reveal'
 
 import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'

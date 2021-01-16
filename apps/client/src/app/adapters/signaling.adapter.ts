@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core'
-import { SignalingChannel } from '@quertc/core'
+import { SignalingChannel } from '@webrtc-comm/core'
 
 export function SignalingFactory(uri: string) {
   return new SignalingChannel(uri)

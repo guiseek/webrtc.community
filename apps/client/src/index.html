@@ -15,6 +15,10 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <script
+      type="text/javascript"
+      src="https://ssl.gstatic.com/trends_nrtr/2431_RC04/embed_loader.js"
+    ></script>
     <link rel="manifest" href="manifest.webmanifest" />
     <meta name="theme-color" content="#1976d2" />
 
@@ -158,5 +162,40 @@
     <noscript
       >Please enable JavaScript to continue using this application.</noscript
     >
+    <div class="webrtc-trends">
+      <script class="webrtc-graph" type="text/javascript">
+        trends.embed.renderExploreWidget(
+          'TIMESERIES',
+          {
+            comparisonItem: [
+              { keyword: '/m/0gvtxk5', geo: 'BR', time: 'today 12-m' },
+            ],
+            category: 0,
+            property: '',
+          },
+          {
+            exploreQuery: 'geo=BR&q=%2Fm%2F0gvtxk5&date=today 12-m',
+            guestPath: 'https://trends.google.com.br:443/trends/embed/',
+          }
+        )
+      </script>
+
+      <script class="webrtc-map" type="text/javascript">
+        trends.embed.renderExploreWidget(
+          'GEO_MAP',
+          {
+            comparisonItem: [
+              { keyword: '/m/0gvtxk5', geo: 'BR', time: 'today 12-m' },
+            ],
+            category: 0,
+            property: '',
+          },
+          {
+            exploreQuery: 'geo=BR&q=%2Fm%2F0gvtxk5&date=today 12-m',
+            guestPath: 'https://trends.google.com.br:443/trends/embed/',
+          }
+        )
+      </script>
+    </div>
   </body>
 </html>

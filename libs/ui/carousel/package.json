@@ -1,5 +1,5 @@
 {
-  "name": "@quertc/carousel",
+  "name": "@webrtc-comm/carousel",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^11.0.5",

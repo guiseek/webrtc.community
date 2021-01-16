@@ -8,7 +8,7 @@ const params = {
   buildable: true,
   lazy: true,
   linter: `eslint`,
-  prefix: `quertc`,
+  prefix: `comm`,
   publishable: true,
   routing: true,
   simpleModuleName: true,
@@ -47,7 +47,7 @@ prompt<InitPrompt>([
         'generate',
         '@nrwl/angular:library',
         `--name=${sample}`,
-        `--importPath=@quertc/${sample}`,
+        `--importPath=@webrtc-comm/${sample}`,
         ...parameters,
       ]),
     ])

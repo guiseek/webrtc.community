@@ -34,7 +34,7 @@
 
 <main class="docs-home-promo">
   <div class="docs-home-featured-components docs-home-carousel-row">
-    <quertc-carousel [itemWidth]="260" [aria-label]="'Featured components'">
+    <comm-carousel [itemWidth]="260" [aria-label]="'Featured components'">
       <div
         *ngFor="let item of banners"
         carousel-item
@@ -45,7 +45,7 @@
         </div>
         {{ item.alt }}
       </div>
-    </quertc-carousel>
+    </comm-carousel>
   </div>
   <mat-divider></mat-divider>
   <div class="docs-home-row docs-introduction">
@@ -64,7 +64,7 @@
   </div>
   <mat-divider></mat-divider>
   <div class="docs-home-featured-components docs-home-carousel-row">
-    <quertc-carousel [itemWidth]="260" [aria-label]="'Featured components'">
+    <comm-carousel [itemWidth]="260" [aria-label]="'Featured components'">
       <a
         *ngFor="let sample of samples"
         carousel-item
@@ -76,7 +76,7 @@
         </div>
         {{ sample.label }}
       </a>
-    </quertc-carousel>
+    </comm-carousel>
   </div>
   <mat-divider></mat-divider>
   <div class="docs-home-row docs-introduction">

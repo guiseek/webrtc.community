@@ -1,4 +1,4 @@
-import { MediaService } from '@quertc/meeting'
+import { MediaService } from '@webrtc-comm/meeting'
 import {
   Component,
   EventEmitter,

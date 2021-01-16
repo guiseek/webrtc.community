@@ -6,7 +6,7 @@ import {
   HostListener,
 } from '@angular/core'
 @Component({
-  selector: 'quertc-mute-button',
+  selector: 'comm-mute-button',
   templateUrl: './mute-button.component.html',
   styleUrls: ['./mute-button.component.scss'],
 })

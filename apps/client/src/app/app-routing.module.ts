@@ -10,39 +10,39 @@ export const appRoutes: Routes = [
   {
     path: 'restart-ice',
     loadChildren: () =>
-      import('@quertc/restart-ice').then((m) => m.RestartIceModule),
+      import('@webrtc-comm/restart-ice').then((m) => m.RestartIceModule),
   },
   {
     path: 'peer-to-peer',
     loadChildren: () =>
-      import('@quertc/peer-to-peer').then((m) => m.PeerToPeerModule),
+      import('@webrtc-comm/peer-to-peer').then((m) => m.PeerToPeerModule),
   },
   {
     path: 'perfect-negotiation',
     loadChildren: () =>
-      import('@quertc/perfect-negotiation').then(
+      import('@webrtc-comm/perfect-negotiation').then(
         (m) => m.PerfectNegotiationModule
       ),
   },
   {
     path: 'user-signup',
     loadChildren: () =>
-      import('@quertc/user-signup').then((module) => module.UserSignupModule),
+      import('@webrtc-comm/user-signup').then((module) => module.UserSignupModule),
   },
   {
     path: 'user-profile',
     loadChildren: () =>
-      import('@quertc/user-profile').then((module) => module.UserProfileModule),
+      import('@webrtc-comm/user-profile').then((module) => module.UserProfileModule),
   },
   {
     path: 'munge-sdp',
     loadChildren: () =>
-      import('@quertc/munge-sdp').then((module) => module.MungeSdpModule),
+      import('@webrtc-comm/munge-sdp').then((module) => module.MungeSdpModule),
   },
   {
     path: 'screen-share',
     loadChildren: () =>
-      import('@quertc/screen-share').then((module) => module.ScreenShareModule),
+      import('@webrtc-comm/screen-share').then((module) => module.ScreenShareModule),
   },
 ]
 

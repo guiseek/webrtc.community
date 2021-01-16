@@ -1,5 +1,5 @@
 {
-  "name": "@quertc/restart-ice",
+  "name": "@webrtc-comm/restart-ice",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^11.0.5",

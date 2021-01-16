@@ -2,7 +2,7 @@ import { UsersService } from './../users/users.service'
 import { Injectable } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { CreateUserDto } from '../users/dto/create-user.dto'
-import { User } from '@quertc/core'
+import { User } from '@webrtc-comm/core'
 
 @Injectable()
 export class AuthService {

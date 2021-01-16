@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
-import { MeetingModule } from '@quertc/meeting'
-import { OverlogModule } from '@quertc/overlog'
+import { MeetingModule } from '@webrtc-comm/meeting'
+import { OverlogModule } from '@webrtc-comm/overlog'
 import { PeerToPeerComponent } from './peer-to-peer.component'
 
 @NgModule({

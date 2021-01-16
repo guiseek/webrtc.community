@@ -1,5 +1,5 @@
 {
-  "name": "@quertc/data/access",
+  "name": "@webrtc-comm/data/access",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^11.0.5",

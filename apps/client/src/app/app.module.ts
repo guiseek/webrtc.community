@@ -5,7 +5,6 @@ import { BrowserModule, DomSanitizer } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
 import { NgModule } from '@angular/core'
 
-import { PopoverModule } from '@webrtc-comm/popover'
 import { OverlogModule } from '@webrtc-comm/overlog'
 import { ControlsModule } from '@webrtc-comm/controls'
 import { CarouselModule } from '@webrtc-comm/carousel'
@@ -27,9 +26,7 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatButtonModule } from '@angular/material/button'
 import { ServiceWorkerModule } from '@angular/service-worker'
 import {
-  CameraLensComponent,
   FooterComponent,
-  GithubCornerComponent,
   NavbarComponent,
   LogoComponent,
 } from './components'
@@ -37,17 +34,17 @@ import { SignalingFactory, SIGNALING_CLIENT } from './adapters'
 import { AuthTokenInterceptor } from './interceptors'
 import { HomeComponent } from './home/home.component'
 import { DataAccessModule } from '@webrtc-comm/data/access'
-import { env } from './../envs/env'
+import { env } from './../envs/env';
+import { GithubComponent } from './components/github/github.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    CameraLensComponent,
     HomeComponent,
     FooterComponent,
-    GithubCornerComponent,
     LogoComponent,
+    GithubComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -67,7 +64,6 @@ import { env } from './../envs/env'
     ControlsModule,
     CarouselModule,
     MeetingModule,
-    PopoverModule,
     RouterModule,
     DataAccessModule.forRoot({
       endpoint: env.endpoint,

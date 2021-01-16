@@ -1,6 +1,6 @@
 @import 'libs/ui/theme/src/ui-theme';
 @import './app/home/home-theme';
-@import './app/components/github-corner/github-corner-theme';
+@import './app/components/github/github-theme';
 
 $client-primary: mat-palette($mat-blue, 800);
 $client-accent: mat-palette($mat-grey);
@@ -38,7 +38,7 @@ $client-typography: mat-typography-config(
 // @include angular-material-theme($client-theme);
 @include comm-docs-app-theme($client-theme);
 @include home-theme($client-theme);
-@include github-corner-theme($client-theme);
+@include github-theme($client-theme);
 
 @include mat-base-typography($client-base-typography);
 @include mat-card-typography($client-base-typography);

@@ -69,11 +69,11 @@ MIT
 @angular/service-worker
 MIT
 
-@quertc/carousel
+@webrtc-comm/carousel
 
-@quertc/controls
+@webrtc-comm/controls
 
-@quertc/core
+@webrtc-comm/core
 BSD-3-Clause
 BSD 3-Clause License
 
@@ -106,29 +106,29 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-@quertc/data/access
+@webrtc-comm/data/access
 
-@quertc/meeting
+@webrtc-comm/meeting
 
-@quertc/munge-sdp
+@webrtc-comm/munge-sdp
 
-@quertc/overlog
+@webrtc-comm/overlog
 
-@quertc/peer-to-peer
+@webrtc-comm/peer-to-peer
 
-@quertc/perfect-negotiation
+@webrtc-comm/perfect-negotiation
 
-@quertc/popover
+@webrtc-comm/popover
 
-@quertc/restart-ice
+@webrtc-comm/restart-ice
 
-@quertc/screen-share
+@webrtc-comm/screen-share
 
-@quertc/user-profile
+@webrtc-comm/user-profile
 
-@quertc/user-signup
+@webrtc-comm/user-signup
 
-@quertc/user/domain
+@webrtc-comm/user/domain
 
 after
 MIT

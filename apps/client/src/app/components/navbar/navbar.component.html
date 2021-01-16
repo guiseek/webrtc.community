@@ -5,26 +5,6 @@
   <a mat-icon-button routerLink="/">
     <mat-icon>home</mat-icon>
   </a>
-  <h1 class="client-app-name">{{ title }}</h1>
   <span class="spacer"></span>
-
-  <div [commPopoverOpen]="pop">
-    <button type="button" mat-stroked-button>
-      <mat-icon>account_circle</mat-icon>
-      <span>Contribuidores</span>
-    </button>
-  </div>
+  <h1 class="client-app-name">{{ title }}</h1>
 </mat-toolbar>
-<ng-template #pop>
-  <mat-nav-list>
-    <a mat-list-item routerLink="/user-profile">
-      <mat-icon matListIcon>account_circle</mat-icon>
-      <span matLine>Login</span>
-    </a>
-    <mat-divider></mat-divider>
-    <a mat-list-item routerLink="/user-signup">
-      <mat-icon matListIcon>account_circle</mat-icon>
-      <span matLine>Cadastro</span>
-    </a>
-  </mat-nav-list>
-</ng-template>

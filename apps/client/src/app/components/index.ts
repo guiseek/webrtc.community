@@ -1,5 +1,4 @@
-export * from './camera-lens'
 export * from './footer'
-export * from './github-corner'
+export * from './github'
 export * from './logo'
 export * from './navbar'

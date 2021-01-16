@@ -6,7 +6,7 @@ import { UpdateUserDto } from './dto/update-user.dto'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model, ObjectId } from 'mongoose'
 import { createHmac } from 'crypto'
-import { User, uuid } from '@quertc/core'
+import { User, uuid } from '@webrtc-comm/core'
 
 @Injectable()
 export class UsersService {

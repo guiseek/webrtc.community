@@ -7,7 +7,7 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http'
 import { Router } from '@angular/router'
-import { AuthStorage } from '@quertc/data/access'
+import { AuthStorage } from '@webrtc-comm/data/access'
 import { Observable, throwError } from 'rxjs'
 import { catchError } from 'rxjs/operators'
 

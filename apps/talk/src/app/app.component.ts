@@ -1,5 +1,5 @@
 import { OnInit, ViewChild, Component } from '@angular/core'
-import { RevealSlideChangeEvent } from '@quertc/reveal'
+import { RevealSlideChangeEvent } from '@webrtc-comm/reveal'
 import { timer } from 'rxjs'
 import { NetworkFragment, SvgFragment } from './fragments'
 import { SignalingSlide } from './slides'

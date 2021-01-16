@@ -28,7 +28,7 @@ export class CarouselItem implements FocusableOption {
 }
 
 @Component({
-  selector: 'quertc-carousel',
+  selector: 'comm-carousel',
   templateUrl: './carousel.html',
   styleUrls: ['./carousel.scss'],
   encapsulation: ViewEncapsulation.None,

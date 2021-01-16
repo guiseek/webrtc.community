@@ -3,7 +3,7 @@
 @import '../../meeting/src/lib/meeting-theme';
 @import '../../carousel/src/lib/carousel-theme';
 
-@mixin quertc-docs-app-theme($theme) {
+@mixin comm-docs-app-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
   $warn: map-get($theme, warn);

@@ -1,4 +1,4 @@
-import { AuthResponse } from '@quertc/core'
+import { AuthResponse } from '@webrtc-comm/core'
 import { EventEmitter, Injectable } from '@angular/core'
 
 @Injectable()

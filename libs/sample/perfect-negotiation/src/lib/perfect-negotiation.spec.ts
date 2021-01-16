@@ -1,5 +1,5 @@
-import { SignalingChannel } from '@quertc/core'
-import { MediaService } from '@quertc/meeting'
+import { SignalingChannel } from '@webrtc-comm/core'
+import { MediaService } from '@webrtc-comm/meeting'
 import { PerfectNegotiation } from './perfect-negotiation'
 
 describe('PerfectNegotiation', () => {

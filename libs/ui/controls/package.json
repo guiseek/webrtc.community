@@ -1,5 +1,5 @@
 {
-  "name": "@quertc/controls",
+  "name": "@webrtc-comm/controls",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^11.0.5",

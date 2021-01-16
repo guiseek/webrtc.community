@@ -1,4 +1,4 @@
-import { OverlogService } from '@quertc/overlog'
+import { OverlogService } from '@webrtc-comm/overlog'
 import { Subject, Subscription } from 'rxjs'
 import {
   AfterViewInit,
@@ -8,11 +8,11 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core'
-import { SignalingChannel } from '@quertc/core'
-import { MediaService } from '@quertc/meeting'
+import { SignalingChannel } from '@webrtc-comm/core'
+import { MediaService } from '@webrtc-comm/meeting'
 
 @Component({
-  selector: 'quertc-peer-to-peer',
+  selector: 'comm-peer-to-peer',
   templateUrl: './peer-to-peer.component.html',
   styleUrls: ['./peer-to-peer.component.scss'],
 })

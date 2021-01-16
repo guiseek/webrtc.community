@@ -15,26 +15,26 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@quertc/core": ["libs/core/src/index.ts"],
-      "@quertc/overlog": ["libs/ui/overlog/src/index.ts"],
-      "@quertc/controls": ["libs/ui/controls/src/index.ts"],
-      "@quertc/carousel": ["libs/ui/carousel/src/index.ts"],
-      "@quertc/restart-ice": ["libs/sample/restart-ice/src/index.ts"],
-      "@quertc/peer-to-peer": ["libs/sample/peer-to-peer/src/index.ts"],
-      "@quertc/perfect-negotiation": [
+      "@webrtc-comm/core": ["libs/core/src/index.ts"],
+      "@webrtc-comm/overlog": ["libs/ui/overlog/src/index.ts"],
+      "@webrtc-comm/controls": ["libs/ui/controls/src/index.ts"],
+      "@webrtc-comm/carousel": ["libs/ui/carousel/src/index.ts"],
+      "@webrtc-comm/restart-ice": ["libs/sample/restart-ice/src/index.ts"],
+      "@webrtc-comm/peer-to-peer": ["libs/sample/peer-to-peer/src/index.ts"],
+      "@webrtc-comm/perfect-negotiation": [
         "libs/sample/perfect-negotiation/src/index.ts"
       ],
-      "@quertc/meeting": ["libs/ui/meeting/src/index.ts"],
-      "@quertc/user-signup": ["libs/user/signup/src/index.ts"],
-      "@quertc/user-profile": ["libs/user/profile/src/index.ts"],
-      "@quertc/util-auth": ["libs/util/auth/src/index.ts"],
-      "@quertc/user/domain": ["libs/user/domain/src/index.ts"],
-      "@quertc/data/access": ["libs/data/access/src/index.ts"],
-      "@quertc/munge-sdp": ["libs/sample/munge-sdp/src/index.ts"],
-      "@quertc/util-qrcode": ["libs/util/qrcode/src/index.ts"],
-      "@quertc/reveal": ["libs/ui/reveal/src/index.ts"],
-      "@quertc/screen-share": ["libs/sample/screen-share/src/index.ts"],
-      "@quertc/popover": ["libs/ui/popover/src/index.ts"]
+      "@webrtc-comm/meeting": ["libs/ui/meeting/src/index.ts"],
+      "@webrtc-comm/user-signup": ["libs/user/signup/src/index.ts"],
+      "@webrtc-comm/user-profile": ["libs/user/profile/src/index.ts"],
+      "@webrtc-comm/util-auth": ["libs/util/auth/src/index.ts"],
+      "@webrtc-comm/user/domain": ["libs/user/domain/src/index.ts"],
+      "@webrtc-comm/data/access": ["libs/data/access/src/index.ts"],
+      "@webrtc-comm/munge-sdp": ["libs/sample/munge-sdp/src/index.ts"],
+      "@webrtc-comm/util-qrcode": ["libs/util/qrcode/src/index.ts"],
+      "@webrtc-comm/reveal": ["libs/ui/reveal/src/index.ts"],
+      "@webrtc-comm/screen-share": ["libs/sample/screen-share/src/index.ts"],
+      "@webrtc-comm/popover": ["libs/ui/popover/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

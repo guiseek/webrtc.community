@@ -1,5 +1,5 @@
 import { Router } from '@angular/router'
-import { AuthFacade, UserFacade } from '@quertc/user/domain'
+import { AuthFacade, UserFacade } from '@webrtc-comm/user/domain'
 import { Component } from '@angular/core'
 import { filter, map, switchMap, tap } from 'rxjs/operators'
 

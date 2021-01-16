@@ -12,7 +12,7 @@ import { LocalAuthGuard } from './auth/local-auth.guard'
 import { AuthService } from './auth/auth.service'
 import { Public } from './auth/auth-guard.decorator'
 import { CreateUserDto } from './users/dto/create-user.dto'
-import { Auth, User } from '@quertc/core'
+import { Auth, User } from '@webrtc-comm/core'
 import { IncomingMessage } from 'http'
 
 @Controller()

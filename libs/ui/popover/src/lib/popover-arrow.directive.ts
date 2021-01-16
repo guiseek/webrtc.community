@@ -9,7 +9,7 @@ import {
 } from '@angular/core'
 
 @Directive({
-  selector: '[quertcPopoverArrow]',
+  selector: '[commPopoverArrow]',
 })
 export class PopoverArrowDirective implements OnDestroy {
   @HostBinding('style.width.px')

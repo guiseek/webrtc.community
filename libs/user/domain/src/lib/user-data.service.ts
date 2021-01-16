@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
-import { User, UserSignup } from '@quertc/core'
-import { DataAccessService } from '@quertc/data/access'
+import { User, UserSignup } from '@webrtc-comm/core'
+import { DataAccessService } from '@webrtc-comm/data/access'
 
 @Injectable()
 export class UserDataService extends DataAccessService {

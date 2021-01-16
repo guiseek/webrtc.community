@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
 import { UserDataService } from './user-data.service'
-import { User } from '@quertc/core'
+import { User } from '@webrtc-comm/core'
 
 @Injectable()
 export class UserFacade {

@@ -1,4 +1,4 @@
-import { Code } from '@quertc/core'
+import { Code } from '@webrtc-comm/core'
 
 export function code(): string {
   function S4(): string {

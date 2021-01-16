@@ -183,7 +183,7 @@
       "projectType": "library",
       "root": "libs/ui/overlog",
       "sourceRoot": "libs/ui/overlog/src",
-      "prefix": "quertc",
+      "prefix": "comm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -257,7 +257,7 @@
       "projectType": "library",
       "root": "libs/ui/carousel",
       "sourceRoot": "libs/ui/carousel/src",
-      "prefix": "quertc",
+      "prefix": "comm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -299,7 +299,7 @@
       "projectType": "library",
       "root": "libs/sample/restart-ice",
       "sourceRoot": "libs/sample/restart-ice/src",
-      "prefix": "quertc",
+      "prefix": "comm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:ng-packagr-lite",
@@ -336,7 +336,7 @@
       "projectType": "library",
       "root": "libs/sample/peer-to-peer",
       "sourceRoot": "libs/sample/peer-to-peer/src",
-      "prefix": "quertc",
+      "prefix": "comm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -373,7 +373,7 @@
       "projectType": "library",
       "root": "libs/sample/perfect-negotiation",
       "sourceRoot": "libs/sample/perfect-negotiation/src",
-      "prefix": "quertc",
+      "prefix": "comm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -410,7 +410,7 @@
       "projectType": "library",
       "root": "libs/ui/meeting",
       "sourceRoot": "libs/ui/meeting/src",
-      "prefix": "quertc",
+      "prefix": "comm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -563,7 +563,7 @@
       "projectType": "library",
       "root": "libs/data/access",
       "sourceRoot": "libs/data/access/src",
-      "prefix": "quertc",
+      "prefix": "comm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:ng-packagr-lite",
@@ -600,7 +600,7 @@
       "projectType": "library",
       "root": "libs/sample/munge-sdp",
       "sourceRoot": "libs/sample/munge-sdp/src",
-      "prefix": "quertc",
+      "prefix": "comm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -809,7 +809,7 @@
       "projectType": "library",
       "root": "libs/ui/reveal",
       "sourceRoot": "libs/ui/reveal/src",
-      "prefix": "quertc",
+      "prefix": "comm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -846,7 +846,7 @@
       "projectType": "library",
       "root": "libs/sample/screen-share",
       "sourceRoot": "libs/sample/screen-share/src",
-      "prefix": "quertc",
+      "prefix": "comm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -883,7 +883,7 @@
       "projectType": "library",
       "root": "libs/ui/popover",
       "sourceRoot": "libs/ui/popover/src",
-      "prefix": "quertc",
+      "prefix": "comm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",

@@ -1,4 +1,4 @@
-import { AuthFacade } from '@quertc/user/domain'
+import { AuthFacade } from '@webrtc-comm/user/domain'
 import { Injectable } from '@angular/core'
 import {
   CanActivate,

@@ -3,8 +3,8 @@ import {
   DataAccessConfig,
   DataAccessService,
   DATA_ACCESS_CONFIG,
-} from '@quertc/data/access'
-import { AuthResponse, User, UserSignup } from '@quertc/core'
+} from '@webrtc-comm/data/access'
+import { AuthResponse, User, UserSignup } from '@webrtc-comm/core'
 import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
 import { UserDataService } from './user-data.service'

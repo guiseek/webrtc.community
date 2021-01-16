@@ -1,5 +1,5 @@
 {
-  "name": "@quertc/perfect-negotiation",
+  "name": "@webrtc-comm/perfect-negotiation",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^11.0.5",

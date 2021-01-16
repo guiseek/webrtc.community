@@ -9,7 +9,7 @@ import {
 } from '@angular/core'
 
 @Component({
-  selector: `[quertc-share-button], [quertcShareButton]`,
+  selector: `[comm-share-button], [commShareButton]`,
   templateUrl: './share-button.component.html',
   styleUrls: ['./share-button.component.scss'],
 })

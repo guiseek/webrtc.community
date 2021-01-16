@@ -9,7 +9,8 @@ import { MEDIA_STREAM, RTC_CONFIGURATION } from './meeting-injectors'
 import { MediaService } from './services/media.service'
 import { CallingComponent } from './components/calling/calling.component'
 import { MuteButtonComponent } from './components/mute-button/mute-button.component';
-import { ShareButtonComponent } from './components/share-button/share-button.component'
+import { ShareButtonComponent } from './components/share-button/share-button.component';
+import { CheckAudioComponent } from './components/check-audio/check-audio.component'
 
 @NgModule({
   imports: [
@@ -37,7 +38,7 @@ import { ShareButtonComponent } from './components/share-button/share-button.com
       },
     },
   ],
-  declarations: [CallingComponent, MuteButtonComponent, ShareButtonComponent],
-  exports: [CallingComponent, MuteButtonComponent, ShareButtonComponent],
+  declarations: [CallingComponent, MuteButtonComponent, ShareButtonComponent, CheckAudioComponent],
+  exports: [CallingComponent, MuteButtonComponent, ShareButtonComponent, CheckAudioComponent],
 })
 export class MeetingModule {}

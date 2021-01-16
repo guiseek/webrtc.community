@@ -1,4 +1,4 @@
-import { code } from '@quertc/controls'
+import { code } from '@webrtc-comm/controls'
 import {
   Component,
   OnDestroy,
@@ -13,9 +13,9 @@ import { NavigationStart, Router } from '@angular/router'
 import { MatSidenav } from '@angular/material/sidenav'
 import { filter, map, pairwise, startWith } from 'rxjs/operators'
 import { Subscription } from 'rxjs'
-import { MediaService } from '@quertc/meeting'
+import { MediaService } from '@webrtc-comm/meeting'
 import { GaService, NavFocusService } from './interceptors'
-import { CookieStorage, DataChannel } from '@quertc/data/access'
+import { CookieStorage, DataChannel } from '@webrtc-comm/data/access'
 import { Platform } from '@angular/cdk/platform'
 
 @Component({

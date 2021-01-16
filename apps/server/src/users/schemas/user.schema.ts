@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Document, ObjectId } from 'mongoose'
-import { City, User } from '@quertc/core'
+import { City, User } from '@webrtc-comm/core'
 
 export type UserDocument = UserDb & Document
 

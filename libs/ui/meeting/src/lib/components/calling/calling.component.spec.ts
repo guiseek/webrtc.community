@@ -23,7 +23,7 @@ describe('CallingComponent', () => {
 
   it('should display the host component title', () => {
     host = createHost(
-      `<quertc-calling [active]="(active$ | async) === null"></quertc-calling>`
+      `<comm-calling [active]="(active$ | async) === null"></comm-calling>`
     )
     expect(host.hostElement.classList.contains('.active')).toBe(false)
     expect(host.component.isCalling).toBe(true)

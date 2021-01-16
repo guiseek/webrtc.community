@@ -24,11 +24,11 @@
 
 ## Sugestões
 
-Tem uma sugestão sobre algum exemplo para reprodução? [Abra uma solicitação](https://github.com/guiseek/quertc/issues/new) para que possamos providenciar.
+Tem uma sugestão sobre algum exemplo para reprodução? [Abra uma solicitação](https://github.com/guiseek/webrtc.community/issues/new) para que possamos providenciar.
 
 ### Discussões
 
-uer entender melhor algum tópico? [inicie uma discussão](https://github.com/guiseek/quertc/discussions/new) para que outras pessoas coloquem seus pontos de vista.
+uer entender melhor algum tópico? [inicie uma discussão](https://github.com/guiseek/webrtc.community/discussions/new) para que outras pessoas coloquem seus pontos de vista.
 
 ## Execute
 

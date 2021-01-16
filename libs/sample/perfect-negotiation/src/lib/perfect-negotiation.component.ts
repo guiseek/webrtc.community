@@ -1,7 +1,7 @@
 import { PerfectNegotiation } from './perfect-negotiation'
-import { SignalingChannel } from '@quertc/core'
-import { MediaService } from '@quertc/meeting'
-import { code } from '@quertc/controls'
+import { SignalingChannel } from '@webrtc-comm/core'
+import { MediaService } from '@webrtc-comm/meeting'
+import { code } from '@webrtc-comm/controls'
 import { Subject } from 'rxjs'
 import {
   AfterViewInit,
@@ -12,7 +12,7 @@ import {
 } from '@angular/core'
 
 @Component({
-  selector: 'quertc-perfect-negotiation',
+  selector: 'comm-perfect-negotiation',
   templateUrl: './perfect-negotiation.component.html',
   styleUrls: ['./perfect-negotiation.component.scss'],
 })
@@ -64,9 +64,9 @@ export class PerfectNegotiationComponent
 }
 
 // import { PerfectNegotiation } from './perfect-negotiation'
-// import { SignalingChannel } from '@quertc/core'
-// import { MediaService } from '@quertc/meeting'
-// import { code } from '@quertc/controls'
+// import { SignalingChannel } from '@webrtc-comm/core'
+// import { MediaService } from '@webrtc-comm/meeting'
+// import { code } from '@webrtc-comm/controls'
 // import { Subject } from 'rxjs'
 // import {
 //   AfterViewInit,
@@ -77,7 +77,7 @@ export class PerfectNegotiationComponent
 // } from '@angular/core'
 
 // @Component({
-//   selector: 'quertc-perfect-negotiation',
+//   selector: 'comm-perfect-negotiation',
 //   templateUrl: './perfect-negotiation.component.html',
 //   styleUrls: ['./perfect-negotiation.component.scss'],
 // })

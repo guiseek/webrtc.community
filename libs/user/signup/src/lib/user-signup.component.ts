@@ -1,11 +1,11 @@
-import { code, stringToCode } from '@quertc/controls'
+import { code, stringToCode } from '@webrtc-comm/controls'
 import { Router } from '@angular/router'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core'
-import { AuthFacade } from '@quertc/user/domain'
+import { AuthFacade } from '@webrtc-comm/user/domain'
 import { catchError } from 'rxjs/operators'
 import { Subject, throwError } from 'rxjs'
-import { CookieStorage } from '@quertc/data/access'
+import { CookieStorage } from '@webrtc-comm/data/access'
 import { FocusMonitor } from '@angular/cdk/a11y'
 
 @Component({

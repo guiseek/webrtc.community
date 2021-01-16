@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { AuthDataService } from './auth-data.service'
 import { BehaviorSubject } from 'rxjs'
-import { AuthLogin, User, UserSignup } from '@quertc/core'
+import { AuthLogin, User, UserSignup } from '@webrtc-comm/core'
 import { filter, map } from 'rxjs/operators'
 
 export const setNextAndReturn = <T = any>(

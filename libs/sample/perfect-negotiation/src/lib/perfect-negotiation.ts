@@ -1,7 +1,7 @@
 
 import { AfterViewInit, Component, Injectable, OnDestroy } from '@angular/core'
-import { PeerEvent, SignalingChannel } from '@quertc/core'
-import { MediaService } from '@quertc/meeting'
+import { PeerEvent, SignalingChannel } from '@webrtc-comm/core'
+import { MediaService } from '@webrtc-comm/meeting'
 import { takeUntil } from 'rxjs/operators'
 import { Subject } from 'rxjs'
 
@@ -144,8 +144,8 @@ export class PerfectNegotiation implements AfterViewInit, OnDestroy {
 }
 
 // import { AfterViewInit, Component, Injectable, OnDestroy } from '@angular/core'
-// import { PeerEvent, SignalingChannel } from '@quertc/core'
-// import { MediaService } from '@quertc/meeting'
+// import { PeerEvent, SignalingChannel } from '@webrtc-comm/core'
+// import { MediaService } from '@webrtc-comm/meeting'
 // import { takeUntil } from 'rxjs/operators'
 // import { Subject } from 'rxjs'
 

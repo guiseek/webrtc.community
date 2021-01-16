@@ -5,7 +5,7 @@ import { OverlogData, OVERLOG_CONFIG, OverlogConfig } from './overlog-config'
 import { OverlogRef } from './overlog-ref'
 
 @Component({
-  selector: 'quertc-overlog',
+  selector: 'comm-overlog',
   template: `
     <i class="material-icons" (click)="close()">close</i>
     <div

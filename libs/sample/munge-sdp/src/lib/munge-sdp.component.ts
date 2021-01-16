@@ -17,7 +17,7 @@ import { MatButton } from '@angular/material/button'
 import { FormControl } from '@angular/forms'
 
 @Component({
-  selector: 'quertc-munge-sdp',
+  selector: 'comm-munge-sdp',
   templateUrl: './munge-sdp.component.html',
   styleUrls: ['./munge-sdp.component.scss'],
 })

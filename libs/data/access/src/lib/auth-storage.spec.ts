@@ -1,4 +1,4 @@
-import { AuthResponse, uuid } from '@quertc/core'
+import { AuthResponse, uuid } from '@webrtc-comm/core'
 import { AuthStorage } from './auth-storage'
 
 const testStorageKey = AuthStorage.storageKey

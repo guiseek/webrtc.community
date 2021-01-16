@@ -1,8 +1,8 @@
 <div class="center" *ngIf="(active$ | async) === null">
-  <quertc-calling
+  <comm-calling
     #calling
     [active]="(active$ | async) === true"
-  ></quertc-calling>
+  ></comm-calling>
 </div>
 <div id="remote">
   <video #remoteView autoplay></video>
@@ -13,6 +13,6 @@
     <!-- <button mat-icon-button (click)="restart()">
       <mat-icon>replay</mat-icon>
     </button> -->
-    <quertc-mute-button [video]="selfView"> </quertc-mute-button>
+    <comm-mute-button [video]="selfView"> </comm-mute-button>
   </mat-card-actions>
 </mat-card>

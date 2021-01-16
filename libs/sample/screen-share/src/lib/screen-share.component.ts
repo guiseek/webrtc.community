@@ -1,4 +1,4 @@
-import { MediaService } from '@quertc/meeting'
+import { MediaService } from '@webrtc-comm/meeting'
 import {
   AfterViewInit,
   Component,
@@ -8,7 +8,7 @@ import {
 } from '@angular/core'
 
 @Component({
-  selector: 'quertc-screen-share',
+  selector: 'comm-screen-share',
   templateUrl: './screen-share.component.html',
   styleUrls: ['./screen-share.component.scss'],
 })

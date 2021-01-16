@@ -23,7 +23,11 @@ export class HomeComponent {
     },
     { route: '/peer-to-peer', icon: 'call_received', label: 'Ponto a ponto' },
     { route: '/munge-sdp', icon: 'alt_route', label: 'Munge SDP' },
-    { route: '/screen-share', icon: 'screen_share', label: 'Compartilhar tela' },
+    {
+      route: '/screen-share',
+      icon: 'screen_share',
+      label: 'Compartilhar tela',
+    },
   ]
 
   banners = [
@@ -40,7 +44,7 @@ export class HomeComponent {
     { src: 'assets/banners/security.svg', alt: 'Seguro' },
     { src: 'assets/banners/easy.svg', alt: 'Simples' },
   ]
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) { }
 
   openDialog(template: TemplateRef<HTMLElement>, isDev = false) {
     this.dialog.open(template, {

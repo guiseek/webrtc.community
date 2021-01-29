@@ -34,7 +34,8 @@
       "@webrtc-comm/util-qrcode": ["libs/util/qrcode/src/index.ts"],
       "@webrtc-comm/reveal": ["libs/ui/reveal/src/index.ts"],
       "@webrtc-comm/screen-share": ["libs/sample/screen-share/src/index.ts"],
-      "@webrtc-comm/popover": ["libs/ui/popover/src/index.ts"]
+      "@webrtc-comm/popover": ["libs/ui/popover/src/index.ts"],
+      "@webrtc-comm/player": ["libs/ui/player/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

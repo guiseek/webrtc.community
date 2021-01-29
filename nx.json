@@ -96,6 +96,16 @@
     },
     "ui-popover": {
       "tags": ["side:client", "type:feat", "scope:ui"]
+    },
+    "ui-player": {
+      "tags": ["side:client", "type:feat", "scope:ui"]
+    },
+    "embed-player": {
+      "tags": []
+    },
+    "embed-player-e2e": {
+      "tags": [],
+      "implicitDependencies": ["embed-player"]
     }
   }
 }

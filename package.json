@@ -11,6 +11,8 @@
     "e2e": "nx e2e",
     "tdd": "nx test --watch",
     "docs": "nx run client:build --prod",
+    "embed-player": "nx run embed-player:build --prod",
+    "docs-embed-player": "npm run docs && npm run embed-player",
     "build:all": "nx affected:build --all --prod",
     "build:all:prod": "nx affected:build --all --prod",
     "test:all": "nx affected:test --all --detectOpenHandles",

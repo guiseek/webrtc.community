@@ -22,5 +22,7 @@ module.exports = {
     '<rootDir>/libs/ui/reveal',
     '<rootDir>/libs/sample/screen-share',
     '<rootDir>/libs/ui/popover',
+    '<rootDir>/libs/ui/player',
+    '<rootDir>/apps/embed/player',
   ],
 }
